@@ -1,17 +1,28 @@
-* Overview of Components
-** rlCommon
+# Overview of RL Components
+## rlSentence
+This is a configurable component that allows you to pass in N parts of a sentence input/selection.
+It can also act as a simple dropdown menu.
+![rlSlider](rlSentence.png)
 
-** rlSlider
+## rlCommon
+This is a configurable navigation component.
+![rlCommon](rlCommon-1.png)
+![rlCommon](rlCommon-2.png)
+![rlCommon](rlCommon-3.png)
 
-** rlReputationWidget
+This is a configurable loading component.
+![rlCommon-loader](rlCommon-loader.png)
 
-** rlTooltip
+## rlSlider
+The slider acts as a replacement for radio buttons when in single selection mode and as a mechanism to select a range of contiguous values when in range mode.
+![rlSlider](rlSlider-1.png)
+![rlSlider](rlSlider-2.png)
 
-** rlTree
+## rlTooltip
+A tooltip with HTML content that can be launched and hidden by events.
+![rlTooltip](rlTooltip.png)
 
-
-
-* Components in SVN
+# Components in SVN
 Components can be downloaded from the SVN repo.
 http://svn.renlearn.com/viewvc/RPHosted/ClientComponents/
 
@@ -29,5 +40,28 @@ build and other tasks on the component can also be invoked from the testbed, for
 ```
 gulp -c rlChart build
 ```
+# Opportunities to Use Components in Cog1 Projects
+We should attempt to integrate as many rlComponents as possible in order to achieve a consistent experience across their applications.
+
+Here is a list of specific features where rlComponents are used, or could be used:
+
+## Kanban
+* "Add New Group" and other buttons and navigation elements should use rlCommon 
+* Drag & drop functionality should be adapted from Working List
+* Grouping/Accordion functionality should be adapted from Working List
+
+## Search
+* Filters currently support rlSlider
+  Search results currently support rlReputation
+* Sorting dropdown could use rlSentence
+* Radio buttons could use rlCommon radio buttons
+* We could show the rlCommon-loader while the search is loading
+* Note: We are also using the [angular foundation](http://pineconellc.github.io/angular-foundation/) library for ..? 
+
+## Working List
+TBD
+
+## Stack Control
+* All dropdown menus in this control use the rlSentence component.
 
 
