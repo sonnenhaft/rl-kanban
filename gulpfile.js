@@ -6,6 +6,10 @@ var commander = require('commander');
 var sourcemaps = require('gulp-sourcemaps');
 var pkg = require('./package.json');
 var clean = require('gulp-clean');
+var copy = require('gulp-copy');
+var inject = require('gulp-inject');
+var rename = require('gulp-rename');
+var util = require('gulp-util');
 
 function compileSass(src, dest) {
     var sass = require('gulp-sass');
@@ -23,7 +27,7 @@ function compileSass(src, dest) {
 
 gulp.task('jshint', function () {
     var jshint = require('gulp-jshint');
-    return gulp.src(['app/**/*.js', 'gulpfile.js', 'resources', '!app/vendor/**/*.js'])
+    return gulp.src(['app/**/*.js', 'gulpfile.js', 'resources', '!app/vendor/**/*.js', '!app/copied-from-bower/**/*.js'])
         .pipe(jshint('resources/.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
@@ -31,22 +35,29 @@ gulp.task('jshint', function () {
 function initPrivateTasks() {
     commander.parse(process.argv);
     gulp.task('inject-files', function () {
-        var inject = require('gulp-inject');
-        var rename = require('gulp-rename');
+
         var target = inject(gulp.src([
             'app/**/_*.js',
             'app/**/*.js',
-            'app/vendor/**/reset.css',
-            'app/vendor/**/*.css',
             'app/**/*.css',
+            '!app/vendor/**/*.css',
+            '!app/vendor/**/*.js',
             '!app/**/*spec.js',
             '!app/**/*test-data.js'
-
         ], {read: false}), {
             relative: true
         });
+        var vendor = inject(gulp.src([
+            'app/vendor/**/*.css',
+            'app/vendor/**/*.js'
+        ], {read: false}), {
+            relative: true,
+            name: 'vendor'
+        });
         return gulp.src('index-inject.html')
             .pipe(rename('index.html'))
+            .pipe(gulp.dest('./'))
+            .pipe(vendor)
             .pipe(gulp.dest('./'))
             .pipe(target)
             .pipe(gulp.dest('./'));
@@ -71,43 +82,98 @@ function initPrivateTasks() {
             }))
             .pipe(gulp.dest('.tmp'));
     });
-    gulp.task('usemin', function () {
-        var usemin = require('gulp-usemin');
-        var uglify = require('gulp-uglify');
-        var minifyHtml = require('gulp-minify-html');
-        var minifyCss = require('gulp-minify-css');
-        var ngAnnotate = require('gulp-ng-annotate');
-        var inject = require('gulp-inject');
-        var processhtml = require('gulp-processhtml');
-        var cssBase64 = require('gulp-css-base64');
-        var urlAdjuster = require('gulp-css-url-adjuster');
-        var ver = require('gulp-ver');
-        //var staticAssetsDir = 'static-assets-v' + pkg.version + '/';
-        var staticAssetsDir = 'static-assets/';
 
-        var copy = require('gulp-copy');
-        gulp.src('app/**/font/*.*').pipe(copy('build/' + staticAssetsDir, {prefix: 10}));
-        gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('build/'));
+    gulp.task('usemin', function () {
+        var usemin = require('gulp-usemin'),
+            minifyHtml = require('gulp-minify-html'),
+            minifyCss = require('gulp-minify-css'),
+            ngAnnotate = require('gulp-ng-annotate'),
+            inject = require('gulp-inject'),
+            processhtml = require('gulp-processhtml'),
+        //    cssBase64 = require('gulp-css-base64'),
+            urlAdjuster = require('gulp-css-url-adjuster'),
+            ver = require('gulp-ver'),
+        //staticAssetsDir = 'static-assets-v' + pkg.version + '/';
+            staticAssetsDir = 'static-assets/';
+
+        gulp.src('app/**/font/*.*').pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
+        gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
+
+        var uglify = require('gulp-uglify'),
+            rename = require('gulp-rename'),
+            clone = require('gulp-clone'),
+            cloneJS = clone.sink(), cloneVendorJS = clone.sink(),
+            cloneCSS = clone.sink(), cloneVendorCSS = clone.sink();
+
+        var cssOpts = [
+            sourcemaps.init(),
+           // cssBase64({maxWeightResource: 200 * 1024}),
+            urlAdjuster({prepend: staticAssetsDir}),
+            'concat',
+            cloneCSS,
+            minifyCss(),
+            rename({suffix: '.min'}),
+            sourcemaps.write('.')
+        ];
+        var vendorCSSOpts = [
+            sourcemaps.init(),
+        //    cssBase64({maxWeightResource: 200 * 1024}),
+            urlAdjuster({prepend: staticAssetsDir}),
+            'concat',
+            cloneVendorCSS,
+            minifyCss(),
+            rename({suffix: '.min'}),
+            sourcemaps.write('.')
+        ];
+        var jsOpts = [
+            ngAnnotate(),
+            cloneJS,
+            sourcemaps.init(),
+            uglify(),
+            rename({suffix: '.min'}),
+            sourcemaps.write('.')
+        ];
+        var vendorJSOpts = [
+            ngAnnotate(),
+            cloneVendorJS,
+            sourcemaps.init(),
+            //uglify(),
+            rename({suffix: '.min'}),
+            sourcemaps.write('.')
+        ];
+        //js: [ngAnnotate(), uglify(), ver({prefix: 'v'})]
+        if (commander.versioned === true) {
+            vendorCSSOpts.push(ver({prefix: 'v'}));
+            vendorJSOpts.push(ver({prefix: 'v'}));
+            cssOpts.push(ver({prefix: 'v'}));
+            jsOpts.push(ver({prefix: 'v'}));
+        }
+
 
         return gulp.src('index.html')
             .pipe(inject(gulp.src(['.tmp/templates.js', '.tmp/package.js'], {read: false}),
                 {starttag: '<!-- inject:.tmp/templates-and-app-version:js -->'}
             ))
             .pipe(usemin({
-                html: [processhtml({
-                    commentMarker: 'process',
-                    process: true
-                }), minifyHtml()],
-                css: [cssBase64({maxWeightResource: 200 * 1024}), 'concat', urlAdjuster({prepend: staticAssetsDir}), ver({prefix: 'v'}), minifyCss()],
-                js: [sourcemaps.init(), ngAnnotate(), uglify(), ver({prefix: 'v'}), sourcemaps.write('.')]
-                //js: [ngAnnotate(), uglify(), ver({prefix: 'v'})]
+                html: [
+                    processhtml({commentMarker: 'process', process: true}),
+                    minifyHtml()
+                ],
+                css: cssOpts,
+                js: jsOpts,
+                vendorJS: vendorJSOpts,
+                vendorCSS: vendorCSSOpts
             }))
-            .pipe(gulp.dest('build/'));
+            .pipe(cloneVendorCSS.tap())
+            .pipe(cloneCSS.tap())
+            .pipe(cloneVendorJS.tap())
+            .pipe(cloneJS.tap())
+            .pipe(gulp.dest('deployment/'));
     });
 
     gulp.task('server', function () {
         return require('gulp-connect').server({
-            root: 'build',
+            root: 'deployment',
             port: commander.eport
         });
     });
@@ -169,21 +235,28 @@ gulp.task('default', function () {
 
 commander.option('--lrport [port number]', 'Live reload port', 35729)
     .option('--eport [port number]', 'express server port', 4000)
-    .option('--hostname [host name]', 'host name', 'localhost');
+    .option('--hostname [host name]', 'host name', 'localhost')
+    .option('--versioned', 'add version numbers to compiled .js and .css files');
 
 gulp.task('serve', function () {
     initPrivateTasks();
     runSequence('sass', 'default');
 });
 
+// Build and run tests
+gulp.task('deploy', ['build']);// , 'test']); // TODO: Include tests. Removed to get building in TeamCity
+
 gulp.task('build', function () {
     initPrivateTasks();
     return runSequence(
         ['clean-generated', 'jshint'],
-        ['sass', 'ng-templates&app-version'], 'inject-files', 'usemin', function () {
+        ['sass', 'ng-templates&app-version'], 'inject-files', 'usemin',
+        function () {
             return gulp.src('.tmp').pipe(clean());
-        });
+        }
+    );
 });
+
 
 gulp.task('host', function () {
     initPrivateTasks();
@@ -198,7 +271,7 @@ function runKarma(done, singleRun) {
         singleRun: singleRun || false
     }, done);
 }
-gulp.task('test', function(done){
+gulp.task('test', function (done) {
     runKarma(done, true);
 });
 
@@ -241,9 +314,46 @@ gulp.task('ngdocs', [], function () {
             'bower_components/angular-sanitize/angular-sanitize.js',
             'bower_components/angular-animate/angular-animate.js',
             'bower_components/angular-touch/angular-touch.js',
-            'build/app-v' + pkg.version + '.js',
-            'build/app-v' + pkg.version + '.js.map'
+            'deployment/app-v' + pkg.version + '.js',
+            'deployment/app-v' + pkg.version + '.js.map'
         ]
     }))
         .pipe(gulp.dest('./ng-docs'));
+});
+
+var svn = require('gulp-svn');
+
+function cleanUpSVNCheckouts() {
+  util.log('deleting ./svn-temp');
+  return gulp.src('svn-temp', {read:false}).pipe(clean({force:true}));
+}
+gulp.task('cleanup-svn-checkouts', cleanUpSVNCheckouts);
+
+gulp.task('checkout-rl-components', ['cleanup-svn-checkouts'], function(cb) {
+  util.log('IMPORTANT: You must be connected to RLI network to run svn commands');
+  svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlSlider/trunk/deployment', 'svn-temp/rlSlider', {}, function(err) {
+    svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlReputationWidget/trunk/deployment', 'svn-temp/rlRepuationWidget', {}, 
+      function(err) {
+        if (err) {
+          throw err;
+        }
+        cb();
+      });
+      if (err) {
+        throw err;
+      }
+    }
+  );
+});
+
+gulp.task('copy-rl-components', ['checkout-rl-components'], function() {
+  return gulp.src(['svn-temp/**/*.js', 'svn-temp/**/*.css', '!svn-temp/**/*.min.js'])
+    .pipe(rename({
+      dirname: ''
+    }))
+    .pipe(gulp.dest('app/vendor/rl'));
+});
+
+gulp.task('merge-rl-components', ['copy-rl-components'], function() {
+  cleanUpSVNCheckouts();
 });

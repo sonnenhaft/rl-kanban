@@ -1,7 +1,7 @@
 ## folders
 .tmp
 .idea
-build
+deployment
 node_modules
 app/maps
 bower_components
@@ -10,9 +10,7 @@ bower_components
 npm-debug.log
 index.html
 *.css
-!app/vendor/foundation/ie8-grid-foundation-4.css
-!app/vendor/RLGlyphs/RLGlyphs.css
-!app/vendor/rl-slider/rlslider.css
-!app/vendor/rl-reputation-widget/rlreputationwidget.css
+!app/vendor/**/*.css
 coverage
 ng-docs
+ReleaseNotes.html

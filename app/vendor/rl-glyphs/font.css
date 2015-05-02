@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'RLGlyphs';
+    src: url('font/RLGlyphs.eot');
+    src: url('font/RLGlyphs.eot?#iefix') format('embedded-opentype'),
+    url('font/RLGlyphs.woff') format('woff'),
+    url('font/RLGlyphs.ttf') format('truetype'),
+    url('font/RLGlyphs.svg#RLGlyphs') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

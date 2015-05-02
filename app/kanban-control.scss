@@ -1,0 +1,36 @@
+    // avoid using this file
+kanban-control {
+    display: block;clear: both; margin: auto; overflow: hidden
+}
+.kanban-control {
+    max-width: 1300px;
+    .row {
+        max-width: 1500px;
+    }
+    margin: 0 auto;
+    background: #fff;
+
+    a:hover {
+        cursor: pointer !important;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    b {
+        font-weight: bold !important;
+    }
+
+    .panel-editor {
+        background-color: #fcf8e3;
+        border-color: #faebcc;
+    }
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
