@@ -9,8 +9,11 @@
 angular.module('kanban-control').directive('kanbanControl', function () { //jshint ignore: line
     return {
         templateUrl: 'app/kanban-control.html',
+        scope: {
+            board: '='
+        },
         link: function ($scope) {
 
-                   }
+        }
     };
 });

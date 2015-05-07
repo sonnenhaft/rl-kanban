@@ -1,1 +1,3 @@
-angular.module('kanban-control', []);
+angular.module('kanban-control', [
+    'ui.sortable'
+]);
