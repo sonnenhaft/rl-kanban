@@ -1,118 +1,112 @@
-angular
-    .module('kanban-control')
-    .run(function ($rootScope) {
-        $rootScope.config = {
-            "id": "554ba685c19ca7e4f373a624",
-            "index": 0,
-            "columns": [
+angular.module('kanban-control').run(function ($rootScope, hostedStub) {
+    $rootScope.config = hostedStub;
+/*
+}).run(function ($rootScope, hostedStub, $http) {
+    var url = 'http://beta.json-generator.com/api/json/get/I7u7YcZ';
+    $http.get(url, {cache: false}).then(function (data) {
+        $rootScope.config = data.data;
+    }, function () {
+        $rootScope.config = hostedStub;
+    });
+*/
+}).value('hostedStub', {
+    "id": "554c9acf548f563c4d2e256f",
+    "columns": [
+        {
+            "id": "554c9acff8f528b4e06e5f65",
+            "name": "Fri 8/5",
+            "cards": [
                 {
-                    "id": "554ba685d05df273aa9c8eb7",
-                    "name": "07, May",
-                    "cards": [
-                        {
-                            "id": "554ba6850951f72ef61fd6a6",
-                            "groupId": "554ba685ca467ea4bf7b8a3c",
-                            "index": 0,
-                            "data": "Nulla sit aliqua commodo proident eiusmod excepteur ea nostrud cupidatat elit."
-                        },
-                        {
-                            "id": "554ba68548307f40e3c35afb",
-                            "groupId": "554ba685c29e90bab1d4284e",
-                            "index": 1,
-                            "data": "Reprehenderit amet et culpa duis excepteur irure mollit reprehenderit qui."
-                        },
-                        {
-                            "id": "554ba6857093589108d44be0",
-                            "groupId": "554ba685c850aab96f67a34d",
-                            "index": 2,
-                            "data": "Dolor velit occaecat commodo non ullamco aliqua dolore nulla aliquip sit."
-                        }
-                    ]
+                    "id": "554c9acf7f80fc1a8fad07c6",
+                    "groupId": "554c9acf19f9d89b1587b4f4",
+                    "index": 0,
+                    "data": "Adipisicing pariatur laborum incididunt laborum consectetur laboris consequat."
                 },
                 {
-                    "id": "554ba685e22abc514055623f",
-                    "name": "08, May",
-                    "cards": [
-                        {
-                            "id": "554ba68534cb6d29fcf7b3c1",
-                            "groupId": "554ba68546849a867767089a",
-                            "index": 0,
-                            "data": "Ex ex elit ad quis eiusmod ipsum."
-                        },
-                        {
-                            "id": "554ba68512d7d99423eaac91",
-                            "groupId": "554ba685fe185fffec8a452d",
-                            "index": 1,
-                            "data": "Ad mollit consectetur sint laborum."
-                        }
-                    ]
+                    "id": "554c9acfd20e7084f23c8194",
+                    "groupId": "554c9acf2f7b00de86792acd",
+                    "index": 1,
+                    "data": "Voluptate consectetur deserunt nulla qui qui nulla laboris."
                 },
                 {
-                    "id": "554ba685097f76ac1976efd4",
-                    "name": "09, May",
-                    "cards": [
-                        {
-                            "id": "554ba6857b364ef8b2f7a3ab",
-                            "groupId": "554ba68506650a9dace650e0",
-                            "index": 0,
-                            "data": "Ullamco velit culpa sint qui sunt minim commodo ea anim."
-                        },
-                        {
-                            "id": "554ba6854ef6335e9283a39b",
-                            "groupId": "554ba6856f2f47835ce841eb",
-                            "index": 1,
-                            "data": "Quis id sunt adipisicing esse dolor."
-                        },
-                        {
-                            "id": "554ba685ee14463ab7e8bc00",
-                            "groupId": "554ba6853939ece50478e469",
-                            "index": 2,
-                            "data": "Laborum mollit irure et labore non fugiat magna est adipisicing."
-                        },
-                        {
-                            "id": "554ba6853554f3307666a855",
-                            "groupId": "554ba68562e04b6330c92235",
-                            "index": 3,
-                            "data": "Esse et reprehenderit ex ea sunt ad esse exercitation qui minim."
-                        }
-                    ]
+                    "id": "554c9acf82aa1349526d55a3",
+                    "groupId": "554c9acf2bfd54f0be2ead94",
+                    "index": 2,
+                    "data": "Officia nisi labore elit eiusmod."
+                }
+            ]
+        },
+        {
+            "id": "554c9acf1927073ef05d21cc",
+            "name": "Sat 9/5",
+            "cards": [
+                {
+                    "id": "554c9acf4d5d2c0fb2d9ca3d",
+                    "groupId": "554c9acfbe5009a9aa34281f",
+                    "index": 0,
+                    "data": "Veniam tempor id laborum tempor voluptate deserunt in et pariatur deserunt est Lorem quis."
                 },
                 {
-                    "id": "554ba6850936046fb699d1f6",
-                    "name": "10, May",
-                    "cards": [
-                        {
-                            "id": "554ba685526906fce981f377",
-                            "groupId": "554ba685b8f78292d49c9f6a",
-                            "index": 0,
-                            "data": "Dolore deserunt enim occaecat cupidatat."
-                        },
-                        {
-                            "id": "554ba685213463f8ae35642c",
-                            "groupId": "554ba6850a95381438d7d735",
-                            "index": 1,
-                            "data": "Dolor culpa sunt et elit."
-                        }
-                    ]
+                    "id": "554c9acfd6383966d26a4bdf",
+                    "groupId": "554c9acf18352ab78943f74a",
+                    "index": 1,
+                    "data": "Do eu officia cupidatat ea consectetur nostrud veniam exercitation qui."
                 },
                 {
-                    "id": "554ba6853fb248bcac8cf905",
-                    "name": "11, May",
-                    "cards": [
-                        {
-                            "id": "554ba685ae131a2f69b2606e",
-                            "groupId": "554ba685a708d953b9f47106",
-                            "index": 0,
-                            "data": "Officia mollit cillum eu deserunt labore tempor."
-                        },
-                        {
-                            "id": "554ba685ca583f744db944f5",
-                            "groupId": "554ba685bd4da1d358d4ef90",
-                            "index": 1,
-                            "data": "Dolore eu adipisicing ullamco sint officia elit officia consequat sunt in."
-                        }
-                    ]
+                    "id": "554c9acff029293fe8351f70",
+                    "groupId": "554c9acf47c0e929c2c3b17d",
+                    "index": 2,
+                    "data": "Sit et sint nulla exercitation magna adipisicing culpa consectetur reprehenderit duis mollit."
+                }
+            ]
+        },
+        {
+            "id": "554c9acf3fba5777917499cb",
+            "name": "Sun 10/5",
+            "cards": [
+                {
+                    "id": "554c9acfb3730a42bd50e1d8",
+                    "groupId": "554c9acf29c44db6c2bade4c",
+                    "index": 0,
+                    "data": "Culpa amet ad cupidatat dolore et sunt elit nostrud excepteur officia."
+                },
+                {
+                    "id": "554c9acf93410ada15d2924c",
+                    "groupId": "554c9acfd3998ced78ac5537",
+                    "index": 1,
+                    "data": "Irure consequat sunt proident id cillum cillum."
+                },
+                {
+                    "id": "554c9acfe6e780e7f3ce48aa",
+                    "groupId": "554c9acffd326b9ef0f8263a",
+                    "index": 2,
+                    "data": "Nisi aute voluptate elit proident id in reprehenderit amet commodo ipsum cillum nostrud."
+                },
+                {
+                    "id": "554c9acfe69ac849217b5e07",
+                    "groupId": "554c9acf21ac861fe562edec",
+                    "index": 3,
+                    "data": "Ut magna minim non aliqua velit veniam Lorem sit do."
+                }
+            ]
+        },
+        {
+            "id": "554c9acfdc831b0b4890da63",
+            "name": "Mon 11/5",
+            "cards": [
+                {
+                    "id": "554c9acf77f960a6fe2bc25c",
+                    "groupId": "554c9acffb84b6cefadb7a1b",
+                    "index": 0,
+                    "data": "Anim commodo ea fugiat sit dolor."
+                },
+                {
+                    "id": "554c9acf524336f6caac27e1",
+                    "groupId": "554c9acfbc607b6425a1f854",
+                    "index": 1,
+                    "data": "Officia do tempor dolore voluptate fugiat veniam do eu."
                 }
             ]
         }
-    });
+    ]
+})
