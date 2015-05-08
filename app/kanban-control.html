@@ -1,12 +1,22 @@
-<div class="kanban-wrapper">
-    <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards" data-as-sortable>
-        <div class="kanban-group-title">{{column.name}}</div>
-        <div ng-repeat="card in column.cards" class="as-sortable-item" data-as-sortable-item>
-            <div class="kanban-card as-sortable-item-handle" data-as-sortable-item-handle>
-                {{card.data}}
+<div class="custom-kanban">
+    <div class="kanban-wrapper">
+        <div class="kanban-group as-sortable no-border" ng-repeat="column in board.columns">
+            <div class="kanban-group-title">
+                {{column.name}}
+                <!--{{column.cards.length}}-->
             </div>
         </div>
     </div>
 </div>
-<app-version></app-version>
-<ajax-error></ajax-error>
+<div ng-include="'app/add-resources-block.html'"></div>
+<div class="custom-kanban">
+    <div class="kanban-wrapper">
+        <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards" data-as-sortable>
+            <div ng-repeat="card in column.cards" class="as-sortable-item" data-as-sortable-item ng-class="{'green': $parent.$index > 1, 'red': $parent.$index > 2}">
+                <div class="as-sortable-item-handle" data-as-sortable-item-handle >
+                    {{card.data}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
