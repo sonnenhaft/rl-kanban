@@ -301,7 +301,7 @@ gulp.task('ngdocs', [], function () {
         title: 'Search Control',
         image: 'https://cog1.basecamphq.com/companies/461444/logo.gif',
         imageLink: 'https://github.com/COG1-Interactive',
-        titleLink: 'https://github.com/COG1-Interactive/Ren-learn-search-control',
+        titleLink: 'https://github.com/COG1-Interactive/Ren-learn-kanban',
         styles: [
             'resources/doc-styles-override.css',
             'app/vendor/rl-reputation-widget/rlreputationwidget.css'

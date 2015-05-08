@@ -1,9 +1,12 @@
 <div class="kanban-wrapper">
-    <div class="kanban-group"></div>
-    <div class="kanban-group"></div>
-    <div class="kanban-group"></div>
-    <div class="kanban-group"></div>
-    <div class="kanban-group"></div>
+    <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards" data-as-sortable>
+        <div class="kanban-group-title">{{column.name}}</div>
+        <div ng-repeat="card in column.cards" class="as-sortable-item" data-as-sortable-item>
+            <div class="kanban-card as-sortable-item-handle" data-as-sortable-item-handle>
+                {{card.data}}
+            </div>
+        </div>
+    </div>
 </div>
 <app-version></app-version>
 <ajax-error></ajax-error>
