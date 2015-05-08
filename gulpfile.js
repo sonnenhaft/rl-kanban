@@ -269,7 +269,9 @@ function runKarma(done, singleRun) {
     require('karma').server.start({
         configFile: __dirname + '/resources/karma.conf.js',
         singleRun: singleRun || false
-    }, done);
+    }, function() {
+        done();
+    });
 }
 gulp.task('test', function (done) {
     runKarma(done, true);
