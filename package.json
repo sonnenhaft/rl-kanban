@@ -1,7 +1,7 @@
 {
-  "name": "search-control",
-  "version": "0.1.25",
-  "description": "RenLearn-search-control",
+  "name": "kanban",
+  "version": "0.0.1",
+  "description": "RenLearn-kanban",
   "main": "gulpfile.js",
   "directories": {
     "doc": "docs",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/COG1-Interactive/Ren-learn-search-control.git"
+    "url": "https://github.com/COG1-Interactive/Ren-learn-kanban.git"
   },
   "author": "Adam Pasztory",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/COG1-Interactive/Ren-learn-search-control/issues"
+    "url": "https://github.com/COG1-Interactive/Ren-learn-kanban/issues"
   },
-  "homepage": "https://github.com/COG1-Interactive/Ren-learn-search-control",
+  "homepage": "https://github.com/COG1-Interactive/Ren-learn-kanban",
   "devDependencies": {
     "bower": "~1.3.12",
     "gulp": "~3.8.10",
