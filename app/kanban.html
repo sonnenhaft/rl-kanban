@@ -11,7 +11,7 @@
 <div ng-include="'app/add-resources-block.html'"></div>
 <div class="kanban">
     <div class="kanban-wrapper">
-        <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards" data-as-sortable>
+        <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards" data-as-sortable="scrollCallbacks">
             <div ng-repeat="card in column.cards" class="as-sortable-item" data-as-sortable-item ng-class="{'green': $parent.$index > 1, 'red': $parent.$index > 2}">
                 <div class="as-sortable-item-handle" data-as-sortable-item-handle >
                     {{card.data}}
