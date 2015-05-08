@@ -47,8 +47,8 @@ Here is a list of specific features where rlComponents are used, or could be use
 
 ## Kanban
 * "Add New Group" and other buttons and navigation elements should use rlCommon 
-* Drag & drop functionality should be adapted from Working List
-* Grouping/Accordion functionality should be adapted from Working List
+* We should try to use commong d&d functionality for both Kanban and working list. Current one from working list is not extentable.
+* We should try to use commong Grouping/Accordion functionality for Kanban and wokring list. Current one in working list is not extentable.
 
 ## Search
 * Filters currently support rlSlider
