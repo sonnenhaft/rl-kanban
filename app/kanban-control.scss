@@ -17,6 +17,7 @@
 
     .kanban-group {
         display: table-cell;
+        vertical-align: top;
         box-snap: border-box;
         width: auto;
         min-width: 200px;
