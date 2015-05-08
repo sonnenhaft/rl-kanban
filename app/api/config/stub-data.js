@@ -109,7 +109,7 @@ angular.module('kanban-control').run(function ($rootScope, hostedStub, $http) {
                             "id": "554ceb8c6118177d96c25429"
                         }
                     ],
-                    "name": "Complited",
+                    "name": "Completed",
                     "id": "554ceb8c96940412fd558e0f"
                 }
             ],
