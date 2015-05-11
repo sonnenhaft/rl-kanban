@@ -28,14 +28,14 @@
 (function () {
   'use strict';
   angular.module('ui.sortable', [])
-    .constant('sortableConfig', {
-      itemClass: 'as-sortable-item',
-      handleClass: 'as-sortable-item-handle',
-      placeHolderClass: 'as-sortable-placeholder',
-      dragClass: 'as-sortable-drag',
-      hiddenClass: 'as-sortable-hidden',
-      dragging: 'as-sortable-dragging'
-    });
+      .constant('sortableConfig', {
+        itemClass: 'as-sortable-item',
+        handleClass: 'as-sortable-item-handle',
+        placeHolderClass: 'as-sortable-placeholder',
+        dragClass: 'as-sortable-drag',
+        hiddenClass: 'as-sortable-hidden',
+        dragging: 'as-sortable-dragging'
+      });
 }());
 
 /*jshint indent: 2 */
@@ -122,7 +122,7 @@
           if (event.touches !== undefined && event.touches.length > 1) {
             touchInvalid = true;
           } else if (event.originalEvent !== undefined &&
-            event.originalEvent.touches !== undefined && event.originalEvent.touches.length > 1) {
+              event.originalEvent.touches !== undefined && event.originalEvent.touches.length > 1) {
             touchInvalid = true;
           }
           return touchInvalid;
@@ -386,120 +386,120 @@
    * Sets modelValue, callbacks, element in scope.
    */
   mainModule.directive('asSortable',
-    function () {
-      return {
-        require: 'ngModel', // get a hold of NgModelController
-        restrict: 'A',
-        scope: true,
-        controller: 'ui.sortable.sortableController',
-        link: function (scope, element, attrs, ngModelController) {
+      function () {
+        return {
+          require: 'ngModel', // get a hold of NgModelController
+          restrict: 'A',
+          scope: true,
+          controller: 'ui.sortable.sortableController',
+          link: function (scope, element, attrs, ngModelController) {
 
-          var ngModel, callbacks;
+            var ngModel, callbacks;
 
-          ngModel = ngModelController;
+            ngModel = ngModelController;
 
-          if (!ngModel) {
-            return; // do nothing if no ng-model
-          }
-
-          // Set the model value in to scope.
-          ngModel.$render = function () {
-            //set an empty array, in case if none is provided.
-            if (!ngModel.$modelValue || !angular.isArray(ngModel.$modelValue)) {
-              ngModel.$setViewValue([]);
+            if (!ngModel) {
+              return; // do nothing if no ng-model
             }
-            scope.modelValue = ngModel.$modelValue;
-          };
-          //set the element in scope to be accessed by its sub scope.
-          scope.element = element;
 
-          callbacks = {accept: null, orderChanged: null, itemMoved: null, dragStart: null, dragMove:null, dragCancel: null, dragEnd: null};
+            // Set the model value in to scope.
+            ngModel.$render = function () {
+              //set an empty array, in case if none is provided.
+              if (!ngModel.$modelValue || !angular.isArray(ngModel.$modelValue)) {
+                ngModel.$setViewValue([]);
+              }
+              scope.modelValue = ngModel.$modelValue;
+            };
+            //set the element in scope to be accessed by its sub scope.
+            scope.element = element;
 
-          /**
-           * Invoked to decide whether to allow drop.
-           *
-           * @param sourceItemHandleScope - the drag item handle scope.
-           * @param destSortableScope - the drop target sortable scope.
-           * @param destItemScope - the drop target item scope.
-           * @returns {boolean} - true if allowed for drop.
-           */
-          callbacks.accept = function (sourceItemHandleScope, destSortableScope, destItemScope) {
-            return true;
-          };
+            callbacks = {accept: null, orderChanged: null, itemMoved: null, dragStart: null, dragMove:null, dragCancel: null, dragEnd: null};
 
-          /**
-           * Invoked when order of a drag item is changed.
-           *
-           * @param event - the event object.
-           */
-          callbacks.orderChanged = function (event) {
-          };
+            /**
+             * Invoked to decide whether to allow drop.
+             *
+             * @param sourceItemHandleScope - the drag item handle scope.
+             * @param destSortableScope - the drop target sortable scope.
+             * @param destItemScope - the drop target item scope.
+             * @returns {boolean} - true if allowed for drop.
+             */
+            callbacks.accept = function (sourceItemHandleScope, destSortableScope, destItemScope) {
+              return true;
+            };
 
-          /**
-           * Invoked when the item is moved to other sortable.
-           *
-           * @param event - the event object.
-           */
-          callbacks.itemMoved = function (event) {
-          };
+            /**
+             * Invoked when order of a drag item is changed.
+             *
+             * @param event - the event object.
+             */
+            callbacks.orderChanged = function (event) {
+            };
 
-          /**
-           * Invoked when the drag started successfully.
-           *
-           * @param event - the event object.
-           */
-          callbacks.dragStart = function (event) {
-          };
+            /**
+             * Invoked when the item is moved to other sortable.
+             *
+             * @param event - the event object.
+             */
+            callbacks.itemMoved = function (event) {
+            };
 
-          /**
-           * Invoked when the drag started successfully.
-           *
-           * @param event - the event object.
-          */
-          callbacks.dragMove = function (event) {
-          };
+            /**
+             * Invoked when the drag started successfully.
+             *
+             * @param event - the event object.
+             */
+            callbacks.dragStart = function (event) {
+            };
 
-          /**
-           * Invoked when the drag cancelled.
-           *
-           * @param event - the event object.
-           */
-          callbacks.dragCancel = function (event) {
-          };
+            /**
+             * Invoked when the drag started successfully.
+             *
+             * @param event - the event object.
+             */
+            callbacks.dragMove = function (event) {
+            };
 
-          /**
-           * Invoked when the drag stopped.
-           *
-           * @param event - the event object.
-           */
-          callbacks.dragEnd = function (event) {
-          };
+            /**
+             * Invoked when the drag cancelled.
+             *
+             * @param event - the event object.
+             */
+            callbacks.dragCancel = function (event) {
+            };
 
-          //Set the sortOptions callbacks else set it to default.
-          scope.$watch(attrs.asSortable, function (newVal, oldVal) {
-            angular.forEach(newVal, function (value, key) {
-              if (callbacks[key]) {
-                if (typeof value === 'function') {
-                  callbacks[key] = value;
+            /**
+             * Invoked when the drag stopped.
+             *
+             * @param event - the event object.
+             */
+            callbacks.dragEnd = function (event) {
+            };
+
+            //Set the sortOptions callbacks else set it to default.
+            scope.$watch(attrs.asSortable, function (newVal, oldVal) {
+              angular.forEach(newVal, function (value, key) {
+                if (callbacks[key]) {
+                  if (typeof value === 'function') {
+                    callbacks[key] = value;
+                  }
+                } else {
+                  scope.options[key] = value;
                 }
-              } else {
-                scope.options[key] = value;
-              }
-            });
-            scope.callbacks = callbacks;
-          }, true);
-
-          // Set isDisabled if attr is set, if undefined isDisabled = false
-          if (angular.isDefined(attrs.isDisabled)) {
-            scope.$watch(attrs.isDisabled, function (newVal, oldVal) {
-              if (!angular.isUndefined(newVal)) {
-                scope.isDisabled = newVal;
-              }
+              });
+              scope.callbacks = callbacks;
             }, true);
+
+            // Set isDisabled if attr is set, if undefined isDisabled = false
+            if (angular.isDefined(attrs.isDisabled)) {
+              scope.$watch(attrs.isDisabled, function (newVal, oldVal) {
+                if (!angular.isUndefined(newVal)) {
+                  scope.isDisabled = newVal;
+                }
+              }, true);
+            }
           }
-        }
-      };
-    });
+        };
+      });
 
 }());
 
@@ -537,29 +537,29 @@
         link: function (scope, element, attrs, itemController) {
 
           var dragElement, //drag item element.
-            placeHolder, //place holder class element.
-            placeElement,//hidden place element.
-            itemPosition, //drag item element position.
-            dragItemInfo, //drag item data.
-            containment,//the drag container.
-            containerPositioning, // absolute or relative positioning.
-            dragListen,// drag listen event.
-            scrollableContainer, //the scrollable container
-            dragStart,// drag start event.
-            dragMove,//drag move event.
-            dragEnd,//drag end event.
-            dragCancel,//drag cancel event.
-            isDraggable,//is element draggable.
-            isDragBefore,//is element moved up direction.
-            isPlaceHolderPresent,//is placeholder present.
-            bindDrag,//bind drag events.
-            unbindDrag,//unbind drag events.
-            bindEvents,//bind the drag events.
-            unBindEvents,//unbind the drag events.
-            hasTouch,// has touch support.
-            dragHandled, //drag handled.
-            createPlaceholder,
-            isDisabled = false; // drag enabled
+              placeHolder, //place holder class element.
+              placeElement,//hidden place element.
+              itemPosition, //drag item element position.
+              dragItemInfo, //drag item data.
+              containment,//the drag container.
+              containerPositioning, // absolute or relative positioning.
+              dragListen,// drag listen event.
+              scrollableContainer, //the scrollable container
+              dragStart,// drag start event.
+              dragMove,//drag move event.
+              dragEnd,//drag end event.
+              dragCancel,//drag cancel event.
+              isDraggable,//is element draggable.
+              isDragBefore,//is element moved up direction.
+              isPlaceHolderPresent,//is placeholder present.
+              bindDrag,//bind drag events.
+              unbindDrag,//unbind drag events.
+              bindEvents,//bind the drag events.
+              unBindEvents,//unbind the drag events.
+              hasTouch,// has touch support.
+              dragHandled, //drag handled.
+              createPlaceholder,
+              isDisabled = false; // drag enabled
 
           hasTouch = $window.hasOwnProperty('ontouchstart');
 
@@ -654,10 +654,10 @@
 
             // (optional) Scrollable container as reference for top & left offset calculations, defaults to Document
             scrollableContainer = angular.element($document[0].querySelector(scope.sortableScope.options.scrollableContainer)).length > 0 ?
-              $document[0].querySelector(scope.sortableScope.options.scrollableContainer) : $document[0].documentElement;
+                $document[0].querySelector(scope.sortableScope.options.scrollableContainer) : $document[0].documentElement;
 
             containment = angular.element($document[0].querySelector(scope.sortableScope.options.containment)).length > 0 ?
-              angular.element($document[0].querySelector(scope.sortableScope.options.containment)) : angular.element($document[0].body);
+                angular.element($document[0].querySelector(scope.sortableScope.options.containment)) : angular.element($document[0].body);
             //capture mouse move on containment.
             containment.css('cursor', 'move');
             containment.addClass('as-sortable-un-selectable');
@@ -669,12 +669,12 @@
             tagName = scope.itemScope.element.prop('tagName');
 
             dragElement = angular.element($document[0].createElement(scope.sortableScope.element.prop('tagName')))
-              .addClass(scope.sortableScope.element.attr('class')).addClass(sortableConfig.dragClass);
+                .addClass(scope.sortableScope.element.attr('class')).addClass(sortableConfig.dragClass);
             dragElement.css('width', $helper.width(scope.itemScope.element) + 'px');
             dragElement.css('height', $helper.height(scope.itemScope.element) + 'px');
 
             placeHolder = createPlaceholder(scope.itemScope)
-              .addClass(sortableConfig.placeHolderClass).addClass(scope.sortableScope.options.additionalPlaceholderClass);
+                .addClass(sortableConfig.placeHolderClass).addClass(scope.sortableScope.options.additionalPlaceholderClass);
             placeHolder.css('width', $helper.width(scope.itemScope.element) + 'px');
             placeHolder.css('height', $helper.height(scope.itemScope.element) + 'px');
 
@@ -808,7 +808,7 @@
                 targetElement = targetScope.element;
                 if (targetScope.sortableScope.accept(scope, targetScope.sortableScope, targetScope)) {
                   if (itemPosition.dirAx && //move horizontal
-                    scope.itemScope.sortableScope.$id === targetScope.sortableScope.$id) { //move same column
+                      scope.itemScope.sortableScope.$id === targetScope.sortableScope.$id) { //move same column
                     itemPosition.distAxX = 0;
                     if (itemPosition.distX < 0) {//move left
                       insertBefore(targetElement, targetScope);
@@ -826,7 +826,7 @@
               }
               if (targetScope.type === 'sortable') {//sortable scope.
                 if (targetScope.accept(scope, targetScope) &&
-                  targetElement[0].parentNode !== targetScope.element[0]) {
+                    targetElement[0].parentNode !== targetScope.element[0]) {
                   //moving over sortable bucket. not over item.
                   if (!isPlaceHolderPresent(targetElement)) {
                     //append to bottom.

@@ -1,120 +1,172 @@
 angular.module('kanban-control').run(function ($rootScope, hostedStub, $http) {
     var url = 'http://beta.json-generator.com/api/json/get/Px6fIEL';
-    $http.get(url, {cache: false, isArray: true}).then(function (response) {
+    $http.get(url, {cache: false}).then(function (response) {
         $rootScope.config = response.data;
     }, function () {
         $rootScope.config = hostedStub;
     });
 }).value('hostedStub', {
-    "id": "554c9acf548f563c4d2e256f",
     "columns": [
         {
-            "columns": [
+            "cards": [
                 {
-                    "cards": [
-                        {
-                            "data": "Aliquip aliquip aliqua adipisicing id.",
-                            "index": 0,
-                            "groupId": "554ceb8b7b34cab494a718fe",
-                            "id": "554ceb8b10ff1f5d35377331"
-                        },
-                        {
-                            "data": "Veniam adipisicing nostrud officia eiusmod mollit id commodo Lorem anim do.",
-                            "index": 1,
-                            "groupId": "554ceb8b2565164f174260fd",
-                            "id": "554ceb8b3b8d33653367d012"
-                        },
-                        {
-                            "data": "Magna eiusmod commodo ullamco ad dolor sint consectetur magna commodo culpa.",
-                            "index": 2,
-                            "groupId": "554ceb8bcfac3ef339842a4b",
-                            "id": "554ceb8b44cf479afc523ebe"
-                        },
-                        {
-                            "data": "Laboris eu quis ex enim voluptate esse nisi enim.",
-                            "index": 3,
-                            "groupId": "554ceb8b20d6e2a13a64f997",
-                            "id": "554ceb8ba95dfd9a36d6b85a"
-                        }
-                    ],
-                    "name": "Not started",
-                    "id": "554ceb8bdb2111a98a3721a6"
+                    "data": "Sunt Lorem fugiat velit ullamco magna laboris ea sint velit proident nulla anim nisi in.",
+                    "name": "Casey",
+                    "code": "F0408B",
+                    "color": "green",
+                    "groupId": "554fd0f03360a5e381d247b3",
+                    "id": "554fd0f056db6ced35975f67"
                 },
                 {
-                    "cards": [
-                        {
-                            "data": "Incididunt sint culpa tempor consequat exercitation esse et occaecat id nostrud.",
-                            "index": 0,
-                            "groupId": "554ceb8b3b4defbe62be2df7",
-                            "id": "554ceb8bc579f16a8378ff2a"
-                        },
-                        {
-                            "data": "Consequat minim enim amet veniam nisi.",
-                            "index": 1,
-                            "groupId": "554ceb8bc368aafd0705f976",
-                            "id": "554ceb8b16ad5c40628cd8f4"
-                        },
-                        {
-                            "data": "Et consequat ex commodo pariatur nulla velit sit enim ullamco ut Lorem.",
-                            "index": 2,
-                            "groupId": "554ceb8b1af48b02ee2ef5ce",
-                            "id": "554ceb8b1a4dbf88dc19fd1a"
-                        },
-                        {
-                            "data": "Ut dolor officia adipisicing amet ut pariatur occaecat magna deserunt dolore.",
-                            "index": 3,
-                            "groupId": "554ceb8c554f62c4a1717948",
-                            "id": "554ceb8c62fa536011721366"
-                        }
-                    ],
-                    "name": "Not started",
-                    "id": "554ceb8b132df3dd5b69f8e3"
+                    "data": "Consequat laboris officia eiusmod reprehenderit velit ipsum amet ut veniam et culpa reprehenderit.",
+                    "name": "Vincent",
+                    "code": "F0D941",
+                    "color": "blue",
+                    "groupId": "554fd0f0151bff82552ae1eb",
+                    "id": "554fd0f02bea986efac4e556"
                 },
                 {
-                    "cards": [
-                        {
-                            "data": "Aliquip id est voluptate ut sint aliqua deserunt.",
-                            "index": 0,
-                            "groupId": "554ceb8c5d3d6e184f0d66b4",
-                            "id": "554ceb8ccc801c0d6a96a1a8"
-                        },
-                        {
-                            "data": "Minim aliquip pariatur reprehenderit incididunt anim proident minim.",
-                            "index": 1,
-                            "groupId": "554ceb8cdb8e1ba588752693",
-                            "id": "554ceb8c7d030534fbe397b8"
-                        }
-                    ],
-                    "name": "In progress",
-                    "id": "554ceb8c7a8ce7dd2ca81cb6"
+                    "data": "Ut amet ipsum laborum voluptate ea sit.",
+                    "name": "Cherry",
+                    "code": "F07F10",
+                    "color": "blue",
+                    "groupId": "554fd0f00a342272c07d4b20",
+                    "id": "554fd0f01645788960ef87a7"
                 },
                 {
-                    "cards": [
-                        {
-                            "data": "Dolor reprehenderit ipsum do voluptate qui qui sunt laboris nostrud occaecat nisi.",
-                            "index": 0,
-                            "groupId": "554ceb8c7611bf40defaa840",
-                            "id": "554ceb8cc571d3b61aeaaf11"
-                        },
-                        {
-                            "data": "In sunt enim velit Lorem laboris ad aliqua esse minim.",
-                            "index": 1,
-                            "groupId": "554ceb8c3ddeec81826eb992",
-                            "id": "554ceb8cef1bef1d9b163dd7"
-                        },
-                        {
-                            "data": "Velit commodo duis ut do ea sunt consequat.",
-                            "index": 2,
-                            "groupId": "554ceb8cb862e1ca06861b0d",
-                            "id": "554ceb8c6118177d96c25429"
-                        }
-                    ],
-                    "name": "Completed",
-                    "id": "554ceb8c96940412fd558e0f"
+                    "data": "Aliquip occaecat est eiusmod aliqua consequat deserunt nisi in.",
+                    "name": "Ramona",
+                    "code": "F059EE",
+                    "color": "orange",
+                    "groupId": "554fd0f0d006e6db514b7725",
+                    "id": "554fd0f08ecdbad5687cb4c6"
                 }
             ],
-            "index": 0,
-            "id": "554ceb8bf39a658a6337aecc"
+            "name": "List 1 Name",
+            "id": "554fd0f0b6657fc1f48fae59"
+        },
+        {
+            "cards": [
+                {
+                    "data": "Do eu exercitation excepteur sunt duis.",
+                    "name": "Patterson",
+                    "code": "F04A55",
+                    "color": "orange",
+                    "groupId": "554fd0f04842b38d6d93d73a",
+                    "id": "554fd0f07de1740340a5715f"
+                },
+                {
+                    "data": "Ullamco consequat est pariatur commodo tempor non.",
+                    "name": "Burt",
+                    "code": "F06773",
+                    "color": "orange",
+                    "groupId": "554fd0f0244922ca633a1767",
+                    "id": "554fd0f0bcba25f406581c75"
+                },
+                {
+                    "data": "Irure excepteur aute nisi eiusmod qui pariatur deserunt ipsum magna laborum.",
+                    "name": "Margie",
+                    "code": "F021FC",
+                    "color": "green",
+                    "groupId": "554fd0f0fccb45e214fb7614",
+                    "id": "554fd0f05937c9cb15a033f3"
+                }
+            ],
+            "name": "List 2 Name",
+            "id": "554fd0f0fcda521e73e6063b"
+        },
+        {
+            "cards": [
+                {
+                    "data": "Lorem sit labore sint dolor magna excepteur duis mollit.",
+                    "name": "Felicia",
+                    "code": "F00045",
+                    "color": "blue",
+                    "groupId": "554fd0f0854aab10cc363112",
+                    "id": "554fd0f0e9849d414ee5d725"
+                },
+                {
+                    "data": "Pariatur culpa aute ex consectetur tempor minim commodo ullamco dolore ea.",
+                    "name": "Florence",
+                    "code": "F030FC",
+                    "color": "green",
+                    "groupId": "554fd0f0739c9e943dc0a437",
+                    "id": "554fd0f028216d9933a43ea3"
+                },
+                {
+                    "data": "Incididunt ad deserunt eiusmod Lorem culpa Lorem minim amet culpa id.",
+                    "name": "Mamie",
+                    "code": "F022C7",
+                    "color": "blue",
+                    "groupId": "554fd0f0f7013c28d19e042d",
+                    "id": "554fd0f063c8fee3581cb813"
+                },
+                {
+                    "data": "Non duis Lorem id ad incididunt aliquip eu ea enim officia.",
+                    "name": "Church",
+                    "code": "F0CFDC",
+                    "color": "orange",
+                    "groupId": "554fd0f037a12cf3b2a2ecc8",
+                    "id": "554fd0f0dbb01687dea1c5da"
+                }
+            ],
+            "name": "List 3 Name",
+            "id": "554fd0f02c598dfaa322d13b"
+        },
+        {
+            "cards": [
+                {
+                    "data": "Nulla ipsum est minim ex aute labore labore do id elit nisi elit.",
+                    "name": "Hilary",
+                    "code": "F08176",
+                    "color": "green",
+                    "groupId": "554fd0f05ace54173870ed9e",
+                    "id": "554fd0f0ca9b95dc8e7b68a6"
+                },
+                {
+                    "data": "Irure culpa mollit do quis commodo esse aliqua est excepteur anim aliqua incididunt do velit.",
+                    "name": "Mejia",
+                    "code": "F0B481",
+                    "color": "orange",
+                    "groupId": "554fd0f0f1ef771f759d4795",
+                    "id": "554fd0f0336b211ab15d48c4"
+                }
+            ],
+            "name": "List 4 Name",
+            "id": "554fd0f0be28b06494949aec"
+        },
+        {
+            "cards": [
+                {
+                    "data": "Ullamco labore dolore magna ex ea est.",
+                    "name": "Parrish",
+                    "code": "F046DD",
+                    "color": "orange",
+                    "groupId": "554fd0f052385013f99c030c",
+                    "id": "554fd0f053d81cfc5b7438ea"
+                },
+                {
+                    "data": "Veniam nostrud est sit ut ex culpa ut deserunt duis.",
+                    "name": "Decker",
+                    "code": "F0EFA3",
+                    "color": "green",
+                    "groupId": "554fd0f0f6a0832abb80df71",
+                    "id": "554fd0f02aa83cd8b30a4b5f"
+                },
+                {
+                    "data": "Ullamco proident consectetur ipsum ullamco cupidatat sint magna id ex nisi est id irure.",
+                    "name": "Antoinette",
+                    "code": "F01B23",
+                    "color": "blue",
+                    "groupId": "554fd0f099913dff3e011fd1",
+                    "id": "554fd0f0c3a75357aafe28f4"
+                }
+            ],
+            "name": "List 5 Name",
+            "id": "554fd0f0d906bb6056159e00"
         }
-    ]
+    ],
+    "name": "Swim Lane 1",
+    "index": 0,
+    "id": "554fd0f064c78291b0e01114"
 });
