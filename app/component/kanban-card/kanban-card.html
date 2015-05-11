@@ -1,0 +1,16 @@
+<div class="card-wrapper">
+    <span class="card-handle as-sortable-item-handle" data-as-sortable-item-handle>
+        &#8226;&#8226;&#8226;&#8226;&#8226;
+    </span>
+    <div class="card-content">
+        <div class="card-code">
+            {{card.code}}
+        </div>
+        <div class="card-name">
+            {{card.name}}
+        </div>
+    </div>
+    <div class="card-control">
+        <button class="button white card-remove" ng-click="removeItem(index())">&times;</button>
+    </div>
+</div>

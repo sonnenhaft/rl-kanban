@@ -1,0 +1,87 @@
+$gutter: 6px;
+$marker-height: 4px;
+$blue-marker: #326295;
+$green-marker: #1E9C9F;
+$orange-marker: #df6826;
+.kanban-card {
+    font-size: 18px;
+    color: #555555;
+    background-color: #ffffff;
+    border-top: $marker-height solid #ccc;
+    margin: $gutter;
+    position: relative;
+    z-index: 0;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -$marker-height;
+        height: $marker-height;
+        width: 100%;
+    }
+    &.blue:before {
+        background: $blue-marker;
+        outline: 1px solid $blue-marker;
+    }
+    &.green:before {
+        background: $green-marker;
+        outline: 1px solid $green-marker;
+    }
+    &.orange:before {
+        background: $orange-marker;
+        outline: 1px solid $orange-marker;
+    }
+    .card-wrapper {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        min-height: 86px;
+    }
+    .card-content {
+        display: table-cell;
+        padding: $gutter;
+    }
+    .card-handle {
+        display: table-cell;
+        padding: 10px $gutter;
+        vertical-align: top;
+        word-wrap: break-word;
+        color: #a5a5a5;
+        width: $gutter*3;
+        line-height: 0.5;
+    }
+    .card-code {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-bottom: 2px;
+    }
+    .card-name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .card-control {
+        display: table-cell;
+        width: 36px;
+        padding: 10px $gutter;
+        vertical-align: middle;
+    }
+    .card-remove {
+        border: 1px solid #cccccc;
+        color: #cccccc;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+        height: 24px;
+        width: 24px;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 100;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+            color: #cccccc;
+        }
+    }
+}

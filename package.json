@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/COG1-Interactive/Ren-learn-kanban/issues"
   },
-  "homepage": "https://github.com/COG1-Interactive/Ren-learn-kanban",
+  "homepage": "https://github.com/COG1-Interactive/Ren-learn-search-control",
   "devDependencies": {
     "bower": "~1.3.12",
     "gulp": "~3.8.10",

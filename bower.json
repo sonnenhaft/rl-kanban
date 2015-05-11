@@ -1,5 +1,5 @@
 {
-  "name": "search-control",
+  "name": "kanban-control",
   "private": true,
   "devDependencies": {
     "angular": "1.3.2",
