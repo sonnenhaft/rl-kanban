@@ -1,14 +1,13 @@
-angular.module('kanban').directive('kanban', function (windowScrollService) {
-    var scrollCallbacks = {
-        dragStart: windowScrollService.watchMouse,
-        dragEnd: windowScrollService.stopWatching
-    };
-
+angular.module('kanban').directive('kanban', function () {
     return {
         templateUrl: 'app/kanban.html',
+        require: '^scrollableElement',
         scope: {board: '='},
-        link: function ($scope) {
-            $scope.scrollCallbacks = scrollCallbacks;
+        link: function ($scope, i, j, scrollableElement) {
+            $scope.scrollCallbacks = {
+                dragStart: scrollableElement.watchMouse,
+                dragEnd: scrollableElement.stopWatching
+            };
         }
     };
 });

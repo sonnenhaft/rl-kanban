@@ -42,7 +42,9 @@
 </head>
 <body>
 
-<kanban board="config" ng-if="config"></kanban>
+<div scrollable-element style="width: 450px; height: 350px;overflow: scroll!important;">
+    <kanban board="config" ng-if="config" style="display: block"></kanban>
+</div>
 
 </body>
 </html>
