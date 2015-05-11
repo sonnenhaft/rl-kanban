@@ -1,9 +1,13 @@
 angular.module('kanban').factory('windowScrollService', function ($window, $interval) {
-    function getCoordinatePartToScroll(coord, windowProperty) {
-        if (coord > $window[windowProperty] - 10) {
-            return 10;
-        } else if (coord < 10) {
-            return -10;
+    var SCROLL_STEP = 10;
+    var SENSITIVITY_AREA = SCROLL_STEP * 2;
+    var CHECK_INTERVAL = 30;
+
+    function getCoordinatePartToScroll(coord, dimensionProp, scrollProp) {
+        if (coord > $window[dimensionProp] + $window[scrollProp] - SENSITIVITY_AREA) {
+            return SCROLL_STEP;
+        } else if (coord < $window[scrollProp] + SENSITIVITY_AREA) {
+            return -SCROLL_STEP;
         } else {
             return 0;
         }
@@ -16,9 +20,10 @@ angular.module('kanban').factory('windowScrollService', function ($window, $inte
         scrollInterval = null;
     }
 
-    function scrollY(mouseMoveEvent) {
-        y = getCoordinatePartToScroll(mouseMoveEvent.y, 'innerHeight');
-        x = getCoordinatePartToScroll(mouseMoveEvent.x, 'innerWidth');
+    function scrollOnBorder(mouseMoveEvent) {
+        y = getCoordinatePartToScroll(mouseMoveEvent.y, 'innerHeight', 'scrollY');
+        x = getCoordinatePartToScroll(mouseMoveEvent.x, 'innerWidth', 'scrollX');
+        console.log(x)
         if ((x || y) && !scrollInterval) {
             scrollInterval = $interval(function () {
                 if (x || y) {
@@ -26,18 +31,30 @@ angular.module('kanban').factory('windowScrollService', function ($window, $inte
                 } else {
                     clearInterval();
                 }
-            }, 100, 0, false);
+            }, CHECK_INTERVAL, 0, false);
         }
     }
 
     var $body = angular.element($window.document.body);
 
+    function touchOnBorder(e) {
+        var firstTouch = e.touches[0];
+        scrollOnBorder({
+            x: firstTouch.clientX,
+            y: firstTouch.clientY
+        })
+    }
+
     return {
         watchMouse: function () {
-            $body.bind('mousemove', scrollY);
+            $body
+                .bind('mousemove', scrollOnBorder)
+                .bind('touchmove', touchOnBorder);
         },
         stopWatching: function () {
-            $body.unbind('mousemove', scrollY);
+            $body
+                .unbind('mousemove', scrollOnBorder)
+                .unbind('touchmove', touchOnBorder);
             if (scrollInterval) {
                 clearInterval();
             }
