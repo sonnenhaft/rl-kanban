@@ -30,12 +30,14 @@ angular.module('kanban').factory('windowScrollService', function ($window, $inte
         }
     }
 
+    var $body = angular.element($window.document.body);
+
     return {
         watchMouse: function () {
-            angular.element($window.document.body).bind('mousemove', scrollY);
+            $body.bind('mousemove', scrollY);
         },
         stopWatching: function () {
-            angular.element($window.document.body).unbind('mousemove', scrollY);
+            $body.unbind('mousemove', scrollY);
             if (scrollInterval) {
                 clearInterval();
             }
