@@ -23,6 +23,7 @@
                      data-as-sortable>
                     <kanban-card class="kanban-card as-sortable-item" ng-class="card.color"
                                  ng-repeat="card in column.cards" data-as-sortable-item></kanban-card>
+                    <div ng-if="!column.cards.length" class="card-empty">No item on the list</div>
                 </div>
             </div>
         </div>
