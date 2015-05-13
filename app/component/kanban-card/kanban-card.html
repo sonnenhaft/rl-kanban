@@ -11,7 +11,7 @@
         <p><strong>Assignee:</strong> {{card.assignee}}</p>
         <p>{{card.description}}</p>
         </br>
-        <p><glyph-icon icon="{'glyph-shield' : card.assignability}" class="card-icon"></glyph-icon><strong> {{card.priority}}</strong> {{card.type}}</p>
+        <p><glyph-icon icon="{'glyph-lock2' : card.assignability}" class="card-icon"></glyph-icon><strong> {{card.priority}}</strong> {{card.type}}</p>
         <hr/>
         <p>{{card.created | date}} / <time am-time-ago="card.modified"></time></p>
     </div>
