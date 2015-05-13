@@ -6,7 +6,10 @@ angular.module('kanban').directive('kanban', function () {
         link: function ($scope, i, j, scrollableElement) {
             $scope.scrollCallbacks = {
                 dragStart: scrollableElement.watchMouse,
-                dragEnd: scrollableElement.stopWatching
+                dragEnd: scrollableElement.stopWatching,
+                containment: '.cards-container',
+                scrollableContainer: '.kanban-row',
+                containerPositioning: 'relative'
             };
         }
     };
