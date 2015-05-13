@@ -4,7 +4,7 @@ $blue-marker: #326295;
 $green-marker: #1E9C9F;
 $orange-marker: #df6826;
 .kanban-card {
-    font-size: 18px;
+    font-size: 14px;
     color: #555555;
     background-color: #ffffff;
     border-top: $marker-height solid #ccc;
@@ -42,6 +42,7 @@ $orange-marker: #df6826;
         padding: $gutter;
     }
     .card-handle {
+        font-size: 22px;
         display: table-cell;
         padding: 10px $gutter;
         vertical-align: top;
@@ -59,29 +60,39 @@ $orange-marker: #df6826;
     .card-name {
         font-size: 18px;
         font-weight: 600;
+        margin-bottom: 4px;
     }
     .card-control {
         display: table-cell;
-        width: 36px;
+        width: 32px;
         padding: 10px $gutter;
         vertical-align: middle;
     }
     .card-remove {
-        border: 1px solid #cccccc;
         color: #cccccc;
-        border-radius: 50%;
-        padding: 0;
-        margin: 0;
-        height: 24px;
-        width: 24px;
-        display: inline-block;
         font-size: 20px;
         font-weight: 100;
-        text-align: center;
         cursor: pointer;
-        user-select: none;
         &:hover {
-            color: #cccccc;
+            color: #D13F19;
         }
+    }
+    .card-icon {
+        vertical-align: text-bottom;
+        display: inline-block;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 4px;
+    }
+
+    hr {
+        margin: $gutter 0;
+    }
+
+    strong {
+        font-weight: bold;
     }
 }

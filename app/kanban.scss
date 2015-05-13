@@ -56,10 +56,26 @@ $gutter: 6px;
         float: right;
     }
 
+    .empty-placeholder {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 12px;
+        color: #555555;
+        height: 0;
+        line-height: 80px;
+        width: 100%;
+        overflow: visible;
+    }
+
     .as-sortable-placeholder {
-        background: #f9f9f9;
-        margin: 5px;
-        border: 1px #b0b0b0 dashed;
-        border-radius: 3px;
+         background: #f9f9f9;
+         margin: 5px;
+         border: 1px #b0b0b0 dashed;
+         border-radius: 3px;
+     }
+
+    .empty-placeholder + .as-sortable-placeholder {
+        margin-top: -10px;
     }
 }

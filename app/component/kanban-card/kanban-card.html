@@ -4,13 +4,18 @@
     </span>
     <div class="card-content">
         <div class="card-code">
-            {{card.code}}
+            <glyph-icon icon="card.app" class="card-icon"></glyph-icon>
+            {{card.code}} / <span class="card-name">{{card.name}}</span>
         </div>
-        <div class="card-name">
-            {{card.name}}
-        </div>
+        <p><strong>Owner:</strong> {{card.owner}}</p>
+        <p><strong>Assignee:</strong> {{card.assignee}}</p>
+        <p>{{card.description}}</p>
+        </br>
+        <p><glyph-icon icon="{'glyph-shield' : card.assignability}" class="card-icon"></glyph-icon><strong> {{card.priority}}</strong> {{card.type}}</p>
+        <hr/>
+        <p>{{card.created | date}} / <time am-time-ago="card.modified"></time></p>
     </div>
     <div class="card-control">
-        <button class="button white card-remove" ng-click="removeItem(index())">&times;</button>
+        <glyph-icon ng-click="removeItem(index())" icon="'glyph-cancel-circle'" class="card-remove"></glyph-icon>
     </div>
 </div>
