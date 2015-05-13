@@ -13,7 +13,11 @@ angular.module('kanban-control').directive('kanbanControl', function () { //jshi
             board: '='
         },
         link: function ($scope) {
-
+            $scope.dragControlListeners = {
+                containment: '.cards-container',
+                scrollableContainer: '.kanban-row',
+                containerPositioning: 'relative'
+            };
         }
     };
 });
