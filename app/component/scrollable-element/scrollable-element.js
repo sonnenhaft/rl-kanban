@@ -1,6 +1,6 @@
 angular.module('component.scrollable-element').directive('scrollableElement', function ($window, ScrollableElementFactory) {
     var SCROLL_STEP = 10;
-    var SENSITIVITY_AREA = 30;
+    var SENSITIVITY_AREA = 50;
 
     function getCoordinatePartToScroll(coord, dimensionProp) {
         if (coord > dimensionProp - SENSITIVITY_AREA) {
@@ -25,7 +25,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
                 this.y = getCoordinatePartToScroll($window.scrollY + mouseMoveEvent.y - element.offsetTop, element.offsetHeight);
-                this.x = getCoordinatePartToScroll($window.scrollX + mouseMoveEvent.x - element.offsetLeft, element.offsetWidth);
+                this.x = getCoordinatePartToScroll( $window.scrollX + mouseMoveEvent.x - element.offsetLeft, element.offsetWidth);
             };
 
             var lastEvent;
@@ -48,8 +48,8 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             function touchOnBorder(e) {
                 var firstTouch = e.touches[0];
                 scrollOnBorder({
-                    x: firstTouch.clientX,
-                    y: firstTouch.clientY
+                    x: firstTouch.pageX - $window.scrollX,
+                    y: firstTouch.pageY- $window.scrollY
                 });
             }
 
@@ -65,5 +65,5 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
                 windowScroll.stopInterval();
             };
         }
-    }
+    };
 });
