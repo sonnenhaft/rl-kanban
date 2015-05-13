@@ -96,7 +96,7 @@ function initPrivateTasks() {
         //staticAssetsDir = 'static-assets-v' + pkg.version + '/';
             staticAssetsDir = 'static-assets/';
 
-        gulp.src('app/**/font/*.*').pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
+        gulp.src('app/**/font/*.*').pipe(copy('deployment/' + staticAssetsDir + 'font', {prefix: 10}));
         gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
 
         var uglify = require('gulp-uglify'),
@@ -108,7 +108,7 @@ function initPrivateTasks() {
         var cssOpts = [
             sourcemaps.init(),
            // cssBase64({maxWeightResource: 200 * 1024}),
-            urlAdjuster({prepend: staticAssetsDir}),
+            urlAdjuster({prepend: '/' + staticAssetsDir}),
             'concat',
             cloneCSS,
             minifyCss(),
@@ -118,7 +118,7 @@ function initPrivateTasks() {
         var vendorCSSOpts = [
             sourcemaps.init(),
         //    cssBase64({maxWeightResource: 200 * 1024}),
-            urlAdjuster({prepend: staticAssetsDir}),
+            urlAdjuster({prepend: '/' + staticAssetsDir}),
             'concat',
             cloneVendorCSS,
             minifyCss(),
