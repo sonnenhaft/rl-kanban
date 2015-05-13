@@ -1,7 +1,7 @@
 {
-  "name": "kanban-control",
-  "version": "0.1.25",
-  "description": "RenLearn-kanban-control",
+  "name": "kanban",
+  "version": "0.0.1",
+  "description": "RenLearn-kanban",
   "main": "gulpfile.js",
   "directories": {
     "doc": "docs",
@@ -17,9 +17,9 @@
   "author": "Adam Pasztory",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/COG1-Interactive/Ren-learn-kanban.git/issues"
+    "url": "https://github.com/COG1-Interactive/Ren-learn-kanban/issues"
   },
-  "homepage": "https://github.com/COG1-Interactive/Ren-learn-kanban",
+  "homepage": "https://github.com/COG1-Interactive/Ren-learn-search-control",
   "devDependencies": {
     "bower": "~1.3.12",
     "gulp": "~3.8.10",
@@ -41,7 +41,7 @@
     "gulp-connect": "~2.2.0",
     "gulp-sourcemaps": "~1.2.8",
     "gulp-autoprefixer": "~2.1.0",
-    "gulp-sass": "1.0.*",
+    "gulp-sass": "1.3.*",
     "gulp-jshint": "~1.9.0",
     "jshint-stylish": "~1.0.0",
     "gulp-ver": "~0.1.0",

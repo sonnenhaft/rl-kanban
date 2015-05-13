@@ -20,10 +20,10 @@
             </div>
             <div class="kanban-wrapper cards-container">
                 <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards"
-                     data-as-sortable="dragControlListeners">
+                     data-as-sortable="scrollCallbacks">
                     <kanban-card class="kanban-card as-sortable-item" ng-class="card.state"
                                  ng-repeat="card in column.cards" data-as-sortable-item></kanban-card>
-                    <div ng-if="isEmpty()" class="empty-placeholder">No item on the list</div>
+                    <div ng-if="!column.cards.length" class="empty-placeholder">No item on the list</div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-angular.module('kanban-control').run(function ($rootScope, hostedStub, $http) {
+angular.module('kanban').run(function ($rootScope, hostedStub, $http) {
     var url = 'http://beta.json-generator.com/api/json/get/Px6fIEL';
     $http.get(url, {cache: false}).then(function (response) {
         $rootScope.config = response.data;

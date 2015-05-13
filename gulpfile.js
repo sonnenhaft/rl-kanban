@@ -298,7 +298,7 @@ gulp.task('ngdocs', [], function () {
     }).pipe(gulpDocs.process({
         html5Mode: false,
         startPage: '/api',
-        title: 'Search Control',
+        title: 'Kanban',
         image: 'https://cog1.basecamphq.com/companies/461444/logo.gif',
         imageLink: 'https://github.com/COG1-Interactive',
         titleLink: 'https://github.com/COG1-Interactive/Ren-learn-kanban',

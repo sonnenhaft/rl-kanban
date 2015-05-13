@@ -1,8 +1,9 @@
 <!DOCTYPE html >
-<html ng-app="kanban-control">
+<html ng-app="kanban">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>RLI Kanban Control</title>
+    <title>RLI Kanban</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
     <!-- process:remove -->
         <script src="http://localhost:35729/livereload.js?snipver=1"></script>
@@ -40,8 +41,11 @@
         <!-- inject:.tmp/templates-and-app-version:js --><!-- endinject -->
     <!-- endbuild -->
 </head>
-<body>
-<kanban-control board="config" ng-if="config"></kanban-control>
+<body >
+
+<div scrollable-element>
+    <kanban board="config" ng-if="config" style="display: block"></kanban>
+</div>
 
 </body>
 </html>
