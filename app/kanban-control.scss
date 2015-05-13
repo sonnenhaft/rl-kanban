@@ -60,7 +60,7 @@ $gutter: 6px;
         float: right;
     }
 
-    .card-empty {
+    .empty-placeholder {
         display: inline-block;
         vertical-align: middle;
         text-align: center;
@@ -79,7 +79,7 @@ $gutter: 6px;
          border-radius: 3px;
      }
 
-    .card-empty + .as-sortable-placeholder {
-        margin-top: -12px;
+    .empty-placeholder + .as-sortable-placeholder {
+        margin-top: -10px;
     }
 }
