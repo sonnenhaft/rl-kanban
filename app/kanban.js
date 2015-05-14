@@ -8,8 +8,7 @@ angular.module('kanban').directive('kanban', function () {
                 dragStart: scrollableElement.watchMouse,
                 dragEnd: scrollableElement.stopWatching,
                 containment: '.cards-container',
-                scrollableContainer: '.kanban-row',
-                containerPositioning: 'relative'
+                scrollableContainer: '.kanban-row'
             };
         }
     };

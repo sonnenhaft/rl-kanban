@@ -1,19 +1,19 @@
 <div class="card-wrapper">
     <span class="card-handle as-sortable-item-handle" data-as-sortable-item-handle>
-        &#8226;&#8226;&#8226;&#8226;&#8226;
+        &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
     </span>
     <div class="card-content">
         <div class="card-code">
             <glyph-icon icon="card.app" class="card-icon"></glyph-icon>
-            {{card.code}} / <span class="card-name">{{card.name}}</span>
+            {{::card.code}} / <span class="card-name">{{::card.name}}</span>
         </div>
-        <p><strong>Owner:</strong> {{card.owner}}</p>
-        <p><strong>Assignee:</strong> {{card.assignee}}</p>
-        <p>{{card.description}}</p>
+        <p><strong>Owner:</strong> {{::card.owner}}</p>
+        <p><strong>Assignee:</strong> {{::card.assignee}}</p>
+        <p>{{::card.description}}</p>
         </br>
-        <p><glyph-icon icon="{'glyph-lock2' : card.assignability}" class="card-icon"></glyph-icon><strong> {{card.priority}}</strong> {{card.type}}</p>
+        <p><glyph-icon icon="{'glyph-lock2' : card.assignability}" class="card-icon"></glyph-icon><strong> {{::card.priority}}</strong></p>
         <hr/>
-        <p>{{card.created | date}} / <time am-time-ago="card.modified"></time></p>
+        <p>{{::card.created | date}} / <time am-time-ago="card.modified"></time></p>
     </div>
     <div class="card-control">
         <glyph-icon ng-click="removeItem(index())" icon="'glyph-cancel-circle'" class="card-remove"></glyph-icon>

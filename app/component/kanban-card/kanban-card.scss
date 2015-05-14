@@ -42,13 +42,13 @@ $orange-marker: #df6826;
         padding: $gutter;
     }
     .card-handle {
-        font-size: 22px;
+        font-size: 24px;
         display: table-cell;
         padding: 10px $gutter;
-        vertical-align: top;
+        vertical-align: middle;
         word-wrap: break-word;
         color: #a5a5a5;
-        width: $gutter*3;
+        width: 20px;
         line-height: 0.5;
     }
     .card-code {
