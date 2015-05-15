@@ -1,31 +1,32 @@
-<!--<div ng-include="'app/add-resources-block.html'"></div>-->
-<div class="custom-kanban">
-    <div class="swim-lane">
-        <span class="swim-title">
-            {{board.name}}
-        </span>
-        <button class="button white swim-button" onclick="alert('no aciton yet')">
-            Add Task
-        </button>
-    </div>
-    <div class="kanban-container">
-        <div class="kanban-row">
-            <div class="kanban-wrapper">
-                <div class="kanban-group as-sortable" ng-repeat="column in board.columns">
-                    <div class="kanban-group-title">
-                        {{column.name}}
-                        <!--{{column.cards.length}}-->
-                    </div>
-                </div>
-            </div>
-            <div class="kanban-wrapper cards-container">
-                <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards"
-                     data-as-sortable="scrollCallbacks">
-                    <kanban-card class="kanban-card as-sortable-item" ng-class="card.state"
-                                 ng-repeat="card in column.cards" data-as-sortable-item></kanban-card>
-                    <div ng-if="!column.cards.length" class="empty-placeholder">No item on the list</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<task-group-control></task-group-control>
+<!--&lt;!&ndash;<div ng-include="'app/add-resources-block.html'"></div>&ndash;&gt;-->
+<!--<div class="custom-kanban">-->
+    <!--<div class="swim-lane">-->
+        <!--<span class="swim-title">-->
+            <!--{{board.name}}-->
+        <!--</span>-->
+        <!--<button class="button white swim-button" onclick="alert('no aciton yet')">-->
+            <!--Add Task-->
+        <!--</button>-->
+    <!--</div>-->
+    <!--<div class="kanban-container">-->
+        <!--<div class="kanban-row" style="margin: 0 80px">-->
+            <!--<div class="kanban-wrapper">-->
+                <!--<div class="kanban-group as-sortable" ng-repeat="column in board.columns">-->
+                    <!--<div class="kanban-group-title">-->
+                        <!--{{column.name}}-->
+                        <!--&lt;!&ndash;{{column.cards.length}}&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="kanban-wrapper cards-container">-->
+                <!--<div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards"-->
+                     <!--data-as-sortable="scrollCallbacks">-->
+                    <!--<kanban-card class="kanban-card as-sortable-item" ng-class="card.state"-->
+                                 <!--ng-repeat="card in column.cards" data-as-sortable-item></kanban-card>-->
+                    <!--<div ng-if="!column.cards.length" class="empty-placeholder">No item on the list</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

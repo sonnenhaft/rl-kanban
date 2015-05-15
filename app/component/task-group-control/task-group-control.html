@@ -1,0 +1,16 @@
+<style>
+    .group {
+        background: #f0f0f0;
+        border: grey solid 1px;
+        padding: 2px;
+        margin: 3px;
+        cursor: pointer;
+        display: block;
+    }
+</style>
+<div>
+    <div ng-repeat="group in groups">
+        <task-group class="group" name="group.name" width="group.width" start="group.start"></task-group>
+    </div>
+</div>
+task-group-control

@@ -4,5 +4,6 @@ angular.module('kanban', [
     'kanban.templates',
     'ui.sortable',
     'mm.foundation',
-    'component.kanban-card'
+    'component.kanban-card',
+    'component.task-group-control'
 ]);
