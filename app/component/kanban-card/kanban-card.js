@@ -1,9 +1,9 @@
-angular.module('component.kanban-card', [
-    'angularMoment',
-    'component.glyph-icon'
-]).directive('kanbanCard', function () {
+angular.module('component.kanban-card').directive('kanbanCard', function (kanbanCardService) {
     return {
+        restrict: 'E',
         templateUrl: 'app/component/kanban-card/kanban-card.html',
-        link: function () {}
+        link: function ($scope) {
+            kanbanCardService.registerCard($scope.task.taskId, $scope);
+        }
     };
 });

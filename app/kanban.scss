@@ -7,15 +7,24 @@ $gutter: 6px;
         height: 100%;
     }
 
-    .kanban-group-title {
-        color: #555555;
-        font-size: 18px;
+    .kanban-column-title {
+        color: #FFFFFF;
+        font-size: 14px;
         font-weight: 600;
         text-align: left;
-        padding: 14px $gutter 9px;
+        padding: 10px $gutter 10px 10px;
+        background: #555555;
+        border-top: 1px solid #DEDEDE;
+        border-right: 1px solid #A2A2A2;
     }
 
-    .kanban-group {
+    .kanban-row {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+    }
+
+    .kanban-column {
         display: table-cell;
         vertical-align: top;
         width: 300px;
@@ -77,5 +86,11 @@ $gutter: 6px;
 
     .empty-placeholder + .as-sortable-placeholder {
         margin-top: -10px;
+    }
+
+    .kanban-groups {
+        background: #eec285;
+        padding: $gutter;
+        margin-bottom: 28px;
     }
 }

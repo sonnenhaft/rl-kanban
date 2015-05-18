@@ -1,9 +1,30 @@
-angular.module('component.kanban-group', [
-    'angularMoment',
-    'component.glyph-icon'
-]).directive('kanbanGroup', function () {
+angular.module('component.kanban-group').directive('kanbanGroup', function (kanbanService, kanbanGroupService, kanbanCardService, $timeout) {
     return {
+        restrict: 'E',
         templateUrl: 'app/component/kanban-group/kanban-group.html',
-        link: function () {}
+        scope: {
+            group: '='
+        },
+        link: function (scope, element) {
+            kanbanGroupService.registerGroup(scope.group.groupId, scope);
+
+            scope.removeItem = function (){
+                var cards;
+                $timeout(function () {
+                    cards = kanbanCardService.getCardsByGroupId(scope.group.groupId);
+                    angular.forEach(cards, function (card) {
+                        $timeout(function () {
+                            card.sortableScope.removeItem(card.index());
+                        })
+                    });
+                    element.remove();
+                });
+            };
+
+            var index = 0;
+            scope.shift = function(delta){
+                kanbanService.shift(scope.group.groupId, index, index + delta)
+            }
+        }
     };
 });

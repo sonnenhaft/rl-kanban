@@ -4,16 +4,17 @@
     </span>
     <div class="card-content">
         <div class="card-code">
-            <glyph-icon icon="card.app" class="card-icon"></glyph-icon>
-            {{::card.code}} / <span class="card-name">{{::card.name}}</span>
+            <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
+            {{::task.taskId | limitTo: 5}}: <span class="card-name">{{::task.taskName | limitTo: 13}}</span>
         </div>
-        <p><strong>Owner:</strong> {{::card.owner}}</p>
-        <p><strong>Assignee:</strong> {{::card.assignee}}</p>
-        <p>{{::card.description}}</p>
+        <p><strong>Owner:</strong> {{::task.ownerName}}</p>
+        <p><strong>Assignee:</strong> {{::task.assigneeName}}
+            <glyph-icon icon="{'glyph-lock2' : task.assignability}" class="card-icon"></glyph-icon></p>
+        <p>{{::task.description}}</p>
         </br>
-        <p><glyph-icon icon="{'glyph-lock2' : card.assignability}" class="card-icon"></glyph-icon><strong> {{::card.priority}}</strong></p>
+        <p><strong> {{::task.priority}}</strong><span> {{::task.state}}</span></p>
         <hr/>
-        <p>{{::card.created | date}} / <time am-time-ago="card.modified"></time></p>
+        <p>{{::task.creationDate | date}} / <time am-time-ago="task.modifiedDate"></time></p>
     </div>
     <div class="card-control">
         <glyph-icon ng-click="removeItem(index())" icon="'glyph-cancel-circle'" class="card-remove"></glyph-icon>

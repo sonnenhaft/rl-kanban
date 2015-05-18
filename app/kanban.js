@@ -3,8 +3,9 @@ angular.module('kanban').directive('kanban', function () {
         templateUrl: 'app/kanban.html',
         require: '^scrollableElement',
         scope: {board: '='},
-        link: function ($scope, i, j, scrollableElement) {
-            $scope.scrollCallbacks = {
+        link: function (scope, element, attrs, scrollableElement) {
+            scope.columns = scope.board.columns;
+            scope.scrollCallbacks = {
                 dragStart: scrollableElement.watchMouse,
                 dragEnd: scrollableElement.stopWatching,
                 containment: '.cards-container',

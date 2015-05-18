@@ -1,15 +1,12 @@
-var columns = {};
-return {
-    debug: function () {
-        console.log(columns);
-    },
-    registerColumn: function (colName, colScope) {
-        columns[colName] = colScope;
-    },
-    getColumn: function (colName) {
-        return columns[colName];
-    },
-    wipeColumns: function () {
-        columns = {};
-    }
-};
+angular.module('component.kanban-group')
+    .factory('kanbanGroupService', function () {
+        var groups = {};
+        return {
+            registerGroup: function (id, groupScope) {
+                groups[id] = groupScope;
+            },
+            getGroup: function (id) {
+                return groups[id];
+            }
+        };
+    });

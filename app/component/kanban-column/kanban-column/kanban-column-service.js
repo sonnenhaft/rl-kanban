@@ -1,12 +1,23 @@
-angular.module('component.kanban-group')
-    .factory('kanbanGroupService', function () {
-        var groups = {};
+angular.module('component.kanban-column')
+    .factory('kanbanColumnService', function () {
+        var columns = [];
         return {
-            registerGroup: function (id, groupScope) {
-                groups[id] = groupScope;
+            registerColumn: function (index, columnScope) {
+                columns[index] = columnScope;
             },
-            getGroup: function (id) {
-                return groups[id];
+            getColumn: function (index) {
+                return columns[index];
+            },
+            insertItem: function (columnIndex, itemData) {
+                var destScope = columns[columnIndex];
+                return destScope.insertItem(destScope.modelValue.length + 1, itemData);
+            },
+            removeItem: function (columnId, index) {
+                var destScope = columns[columnId];
+                destScope.removeItem(index);
+            },
+            canMove: function(index){
+                return index >= 0 && index < columns.length;
             }
         };
     });

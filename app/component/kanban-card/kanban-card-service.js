@@ -1,13 +1,21 @@
-angular
-    .module('component.scrollable-element')
-    .factory('kanbanGroupService', function () {
-        var groups = {};
+angular.module('component.kanban-card')
+    .factory('kanbanCardService', function () {
+        var cards = {};
         return {
-            registerGroup: function (id, groupScope) {
-                groups[id] = groupScope;
+            registerCard: function (id, cardScope) {
+                cards[id] = cardScope;
             },
-            getGroup: function (id) {
-                return groups[id];
+            getCard: function (id) {
+                return cards[id];
+            },
+            getCardsByGroupId: function (groupId) {
+                var selected = [];
+                angular.forEach(cards, function (cardScope) {
+                    if (angular.equals(groupId, cardScope.task.refGroupId)) {
+                        selected.push(cardScope);
+                    }
+                });
+                return selected;
             }
         };
     });

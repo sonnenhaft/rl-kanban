@@ -11,21 +11,26 @@
         -->
     </div>
     <div class="kanban-container">
-        <div class="kanban-row">
+            <div class="kanban-row">
             <div class="kanban-wrapper">
-                <div class="kanban-group as-sortable" ng-repeat="column in board.columns">
-                    <div class="kanban-group-title">
+                <div class="kanban-column as-sortable" ng-repeat="column in board.columns">
+                    <div class="kanban-column-title">
                         {{column.name}}
                         <!--{{column.cards.length}}-->
                     </div>
                 </div>
             </div>
+            <div class="kanban-groups">
+                <kanban-group class="kanban-group" group="group" ng-repeat="group in board.groups">
+
+                </kanban-group>
+            </div>
             <div class="kanban-wrapper cards-container">
-                <div class="kanban-group as-sortable" ng-repeat="column in board.columns" ng-model="column.cards"
-                     data-as-sortable="scrollCallbacks">
-                    <kanban-card class="kanban-card as-sortable-item" ng-class="card.state"
-                                 ng-repeat="card in column.cards" data-as-sortable-item></kanban-card>
-                    <div ng-if="!column.cards.length" class="empty-placeholder">No item on the list</div>
+                <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks"
+                     data-as-sortable="scrollCallbacks" kanban-column="{{::$index}}">
+                    <kanban-card class="kanban-card as-sortable-item" ng-class="task.type"
+                                 ng-repeat="task in column.tasks" data-as-sortable-item></kanban-card>
+                    <div ng-if="isEmpty()" class="empty-placeholder">No items on the list</div>
                 </div>
             </div>
         </div>
