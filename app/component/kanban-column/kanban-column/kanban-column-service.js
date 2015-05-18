@@ -10,11 +10,11 @@ angular.module('component.kanban-column')
             },
             insertItem: function (columnIndex, itemData) {
                 var destScope = columns[columnIndex];
-                return destScope.insertItem(destScope.modelValue.length + 1, itemData);
+                return destScope.insertItem(destScope.modelValue.length, itemData);
             },
-            removeItem: function (columnId, index) {
-                var destScope = columns[columnId];
-                destScope.removeItem(index);
+            removeItem: function (columnIndex, index) {
+                var destScope = columns[columnIndex];
+                return destScope.removeItem(index);
             },
             canMove: function(index){
                 return index >= 0 && index < columns.length;
