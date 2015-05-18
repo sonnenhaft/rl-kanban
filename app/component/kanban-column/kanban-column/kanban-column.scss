@@ -1,0 +1,10 @@
+$gutter: 6px;
+.kanban-group {
+  padding: $gutter;
+  background: #FFFFFF;
+  display: block;
+  
+  .remove-icon {
+    float: right;
+  }
+}
