@@ -3,7 +3,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (kanban
         restrict: 'E',
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function ($scope) {
-            kanbanCardService.registerCard($scope.task.taskId, $scope);
+            kanbanCardService.registerCard($scope.task.id, $scope);
         }
     };
 });

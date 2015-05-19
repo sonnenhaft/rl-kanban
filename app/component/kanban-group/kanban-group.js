@@ -6,12 +6,12 @@ angular.module('component.kanban-group').directive('kanbanGroup', function (kanb
             group: '='
         },
         link: function (scope, element) {
-            kanbanGroupService.registerGroup(scope.group.groupId, scope);
+            kanbanGroupService.registerGroup(scope.group.id, scope);
 
             scope.removeItem = function (){
                 var cards;
                 $timeout(function () {
-                    cards = kanbanCardService.getCardsByGroupId(scope.group.groupId);
+                    cards = kanbanCardService.getCardsByGroupId(scope.group.id);
                     angular.forEach(cards, function (card) {
                         $timeout(function () {
                             card.sortableScope.removeItem(card.index());
@@ -23,7 +23,7 @@ angular.module('component.kanban-group').directive('kanbanGroup', function (kanb
 
             var index = 0;
             scope.shift = function(delta){
-                kanbanService.shift(scope.group.groupId, index, index + delta)
+                kanbanService.shift(scope.group.id, index, index + delta)
             }
         }
     };

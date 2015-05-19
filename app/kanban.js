@@ -13,8 +13,7 @@ angular.module('kanban').directive('kanban', function () {
                 var length = scope.columns.length;
                 angular.forEach(scope.board.tasks, function(task){
                     for (var i = 0; i < length; i++) {
-                        if (task.refColumnId === scope.columns[i].columnId) {
-                            console.log(scope.columns[i])
+                        if (task.columnId === scope.columns[i].id) {
                             scope.columns[i].tasks.push(task);
                             break;
                         }

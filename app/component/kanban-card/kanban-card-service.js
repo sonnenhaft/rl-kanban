@@ -11,7 +11,7 @@ angular.module('component.kanban-card')
             getCardsByGroupId: function (groupId) {
                 var selected = [];
                 angular.forEach(cards, function (cardScope) {
-                    if (angular.equals(groupId, cardScope.task.refGroupId)) {
+                    if (angular.equals(groupId, cardScope.task.groupId)) {
                         selected.push(cardScope);
                     }
                 });

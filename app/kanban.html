@@ -1,17 +1,14 @@
-<!--<div ng-include="'app/add-resources-block.html'"></div>-->
 <div class="custom-kanban">
     <div class="swim-lane">
         <span class="swim-title">
             {{board.name}}
         </span>
-        <!--
         <button class="button white swim-button" onclick="alert('no aciton yet')">
             Add Task
         </button>
-        -->
     </div>
     <div class="kanban-container">
-            <div class="kanban-row">
+        <div class="kanban-row">
             <div class="kanban-wrapper">
                 <div class="kanban-column as-sortable" ng-repeat="column in columns">
                     <div class="kanban-column-title">

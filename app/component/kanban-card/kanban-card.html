@@ -5,7 +5,7 @@
     <div class="card-content">
         <div class="card-code">
             <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
-            {{::task.taskId | limitTo: 5}}: <span class="card-name">{{::task.taskName | limitTo: 13}}</span>
+            {{::task.id | limitTo: 5}}: <span class="card-name">{{::task.taskName | limitTo: 13}}</span>
         </div>
         <p><strong>Owner:</strong> {{::task.ownerName}}</p>
         <p><strong>Assignee:</strong> {{::task.assigneeName}}
