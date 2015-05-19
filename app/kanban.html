@@ -18,9 +18,7 @@
                 </div>
             </div>
             <div class="kanban-groups">
-                <kanban-group class="kanban-group" group="group" ng-repeat="group in groups">
-
-                </kanban-group>
+                <draggable-labels-control groups="groups" label-height="26" scrollable-element></draggable-labels-control>
             </div>
             <div class="kanban-wrapper cards-container">
                 <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks"

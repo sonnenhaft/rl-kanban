@@ -2,9 +2,8 @@ angular.module('kanban')
     .factory('kanbanService', function ($timeout, kanbanCardService, kanbanColumnService) {
         var columns = {};
         return {
-            shift: function (groupId, fromIndex, toIndex) {
-                var cards = kanbanCardService.getCardsByGroupId(groupId),
-                    delta = toIndex - fromIndex;
+            shift: function (groupId, delta) {
+                var cards = kanbanCardService.getCardsByGroupId(groupId);
                 angular.forEach(cards, function (card) {
                     $timeout(function(){
                         var itemData = card.itemData(),

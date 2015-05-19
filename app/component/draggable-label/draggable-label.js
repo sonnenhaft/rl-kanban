@@ -1,4 +1,4 @@
-angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler) {
+angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler, kanbanCardService, kanbanGroupService, kanbanService, $timeout) {
     var SNAP_SENSITIVITY = 0.2;
 
     function snapValue(val, sensivity) {
@@ -58,10 +58,6 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 $scope.$digest();
             }
 
-            $scope.remove = function () {
-                draggableLabelsControl.remove($scope.group);
-            };
-
             $deltaDraggableElement.move(function (deltaX, deltaY) {
                 updatePosition(deltaX, deltaY, SNAP_SENSITIVITY);
             });
@@ -69,8 +65,25 @@ angular.module('component.draggable-label').directive('draggableLabel', function
             $deltaDraggableElement.stop(function (deltaX, deltaY) {
                 scrollableElement.stopWatching();
                 updatePosition(deltaX, deltaY, 1);
+                kanbanService.shift($scope.group.id, snapValue(deltaX / groupWidth, 1));
                 $scope.$apply();
             });
+
+            kanbanGroupService.registerGroup($scope.group.id, $scope);
+
+            $scope.remove = function (){
+                var cards;
+                $timeout(function () {
+                    cards = kanbanCardService.getCardsByGroupId($scope.group.id);
+                    angular.forEach(cards, function (card) {
+                        $timeout(function () {
+                            card.sortableScope.removeItem(card.index());
+                        })
+                    });
+                    draggableLabelsControl.remove($scope.group);
+                });
+            };
+
         },
         templateUrl: 'app/component/draggable-label/draggable-label.html'
     }
