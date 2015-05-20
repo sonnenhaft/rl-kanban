@@ -21,6 +21,7 @@ angular.module('kanban')
                 var cards = kanbanCardService.getCardsByGroupId(groupId),
                     originalDelta = delta;
 
+
                 angular.forEach(cards, function (card) {
                     $timeout(function(){
                         var itemData = card.itemData(),
@@ -28,6 +29,7 @@ angular.module('kanban')
                             columnIndex = card.sortableScope.index;
 
                         if (delta === 0) {
+
                             delta = originalDelta;
                             return;
                         }
