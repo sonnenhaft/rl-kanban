@@ -13,15 +13,15 @@ angular.module('component.draggable-labels-control', [
 
             this.updateIndex = function (formIndex, toIndex) {
                 if (toIndex === formIndex || toIndex < 0 || toIndex > $scope.groups.length - 1) {
-                    return
+                    return;
                 }
 
                 var from = $scope.groups.filter(function (item) {
-                    return item.index == formIndex;
+                    return item.index === formIndex;
                 })[0];
 
                 var to = $scope.groups.filter(function (item) {
-                    return item.index == toIndex;
+                    return item.index === toIndex;
                 })[0];
                 from.index = toIndex;
                 to.index = formIndex;
@@ -37,7 +37,8 @@ angular.module('component.draggable-labels-control', [
                 });
 
                 groups.forEach(function (group, index) {
-                    return group.index = index;
+                    group.index = index;
+                    return index;
                 });
             };
 

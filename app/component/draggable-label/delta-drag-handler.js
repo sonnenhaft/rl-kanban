@@ -48,7 +48,7 @@ angular.module('component.draggable-label').factory('deltaDragHandler', function
 
         $element.bind('mousedown', dragListen);
         $element.bind('touchstart', function(e){
-            dragListen(touchToMouse(e))
+            dragListen(touchToMouse(e));
         });
     }
 

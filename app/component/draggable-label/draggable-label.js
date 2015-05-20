@@ -1,4 +1,6 @@
-angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler, kanbanCardService, kanbanGroupService, kanbanService, $timeout) {
+angular
+    .module('component.draggable-label')
+    .directive('draggableLabel', function (deltaDragHandler, kanbanCardService, kanbanGroupService, kanbanService, $timeout) {
     var SNAP_SENSITIVITY = 0.2;
 
     function snapValue(val, sensivity) {
@@ -33,7 +35,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
             }
 
             function setWidth(width) {
-                $element.css('width', (width * groupWidth - 4) + 'px')
+                $element.css('width', (width * groupWidth - 4) + 'px');
             }
 
             $scope.$watch('group.start', setLeft);
@@ -68,7 +70,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 updatePosition(deltaX, deltaY, SNAP_SENSITIVITY);
             });
 
-            $deltaDraggableElement.stop(function (deltaX, deltaY) {
+            $deltaDraggableElement.stop(function (deltaX/*, deltaY*/) {
                 scrollableElement.stopWatching();
                 var snapX = snapValue(deltaX / groupWidth, 1);
                 if (snapX) {
@@ -96,10 +98,23 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                         card.sortableScope.removeItem(card.index());
                     });
                 });
+                kanbanGroupService.removeGroup($scope.group.id);
                 draggableLabelsControl.remove($scope.group);
+            };
+
+            $scope.checkPosition = function(fromColumn, toColumn) {
+                var start = $scope.group.start,
+                    end = start + $scope.group.width - 1;
+
+                if (start > toColumn) {
+                    $scope.group.width = start - toColumn + $scope.group.width;
+                    $scope.group.start = toColumn;
+                } else if (end < toColumn) {
+                    $scope.group.width = start + toColumn - $scope.group.width;
+                }
             };
 
         },
         templateUrl: 'app/component/draggable-label/draggable-label.html'
-    }
+    };
 });

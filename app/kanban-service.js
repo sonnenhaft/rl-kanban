@@ -1,6 +1,5 @@
 angular.module('kanban')
-    .factory('kanbanService', function ($timeout, kanbanCardService, kanbanColumnService) {
-        var columns = {};
+    .factory('kanbanService', function ($timeout, kanbanCardService, kanbanColumnService, kanbanGroupService) {
         return {
             shift: function (groupId, delta) {
                 var cards = kanbanCardService.getCardsByGroupId(groupId);
@@ -17,7 +16,7 @@ angular.module('kanban')
                     });
                 });
             },
-            spread: function(groupId, delta, length){
+            spread: function(groupId, delta){
                 var cards = kanbanCardService.getCardsByGroupId(groupId),
                     originalDelta = delta;
 
@@ -41,6 +40,14 @@ angular.module('kanban')
                         }
                     });
                 });
+            },
+            itemMoved: function(event){
+                var card = event.source.itemScope.task,
+                    group = kanbanGroupService.getGroup(card.groupId),
+                    fromColumn = event.source.sortableScope.index,
+                    toColumn = event.dest.sortableScope.index;
+
+                group.checkPosition(fromColumn, toColumn);
             }
         };
     });

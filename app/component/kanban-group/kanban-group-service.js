@@ -7,6 +7,11 @@ angular.module('component.kanban-group')
             },
             getGroup: function (id) {
                 return groups[id];
+            },
+            removeGroup: function (id) {
+                if (groups[id]) {
+                    delete groups[id];
+                }
             }
         };
     });

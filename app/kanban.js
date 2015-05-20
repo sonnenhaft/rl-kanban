@@ -1,4 +1,4 @@
-angular.module('kanban').directive('kanban', function () {
+angular.module('kanban').directive('kanban', function (kanbanService) {
     return {
         templateUrl: 'app/kanban.html',
         require: '^scrollableElement',
@@ -6,8 +6,6 @@ angular.module('kanban').directive('kanban', function () {
         link: function (scope, element, attrs, scrollableElement) {
             scope.columns = scope.board.columns;
             scope.groups = scope.board.groups;
-
-            init();
 
             function init() {
                 var length = scope.columns.length;
@@ -24,9 +22,12 @@ angular.module('kanban').directive('kanban', function () {
             scope.scrollCallbacks = {
                 dragStart: scrollableElement.watchMouse,
                 dragEnd: scrollableElement.stopWatching,
+                itemMoved: kanbanService.itemMoved,
                 containment: '.cards-container',
                 scrollableContainer: '.kanban-row'
             };
+
+            init();
         }
     };
 });

@@ -15,7 +15,7 @@ angular.module('component.kanban-group').directive('kanbanGroup', function (kanb
                     angular.forEach(cards, function (card) {
                         $timeout(function () {
                             card.sortableScope.removeItem(card.index());
-                        })
+                        });
                     });
                     element.remove();
                 });
@@ -23,8 +23,8 @@ angular.module('component.kanban-group').directive('kanbanGroup', function (kanb
 
             var index = 0;
             scope.shift = function(delta){
-                kanbanService.shift(scope.group.id, index, index + delta)
-            }
+                kanbanService.shift(scope.group.id, index, index + delta);
+            };
         }
     };
 });

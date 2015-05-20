@@ -1,9 +1,6 @@
 angular.module('component.draggable-label').directive('resizeButton', function ($window) {
     var $rootElement = angular.element($window.document.documentElement);
     return function ($scope, $element) {
-        $element.bind('mousedown', mouseDown);
-        $element.bind('touchstart', mouseDown);
-
         function mouseDown() {
             $rootElement.bind('mouseup', mouseUp);
             $rootElement.bind('touchend', mouseUp);
@@ -15,5 +12,8 @@ angular.module('component.draggable-label').directive('resizeButton', function (
             $rootElement.unbind('touchend', mouseUp);
             $scope.resize = false;
         }
-    }
+
+        $element.bind('mousedown', mouseDown);
+        $element.bind('touchstart', mouseDown);
+    };
 });
