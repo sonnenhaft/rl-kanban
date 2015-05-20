@@ -17,18 +17,24 @@ angular.module('component.draggable-label').directive('draggableLabel', function
             height: '=labelHeight',
             width: '='
         },
-        require: ['^draggableLabelsControl','^scrollableElement'],
+        require: ['^draggableLabelsControl', '^scrollableElement'],
         link: function ($scope, $element, ignored, require) {
             var draggableLabelsControl = require[0];
             var scrollableElement = require[1];
             var groupWidth = $scope.width;
             var groupHeight = $scope.height;
 
-            function setTop(top) { $element.css({top: (top * groupHeight + 4) + 'px'});}
+            function setTop(top) {
+                $element.css({top: (top * groupHeight + 4) + 'px'});
+            }
 
-            function setLeft(leftPx) {$element.css({left: (leftPx * groupWidth + 4) + 'px'});}
+            function setLeft(leftPx) {
+                $element.css({left: (leftPx * groupWidth + 4) + 'px'});
+            }
 
-            function setWidth(width) { $element.css('width', (width * groupWidth - 4) + 'px')}
+            function setWidth(width) {
+                $element.css('width', (width * groupWidth - 4) + 'px')
+            }
 
             $scope.$watch('group.start', setLeft);
             $scope.$watch('group.index', setTop);
@@ -47,7 +53,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
             function updatePosition(deltaX, deltaY, sensivity) {
                 var snapX = snapValue(deltaX / groupWidth, sensivity);
                 if (!$scope.resize) {
-                    if(initialLeft + snapX >= 0) {
+                    if (initialLeft + snapX >= 0) {
                         $scope.group.start = initialLeft + snapX;
                     }
                     draggableLabelsControl.updateIndex($scope.group.index, initialTop + Math.round(deltaY / groupHeight));
@@ -64,24 +70,33 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
             $deltaDraggableElement.stop(function (deltaX, deltaY) {
                 scrollableElement.stopWatching();
-                updatePosition(deltaX, deltaY, 1);
-                kanbanService.shift($scope.group.id, snapValue(deltaX / groupWidth, 1));
+                var snapX = snapValue(deltaX / groupWidth, 1);
+                if (snapX) {
+                    if ($scope.group.width === initialWidth) {
+                        kanbanService.shift($scope.group.id, snapX);
+                        $scope.group.start = initialLeft + snapX;
+                    } else if ($scope.group.width !== initialWidth) {
+                        kanbanService.spread($scope.group.id, snapX, initialWidth - snapX);
+                        $scope.group.width = initialWidth - snapX;
+                        $scope.group.start = initialLeft + snapX;
+                    }
+                } else {
+                    $scope.group.width = initialWidth;
+                    $scope.group.start = initialLeft;
+                }
                 $scope.$apply();
             });
 
             kanbanGroupService.registerGroup($scope.group.id, $scope);
 
-            $scope.remove = function (){
-                var cards;
-                $timeout(function () {
-                    cards = kanbanCardService.getCardsByGroupId($scope.group.id);
-                    angular.forEach(cards, function (card) {
-                        $timeout(function () {
-                            card.sortableScope.removeItem(card.index());
-                        })
+            $scope.remove = function () {
+                var cards = kanbanCardService.getCardsByGroupId($scope.group.id);
+                angular.forEach(cards, function (card) {
+                    $timeout(function(){
+                        card.sortableScope.removeItem(card.index());
                     });
-                    draggableLabelsControl.remove($scope.group);
                 });
+                draggableLabelsControl.remove($scope.group);
             };
 
         },
