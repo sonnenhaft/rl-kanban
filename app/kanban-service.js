@@ -19,8 +19,7 @@ angular.module('kanban')
             },
             spread: function(groupId, delta, length){
                 var cards = kanbanCardService.getCardsByGroupId(groupId),
-                    originalDelta = delta,
-                    max = length + delta;
+                    originalDelta = delta;
 
                 angular.forEach(cards, function (card) {
                     $timeout(function(){
@@ -28,7 +27,7 @@ angular.module('kanban')
                             index = card.index(),
                             columnIndex = card.sortableScope.index;
 
-                        if (steps === 0) {
+                        if (delta === 0) {
                             delta = originalDelta;
                             return;
                         }
