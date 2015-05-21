@@ -42,19 +42,19 @@ angular.module('kanban')
                 });
             },
             itemMoved: function (event) {
-                var card = event.source.itemScope.task,
-                    group = kanbanGroupService.getGroup(card.groupId),
+                var groupId = event.source.itemScope.task.groupId,
                     fromColumn = event.source.sortableScope.index,
                     toColumn = event.dest.sortableScope.index,
+                    group = kanbanGroupService.getGroup(groupId),
                     groupX = group.getGroupPosition();
 
                 if ((groupX.start === fromColumn) && (toColumn > groupX.start) || (groupX.end === fromColumn) && (groupX.end > toColumn)) {
                     var index = fromColumn,
-                        isLast = kanbanColumnService.getColumn(fromColumn).isLastCard(card.groupId);
+                        isLast = kanbanColumnService.getColumn(fromColumn).isLastCard(groupId);
                     
                     while (isLast) {
                         fromColumn > toColumn ? index-- : index++;
-                        isLast = kanbanColumnService.getColumn(index).isLastCard(card.groupId);
+                        isLast = kanbanColumnService.getColumn(index).isLastCard(groupId);
                     }
                     fromColumn > toColumn ? group.setEnd(index) : group.setStart(index);
 
