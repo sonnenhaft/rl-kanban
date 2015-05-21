@@ -1,5 +1,5 @@
 angular.module('kanban').directive('kanban', function (kanbanService) {
-    asfdlkjsdfalreturn {
+    return {
         templateUrl: 'app/kanban.html',
         require: '^scrollableElement',
         scope: {board: '='},
