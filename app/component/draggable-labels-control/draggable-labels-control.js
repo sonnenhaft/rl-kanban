@@ -38,10 +38,8 @@ angular.module('component.draggable-labels-control', [
 
                 groups.forEach(function (group, index) {
                     group.index = index;
-                    return index;
                 });
             };
-
         }
     };
 });

@@ -3,23 +3,11 @@ angular.module('kanban').directive('kanban', function (kanbanService) {
         templateUrl: 'app/kanban.html',
         require: '^scrollableElement',
         scope: {board: '='},
-        link: function (scope, element, attrs, scrollableElement) {
-            scope.columns = scope.board.columns;
-            scope.groups = scope.board.groups;
-
-            function init() {
-                var length = scope.columns.length;
-                angular.forEach(scope.board.tasks, function(task){
-                    for (var i = 0; i < length; i++) {
-                        if (task.columnId === scope.columns[i].id) {
-                            scope.columns[i].tasks.push(task);
-                            break;
-                        }
-                    }
-                });
-            }
-
-            scope.scrollCallbacks = {
+        replace: true,
+        link: function ($scope, element, attrs, scrollableElement) {
+            $scope.columns = $scope.board.columns;
+            $scope.groups = $scope.board.groups;
+            $scope.scrollCallbacks = {
                 dragStart: scrollableElement.watchMouse,
                 dragEnd: scrollableElement.stopWatching,
                 itemMoved: kanbanService.itemMoved,
@@ -27,7 +15,32 @@ angular.module('kanban').directive('kanban', function (kanbanService) {
                 scrollableContainer: '.kanban-row'
             };
 
-            init();
+            $scope.columns.forEach(function (column) {
+                column.tasks = $scope.board.tasks.filter(function (task) {
+                    return task.columnId === column.id;
+                });
+
+                column.tasks.forEach(function(task){
+                    task.column = column;
+                });
+            });
+
+            $scope.groups.forEach(function (group) {
+                group.tasks = $scope.board.tasks.filter(function (task) {
+                    return task.groupId === group.id;
+                });
+                group.tasks.forEach(function(task){
+                    task.group = group;
+                });
+            });
+
+            $scope.$on('group-removed', function(e, task){
+                var tasks = task.group.tasks;
+                tasks.splice(tasks.indexOf(task), 1);
+                if (!tasks.length) {
+                    $scope.groups.splice($scope.groups.indexOf(task.group), 1);
+                }
+            });
         }
     };
 });

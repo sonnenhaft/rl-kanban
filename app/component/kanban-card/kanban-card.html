@@ -17,6 +17,6 @@
         <p>{{::task.creationDate | date}} / <time am-time-ago="task.modifiedDate"></time></p>
     </div>
     <div class="card-control">
-        <glyph-icon ng-click="removeItem(index())" icon="'glyph-cancel-circle'" class="card-remove"></glyph-icon>
+        <glyph-icon ng-click="remove()" icon="'glyph-cancel-circle'" class="card-remove"></glyph-icon>
     </div>
 </div>

@@ -17,23 +17,18 @@ angular.module('kanban')
                 });
             },
             spread: function (groupId, delta) {
-                var cards = kanbanCardService.getCardsByGroupId(groupId),
-                    originalDelta = delta;
+                var cards = kanbanCardService.getCardsByGroupId(groupId);
+                var originalDelta = delta;
 
-
-                angular.forEach(cards, function (card) {
+                cards.forEach(function (card) {
                     $timeout(function () {
-                        var itemData = card.itemData(),
-                            index = card.index(),
-                            columnIndex = card.sortableScope.index;
+                        var itemData = card.itemData();
+                        var index = card.index();
+                        var columnIndex = card.sortableScope.index;
 
-                        if (delta === 0) {
-
+                        if (!delta) {
                             delta = originalDelta;
-                            return;
-                        }
-
-                        if (kanbanColumnService.canMove(columnIndex + delta)) {
+                        } else if (kanbanColumnService.canMove(columnIndex + delta)) {
                             kanbanColumnService.insertItem(columnIndex + delta, itemData);
                             kanbanColumnService.removeItem(columnIndex, index);
                             originalDelta < 0 ? delta++ : delta--;
@@ -49,9 +44,9 @@ angular.module('kanban')
                     groupX = group.getGroupPosition();
 
                 if ((groupX.start === fromColumn) && (toColumn > groupX.start) || (groupX.end === fromColumn) && (groupX.end > toColumn)) {
-                    var index = fromColumn,
-                        isLast = kanbanColumnService.getColumn(fromColumn).isLastCard(card.groupId);
-                    
+                    var index = fromColumn;
+                    var isLast = kanbanColumnService.getColumn(fromColumn).isLastCard(card.groupId);
+
                     while (isLast) {
                         fromColumn > toColumn ? index-- : index++;
                         isLast = kanbanColumnService.getColumn(index).isLastCard(card.groupId);
