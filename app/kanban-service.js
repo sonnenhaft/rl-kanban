@@ -4,7 +4,7 @@ angular.module('kanban')
             shift: function (groupId, delta) {
                 var cards = kanbanCardService.getCardsByGroupId(groupId);
                 angular.forEach(cards, function (card) {
-                    $timeout(function(){
+                    $timeout(function () {
                         var itemData = card.itemData(),
                             index = card.index(),
                             columnIndex = card.sortableScope.index;
@@ -16,13 +16,13 @@ angular.module('kanban')
                     });
                 });
             },
-            spread: function(groupId, delta){
+            spread: function (groupId, delta) {
                 var cards = kanbanCardService.getCardsByGroupId(groupId),
                     originalDelta = delta;
 
 
                 angular.forEach(cards, function (card) {
-                    $timeout(function(){
+                    $timeout(function () {
                         var itemData = card.itemData(),
                             index = card.index(),
                             columnIndex = card.sortableScope.index;
@@ -41,12 +41,24 @@ angular.module('kanban')
                     });
                 });
             },
-            itemMoved: function(event){
+            itemMoved: function (event) {
                 var card = event.source.itemScope.task,
                     group = kanbanGroupService.getGroup(card.groupId),
                     fromColumn = event.source.sortableScope.index,
-                    toColumn = event.dest.sortableScope.index;
+                    toColumn = event.dest.sortableScope.index,
+                    groupX = group.getGroupPosition();
 
+                if ((groupX.start === fromColumn) && (toColumn > groupX.start) || (groupX.end === fromColumn) && (groupX.end > toColumn)) {
+                    var index = fromColumn,
+                        isLast = kanbanColumnService.getColumn(fromColumn).isLastCard(card.groupId);
+                    
+                    while (isLast) {
+                        fromColumn > toColumn ? index-- : index++;
+                        isLast = kanbanColumnService.getColumn(index).isLastCard(card.groupId);
+                    }
+                    fromColumn > toColumn ? group.setEnd(index) : group.setStart(index);
+
+                }
                 group.checkPosition(fromColumn, toColumn);
             }
         };
