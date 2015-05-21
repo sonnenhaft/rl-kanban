@@ -35,7 +35,7 @@ angular
             }
 
             function setWidth(width) {
-                $element.css('width', (width * groupWidth - 4) + 'px');
+                $element.css('width', (width * groupWidth - 4*2) + 'px');
             }
 
             $scope.$watch('group.start', setLeft);
