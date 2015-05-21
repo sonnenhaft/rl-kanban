@@ -8,7 +8,7 @@ $orange-marker: #df6826;
     color: #555555;
     background-color: #ffffff;
     border-top: $marker-height solid #ccc;
-    margin: $gutter;
+    margin: $gutter $gutter $gutter 0 ;
     position: relative;
     z-index: 0;
     &:before {
