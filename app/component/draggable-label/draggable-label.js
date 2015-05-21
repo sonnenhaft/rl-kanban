@@ -44,6 +44,9 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
                 var initialWidth, initialTop, initialLeft;
                 $deltaDraggableElement.start(function () {
+                    $scope.$apply(function(){
+                        $scope.group.highlightTasks(true);
+                    });
                     scrollableElement.watchMouse();
                     initialLeft = $scope.group.start;
                     initialTop = $scope.group.index;
@@ -69,6 +72,9 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 });
 
                 $deltaDraggableElement.stop(function (deltaX/*, deltaY*/) {
+                    $scope.$apply(function(){
+                        $scope.group.highlightTasks(false);
+                    });
                     scrollableElement.stopWatching();
                     var snapX = snapValue(deltaX / groupWidth, 1);
                     if (snapX) {

@@ -9,11 +9,17 @@ angular.module('component.kanban-board',[
         replace: true,
         link: function ($scope, i, j, scrollableElement) {
             $scope.scrollCallbacks = {
-                dragStart: scrollableElement.watchMouse,
-                dragEnd: scrollableElement.stopWatching,
+                dragStart: function(e){
+                    e.source.itemScope.task.group.highlight = true;
+                    scrollableElement.watchMouse();
+                },
+                dragEnd: function(e){
+                    e.source.itemScope.task.group.highlight = false;
+                    scrollableElement.stopWatching();
+                },
                 itemMoved: kanbanService.itemMoved,
                 containment: '.cards-container',
-                scrollableContainer: '.kanban-row'
+                scrollableContainer: '.kanban'
             };
         }
     };

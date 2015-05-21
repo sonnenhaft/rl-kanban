@@ -22,6 +22,12 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
                 });
             }
 
+            function highlightTasks(bool) {
+                this.tasks.forEach(function(task){
+                    task.highlight = bool;
+                });
+            }
+
             groups.forEach(function (group) {
                 group.removeTask = removeTask;
                 group.tasks = tasks.filter(function (task) {
@@ -33,6 +39,7 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
                 });
 
                 group.remove = removeGroup;
+                group.highlightTasks = highlightTasks;
             });
         }
     };

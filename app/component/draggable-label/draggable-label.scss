@@ -1,4 +1,7 @@
 .draggable-label {
+    &.opacity {
+        opacity: 0.5;
+    }
     position: absolute;
     background: #fff;
     color: #5D5D5D;
