@@ -1,5 +1,5 @@
-angular.module('kanban')
-    .factory('kanbanService', function ($timeout, kanbanCardService, kanbanColumnService, kanbanGroupService) {
+//TODO: remove this service, and add methods to tasks, groups and columns
+angular.module('kanban').factory('kanbanService', function ($timeout, kanbanCardService, kanbanColumnService, kanbanGroupService) {
         return {
             shift: function (groupId, delta) {
                 var cards = kanbanCardService.getCardsByGroupId(groupId);

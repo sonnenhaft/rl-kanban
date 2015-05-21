@@ -1,32 +1,7 @@
-<div class="custom-kanban">
-    <div class="swim-lane">
-        <span class="swim-title">
-            {{board.name}}
-        </span>
-        <button class="button white swim-button" onclick="alert('no aciton yet')">
-            Add Task
-        </button>
-    </div>
-    <div class="kanban-container">
-        <div class="kanban-row">
-            <div class="kanban-wrapper">
-                <div class="kanban-column as-sortable" ng-repeat="column in columns">
-                    <div class="kanban-column-title">
-                        {{column.name}}
-                    </div>
-                </div>
-            </div>
-            <div class="kanban-groups">
-                <draggable-labels-control groups="groups" label-height="26" scrollable-element></draggable-labels-control>
-            </div>
-            <div class="kanban-wrapper cards-container">
-                <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks"
-                     data-as-sortable="scrollCallbacks" kanban-column="{{::$index}}">
-                    <kanban-card class="kanban-card as-sortable-item" ng-class="task.type"
-                                 ng-repeat="task in column.tasks" data-as-sortable-item></kanban-card>
-                    <div ng-if="isEmpty()" class="empty-placeholder">No items on the list</div>
-                </div>
-            </div>
-        </div>
+<div ng-if="config" style="margin: 10px;">
+    <div scrollable-element>
+        <column-names columns="config.columns"></column-names>
+        <draggable-labels-control groups="config.groups" label-height="26" scrollable-element></draggable-labels-control>
+        <kanban-board columns="config.columns"></kanban-board>
     </div>
 </div>

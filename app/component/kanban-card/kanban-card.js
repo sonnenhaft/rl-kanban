@@ -1,4 +1,4 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (kanbanCardService, $rootScope) {
+angular.module('component.kanban-card').directive('kanbanCard', function (kanbanCardService) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function ($scope) {
@@ -6,7 +6,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (kanban
 
             $scope.remove = function () {
                 //TODO: replace with something else
-                $rootScope.$broadcast('group-removed', $scope.task);
+                $scope.task.removeFromGroup();
                 $scope.removeItem($scope.index());
             };
         }

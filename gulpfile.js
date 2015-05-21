@@ -92,11 +92,13 @@ function initPrivateTasks() {
             processhtml = require('gulp-processhtml'),
         //    cssBase64 = require('gulp-css-base64'),
             urlAdjuster = require('gulp-css-url-adjuster'),
-            ver = require('gulp-ver'),
+            ver = require('gulp-ver');
         //staticAssetsDir = 'static-assets-v' + pkg.version + '/';
-            staticAssetsDir = 'static-assets/';
 
-        gulp.src('app/**/font/*.*').pipe(copy('deployment/' + staticAssetsDir + 'font', {prefix: 10}));
+        var staticAssetsDir = 'static-assets/';
+
+        gulp.src(['app/**/font/*.*']).pipe(copy('deployment/' + staticAssetsDir + 'font', {prefix: 10}));
+        gulp.src(['app/component/**/*.png']).pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
         gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
 
         var uglify = require('gulp-uglify'),

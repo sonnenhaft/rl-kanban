@@ -1,5 +1,4 @@
-$gutter: 6px;
-.custom-kanban {
+.kanban-board {
     background: #f0f0f0;
     .kanban-wrapper {
         display: table;
@@ -7,21 +6,10 @@ $gutter: 6px;
         height: 100%;
     }
 
-    .kanban-column-title {
-        color: #FFFFFF;
-        font-size: 14px;
-        font-weight: 600;
-        text-align: left;
-        padding: 10px $gutter 10px 10px;
-        background: #555555;
-        border-top: 1px solid #DEDEDE;
-        border-right: 1px solid #A2A2A2;
-    }
-
     .kanban-row {
-        overflow-y: hidden;
-        overflow-x: scroll;
-        width: 100%;
+        //overflow-y: hidden;
+        //overflow-x: scroll;
+        //width: 100%;
     }
 
     .kanban-column {
@@ -32,11 +20,11 @@ $gutter: 6px;
     }
 
     .kanban-container {
-        padding: 0 20px;
+        //padding: 0 20px;
     }
 
     .cards-container {
-        padding-bottom: 24px;
+        //padding-bottom: 24px;
     }
 
     .swim-lane {
@@ -45,7 +33,7 @@ $gutter: 6px;
     }
 
     .swim-title {
-        padding: 0 $gutter;
+        padding: 0 6px;
         color: #555555;
         font-size: 18px;
         font-weight: 600;
@@ -86,11 +74,5 @@ $gutter: 6px;
 
     .empty-placeholder + .as-sortable-placeholder {
         margin-top: -10px;
-    }
-
-    .kanban-groups {
-        background: #eec285;
-        //padding: $gutter;
-        //margin-bottom: 28px;
     }
 }
