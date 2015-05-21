@@ -36,7 +36,7 @@ angular.module('kanban').directive('kanban', function () {
                 });
                 group.tasks.forEach(function (task) {
                     task.group = group;
-                    task.removeFromGroup = removeFromGroup();
+                    task.removeFromGroup = removeFromGroup;
                 });
             });
         }
