@@ -1,9 +1,11 @@
 .draggable-labels-control {
     background: #eec285;
     position: relative;
-    //background: #FFC080;
-    width: 2500px;
-
-    //margin: 20px;
-    //border: 10px solid black
+    .white-line {
+        height: 100%;
+        width: 1px;
+        background: white;
+        display: inline-block;
+        margin-left: 299px;
+    }
 }

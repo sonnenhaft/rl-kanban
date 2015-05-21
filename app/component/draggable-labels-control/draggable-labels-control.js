@@ -1,7 +1,7 @@
 angular.module('component.draggable-labels-control', [
 ]).directive('draggableLabelsControl', function () {
     return {
-        scope: {groups: '='},
+        scope: {groups: '=', columns: '='},
         replace:true,
         templateUrl: 'app/component/draggable-labels-control/draggable-labels-control.html',
         controller: function ($scope, $element, $attrs) {
@@ -9,6 +9,11 @@ angular.module('component.draggable-labels-control', [
             $scope.$watch('groups.length', function(length){
                 length = length || 0;
                 $element.css('height', ((length + 1) * labelHeight - 4) + 'px');
+            });
+
+            $scope.$watch('columns.length', function(length){
+                $element.css('width', length * 300 + 'px');
+                console.log(length)
             });
 
             this.updateIndex = function (formIndex, toIndex) {
@@ -27,18 +32,6 @@ angular.module('component.draggable-labels-control', [
                 to.index = formIndex;
 
                 $scope.$digest();
-            };
-
-            this.remove = function (group) {
-                var groups = $scope.groups;
-                groups.splice(groups.indexOf(group), 1);
-                $scope.groups = groups.sort(function (group1, group2) {
-                    return group1.index > group2.index ? 1 : -1;
-                });
-
-                groups.forEach(function (group, index) {
-                    group.index = index;
-                });
             };
         }
     };

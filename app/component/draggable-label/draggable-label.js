@@ -90,6 +90,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 kanbanGroupService.registerGroup($scope.group.id, $scope);
 
                 $scope.remove = function () {
+                    $scope.group.remove();
                     var cards = kanbanCardService.getCardsByGroupId($scope.group.id);
                     angular.forEach(cards, function (card) {
                         $timeout(function () {
@@ -97,7 +98,6 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                         });
                     });
                     kanbanGroupService.removeGroup($scope.group.id);
-                    draggableLabelsControl.remove($scope.group);
                 };
 
                 $scope.checkPosition = function (fromColumn, toColumn) {

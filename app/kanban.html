@@ -1,7 +1,5 @@
-<div ng-if="config" style="margin: 10px;">
-    <div scrollable-element>
-        <column-names columns="config.columns"></column-names>
-        <draggable-labels-control groups="config.groups" label-height="26" scrollable-element></draggable-labels-control>
-        <kanban-board columns="config.columns"></kanban-board>
-    </div>
+<div scrollable-element ng-if="config" style="margin: 10px;">
+    <column-names columns="config.columns"></column-names>
+    <draggable-labels-control groups="config.groups" columns="config.columns" label-height="26"></draggable-labels-control>
+    <kanban-board columns="config.columns"></kanban-board>
 </div>
