@@ -95,8 +95,8 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
                 kanbanGroupService.registerGroup($scope.group.id, $scope);
 
-                $scope.remove = function () {
-                    $scope.group.remove();
+                $scope.remove = function (group) {
+                    group.remove();
                     var cards = kanbanCardService.getCardsByGroupId($scope.group.id);
                     angular.forEach(cards, function (card) {
                         $timeout(function () {
@@ -104,35 +104,6 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                         });
                     });
                     kanbanGroupService.removeGroup($scope.group.id);
-                };
-
-                $scope.checkPosition = function (fromColumn, toColumn) {
-                    var start = $scope.group.start;
-                    var end = start + $scope.group.width - 1;
-
-                    if (start > toColumn) {
-                        $scope.group.width = start - toColumn + $scope.group.width;
-                        $scope.group.start = toColumn;
-                    } else if (end < toColumn) {
-                        $scope.group.width = toColumn - start + 1;
-                    }
-                };
-
-                $scope.setEnd = function (index) {
-                    $scope.group.width = index - $scope.group.start + 1;
-                };
-
-                $scope.setStart = function (index) {
-                    var end = $scope.group.width + $scope.group.start - 1;
-                    $scope.group.start = index;
-                    $scope.group.width = end - $scope.group.start + 1;
-                };
-
-                $scope.getGroupPosition = function () {
-                    return {
-                        start: $scope.group.start,
-                        end: $scope.group.width + $scope.group.start - 1
-                    };
                 };
             },
             templateUrl: 'app/component/draggable-label/draggable-label.html'

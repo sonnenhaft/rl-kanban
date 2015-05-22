@@ -1,10 +1,20 @@
-angular.module('kanban').factory('groupsRelationsHelper', function () {
+angular.module('kanban').factory('groupsRelationsHelper', function ($rootScope) {
     return {
         relateTasks: function (groups, tasks) {
             function removeTask(task) {
                 var tasks = this.tasks;
                 tasks.splice(tasks.indexOf(task), 1);
-                if (!tasks.length) {
+                if (tasks.length) {
+                    var isLast = !tasks.some(function(task_) {
+                        return task.columnId === task_.columnId;
+                    });
+                    if (isLast) {
+                        var indexes = tasks.map(function(task){
+                            return task.column.index;
+                        }).sort(function(a,b){return a - b});
+                        task.group.move(indexes[0], indexes[indexes.length - 1])
+                    }
+                } else {
                     groups.splice(groups.indexOf(task.group), 1);
                 }
             }
@@ -28,8 +38,14 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
                 });
             }
 
+            function move(start, end){
+                this.start = start;
+                this.width = end - start + 1;
+            }
+
             groups.forEach(function (group) {
                 group.removeTask = removeTask;
+                group.move = move;
                 group.tasks = tasks.filter(function (task) {
                     return task.groupId === group.id;
                 });

@@ -8,6 +8,7 @@ angular.module('kanban').factory('columnsRelationsHelper', function () {
 
                 column.tasks.forEach(function (task) {
                     task.column = column;
+                    task.columns = columns;
                 });
             });
         }
