@@ -1,4 +1,4 @@
-angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler, kanbanCardService, kanbanGroupService, kanbanService, $timeout) { //jshint ignore: line
+angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler, kanbanService) { //jshint ignore: line
         var SNAP_SENSITIVITY = 0.2;
 
         function snapValue(val, sensivity) {
@@ -72,17 +72,15 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 });
 
                 $deltaDraggableElement.stop(function (deltaX/*, deltaY*/) {
-                    $scope.$apply(function(){
-                        $scope.group.highlightTasks(false);
-                    });
+                    $scope.group.highlightTasks(false);
                     scrollableElement.stopWatching();
                     var snapX = snapValue(deltaX / groupWidth, 1);
                     if (snapX) {
                         if ($scope.group.width === initialWidth) {
-                            kanbanService.shift($scope.group.id, snapX);
+                            $scope.group.shift(snapX);
                             $scope.group.start = initialLeft + snapX;
                         } else if ($scope.group.width !== initialWidth) {
-                            kanbanService.spread($scope.group.id, snapX, initialWidth - snapX);
+                            //kanbanService.spread($scope.group.id, snapX, initialWidth - snapX); TODO
                             $scope.group.width = initialWidth - snapX;
                             $scope.group.start = initialLeft + snapX;
                         }
@@ -92,19 +90,6 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                     }
                     $scope.$apply();
                 });
-
-                kanbanGroupService.registerGroup($scope.group.id, $scope);
-
-                $scope.remove = function (group) {
-                    group.remove();
-                    var cards = kanbanCardService.getCardsByGroupId($scope.group.id);
-                    angular.forEach(cards, function (card) {
-                        $timeout(function () {
-                            card.sortableScope.removeItem(card.index());
-                        });
-                    });
-                    kanbanGroupService.removeGroup($scope.group.id);
-                };
             },
             templateUrl: 'app/component/draggable-label/draggable-label.html'
         };

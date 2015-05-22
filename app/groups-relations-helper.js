@@ -1,19 +1,11 @@
-angular.module('kanban').factory('groupsRelationsHelper', function ($rootScope) {
+angular.module('kanban').factory('groupsRelationsHelper', function () {
     return {
         relateTasks: function (groups, tasks) {
             function removeTask(task) {
                 var tasks = this.tasks;
                 tasks.splice(tasks.indexOf(task), 1);
                 if (tasks.length) {
-                    var isLast = !tasks.some(function(task_) {
-                        return task.columnId === task_.columnId;
-                    });
-                    if (isLast) {
-                        var indexes = tasks.map(function(task){
-                            return task.column.index;
-                        }).sort(function(a,b){return a - b});
-                        task.group.move(indexes[0], indexes[indexes.length - 1])
-                    }
+                    task.group.recalculate();
                 } else {
                     groups.splice(groups.indexOf(task.group), 1);
                 }
@@ -30,6 +22,9 @@ angular.module('kanban').factory('groupsRelationsHelper', function ($rootScope) 
                 }).forEach(function(group, index){
                     group.index = index;
                 });
+                angular.forEach(this.tasks, function (task) {
+                    task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
+                });
             }
 
             function highlightTasks(bool) {
@@ -38,14 +33,36 @@ angular.module('kanban').factory('groupsRelationsHelper', function ($rootScope) 
                 });
             }
 
-            function move(start, end){
-                this.start = start;
-                this.width = end - start + 1;
+            function recalculate(){
+                var min = this.tasks[0].column.index;
+                var max = min;
+                var index;
+                angular.forEach(this.tasks, function(task){
+                    index = task.column.index;
+                    if (index < min) {
+                        min = index;
+                    } else if (index > max) {
+                        max = index;
+                    }
+                });
+                this.start = min;
+                this.width = max - min + 1;
+            }
+
+            function shift(delta) {
+                angular.forEach(this.tasks, function (task) {
+                    var toColumn = task.columns[task.column.index + delta];
+                    task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
+                    toColumn.tasks.push(task);
+                    task.column = toColumn;
+                    task.columnId = task.column.id;
+                });
             }
 
             groups.forEach(function (group) {
                 group.removeTask = removeTask;
-                group.move = move;
+                group.recalculate = recalculate;
+                group.shift = shift;
                 group.tasks = tasks.filter(function (task) {
                     return task.groupId === group.id;
                 });
