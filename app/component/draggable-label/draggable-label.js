@@ -1,4 +1,4 @@
-angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler, kanbanService) { //jshint ignore: line
+angular.module('component.draggable-label').directive('draggableLabel', function (deltaDragHandler) { //jshint ignore: line
         var SNAP_SENSITIVITY = 0.2;
 
         function snapValue(val, sensivity) {
@@ -77,12 +77,12 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                     var snapX = snapValue(deltaX / groupWidth, 1);
                     if (snapX) {
                         if ($scope.group.width === initialWidth) {
-                            $scope.group.shift(snapX);
                             $scope.group.start = initialLeft + snapX;
+                            $scope.group.shrink(snapX);
                         } else if ($scope.group.width !== initialWidth) {
-                            //kanbanService.spread($scope.group.id, snapX, initialWidth - snapX); TODO
                             $scope.group.width = initialWidth - snapX;
                             $scope.group.start = initialLeft + snapX;
+                            $scope.group.expand();
                         }
                     } else {
                         $scope.group.width = initialWidth;

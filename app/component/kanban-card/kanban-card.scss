@@ -72,12 +72,18 @@ $orange-marker: #df6826;
         vertical-align: top;
     }
     .card-remove {
+        display: none;
         color: #cccccc;
         font-size: 20px;
         font-weight: 100;
         cursor: pointer;
         &:hover {
             color: #D13F19;
+        }
+    }
+    &:active, &:hover {
+        .card-remove {
+            display: inline-block;
         }
     }
     .card-icon {
