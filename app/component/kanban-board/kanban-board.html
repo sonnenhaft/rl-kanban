@@ -14,7 +14,7 @@
                      data-as-sortable="scrollCallbacks" kanban-column="{{::$index}}">
                     <kanban-card class="kanban-card as-sortable-item" ng-class="task.type"
                                  ng-repeat="task in column.tasks" data-as-sortable-item></kanban-card>
-                    <div ng-if="isEmpty()" class="empty-placeholder">No items on the list</div>
+                    <div ng-if="isEmpty()" class="empty-placeholder">no items in list</div>
                 </div>
             </div>
         </div>
