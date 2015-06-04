@@ -1,4 +1,4 @@
-$gutter: 6px;
+$gutter: 5px;
 $marker-height: 4px;
 $blue-marker: #326295;
 $green-marker: #1E9C9F;
@@ -8,7 +8,7 @@ $orange-marker: #df6826;
     color: #555555;
     background-color: #ffffff;
     border-top: $marker-height solid #ccc;
-    margin: $gutter $gutter $gutter 0 ;
+    margin: $gutter 0;
     position: relative;
     z-index: 0;
     &:before {
@@ -36,6 +36,7 @@ $orange-marker: #df6826;
         width: 100%;
         table-layout: fixed;
         min-height: 86px;
+        border: 1px solid #efefef;
         &.opacity {
             opacity: 0.5;
         }
@@ -53,6 +54,7 @@ $orange-marker: #df6826;
         color: #a5a5a5;
         width: 20px;
         line-height: 0.5;
+        cursor: pointer;
     }
     .card-code {
         font-size: 18px;
@@ -76,7 +78,6 @@ $orange-marker: #df6826;
         color: #cccccc;
         font-size: 20px;
         font-weight: 100;
-        cursor: pointer;
         &:hover {
             color: #D13F19;
         }

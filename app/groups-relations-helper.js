@@ -51,7 +51,7 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
 
             function shrink(delta) {
                 angular.forEach(this.tasks, function (task) {
-                    var toColumn = task.columns[task.column.index + delta];
+                    var toColumn = task.column.swimlane.columns[task.column.index + delta];
                     task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
                     toColumn.tasks.push(task);
                     task.column = toColumn;
@@ -63,18 +63,19 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
                 var start = this.start;
                 var width = this.width;
                 var length = this.tasks.length;
-                var columnAmount = Math.ceil(length / this.width);
-                angular.forEach(this.tasks, function (task, i) {
-                    var toColumn = task.columns[start];
+                var columnAmount = Math.ceil(length / width);
+                angular.forEach(this.tasks, function (task) {
+                    var toColumn = task.column.swimlane.columns[start];
                     task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
                     toColumn.tasks.push(task);
                     task.column = toColumn;
                     task.columnId = task.column.id;
                     columnAmount--;
+                    length--;
                     if (!columnAmount) {
                         start++;
                         width--;
-                        columnAmount = Math.ceil((length - i - 1) / width);
+                        columnAmount = Math.ceil(length / width);
                     }
                 });
             }

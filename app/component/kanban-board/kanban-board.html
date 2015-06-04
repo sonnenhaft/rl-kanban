@@ -1,14 +1,6 @@
-<div class="kanban-board">
-    <div class="swim-lane">
-        <span class="swim-title">
-            {{board.name}}
-        </span>
-        <button class="button white swim-button" onclick="alert('no aciton yet')">
-            Add Task
-        </button>
-    </div>
+<div class="kanban-board" horizontal-scroll scrollable-element>
     <div class="kanban-container">
-        <div class="kanban-row">
+        <div class="kanban-row" columns-width>
             <div class="kanban-wrapper cards-container">
                 <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks"
                      data-as-sortable="scrollCallbacks" kanban-column="{{::$index}}">

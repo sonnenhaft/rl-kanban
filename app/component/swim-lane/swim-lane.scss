@@ -1,0 +1,28 @@
+.swim-lane {
+    .swim-title {
+        padding: 0 6px;
+        color: #555555;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 47px;
+    }
+
+    .swim-toolbar {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+    }
+
+    .swim-button {
+        color: #31b3ff;
+        font-size: 18px;
+        margin: 0;
+        float: right;
+    }
+
+    .swim-lane-header {
+        background: #ffffff;
+        padding: 10px 20px;
+        border: 1px solid #cbcbcb;
+    }
+}

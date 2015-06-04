@@ -13,13 +13,12 @@ angular.module('kanban').factory('columnsRelationsHelper', function () {
             columns.forEach(function (column) {
                 column.removeTask = removeTask;
                 column.tasks = tasks.filter(function (task) {
-                    return task.columnId === column.id;
+                    return task.columnId === column.id && task.swimlaneId === column.swimlane.id;
                 });
 
                 column.tasks.forEach(function (task) {
                     task.removeFromColumn = removeFromColumn;
                     task.column = column;
-                    task.columns = columns;
                 });
             });
         }

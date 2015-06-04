@@ -7,8 +7,8 @@ angular.module('component.kanban-board',[
         require: '^scrollableElement',
         scope: {columns: '='},
         replace: true,
-        link: function ($scope, i, j, scrollableElement) {
-            $scope.scrollCallbacks = {
+        link: function (scope, element, attrs, scrollableElement) {
+            scope.scrollCallbacks = {
                 dragStart: function(e){
                     e.source.itemScope.task.group.highlight = true;
                     scrollableElement.watchMouse();
@@ -19,13 +19,11 @@ angular.module('component.kanban-board',[
                 },
                 itemMoved: function (e) {
                     var task = e.source.itemScope.task;
-                    var toColumn = e.dest.sortableScope.index;
-                    task.column = task.columns[toColumn];
+                    task.column = e.dest.sortableScope.$parent.column;
                     task.columnId = task.column.id;
+                    task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
-                },
-                containment: '.cards-container',
-                scrollableContainer: '.kanban'
+                }
             };
         }
     };

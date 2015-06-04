@@ -1,0 +1,11 @@
+.scroll-bar {
+    width: 100%;
+    border: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 20px;
+    display: block;
+    .inner {
+        height: 20px;
+    }
+}

@@ -1,22 +1,31 @@
 .kanban-board {
     background: #f0f0f0;
+    max-height: 820px;
+    overflow-x: hidden;
     .kanban-wrapper {
         display: table;
         table-layout: fixed;
         height: 100%;
+        width: 100%;
     }
 
     .kanban-row {
-        //overflow-y: hidden;
-        //overflow-x: scroll;
-        //width: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .kanban-column {
         display: table-cell;
         vertical-align: top;
-        width: 300px;
-        min-width: 300px;
+        width: 228px;
+        min-width: 228px;
+        background: #f6f6f6;
+        border-left: 5px solid #ffffff;
+        border-right: 5px solid #ffffff;
+        &:last-child {
+            float: none;
+        }
     }
 
     .kanban-container {
@@ -25,32 +34,6 @@
 
     .cards-container {
         //padding-bottom: 24px;
-    }
-
-    .swim-lane {
-        background: #ffffff;
-        padding: 10px 20px;
-    }
-
-    .swim-title {
-        padding: 0 6px;
-        color: #555555;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 47px;
-    }
-
-    .swim-toolbar {
-        display: inline-block;
-        text-align: right;
-        width: 100%;
-    }
-
-    .swim-button {
-        color: #31b3ff;
-        font-size: 18px;
-        margin: 0;
-        float: right;
     }
 
     .empty-placeholder {
@@ -75,4 +58,9 @@
     .empty-placeholder + .as-sortable-placeholder {
         margin-top: -10px;
     }
+}
+
+.kanban {
+    max-width: 1140px;
+    margin: 0 auto;
 }

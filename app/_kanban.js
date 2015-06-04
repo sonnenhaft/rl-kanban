@@ -11,5 +11,7 @@ angular.module('kanban', [
     'component.draggable-label',
     'component.draggable-labels-control',
     'ngTouch',
-    'component.column-names'
+    'component.column-names',
+    'component.swim-lane',
+    'component.scroll-bar'
 ]);
