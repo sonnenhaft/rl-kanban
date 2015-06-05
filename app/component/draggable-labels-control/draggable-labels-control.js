@@ -1,6 +1,6 @@
 angular.module('component.draggable-labels-control', []).directive('draggableLabelsControl', function () {
     return {
-        scope: {groups: '='},
+        scope: {groups: '=', columns: '='},
         replace: true,
         templateUrl: 'app/component/draggable-labels-control/draggable-labels-control.html',
         controller: function ($scope, $element, $attrs) {

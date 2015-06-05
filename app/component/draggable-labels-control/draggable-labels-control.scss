@@ -3,11 +3,15 @@
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #cdcdcd;
+    overflow: hidden;
     .white-line {
         height: 100%;
         width: 1px;
         background: #cdcdcd;
         display: inline-block;
         margin-left: 227px;
+    }
+    .white-line:last-child {
+        display: none;
     }
 }

@@ -13,5 +13,6 @@ angular.module('kanban', [
     'ngTouch',
     'component.column-names',
     'component.swim-lane',
-    'component.scroll-bar'
+    'component.scroll-bar',
+    'component.star-rating'
 ]);

@@ -4,6 +4,7 @@ $blue-marker: #326295;
 $green-marker: #1E9C9F;
 $orange-marker: #df6826;
 .kanban-card {
+    width: 220px;
     font-size: 14px;
     color: #555555;
     background-color: #ffffff;
@@ -32,40 +33,61 @@ $orange-marker: #df6826;
         outline: 1px solid $orange-marker;
     }
     .card-wrapper {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
         min-height: 86px;
         border: 1px solid #efefef;
         &.opacity {
             opacity: 0.5;
         }
     }
-    .card-content {
+    .card-header {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        min-height: 50px;
+    }
+    .card-title {
         display: table-cell;
-        padding: $gutter;
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        color: #555555;
+        text-transform: capitalize;
+        padding-right: 12px;
+    }
+    .card-content {
+        padding: 6px 12px 8px 12px;
+        line-height: 1;
+    }
+    .additional-details {
+        border-top: 1px solid #cccccc;
+        padding: 10px 0 0;
+        margin-top: 16px;
+        p {
+            line-height: 1;
+        }
+    }
+    .task-name p {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize;
     }
     .card-handle {
-        font-size: 24px;
+        font-size: 14px;
+        font-weight: 700;
+        width: 12px;
         display: table-cell;
-        padding: 10px $gutter;
         vertical-align: middle;
         word-wrap: break-word;
-        color: #a5a5a5;
-        width: 20px;
-        line-height: 0.5;
+        color: #cccccc;
+        line-height: 0.45;
         cursor: pointer;
+        padding: 0 4px;
     }
     .card-code {
         font-size: 18px;
         font-weight: 300;
         line-height: 1.5;
         margin-bottom: 2px;
-    }
-    .card-name {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 4px;
     }
     .card-control {
         display: table-cell;
@@ -88,20 +110,87 @@ $orange-marker: #df6826;
         }
     }
     .card-icon {
-        vertical-align: text-bottom;
+        vertical-align: bottom;
         display: inline-block;
+        font-size: 16px;
+    }
+
+    .app-tag {
+        display: table-cell;
+        font-size: 26px;
+        width: 40px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .task-owner {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    .owner-avatar {
+        display: table-cell;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+    }
+
+    .owner-name {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 10px;
+        word-wrap: break-word;
+        word-spacing: 200px;
+        top: -2px;
+        position : relative;
+    }
+
+    .owner-logo {
+        margin-top: 20px;
+        margin-bottom: 4px;
     }
 
     p {
+        line-height: 1.3;
         font-size: 14px;
-        line-height: 1.5;
+        margin-bottom: 4px;
+        color: #555555;
     }
 
-    hr {
-        margin: $gutter 0;
+    .task-date {
+        white-space: nowrap;
     }
 
-    strong {
-        font-weight: bold;
+    .text-bold {
+        font-weight: 600;
+    }
+
+    .text-grey {
+        color: #aaa7a7;
+    }
+
+    .gl-drag-indicator {
+        cursor: move;
+        position: absolute;
+        left: -5px;
+        width: 30px;
+        overflow: hidden;
+        top: 15px;
+        bottom: 15px;
+        z-index: 1;
+        &:before {
+            font-family: 'RLGlyphs' !important;
+            font-size: 42px;
+            color: #555555;
+            content: "\e613\e613\e613\e613\e613\e613\e613\e613";
+            line-height: 43px;
+            word-wrap: break-word;
+        }
+    }
+
+    .task-assignee {
+        word-spacing: -1px;
     }
 }

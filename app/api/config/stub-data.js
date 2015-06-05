@@ -10,7 +10,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
     'tasks': [
         {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'type': 'blue',
+            'color': 'blue',
             'priority': 'Low',
             'assignability': false,
             'description': 'Culpa sint qui reprehenderit cupidatat officia quis commodo do do sit culpa est laboris.',
@@ -21,13 +21,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-01-22T08:48:03.865Z',
             'state': 'Completed',
             'appRef': 'glyph-kw-logo',
-            'taskName': 'culpa enim nulla',
+            'appName': 'Cupidatat officia',
+            'taskName': 'culpa enim nulla cupidatat officia',
             'id': '555b69112a241c792bd5db5d',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "3",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': false,
             'description': 'Lorem do tempor aliquip enim id laborum id ea incididunt.',
@@ -38,13 +42,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-03-11T21:33:45.360Z',
             'state': 'Completed',
             'appRef': 'glyph-kw-logo',
-            'taskName': 'et eiusmod nisi',
+            'appName': 'tempor aliquip',
+            'taskName': 'et eiusmod nisi cupidatat officia',
             'id': '555b691180e8d65d15e4d649',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "4",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'type': 'green',
+            'color': 'green',
             'priority': 'High',
             'assignability': true,
             'description': 'Laboris consectetur et do et proident.',
@@ -55,13 +63,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-24T19:48:26.069Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'taskName': 'aliqua non proident',
+            'appName': 'Cupidatat officia',
+            'taskName': 'aliqua non proident et do et proident',
             'id': '555b6911bdbc551b3fee3d75',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'type': 'blue',
+            'color': 'blue',
             'priority': 'Medium',
             'assignability': true,
             'description': 'Id ipsum aliquip anim sunt anim.',
@@ -72,13 +84,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-26T15:43:09.624Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'anim sunt anim',
             'taskName': 'deserunt mollit fugiat',
             'id': '555b6911013efe717127086f',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'Medium',
             'assignability': true,
             'description': 'Consectetur adipisicing ex proident quis nulla est dolore velit.',
@@ -89,13 +105,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-03-31T16:26:33.106Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'taskName': 'veniam magna id',
+            'appName': 'Cupidatat officia',
+            'taskName': 'quis nulla est',
             'id': '555b6911cfcb64862481fb60',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Book",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': false,
             'description': 'Fugiat sint laborum dolore enim nostrud tempor incididunt consectetur proident ea.',
@@ -106,13 +126,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-12T07:30:27.954Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'taskName': 'ullamco mollit Lorem',
+            'appName': 'dolore enim',
+            'taskName': 'ullamco mollit Lorem enim nostrud',
             'id': '555b6911f166cf1e18a232cd',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Book",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
-            'type': 'green',
+            'color': 'green',
             'priority': 'Medium',
             'assignability': false,
             'description': 'Eiusmod aliquip esse consequat sunt id officia nulla ut anim.',
@@ -123,13 +147,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-02T05:23:29.687Z',
             'state': 'In Progress',
             'appRef': 'glyph-am1-logo',
+            'appName': 'aliquip esse consequat',
             'taskName': 'ullamco tempor velit',
             'id': '555b6911a9300b1dba92984f',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "4",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
-            'type': 'green',
+            'color': 'green',
             'priority': 'High',
             'assignability': false,
             'description': 'Proident eiusmod duis cillum nisi nisi consectetur aliqua deserunt nulla mollit tempor.',
@@ -140,13 +168,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-03-27T03:17:36.154Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'taskName': 'dolor magna occaecat',
+            'appName': 'consectetur aliqua deserunt',
+            'taskName': 'dolor magna occaecat aliqua deserunt',
             'id': '555b69117e221641dd9cbb9b',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': true,
             'description': 'Reprehenderit consequat consectetur consectetur sunt nostrud aliqua duis do consequat voluptate eu occaecat aliqua.',
@@ -157,13 +189,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-22T23:19:54.165Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'onsectetur consectetur sunt nostrud',
             'taskName': 'eiusmod cillum elit',
             'id': '555b69117e221641dd9cbb9b',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "4",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
-            'type': 'green',
+            'color': 'green',
             'priority': 'High',
             'assignability': false,
             'description': 'Pariatur excepteur laborum aute magna enim qui fugiat.',
@@ -174,13 +210,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-28T16:54:31.372Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'excepteur laborum',
             'taskName': 'elit officia id',
             'id': '555b69114ba4c055e4ba9c74',
-            "swimlaneId": "555b6922f5cad468b43fbe8b"
+            "swimlaneId": "555b6922f5cad468b43fbe8b",
+            "rating": "5",
+            "type": "Book",
+            "assignees" : ["Student Group 1"]
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'type': 'green',
+            'color': 'green',
             'priority': 'Low',
             'assignability': true,
             'description': 'Velit aute officia sint nostrud fugiat sit tempor aliqua ad do.',
@@ -191,13 +231,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-21T14:59:34.985Z',
             'state': 'In Progress',
             'appRef': 'glyph-kw-logo',
+            'appName': 'nostrud fugiat sit',
             'taskName': 'laborum anim ipsum',
             'id': '555b69110bad6e61c487aac3',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'type': 'blue',
+            'color': 'blue',
             'priority': 'Low',
             'assignability': true,
             'description': 'Officia sunt excepteur proident elit elit ipsum aute nostrud proident esse aliqua.',
@@ -208,13 +252,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-25T06:44:07.458Z',
             'state': 'In Progress',
             'appRef': 'glyph-eiaf-logo',
+            'appName': 'proident elit elit',
             'taskName': 'deserunt ut in',
             'id': '555b6911255fa88990d6372a',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "3",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'type': 'green',
+            'color': 'green',
             'priority': 'High',
             'assignability': true,
             'description': 'Tempor id aliquip nostrud minim in cupidatat.',
@@ -225,13 +273,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-01-03T19:00:00.110Z',
             'state': 'In Progress',
             'appRef': 'glyph-kw-logo',
+            'appName': 'minim in cupidatat',
             'taskName': 'mollit ipsum in',
             'id': '555b691118fc43bab7aa34d5',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'type': 'green',
+            'color': 'green',
             'priority': 'Medium',
             'assignability': false,
             'description': 'Eiusmod fugiat sint quis qui magna.',
@@ -242,13 +294,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-03-31T06:59:33.044Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'Cupidatat quis qui',
             'taskName': 'eu deserunt excepteur',
             'id': '555b69110462e7ebf1fe4e40',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "4",
+            "type": "Book",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': true,
             'description': 'Ullamco mollit et occaecat mollit cillum exercitation laboris est sit ex ut.',
@@ -259,13 +315,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-01-25T02:38:07.926Z',
             'state': 'In Progress',
             'appRef': 'glyph-kw-logo',
+            'appName': 'occaecat mollit cillum',
             'taskName': 'duis eiusmod cillum',
             'id': '555b6911e01072a878822c2a',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "5",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': false,
             'description': 'Irure incididunt ex nostrud in adipisicing labore sit laborum do cupidatat adipisicing velit ea.',
@@ -276,13 +336,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-01-03T01:30:36.284Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'adipisicing velit ea.',
             'taskName': 'esse dolore tempor',
             'id': '555b6911421b45dea86211b7',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "4",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2"]
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
-            'type': 'orange',
+            'color': 'orange',
             'priority': 'High',
             'assignability': false,
             'description': 'Sint anim est ullamco sunt.',
@@ -293,13 +357,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-16T07:26:48.292Z',
             'state': 'In Progress',
             'appRef': 'glyph-kw-logo',
+            'appName': 'laborum do cupidatat adipisicing',
             'taskName': 'dolore excepteur et',
             'id': '555b69110463b4b52a1a3711',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "3",
+            "type": "Video",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
-            'type': 'blue',
+            'color': 'blue',
             'priority': 'High',
             'assignability': true,
             'description': 'Quis duis excepteur qui elit anim consectetur esse anim sunt consectetur.',
@@ -310,13 +378,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-18T20:36:53.028Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
+            'appName': 'Cupidatat officia',
             'taskName': 'est velit consectetur',
             'id': '555b6911417547d0f6db768b',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "4",
+            "type": "Video",
+            "assignees" : ["Student Group 1"]
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
-            'type': 'green',
+            'color': 'green',
             'priority': 'High',
             'assignability': false,
             'description': 'Nostrud commodo tempor ea ipsum minim eu dolor eiusmod labore aliqua duis sit dolor consectetur.',
@@ -327,13 +399,17 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-02-13T21:27:43.026Z',
             'state': 'In Progress',
             'appRef': 'glyph-am1-logo',
+            'appName': 'tempor ea ipsum',
             'taskName': 'esse aliquip cupidatat',
             'id': '555b6911d53e0734f02bcc74',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "5",
+            "type": "Book",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
-            'type': 'blue',
+            'color': 'blue',
             'priority': 'High',
             'assignability': false,
             'description': 'Labore et ipsum dolore proident qui fugiat laboris aliqua ad consequat cillum do.',
@@ -344,9 +420,13 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-05-02T02:54:00.376Z',
             'state': 'Completed',
             'appRef': 'glyph-eiaf-logo',
+            'appName': 'proident qui fugiat',
             'taskName': 'excepteur dolor sunt',
             'id': '555b6911d53e0734f02bcc74',
-            "swimlaneId": "555b6933a9ce3b29e498cae5"
+            "swimlaneId": "555b6933a9ce3b29e498cae5",
+            "rating": "2",
+            "type": "Book",
+            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
         }
     ],
     'columns': [
