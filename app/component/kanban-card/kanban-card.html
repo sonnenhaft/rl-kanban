@@ -1,10 +1,10 @@
 <div class="card-wrapper" ng-class="{opacity: task.highlight}">
     <div class="card-header">
         <div class="card-handle  as-sortable-item-handle" data-as-sortable-item-handle>
-            <span>&#8226;&#8226;&#8226;&#8226;&#8226;</span>
+            <span class="gl-drag-indicator"></span>
         </div>
         <div class="app-tag">
-            <glyph-icon icon="task.appRef""></glyph-icon>
+            <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
         </div>
         <div class="card-title">
             <span class="card-name">{{::task.appName}}</span>
@@ -21,6 +21,9 @@
             <div class="task-owner" ng-if="::tmpl == 'wl'">
                 <div class="owner-avatar"><img src="http://lorempixel.com/30/30/"/></div>
                 <div class="owner-name">{{::task.assigneeName}}</div>
+            </div>
+            <div ng-if="::tmpl == 'wl'">
+                <priority-level value="::task.priority"></priority-level>
             </div>
             <div ng-if="::tmpl == 'planner'">
                 <p><span class="text-bold">Assigned to:&nbsp;</span><span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></p>

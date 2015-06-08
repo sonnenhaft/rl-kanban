@@ -14,5 +14,6 @@ angular.module('kanban', [
     'component.column-names',
     'component.swim-lane',
     'component.scroll-bar',
-    'component.star-rating'
+    'component.star-rating',
+    'component.priority-level'
 ]);

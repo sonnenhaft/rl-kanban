@@ -11,7 +11,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911f5cad468b43fbe8b',
             'color': 'blue',
-            'priority': 'Low',
+            'priority': '2',
             'assignability': false,
             'description': 'Culpa sint qui reprehenderit cupidatat officia quis commodo do do sit culpa est laboris.',
             'assigneeName': 'Sallie Obrien',
@@ -32,7 +32,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911f5cad468b43fbe8b',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Lorem do tempor aliquip enim id laborum id ea incididunt.',
             'assigneeName': 'Joanne Graham',
@@ -53,7 +53,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911a9ce3b29e498cae5',
             'color': 'green',
-            'priority': 'High',
+            'priority': '0',
             'assignability': true,
             'description': 'Laboris consectetur et do et proident.',
             'assigneeName': 'Howell Wynn',
@@ -74,7 +74,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911a9ce3b29e498cae5',
             'color': 'blue',
-            'priority': 'Medium',
+            'priority': '1',
             'assignability': true,
             'description': 'Id ipsum aliquip anim sunt anim.',
             'assigneeName': 'Conway Sharp',
@@ -95,7 +95,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911b55afadc0db29d98',
             'color': 'orange',
-            'priority': 'Medium',
+            'priority': '1',
             'assignability': true,
             'description': 'Consectetur adipisicing ex proident quis nulla est dolore velit.',
             'assigneeName': 'Soto Gomez',
@@ -116,7 +116,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911b55afadc0db29d98',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Fugiat sint laborum dolore enim nostrud tempor incididunt consectetur proident ea.',
             'assigneeName': 'Adrian Kidd',
@@ -137,7 +137,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911faa6e347b8f89d13',
             'color': 'green',
-            'priority': 'Medium',
+            'priority': '1',
             'assignability': false,
             'description': 'Eiusmod aliquip esse consequat sunt id officia nulla ut anim.',
             'assigneeName': 'Irene Rios',
@@ -158,7 +158,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911faa6e347b8f89d13',
             'color': 'green',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Proident eiusmod duis cillum nisi nisi consectetur aliqua deserunt nulla mollit tempor.',
             'assigneeName': 'Dejesus Hebert',
@@ -179,7 +179,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911ba6d349f6253cd85',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': true,
             'description': 'Reprehenderit consequat consectetur consectetur sunt nostrud aliqua duis do consequat voluptate eu occaecat aliqua.',
             'assigneeName': 'Evangeline Cline',
@@ -200,7 +200,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911ba6d349f6253cd85',
             'color': 'green',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Pariatur excepteur laborum aute magna enim qui fugiat.',
             'assigneeName': 'Elinor Hensley',
@@ -221,7 +221,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911f5cad468b43fbe8b',
             'color': 'green',
-            'priority': 'Low',
+            'priority': '2',
             'assignability': true,
             'description': 'Velit aute officia sint nostrud fugiat sit tempor aliqua ad do.',
             'assigneeName': 'Helene Bates',
@@ -242,7 +242,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911f5cad468b43fbe8b',
             'color': 'blue',
-            'priority': 'Low',
+            'priority': '2',
             'assignability': true,
             'description': 'Officia sunt excepteur proident elit elit ipsum aute nostrud proident esse aliqua.',
             'assigneeName': 'Cassandra Bishop',
@@ -263,7 +263,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911a9ce3b29e498cae5',
             'color': 'green',
-            'priority': 'High',
+            'priority': '0',
             'assignability': true,
             'description': 'Tempor id aliquip nostrud minim in cupidatat.',
             'assigneeName': 'Kim Gentry',
@@ -284,7 +284,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911a9ce3b29e498cae5',
             'color': 'green',
-            'priority': 'Medium',
+            'priority': '1',
             'assignability': false,
             'description': 'Eiusmod fugiat sint quis qui magna.',
             'assigneeName': 'Enid Christensen',
@@ -305,7 +305,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911b55afadc0db29d98',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': true,
             'description': 'Ullamco mollit et occaecat mollit cillum exercitation laboris est sit ex ut.',
             'assigneeName': 'Aurelia Norton',
@@ -326,7 +326,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911b55afadc0db29d98',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Irure incididunt ex nostrud in adipisicing labore sit laborum do cupidatat adipisicing velit ea.',
             'assigneeName': 'Richards Solomon',
@@ -347,7 +347,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911faa6e347b8f89d13',
             'color': 'orange',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Sint anim est ullamco sunt.',
             'assigneeName': 'Marsha Allison',
@@ -368,7 +368,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911faa6e347b8f89d13',
             'color': 'blue',
-            'priority': 'High',
+            'priority': '0',
             'assignability': true,
             'description': 'Quis duis excepteur qui elit anim consectetur esse anim sunt consectetur.',
             'assigneeName': 'Knapp Foreman',
@@ -389,7 +389,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911ba6d349f6253cd85',
             'color': 'green',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Nostrud commodo tempor ea ipsum minim eu dolor eiusmod labore aliqua duis sit dolor consectetur.',
             'assigneeName': 'Darlene Mathis',
@@ -410,7 +410,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         {
             'columnId': '555b6911ba6d349f6253cd85',
             'color': 'blue',
-            'priority': 'High',
+            'priority': '0',
             'assignability': false,
             'description': 'Labore et ipsum dolore proident qui fugiat laboris aliqua ad consequat cillum do.',
             'assigneeName': 'Bernard Finch',

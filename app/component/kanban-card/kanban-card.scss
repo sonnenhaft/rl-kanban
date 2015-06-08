@@ -72,16 +72,21 @@ $orange-marker: #df6826;
         text-transform: capitalize;
     }
     .card-handle {
-        font-size: 14px;
-        font-weight: 700;
-        width: 12px;
+        width: 16px;
         display: table-cell;
         vertical-align: middle;
-        word-wrap: break-word;
-        color: #cccccc;
-        line-height: 0.45;
-        cursor: pointer;
-        padding: 0 4px;
+        cursor: move;
+        overflow: hidden;
+        &:before {
+            font-family: 'RLGlyphs' !important;
+            font-size: 42px;
+            content: "\e613";
+            line-height: 43px;
+            word-wrap: break-word;
+            color: #cccccc;
+            position: relative;
+            left: -13px;
+        }
     }
     .card-code {
         font-size: 18px;
@@ -110,9 +115,8 @@ $orange-marker: #df6826;
         }
     }
     .card-icon {
-        vertical-align: bottom;
-        display: inline-block;
-        font-size: 16px;
+        position: relative;
+        top: -2px;
     }
 
     .app-tag {
@@ -169,25 +173,6 @@ $orange-marker: #df6826;
 
     .text-grey {
         color: #aaa7a7;
-    }
-
-    .gl-drag-indicator {
-        cursor: move;
-        position: absolute;
-        left: -5px;
-        width: 30px;
-        overflow: hidden;
-        top: 15px;
-        bottom: 15px;
-        z-index: 1;
-        &:before {
-            font-family: 'RLGlyphs' !important;
-            font-size: 42px;
-            color: #555555;
-            content: "\e613\e613\e613\e613\e613\e613\e613\e613";
-            line-height: 43px;
-            word-wrap: break-word;
-        }
     }
 
     .task-assignee {
