@@ -18,20 +18,20 @@
             <p>{{::task.description}}</p>
         </div>
         <div class="additional-details" ng-if="::contentLevel == 'medium' || contentLevel == 'maximum'">
-            <div class="task-owner" ng-if="::tmpl == 'wl'">
+            <div class="task-owner" ng-if="::tmpl == 'wt'">
                 <div class="owner-avatar"><img src="http://lorempixel.com/30/30/"/></div>
                 <div class="owner-name">{{::task.assigneeName}}</div>
-            </div>
-            <div ng-if="::tmpl == 'wl'">
-                <priority-level value="::task.priority"></priority-level>
             </div>
             <div ng-if="::tmpl == 'planner'">
                 <p><span class="text-bold">Assigned to:&nbsp;</span><span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></p>
                 <span class="text-bold" ng-if="::contentLevel == 'maximum'">Rating:&nbsp;</span><star-rating value="task.rating"></star-rating>
             </div>
-            <p class="text-bold text-grey" ng-if="::tmpl == 'wl'">{{::task.state}}<span ng-if="::task.assignability">&nbsp;-&nbsp;Locked&nbsp;&nbsp;</span><glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon></p>
+            <p class="text-bold text-grey" ng-if="::tmpl == 'wt'">{{::task.state}}<span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span><glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon></p>
+            <div ng-if="::tmpl == 'wt'">
+                <priority-level value="::task.priority"></priority-level>
+            </div>
             <div ng-if="::contentLevel == 'maximum'">
-                <p ng-if="::tmpl == 'wl'"><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
+                <p ng-if="::tmpl == 'wt'"><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
                 <p><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>
                 <p ng-if="::tmpl == 'planner'"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
                 <p class="task-date text-grey"><span class="text-bold">Created:&nbsp;</span>{{::task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>

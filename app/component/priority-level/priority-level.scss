@@ -1,8 +1,10 @@
 .priority-level {
   font-weight: 600;
   .priority-icon {
-    word-spacing: -4px;
+    word-spacing: -3px;
     font-size: 12px;
+    position: relative;
+    top: -2px;
   }
   .high-priority {
     color: #dc4444;

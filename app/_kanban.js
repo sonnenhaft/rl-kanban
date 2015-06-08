@@ -15,5 +15,6 @@ angular.module('kanban', [
     'component.swim-lane',
     'component.scroll-bar',
     'component.star-rating',
-    'component.priority-level'
+    'component.priority-level',
+    'component.layout-switcher'
 ]);
