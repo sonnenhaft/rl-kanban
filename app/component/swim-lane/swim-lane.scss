@@ -1,10 +1,11 @@
 .swim-lane {
     .swim-title {
-        padding: 0 6px;
-        color: #555555;
+        margin-left: 6px;
         font-size: 18px;
+        line-height: 27px;
+        vertical-align: middle;
+        color: #555555;
         font-weight: 600;
-        line-height: 47px;
     }
 
     .swim-toolbar {
@@ -24,5 +25,22 @@
         background: #ffffff;
         padding: 10px 20px;
         border: 1px solid #cbcbcb;
+        height: 50px;
+    }
+
+    .swim-lane-toggle {
+        cursor: pointer;
+        color: #555555;
+        font-weight: 600;
+    }
+
+    .swim-length {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+        vertical-align: middle;
+        &:before {
+            content:"\00a0\2014\00a0";
+        }
     }
 }

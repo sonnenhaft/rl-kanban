@@ -26,14 +26,18 @@
                 <p><span class="text-bold">Assigned to:&nbsp;</span><span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></p>
                 <span class="text-bold" ng-if="::contentLevel == 'maximum'">Rating:&nbsp;</span><star-rating value="task.rating"></star-rating>
             </div>
-            <p class="text-bold text-grey" ng-if="::tmpl == 'wt'">{{::task.state}}<span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span><glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon></p>
             <div ng-if="::tmpl == 'wt'">
+                <p class="text-bold text-grey">{{::task.state}}<span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span><glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon></p>
                 <priority-level value="::task.priority"></priority-level>
             </div>
             <div ng-if="::contentLevel == 'maximum'">
-                <p ng-if="::tmpl == 'wt'"><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
+                <div ng-if="::tmpl == 'wt'">
+                    <p><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
+                </div>
                 <p><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>
-                <p ng-if="::tmpl == 'planner'"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
+                <div ng-if="::tmpl == 'planner'">
+                    <p><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
+                </div>
                 <p class="task-date text-grey"><span class="text-bold">Created:&nbsp;</span>{{::task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
                 <p class="task-date text-grey"><span class="text-bold">Modified:&nbsp;</span>{{::task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
             </div>

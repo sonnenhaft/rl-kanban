@@ -2,9 +2,9 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
     return {
         relateTasks: function (groups, tasks) {
             function removeTask(task) {
-                var tasks = this.tasks;
-                tasks.splice(tasks.indexOf(task), 1);
-                if (tasks.length) {
+                task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
+                task.column.swimlane.$length--;
+                if (this.tasks.length) {
                     task.group.recalculate();
                 } else {
                     groups.splice(groups.indexOf(task.group), 1);
@@ -23,7 +23,7 @@ angular.module('kanban').factory('groupsRelationsHelper', function () {
                     group.index = index;
                 });
                 angular.forEach(this.tasks, function (task) {
-                    task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
+                    task.removeFromGroup();
                 });
             }
 

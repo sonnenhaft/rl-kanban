@@ -4,7 +4,7 @@ $blue-marker: #326295;
 $green-marker: #1E9C9F;
 $orange-marker: #df6826;
 .kanban-card {
-    width: 220px;
+    width: 218px;
     font-size: 14px;
     color: #555555;
     background-color: #ffffff;
@@ -176,6 +176,6 @@ $orange-marker: #df6826;
     }
 
     .task-assignee {
-        word-spacing: -1px;
+        word-spacing: -2px;
     }
 }

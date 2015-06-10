@@ -7,12 +7,7 @@
         table-layout: fixed;
         height: 100%;
         width: 100%;
-    }
-
-    .kanban-row {
-        width: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        min-height: 350px;
     }
 
     .kanban-column {
@@ -26,14 +21,8 @@
         &:last-child {
             float: none;
         }
-    }
-
-    .kanban-container {
-        //padding: 0 20px;
-    }
-
-    .cards-container {
-        //padding-bottom: 24px;
+        padding-top: 8px;
+        padding-bottom: 20px;
     }
 
     .empty-placeholder {
@@ -50,13 +39,28 @@
 
     .as-sortable-placeholder {
          background: #f9f9f9;
-         margin: 5px;
+         margin: 5px 0;
          border: 1px #b0b0b0 dashed;
          border-radius: 3px;
      }
 
     .empty-placeholder + .as-sortable-placeholder {
         margin-top: -10px;
+    }
+
+    &.collapse {
+        display: none;
+    }
+
+    &.collapse.in {
+        display: block;
+    }
+
+    &.collapsing {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        transition: height .35s ease;
     }
 }
 
@@ -65,4 +69,10 @@
     margin: 0 auto;
     font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
+    margin-bottom: 13px;
+
+    .kanban-header {
+        margin-bottom: 20px;
+        border: 1px solid #cdcdcd;
+    }
 }

@@ -4,14 +4,19 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
         scope: {
             swimlane: '='
         },
-        link: function (scope) {
-            scope.addTask = function(){
-                scope.$evalAsync(function(){
-                    var task = angular.copy(scope.swimlane.columns[Math.floor(Math.random() * 2) + 1].tasks[0]);
-                    task.id = Math.floor(Math.random() * 100) + 1;
-                    scope.swimlane.columns[Math.floor(Math.random() * 5) + 1].tasks.push(task);
-                });
+        link: function (scope, element, attrs) {
+            scope.isCollapsed = false;
+
+            scope.toggleCollapse = function(){
+                scope.isCollapsed = !scope.isCollapsed;
             };
+
+            scope.$watch('swimlane.columns', function(columns){
+                scope.swimlane.$length = 0;
+                angular.forEach(columns, function(column) {
+                    scope.swimlane.$length += column.tasks.length;
+                });
+            });
         }
     };
 });
