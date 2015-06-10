@@ -4,7 +4,7 @@
             <span class="glyph-icon"><span
                     ng-class="{'glyph-chevron-expanded': isCollapsed, 'glyph-chevron-collapsed': !isCollapsed}"></span></span>
             <span class="swim-title">{{swimlane.name}}</span>
-            <ng-pluralize class="swim-length" count="swimlane.$length" when="{'0': 'Empty', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
+            <ng-pluralize class="swim-length" count="swimlane.$tasksCount" when="{'0': 'Empty', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
         </span>
     </div>
     <kanban-board columns="swimlane.columns" collapse="isCollapsed"></kanban-board>

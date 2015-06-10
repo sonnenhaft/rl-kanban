@@ -1,18 +1,42 @@
-angular.module('kanban').directive('kanban', function (groupsRelationsHelper, columnsRelationsHelper, swimlanesRelationsHelper) {
+angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask, KanbanGroup) {
     return {
         scope: {config: '='},
         replace: true,
         templateUrl: 'app/kanban.html',
         link: function ($scope) {
-            var columns = $scope.config.columns;
-            var groups = $scope.config.groups;
-            var swimlanes = $scope.config.swimlanes;
+            $scope.tasks = $scope.config.tasks.map(function(task) {
+                return new KanbanTask(task);
+            });
 
-            swimlanesRelationsHelper.relateColumns(swimlanes, columns);
-            groupsRelationsHelper.relateTasks(groups, $scope.config.tasks);
+            $scope.columns = $scope.config.columns.map(function(column){
+                return new KanbanColumn(column);
+            });
 
-            angular.forEach(swimlanes, function (swimlane) {
-                columnsRelationsHelper.relateTasks(swimlane.columns, $scope.config.tasks);
+            $scope.groups = [];
+            $scope.config.groups.forEach(function(group){
+                $scope.groups.push(new KanbanGroup(group, $scope.groups));
+            });
+
+            $scope.groups.forEach(function (group) {
+                group.tasks = $scope.tasks.filter(function (task) {
+                    return task.groupId === group.id;
+                });
+                group.tasks.forEach(function (task) {
+                    task.group = group;
+                });
+            });
+
+            $scope.config.swimlanes.forEach(function (swimlane) {
+                swimlane.columns = angular.copy($scope.columns);
+                swimlane.columns.forEach(function (column) {
+                    column.swimlane = swimlane;
+                    column.tasks = $scope.tasks.filter(function (task) {
+                        return task.columnId === column.id && task.swimlaneId === swimlane.id;
+                    });
+                    column.tasks.forEach(function (task) {
+                        task.column = column;
+                    });
+                });
             });
         },
         controller: function ($scope) {

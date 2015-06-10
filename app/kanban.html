@@ -2,7 +2,7 @@
     <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
     <div class="kanban-header" style="overflow-x: hidden" scrollable-element horizontal-scroll>
         <column-names columns="config.columns" columns-width></column-names>
-        <draggable-labels-control groups="config.groups" columns="config.columns" columns-width label-height="26"></draggable-labels-control>
+        <draggable-labels-control groups="$parent.groups" columns="config.columns" columns-width label-height="26"></draggable-labels-control>
     </div>
     <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
 </div>

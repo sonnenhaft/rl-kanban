@@ -12,9 +12,9 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
             };
 
             scope.$watch('swimlane.columns', function(columns){
-                scope.swimlane.$length = 0;
+                scope.swimlane.$tasksCount = 0;
                 angular.forEach(columns, function(column) {
-                    scope.swimlane.$length += column.tasks.length;
+                    scope.swimlane.$tasksCount += column.tasks.length;
                 });
             });
         }
