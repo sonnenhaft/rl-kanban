@@ -6,8 +6,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($locat
                 $scope.task.removeFromGroup();
                 $scope.task.removeFromColumn();
             };
-            $scope.contentLevel = $location.search().cl || 'low';
-            $scope.tmpl = $location.search().tmpl || 'planner'
+
+            $scope.search = $location.search();
+
+            $scope.tmpl = $scope.search.tmpl || 'planner'
         }
     };
 });

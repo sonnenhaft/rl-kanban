@@ -3,16 +3,17 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         restrict: 'E',
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
         scope: {},
-        link: function (scope, element, attrs) {
-            scope.switchTmpl = function(tmpl) {
-                $location.search('tmpl', tmpl);
-                $window.location.reload();
-            };
+        link: function ($scope) {
+            $scope.contentLevel = 'low';
+            $scope.template = 'planner';
 
-            scope.switchCl = function(cl) {
-                $location.search('cl', cl);
-                $window.location.reload();
-            };
+            $scope.$watch('contentLevel', function(contentLevel){
+                $location.search('contentLevel', contentLevel);
+            });
+
+            $scope.$watch('template', function(template){
+                $location.search('template', template);
+            });
         }
     };
 });
