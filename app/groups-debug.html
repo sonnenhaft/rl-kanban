@@ -16,7 +16,7 @@
     </style>
 
     <div ng-repeat="group in groups" ng-click="showGroup = !showGroup" ng-init="showGroup=true">
-        <b>
+        <b style="font-size: 120%; color: orange; cursor: pointer  ">
             {{::group.groupName}}
             <span opacity-on-changed="group.tasks.length">[tasks: {{group.tasks.length}}]</span>
         </b>
