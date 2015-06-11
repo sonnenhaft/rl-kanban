@@ -1,0 +1,28 @@
+<div class="kanban-debug">
+    <style>
+        .kanban-debug {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.39);
+        }
+        b {
+            font-weight: bold!important;
+        }
+        .opacity-on-changed {
+            background: rgba(255, 0, 0, 0.27);
+        }
+    </style>
+
+    <div ng-repeat="group in groups" ng-click="showGroup = !showGroup" ng-init="showGroup=true">
+        <b>
+            {{::group.groupName}}
+            <span opacity-on-changed="group.tasks.length">[tasks: {{group.tasks.length}}]</span>
+        </b>
+        <div ng-repeat="task in group.tasks" ng-show="showGroup">
+            <b>{{task.taskName}}</b>
+            <i opacity-on-changed="task.column.id">column: {{task.column.name}}</i>
+        </div>
+    </div>
+</div>

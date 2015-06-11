@@ -39,23 +39,23 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 });
             });
 
-
-            function rand(array){
+            function rand(array) {
                 return array[Math.round((Math.random() * (array.length - 1)))].id;
             }
+
             var index = 0;
             var groupsMap = {};
-            $scope.groups.forEach(function(group){
+            $scope.groups.forEach(function (group) {
                 groupsMap[group.id] = group;
             });
             var swimlanesMap = {};
-            $scope.config.swimlanes.forEach(function(swimlanes){
+            $scope.config.swimlanes.forEach(function (swimlanes) {
                 swimlanesMap[swimlanes.id] = swimlanes;
             });
             $interval(function () {
-                index ++;
+                index++;
                 var text = 'Random task ' + index;
-                var task = angular.extend(angular.copy(tasks[0]),{
+                var task = angular.extend(angular.copy(tasks[0]), {
                     columnId: rand(columns),
                     groupId: rand($scope.groups),
                     swimlaneId: rand($scope.config.swimlanes),
@@ -69,7 +69,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 task = new KanbanTask(task);
                 task.group = groupsMap[task.groupId];
                 var swimlane = swimlanesMap[task.swimlaneId];
-                swimlane.columns.forEach(function(column){
+                swimlane.columns.forEach(function (column) {
                     if (column.id === task.columnId) {
                         task.column = column;
                     }
@@ -77,7 +77,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 task.group.tasks.push(task);
                 task.column.tasks.push(task);
 
-            }, 2500, 10)
+            }, 500, 10)
         },
         controller: function ($scope) {
             var registeredElements = [];
@@ -96,5 +96,23 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 });
             });
         }
+    };
+}).directive('groupsDebug', function () {
+    return {
+        templateUrl: 'app/groups-debug.html',
+        scope: {groups: '='}
+    }
+}).directive('opacityOnChanged', function($timeout){
+    return function($scope, $element, $attr) {
+        var val;
+        $scope.$watch($attr.opacityOnChanged, function(value){
+                val = value;
+                $element.addClass('opacity-on-changed');
+                $timeout(function(){
+                    if (val == value) {
+                        $element.removeClass('opacity-on-changed');
+                    }
+                }, 1000, false);
+        });
     };
 });
