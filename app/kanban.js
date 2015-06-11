@@ -77,7 +77,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 task.group.tasks.push(task);
                 task.column.tasks.push(task);
 
-            }, 500, 10)
+            }, 1000, 10)
         },
         controller: function ($scope) {
             var registeredElements = [];
@@ -96,23 +96,5 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 });
             });
         }
-    };
-}).directive('groupsDebug', function () {
-    return {
-        templateUrl: 'app/groups-debug.html',
-        scope: {groups: '='}
-    }
-}).directive('opacityOnChanged', function($timeout){
-    return function($scope, $element, $attr) {
-        var val;
-        $scope.$watch($attr.opacityOnChanged, function(value){
-                val = value;
-                $element.addClass('opacity-on-changed');
-                $timeout(function(){
-                    if (val == value) {
-                        $element.removeClass('opacity-on-changed');
-                    }
-                }, 1000, false);
-        });
     };
 });

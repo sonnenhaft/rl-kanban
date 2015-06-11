@@ -1,6 +1,7 @@
 angular.module('kanban.templates', []);
 angular.module('kanban', [
     'ngAnimate',
+    'ngTouch',
     'component.scrollable-element',
     'kanban.templates',
     'component.kanban-board',
@@ -11,7 +12,7 @@ angular.module('kanban', [
     'component.kanban-column',
     'component.draggable-label',
     'component.draggable-labels-control',
-    'ngTouch',
+    'component.groups-debug',
     'component.column-names',
     'component.swim-lane',
     'component.scroll-bar',
