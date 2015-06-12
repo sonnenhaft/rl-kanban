@@ -1,8 +1,13 @@
 <div ng-if="config" class="kanban" combine-horizontal-scrolls>
-    <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
-    <div class="kanban-header" style="overflow-x: hidden" scrollable-element horizontal-scroll>
-        <column-names columns="config.columns" columns-width></column-names>
-        <draggable-labels-control groups="config.groups" columns="config.columns" columns-width label-height="26"></draggable-labels-control>
+    <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
+    <div class="kanban-header-wrapper" sticky-header>
+        <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
+        <div class="kanban-header" scrollable-element horizontal-scroll>
+            <column-names columns="config.columns" columns-width></column-names>
+            <draggable-labels-control groups="config.groups" columns="config.columns"
+                                      label-height="26" columns-width>
+            </draggable-labels-control>
+        </div>
     </div>
-    <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
+    <swim-lane class="swim-lane" ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
 </div>

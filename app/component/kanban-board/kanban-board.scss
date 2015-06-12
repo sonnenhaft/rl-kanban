@@ -72,7 +72,12 @@
     margin-bottom: 13px;
 
     .kanban-header {
-        margin-bottom: 20px;
         border: 1px solid #cdcdcd;
+        overflow-x: hidden;
+    }
+
+    .kanban-header-wrapper {
+        margin-bottom: 20px;
+        z-index: 1;
     }
 }
