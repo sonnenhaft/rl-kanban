@@ -1,4 +1,4 @@
-<div class="card-wrapper" ng-class="{opacity: task.highlight}">
+<div class="card-wrapper" ng-class="{opacity: task.$highlight}">
     <div class="card-header">
         <div class="card-handle  as-sortable-item-handle" data-as-sortable-item-handle>
             <span class="gl-drag-indicator"></span>
@@ -14,34 +14,37 @@
         <div class="task-name">
             <p>{{::task.taskName}}</p>
         </div>
-        <div class="task-description" ng-if="::contentLevel == 'maximum'">
+        <div class="task-description" ng-show="search.contentLevel === 'maximum'">
             <p>{{::task.description}}</p>
         </div>
-        <div class="additional-details" ng-if="::contentLevel == 'medium' || contentLevel == 'maximum'">
-            <div class="task-owner" ng-if="::tmpl == 'wt'">
+        <div class="additional-details" ng-hide="search.contentLevel === 'low'">
+            <div class="task-owner" ng-show="search.template == 'wt'">
                 <div class="owner-avatar"><img src="http://lorempixel.com/30/30/"/></div>
                 <div class="owner-name">{{::task.assigneeName}}</div>
             </div>
-            <div ng-if="::tmpl == 'planner'">
+            <div ng-show="search.template == 'planner'">
                 <p><span class="text-bold">Assigned to:&nbsp;</span><span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></p>
-                <span class="text-bold" ng-if="::contentLevel == 'maximum'">Rating:&nbsp;</span><star-rating value="task.rating"></star-rating>
+                <span class="text-bold" ng-show="search.contentLevel === 'maximum'">Rating:&nbsp;</span><star-rating value="task.rating"></star-rating>
             </div>
-            <div ng-if="::tmpl == 'wt'">
-                <p class="text-bold text-grey">{{::task.state}}<span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span><glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon></p>
+            <div ng-show="search.template == 'wt'">
+                <p class="text-bold text-grey">{{::task.state}}
+                    <span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span>
+                    <glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
+                </p>
                 <priority-level value="::task.priority"></priority-level>
             </div>
-            <div ng-if="::contentLevel == 'maximum'">
-                <div ng-if="::tmpl == 'wt'">
+            <div ng-show="search.contentLevel === 'maximum'">
+                <div ng-show="search.template == 'wt'">
                     <p><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
                 </div>
                 <p><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>
-                <div ng-if="::tmpl == 'planner'">
+                <div ng-show="search.template == 'planner'">
                     <p><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
                 </div>
                 <p class="task-date text-grey"><span class="text-bold">Created:&nbsp;</span>{{::task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
                 <p class="task-date text-grey"><span class="text-bold">Modified:&nbsp;</span>{{::task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
             </div>
-            <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30" ng-if="::tmpl == 'planner'"/>
+            <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30" ng-show="search.template == 'planner'"/>
         </div>
     </div>
 </div>

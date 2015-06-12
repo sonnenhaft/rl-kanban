@@ -29,8 +29,8 @@ angular.module('component.kanban-board',[
                     task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
                     if (toSwimlane.id !== fromSwimlane.id) {
-                        toSwimlane.$length++;
-                        fromSwimlane.$length--;
+                        toSwimlane.$tasksCount++;
+                        fromSwimlane.$tasksCount--;
                     }
                 }
             };
