@@ -1,4 +1,4 @@
-angular.module('component.draggable-labels-control', []).directive('draggableLabelsControl', function () {
+angular.module('component.task-group-list', []).directive('taskGroupList', function () {
     function add(line, group) {
         group.$lineSpace = group.start - line.width;
         line.width = group.$width;
@@ -8,10 +8,20 @@ angular.module('component.draggable-labels-control', []).directive('draggableLab
     }
 
     return {
-        scope: {groups: '=', columns: '='},
+        scope: {groups: '=', columns: '=', isExpanded: '='},
         replace: true,
-        templateUrl: 'app/component/draggable-labels-control/draggable-labels-control.html',
+        controllerAs: 'taskGroupList',
+        templateUrl: 'app/component/task-group-list/task-group-list.html',
         controller: function ($scope) {
+
+            this.lastGroup = null;
+            this.expandGroup = function(group) {
+                if (this.lastGroup) {
+                    delete this.lastGroup.$expandedGroup;
+                }
+                this.lastGroup = group;
+                this.lastGroup.$expandedGroup = true;
+            };
 
             this.recalculatePositions = function() {
                 var lines = [];

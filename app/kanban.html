@@ -1,9 +1,25 @@
 <div ng-if="config" class="kanban" combine-horizontal-scrolls>
     <!--<groups-debug groups="$parent.groups"></groups-debug>-->
     <!--<scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>-->
-    <div class="kanban-header" style="overflow-x: hidden" scrollable-element horizontal-scroll>
+    <div class="kanban-header" scrollable-element horizontal-scroll>
         <column-names columns="config.columns" columns-width></column-names>
-        <draggable-labels-control groups="$parent.groups" columns="config.columns" columns-width label-height="26"></draggable-labels-control>
+        <task-group-list groups="$parent.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
     </div>
+    <div class="text-center" style="
+    margin-top: -8px;
+">
+        <button ng-click="expanded = !expanded" ng-init="expanded = true" style="
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 11px;
+    background: white;
+    color: grey;
+    border: 2px solid #a5a5a5;
+">TASK GROUPS</button>
+    </div>
+
     <!--<swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>-->
 </div>

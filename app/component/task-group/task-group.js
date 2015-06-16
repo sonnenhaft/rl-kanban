@@ -1,4 +1,4 @@
-angular.module('component.draggable-label').directive('draggableLabel', function ($timeout) { //jshint ignore: line
+angular.module('component.task-group').directive('taskGroup', function ($timeout) { //jshint ignore: line
     var SNAP_SENSITIVITY = 0.2;
 
     function snapValue(val, sensivity) {
@@ -12,14 +12,14 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
     return {
         replace: true,
+        transclude: true,
         scope: {
             group: '=',
-            height: '=labelHeight',
             width: '='
         },
-        require: ['^draggableLabelsControl', '^scrollableElement'],
+        require: ['^taskGroupList', '^scrollableElement'],
         link: function ($scope, $element, ignored, require) {
-            var draggableLabelsControl = require[0];
+            var taskGroupList = require[0];
             var scrollableElement = require[1];
             var groupWidth = $scope.width;
 
@@ -38,8 +38,8 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
             if (group.$lastTouched) {
                 delete group.$lastTouched;
+                $element.addClass('blink');
                 $timeout(function(){
-                    $element.addClass('blink');
                     $timeout(function(){
                         $element.removeClass('blink');
                     }, 500, false)
@@ -49,13 +49,17 @@ angular.module('component.draggable-label').directive('draggableLabel', function
 
             $scope.dragHandler = {
                 start: function () {
-                    clone = $element.clone().css({opacity: 0.5,'margin-top': '28px'});
-                    $element.after(clone).addClass('draggy');
-                    clone.parent().prepend($element);
+                    taskGroupList.expandGroup(group);
+                    $element.addClass('expanded-group'); //no to call async digest in here
 
                     $scope.$apply(function () {
                         group.highlightTasks(true);
                     });
+
+
+                    clone = $element.clone().css({opacity: 0.5});
+                    $element.after(clone).addClass('draggy');
+                    clone.parent().prepend($element);
 
                     scrollableElement.watchMouse();
                     initialLeft = group.start;
@@ -63,6 +67,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                     setLeft(group.start);
                 },
                 move: function (deltaX) {
+                    clone.css({'margin-top': $element.prop('offsetHeight') + 'px'});
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
                     if (!$scope.resize) {
                         if (initialLeft + snapX >= 0) {
@@ -90,7 +95,7 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                             group.expand();
                         }
                         group.$lastTouched = true;
-                        draggableLabelsControl.recalculatePositions();
+                        taskGroupList.recalculatePositions();
                     } else {
                         group.width = initialWidth;
                         group.start = initialLeft;
@@ -101,6 +106,6 @@ angular.module('component.draggable-label').directive('draggableLabel', function
                 }
             };
         },
-        templateUrl: 'app/component/draggable-label/draggable-label.html'
+        templateUrl: 'app/component/task-group/task-group.html'
     };
 });

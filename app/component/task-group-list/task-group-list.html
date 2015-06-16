@@ -1,0 +1,6 @@
+<div class="task-group-list" ng-show="isExpanded">
+    <!--<div class="white-line" ng-repeat="column in columns"></div>-->
+    <div ng-repeat="line in lines">
+        <task-group group="group" width="228" ng-repeat="group in line.groups track by group.id"></task-group>
+    </div>
+</div>
