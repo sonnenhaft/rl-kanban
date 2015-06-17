@@ -1,6 +1,7 @@
 .task-group {
     display: inline-block;
     padding: 2px;
+    vertical-align: top;
     &.draggy {
         position: absolute;
         display: block;

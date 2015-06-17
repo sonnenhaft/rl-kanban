@@ -41,38 +41,32 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 }
             });
 
-            var group = $scope.group;
-
-            if (group.$lastTouched) {
-                delete group.$lastTouched;
-                $element.addClass('blink');
-                $timeout(function () {
-                    $timeout(function () {
-                        $element.removeClass('blink');
-                    }, 500, false);
-                }, 100, false);
-            }
             var initialWidth, initialLeft, clone;
-
             var wasResize = false;
+            var wasMoved = false;
+
+            var group = $scope.group;
             $scope.dragHandler = {
-                start: function () {
-                    taskGroupList.cleanExpanded(group);
-                    $scope.$apply(function () {
-                        group.highlightTasks(true);
-                    });
-
-                    clone = $element.clone().css({opacity: 0.5});
-                    $element.after(clone).addClass('draggy');
-                    clone.parent().prepend($element);
-
-                    scrollableElement.watchMouse();
-                    initialLeft = group.start;
-                    initialWidth = group.width;
-                    setLeft(group.start);
-                },
+                start: function () {},
                 move: function (deltaX) {
-                    clone.css({'margin-top': $element.prop('offsetHeight') + 'px'});
+                    if (!wasMoved) {
+                        wasMoved = true;
+                        $scope.$apply(function () {
+                            group.highlightTasks(true);
+                        });
+                        clone = $element.clone().css({opacity: 0.5});
+                        $element.after(clone).addClass('draggy');
+                        clone.parent().prepend($element);
+                        scrollableElement.watchMouse();
+                        initialLeft = group.start;
+                        initialWidth = group.width;
+                        setLeft(group.start);
+                    }
+
+                    var elementHeight = $element.prop('offsetHeight');
+                    clone.parent().css({'margin-top': elementHeight + 'px'});
+                    $element.css({'margin-top': -elementHeight + 'px'});
+
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
                     if ($scope.resize) {
                         wasResize = true;
@@ -87,34 +81,55 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     setWidth(group.width);
                 },
                 stop: function (deltaX) {
-                    clone.after($element.removeClass('draggy')).remove();
-                    group.highlightTasks(false);
-                    scrollableElement.stopWatching();
-                    var snapX = snapValue(deltaX / groupWidth, 1);
-                    if (wasResize) {
-                        group.width = initialWidth + snapX;
-                    } else {
-                        group.start = initialLeft + snapX;
-                    }
-
-                    if (group.width === initialWidth && group.start === initialLeft) {
-                        group.width = initialWidth;
-                        group.start = initialLeft;
-                        setLeft(group.$lineSpace);
-                        wasResize = false;
-                    } else {
+                    if (wasMoved) {
+                        wasMoved = false;
+                        clone.parent().css('margin-top', 0);
+                        $element.css('margin-top', 0);
+                        clone.after($element.removeClass('draggy')).remove();
+                        group.highlightTasks(false);
+                        scrollableElement.stopWatching();
+                        var snapX = snapValue(deltaX / groupWidth, 1);
                         if (wasResize) {
-                            group.expand();
+                            group.width = initialWidth + snapX;
                         } else {
-                            group.shrink(snapX);
+                            group.start = initialLeft + snapX;
                         }
-                        group.$lastTouched = true;
-                        taskGroupList.recalculatePositions();
+
+                        if (group.width === initialWidth && group.start === initialLeft) {
+                            group.width = initialWidth;
+                            group.start = initialLeft;
+                            setLeft(group.$lineSpace);
+                            wasResize = false;
+                        } else {
+                            if (wasResize) {
+                                group.expand();
+                            } else {
+                                group.shrink(snapX);
+                            }
+                            group.$lastTouched = true;
+                            taskGroupList.recalculatePositions();
+                        }
+                        $scope.$apply();
+                    } else {
+                        if (group.$expandedGroup) {
+                            alert('TADA! modal in here will be soon');
+                        } else {
+                            taskGroupList.cleanExpanded(group);
+                        }
                     }
 
-                    $scope.$apply();
                 }
             };
+
+            if (group.$lastTouched) {
+                delete group.$lastTouched;
+                $element.addClass('blink');
+                $timeout(function () {
+                    $timeout(function () {
+                        $element.removeClass('blink');
+                    }, 500, false);
+                }, 100, false);
+            }
         },
         templateUrl: 'app/component/task-group/task-group.html'
     };
