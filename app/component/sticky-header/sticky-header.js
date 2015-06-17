@@ -1,33 +1,26 @@
-angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window, $document, $timeout) {
+angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window) {
+    var $root = angular.element($window);
     return {
-        link: function (scope, element, attrs) {
+        link: function ($scope, $element) {
+            var iElement = $element[0];
             var isStuck = false;
-            var start = element[0].getBoundingClientRect().top + $document[0].body.scrollTop;
-            var style = getComputedStyle(element[0]);
-            var wrapper = element.wrap('<div></div>').parent();
+            var start = iElement.getBoundingClientRect().top + $window.document.body.scrollTop;
+            var style = $window.getComputedStyle(iElement);
+            var wrapper = $element.wrap('<div></div>').parent();
 
             function scrollSpy() {
-                var pos = $document[0].body.scrollTop;
+                var pos = $window.document.body.scrollTop;
 
                 if (!isStuck && pos > start) {
-                    wrapper.css({height: element[0].offsetHeight + parseInt(style.marginTop) + parseInt(style.marginBottom) + 'px'});
+                    wrapper.css({height: iElement.offsetHeight + parseInt(style.marginTop) + parseInt(style.marginBottom) + 'px'});
 
-                    element.css({
-                        width: element[0].offsetWidth + 'px',
-                        position: 'fixed',
-                        top: 0
-                    });
+                    $element.css({width: iElement.offsetWidth + 'px', position: 'fixed',top: 0});
 
                     isStuck = true;
-                }
-                else if (isStuck && pos < start) {
+                } else if (isStuck && pos < start) {
                     wrapper.css({height: ''});
 
-                    element.css({
-                        width: '',
-                        position: '',
-                        top: ''
-                    });
+                    $element.css({width: '',position: '',top: ''});
 
                     isStuck = false;
                 }
@@ -35,20 +28,19 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
 
             function recheckPositions() {
                 if (!isStuck) {
-                    start = element[0].getBoundingClientRect().top + $document[0].body.scrollTop;
+                    start =iElement.getBoundingClientRect().top + $window.document.body.scrollTop;
                 }
             }
 
-            angular.element(document).ready(recheckPositions);
-            angular.element($window).on('scroll', scrollSpy);
-            angular.element($window).on('resize', recheckPositions);
+            angular.element($window.document).ready(recheckPositions);
+            $root.on('scroll', scrollSpy);
+            $root.on('resize', recheckPositions);
 
-            scope.$on('$destroy', function () {
-                angular.element($window).off('resize', recheckPositions);
-                angular.element($window).on('scroll', scrollSpy);
+            $scope.$on('$destroy', function () {
+                $root.off('resize', recheckPositions);
+                $root.on('scroll', scrollSpy);
                 wrapper.remove();
             });
-
         }
     };
 });

@@ -3,12 +3,12 @@
     <div ng-repeat="group in groups" ng-click="showGroup = !showGroup" ng-init="showGroup=true" ng-show="showDebug">
         <b style="font-size: 120%; color: orange; cursor: pointer">
             {{::group.groupName}}
-            [tasks: <span opacity-on-changed="group.tasks.length"></span>,
-            width: <span opacity-on-changed="group.width"></span>]
+            [tasks: <span opacity-on-changed="group.tasks.length" set-text="true"></span>,
+            width: <span opacity-on-changed="group.width" set-text="true"></span>]
         </b>
         <div ng-repeat="task in group.tasks" ng-show="showGroup">
             <b>{{task.taskName}}</b>
-            column: <i opacity-on-changed="task.column.name"></i>
+            column: <i opacity-on-changed="task.column.name" set-text="true"></i>
         </div>
     </div>
 </div>

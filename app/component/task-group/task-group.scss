@@ -32,10 +32,8 @@
             cursor: default;
         }
     }
-    &.blink {
-        .task-group-content {
-            background: rgba(255, 163, 0, 0.42);
-        }
+    .task-group-content.opacity-on-changed {
+        background: rgba(255, 163, 0, 0.42)!important;
     }
     .after-button-area {
         margin-left: 2px;

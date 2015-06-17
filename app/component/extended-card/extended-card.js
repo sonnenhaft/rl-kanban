@@ -22,7 +22,7 @@ angular.module('component.extended-card', [
 
                     $scope.search = $location.search();
 
-                    $scope.tmpl = $scope.search.tmpl || 'planner'
+                    $scope.tmpl = $scope.search.template || 'planner';
                 },
                 resolve: {
                     task: function () {

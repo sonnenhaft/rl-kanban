@@ -11,14 +11,10 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
 
     function DeltaDragHandler($element, callbacks) {
         angular.extend(this, callbacks);
-        var that = this;
+        var eventObject = this;
 
         function dragListen(e) {
-            that.start();
-            $element.css('z-index', 9999);
-            $rootElement.css('cursor', 'pointer');
             var mouseDownEvent = e;
-
             var lastEvent = e;
 
             function sendDelta(e, fn) {
@@ -28,7 +24,15 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
                 lastEvent = e;
             }
 
-            function mouseMoveWrapper(e) { sendDelta(e, that.move);}
+            function mouseMoveWrapper(e) {
+                if (!eventObject.$moved) {
+                    eventObject.$moved = true;
+                    $element.css('z-index', 9999);
+                    $rootElement.css('cursor', 'pointer');
+                    eventObject.start();
+                }
+                sendDelta(e, eventObject.move);
+            }
 
             function touchMove(e) { mouseMoveWrapper(touchToMouse(e));}
 
@@ -40,9 +44,14 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
                 $rootElement.unbind('touchmove', touchMove);
                 $rootElement.unbind('mouseup', mouseUp);
                 $rootElement.unbind('toucheEnd', mouseUp);
-                $rootElement.css('cursor', 'default');
-                $element.css('z-index', 0);
-                sendDelta(lastEvent, that.stop);
+                if (eventObject.$moved) {
+                    eventObject.$moved = false;
+                    $rootElement.css('cursor', 'default');
+                    $element.css('z-index', 0);
+                    sendDelta(lastEvent, eventObject.stop);
+                } else {
+                    eventObject.simpleClick();
+                }
             }
 
             $rootElement.bind('mouseup', mouseUp);
