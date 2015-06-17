@@ -9,6 +9,13 @@ angular.module('kanban').value('KanbanTask', (function () {
         },
         removeFromGroup: function () {
             this.group.removeTask(this);
+        },
+        clone: function (task) {
+            task.taskName += ' (Copy)';
+            task = new KanbanTask(task);
+            task.group.tasks.push(task);
+            task.column.tasks.push(task);
+            task.column.swimlane.$tasksCount++;
         }
     };
 

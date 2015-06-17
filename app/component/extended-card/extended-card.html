@@ -1,0 +1,65 @@
+<h2 class="modal-title">Task Information
+    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+</h2>
+<div class="wrapper">
+    <div class="row">
+        <div class="column small-12">
+            <div class="header">
+                <div class="app-tag">
+                    <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
+                </div>
+                <span class="title">{{::task.appName}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column small-12">
+            <div class="name">{{::task.taskName}}</div>
+        </div>
+    </div>
+    <div class="div">
+        <div class="column toolbar">
+            <button ng-if="search.template == 'wt'" class="button white toolbar-button" ng-click="copy(task)"><span class="glyph-icon tollbar-icon"><span class="glyph-copy4"></span></span><span>Copy</span></button>
+            <button class="button white toolbar-button" ng-click="remove(task)"><span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span><span>Delete</span></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column small-12">
+            <div class="description">
+                <h3 class="legend"><span>Description</span></h3>
+                <p class="description">{{::task.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column small-12">
+            <div class="details">
+                <h3 class="legend"><span>Details</span></h3>
+                <div class="row">
+                    <div class="column medium-6">
+                        <h4 class="task-field" ng-show="search.template == 'wt'">Owner: <span>{{::task.ownerName}}</span></h4>
+                        <h4 class="task-field" ng-show="search.template == 'wt'">Assignee: <span>{{::task.assigneeName}}</span></h4>
+                        <h4 class="task-field" ng-show="search.template == 'planner'">Assignee: <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></h4>
+                        <h4 class="task-field">Task Type: <span>{{::task.type}}</span></h4>
+                        <h4 class="task-field">Status: <span>{{::task.state}}</span></h4>
+                    </div>
+                    <div class="column medium-6">
+                        <h4 class="task-field">Created:
+                            <span>{{::task.creationDate | date : "MMM d, y '/' h:mm a"}}</span></h4>
+                        <h4 class="task-field">Modified:
+                            <span>{{::task.modifiedDate | date : "MMM d, y '/' h:mm a"}}</span></h4>
+                        <h4 class="task-field">Assignability:
+                            <span>{{::task.assignability ? 'Locked' : 'Available'}}</span></h4>
+                        <priority-level ng-show="search.template == 'wt'" value="::task.priority"></priority-level>
+                        <h4 class="task-field" ng-show="search.template == 'planner'">Rating:&nbsp; <star-rating value="task.rating"></star-rating></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column footer">
+            <button class="button" ng-click="cancel()">Close</button>
+        </div>
+    </div>
+</div>
