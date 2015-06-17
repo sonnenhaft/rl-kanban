@@ -5,6 +5,7 @@ angular.module('kanban', [
     'component.scrollable-element',
     'kanban.templates',
     'component.kanban-board',
+    'component.task-groups-button',
     //TODO: remove unused dependencies
     'ui.sortable',
     'mm.foundation',

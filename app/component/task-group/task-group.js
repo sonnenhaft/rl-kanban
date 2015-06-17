@@ -24,11 +24,11 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             var groupWidth = $scope.width;
 
             function setLeft(leftPx) {
-                $element.css({'margin-left': leftPx * groupWidth  + 'px'});
+                $element.css({'margin-left': leftPx * groupWidth + 'px'});
             }
 
             function setWidth(width) {
-                $element.css('width', width * groupWidth  + 'px');
+                $element.css('width', width * groupWidth + 'px');
             }
 
             $scope.$watch('group.$lineSpace', setLeft);
@@ -39,23 +39,21 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             if (group.$lastTouched) {
                 delete group.$lastTouched;
                 $element.addClass('blink');
-                $timeout(function(){
-                    $timeout(function(){
+                $timeout(function () {
+                    $timeout(function () {
                         $element.removeClass('blink');
                     }, 500, false)
                 }, 100, false);
             }
             var initialWidth, initialLeft, clone;
 
+            var wasResize = false;
             $scope.dragHandler = {
                 start: function () {
-                    taskGroupList.expandGroup(group);
-                    $element.addClass('expanded-group'); //no to call async digest in here
-
+                    taskGroupList.cleanExpanded(group);
                     $scope.$apply(function () {
                         group.highlightTasks(true);
                     });
-
 
                     clone = $element.clone().css({opacity: 0.5});
                     $element.after(clone).addClass('draggy');
@@ -69,37 +67,38 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 move: function (deltaX) {
                     clone.css({'margin-top': $element.prop('offsetHeight') + 'px'});
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
-                    if (!$scope.resize) {
-                        if (initialLeft + snapX >= 0) {
-                            group.start = initialLeft + snapX;
+                    if ($scope.resize) {
+                        wasResize = true;
+                        if (initialWidth + snapX >= 1) {
+                            group.width = initialWidth + snapX;
                         }
-                    } else if (initialWidth - snapX >= 1 && initialLeft + snapX >= 0) {
+                    } else if (initialLeft + snapX >= 0) {
                         group.start = initialLeft + snapX;
-                        group.width = initialWidth - snapX;
                     }
 
                     setLeft(group.start);
                     setWidth(group.width);
                 },
-                stop:function (deltaX) {
+                stop: function (deltaX) {
                     clone.after($element.removeClass('draggy')).remove();
                     group.highlightTasks(false);
                     scrollableElement.stopWatching();
                     var snapX = snapValue(deltaX / groupWidth, 1);
                     if (snapX) {
-                        group.start = initialLeft + snapX;
-                        if (group.width === initialWidth) {
-                            group.shrink(snapX);
-                        } else {
-                            group.width = initialWidth - snapX;
+                        if (wasResize) {
+                            group.width = initialWidth + snapX;
                             group.expand();
+                        } else  {
+                            group.shrink(snapX);
                         }
+
                         group.$lastTouched = true;
                         taskGroupList.recalculatePositions();
                     } else {
                         group.width = initialWidth;
                         group.start = initialLeft;
-                         setLeft(group.$lineSpace)
+                        setLeft(group.$lineSpace);
+                        wasResize = false;
                     }
 
                     $scope.$apply();

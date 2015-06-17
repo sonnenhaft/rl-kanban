@@ -1,18 +1,13 @@
 <div class="task-group" delta-drag-handler="dragHandler"  ng-class="{opacity: group.highlight, 'expanded-group': group.$expandedGroup}">
     <div class="task-group-content">
-        <div resize-button class="resize-button">
-            <div  class="resize-button-indicator"></div>
+        <div class="remove-button">
+            <span class="gl-drag-indicator"></span>
         </div>
 
-        <div class="after-button-area">
+        <div class="after-button-area" >
             <div class="group-name">
                 <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon><span>{{::group.groupName}}</span>
             </div>
-
-            <div ng-click="group.remove()"  class="remove-button">
-                <glyph-icon icon="'glyph-cancel-circle2'"></glyph-icon>
-            </div>
-
             <div class="info">
                 <div class="group-info">
                     <div>Master {{group.masterName}}</div>
@@ -27,5 +22,10 @@
                 </div>
             </div>
         </div>
+
+        <div resize-button="resize" class="resize-button" expand-area>
+            <glyph-icon icon="'glyph-arrow7'"></glyph-icon>
+        </div>
+
     </div>
 </div>

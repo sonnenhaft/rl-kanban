@@ -5,21 +5,7 @@
         <column-names columns="config.columns" columns-width></column-names>
         <task-group-list groups="$parent.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
     </div>
-    <div class="text-center" style="
-    margin-top: -8px;
-">
-        <button ng-click="expanded = !expanded" ng-init="expanded = true" style="
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    padding: 3px;
-    border-radius: 5px;
-    font-size: 11px;
-    background: white;
-    color: grey;
-    border: 2px solid #a5a5a5;
-">TASK GROUPS</button>
-    </div>
+    <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
 
     <!--<swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>-->
 </div>
