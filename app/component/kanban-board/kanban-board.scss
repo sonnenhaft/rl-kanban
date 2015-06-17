@@ -76,7 +76,11 @@
     .kanban-header {
         border: 1px solid #cdcdcd;
         overflow: hidden;
-        margin-left: -2px;;
+        margin-left: -2px;
+    }
+
+    .kanban-header-wrapper {
+        z-index: 100;
     }
 }
 

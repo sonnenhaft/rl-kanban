@@ -38,7 +38,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                     });
                 });
             });
-            
+
             function rand(array) {
                 return array[Math.round((Math.random() * (array.length - 1)))].id;
             }
