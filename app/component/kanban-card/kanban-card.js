@@ -9,7 +9,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($locat
 
             $scope.search = $location.search();
 
-            $scope.tmpl = $scope.search.tmpl || 'planner'
+            $scope.tmpl = $scope.search.tmpl || 'planner';
         }
     };
 });

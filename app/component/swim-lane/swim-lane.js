@@ -4,7 +4,7 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
         scope: {
             swimlane: '='
         },
-        link: function (scope, element, attrs) {
+        link: function (scope) {
             scope.isCollapsed = false;
 
             scope.toggleCollapse = function(){

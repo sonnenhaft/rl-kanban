@@ -1,0 +1,31 @@
+<div class="task-group" delta-drag-handler="dragHandler"  ng-class="{opacity: group.highlight, 'expanded-group': group.$expandedGroup}">
+    <div class="task-group-content">
+        <div class="drag-button">
+            <span class="gl-drag-indicator"></span>
+        </div>
+
+        <div class="after-button-area" >
+            <div class="group-name">
+                <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon><span>{{::group.groupName}}</span>
+            </div>
+            <div class="info">
+                <div class="group-info">
+                    <div>Master {{group.masterName}}</div>
+                    <div>Owner: {{group.ownerName}}</div>
+                </div>
+                <div class="group-info secondary">
+                    <div>Created: {{::group.creationDate | date : "MM/dd/yy h:mm a" | lowercase}}</div>
+                    <div>Modified: {{::group.modifiedDate | date : "MM/dd/yy h:mm a"  | lowercase}}</div>
+                </div>
+                <div class="group-info status" ng-class="{Completed: 'complete'}[group.state]">
+                    <div>{{group.state}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div resize-button="resize" class="resize-button" expand-area>
+            <glyph-icon icon="'glyph-arrow7'"></glyph-icon>
+        </div>
+
+    </div>
+</div>

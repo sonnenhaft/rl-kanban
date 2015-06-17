@@ -1,11 +1,19 @@
-.draggable-labels-control {
+.task-group-list {
     background: #f6f6f6;
     position: relative;
     overflow: hidden;
+    padding-bottom: 10px;
+    .white-line-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0
+    }
     .white-line {
         height: 100%;
         width: 1px;
-        background: #cdcdcd;
+        background: white;
         display: inline-block;
         margin-left: 227px;
     }

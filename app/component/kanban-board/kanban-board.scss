@@ -64,6 +64,7 @@
     }
 }
 
+//TODO: move this out of here
 .kanban {
     max-width: 1140px;
     margin: 0 auto;
@@ -71,13 +72,10 @@
     -webkit-font-smoothing: antialiased;
     margin-bottom: 13px;
 
+
     .kanban-header {
         border: 1px solid #cdcdcd;
-        overflow-x: hidden;
-    }
-
-    .kanban-header-wrapper {
-        margin-bottom: 20px;
-        z-index: 1;
+        overflow: hidden;
+        margin-left: -2px;;
     }
 }
