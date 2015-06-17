@@ -74,7 +74,8 @@
 
 
     .kanban-header {
-        margin-bottom: 20px;
         border: 1px solid #cdcdcd;
+        overflow: hidden;
+        margin-left: -2px;;
     }
 }
