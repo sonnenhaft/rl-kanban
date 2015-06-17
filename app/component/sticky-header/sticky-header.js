@@ -1,10 +1,10 @@
 angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window, $document, $timeout) {
     return {
         link: function (scope, element, attrs) {
-            var isStuck = false,
-                start = element[0].getBoundingClientRect().top + $document[0].body.scrollTop,
-                style = getComputedStyle(element[0]),
-                wrapper = element.wrap('<div></div>').parent();
+            var isStuck = false;
+            var start = element[0].getBoundingClientRect().top + $document[0].body.scrollTop;
+            var style = getComputedStyle(element[0]);
+            var wrapper = element.wrap('<div></div>').parent();
 
             function scrollSpy() {
                 var pos = $document[0].body.scrollTop;

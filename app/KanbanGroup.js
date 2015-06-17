@@ -1,7 +1,6 @@
 angular.module('kanban').value('KanbanGroup', (function () {
-    function KanbanGroup(groupData, parentCollection) {
+    function KanbanGroup(groupData) {
         angular.extend(this, groupData);
-        this.groups = parentCollection;
     }
 
     KanbanGroup.prototype = {
@@ -52,28 +51,6 @@ angular.module('kanban').value('KanbanGroup', (function () {
             this.start = minIndex;
             this.width = maxIndex - minIndex + 1;
             this.$recalculated = true;
-        },
-
-        //attention, next 2 methods uses groups collection
-        removeTask: function (task) {
-            task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
-            task.column.swimlane.$tasksCount--;
-            if (this.tasks.length) {
-                task.group.recalculate();
-            } else {
-                this.groups.splice(this.groups.indexOf(task.group), 1);
-            }
-        },
-
-        remove: function () {
-            this.groups.splice(this.groups.indexOf(this), 1).sort(function (group1, group2) {
-                return group1.index > group2.index ? 1 : -1;
-            }).forEach(function (group, index) {
-                group.index = index;
-            });
-            this.tasks.forEach(function (task) {
-                task.removeFromGroup();
-            });
         }
     };
 

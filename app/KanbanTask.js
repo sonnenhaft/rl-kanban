@@ -13,9 +13,6 @@ angular.module('kanban').value('KanbanTask', (function () {
             this.columnId = column.id;
             this.column = column;
         },
-        removeFromGroup: function () {
-            this.group.removeTask(this);
-        },
         clone: function (task) {
             task.taskName += ' (Copy)';
             task = new KanbanTask(task);

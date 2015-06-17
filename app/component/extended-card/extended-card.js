@@ -15,12 +15,6 @@ angular.module('component.extended-card', [
                     };
                     $scope.task = task;
 
-                    $scope.remove = function(task){
-                        task.removeFromGroup();
-                        //task.removeFromColumn();
-                        $modalInstance.dismiss('cancel');
-                    };
-
                     $scope.copy = function(task){
                         task.clone(task);
                         $modalInstance.dismiss('cancel');

@@ -14,7 +14,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
 
             $scope.groups = [];
             $scope.config.groups.forEach(function (group) {
-                $scope.groups.push(new KanbanGroup(group, $scope.groups));
+                $scope.groups.push(new KanbanGroup(group));
             });
 
             $scope.groups.forEach(function (group) {
