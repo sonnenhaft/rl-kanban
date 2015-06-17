@@ -1,10 +1,20 @@
 <div ng-if="config" class="kanban" combine-horizontal-scrolls>
+    <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
     <groups-debug groups="$parent.groups"></groups-debug>
+    <div class="kanban-header-wrapper" sticky-header>
+        <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
+        <div class="kanban-header" scrollable-element horizontal-scroll>
+            <column-names columns="config.columns" columns-width></column-names>
+            <draggable-labels-control groups="$parent.groups" columns="config.columns"
+                                      label-height="26" columns-width>
+            </draggable-labels-control>
+        </div>
     <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
     <div class="kanban-header" scrollable-element horizontal-scroll>
         <column-names columns="config.columns" columns-width></column-names>
         <task-group-list groups="$parent.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
     </div>
+    <swim-lane class="swim-lane" ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
     <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
 
     <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
