@@ -17,7 +17,7 @@ angular.module('component.extended-card', [
 
                     $scope.remove = function(task){
                         task.removeFromGroup();
-                        task.removeFromColumn();
+                        //task.removeFromColumn();
                         $modalInstance.dismiss('cancel');
                     };
 
