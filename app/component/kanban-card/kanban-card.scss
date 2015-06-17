@@ -1,37 +1,13 @@
 $gutter: 5px;
 $marker-height: 4px;
-$blue-marker: #326295;
-$green-marker: #1E9C9F;
-$orange-marker: #df6826;
 .kanban-card {
     width: 218px;
     font-size: 14px;
-    color: #555555;
-    background-color: #ffffff;
-    border-top: $marker-height solid #ccc;
+    color: #555;
+    background-color: #fff;
     margin: $gutter 0;
     position: relative;
     z-index: 0;
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: -$marker-height;
-        height: $marker-height;
-        width: 100%;
-    }
-    &.blue:before {
-        background: $blue-marker;
-        outline: 1px solid $blue-marker;
-    }
-    &.green:before {
-        background: $green-marker;
-        outline: 1px solid $green-marker;
-    }
-    &.orange:before {
-        background: $orange-marker;
-        outline: 1px solid $orange-marker;
-    }
     .card-wrapper {
         min-height: 86px;
         border: 1px solid #efefef;
@@ -39,7 +15,17 @@ $orange-marker: #df6826;
             opacity: 0.5;
         }
     }
+    .card-color {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: black;
+        height: 6px;
+        left: 0;
+        right: 0;
+    }
     .card-header {
+        margin-top: 7px;
         display: table;
         table-layout: fixed;
         width: 100%;

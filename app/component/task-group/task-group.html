@@ -6,10 +6,12 @@
 
         <div class="after-button-area" >
             <div class="group-name">
-                <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon><span>{{::group.groupName}}</span>
+                <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon>
+                <span style="color: {{::group.color}}">{{::group.groupName}}</span>
             </div>
             <div class="info">
                 <div class="group-info">
+
                     <div>Master {{group.masterName}}</div>
                     <div>Owner: {{group.ownerName}}</div>
                 </div>

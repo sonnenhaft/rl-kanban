@@ -506,6 +506,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
     'groups': [
         {
             'masterName': 'aliqua irure Lorem',
+            'color': 'blue',
             'masterRef': '555b69114201bc1a33601265',
             'ownerName': 'Coffey Perez',
             'modifiedDate': '2015-03-08T08:14:54.028Z',
@@ -520,6 +521,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         },
         {
             'masterName': 'excepteur laboris excepteur',
+            'color': 'green',
             'masterRef': '555b6911300f79d92b615349',
             'ownerName': 'Diana Leblanc',
             'modifiedDate': '2015-05-01T15:55:24.580Z',
@@ -534,6 +536,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         },
         {
             'masterName': 'nulla aliquip esse',
+            'color': 'orange',
             'masterRef': '555b691133332c0d9e45b283',
             'ownerName': 'Estella May',
             'modifiedDate': '2015-01-05T16:09:17.100Z',
@@ -548,6 +551,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         },
         {
             'masterName': 'voluptate excepteur occaecat',
+            'color':'green',
             'masterRef': '555b69113f092d0c6f0862cc',
             'ownerName': 'Iris Brewer',
             'modifiedDate': '2015-01-08T09:30:22.292Z',
@@ -562,6 +566,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         },
         {
             'masterName': 'aliquip dolore qui',
+            'color': 'red',
             'masterRef': '555b691166eddb96bcbc31ed',
             'ownerName': 'April Fletcher',
             'modifiedDate': '2015-05-07T09:56:49.867Z',
