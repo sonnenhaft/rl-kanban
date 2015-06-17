@@ -24,10 +24,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat officia',
             'taskName': 'culpa enim nulla cupidatat officia',
             'id': '555b69112a241c792bd5db5d',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "3",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '3',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
@@ -45,10 +45,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'tempor aliquip',
             'taskName': 'et eiusmod nisi cupidatat officia',
             'id': '555b691180e8d65d15e4d649',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "4",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '4',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
@@ -66,10 +66,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat officia',
             'taskName': 'aliqua non proident et do et proident',
             'id': '555b6911bdbc551b3fee3d75',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
@@ -87,10 +87,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'anim sunt anim',
             'taskName': 'deserunt mollit fugiat',
             'id': '555b6911013efe717127086f',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
@@ -108,10 +108,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat officia',
             'taskName': 'quis nulla est',
             'id': '555b6911cfcb64862481fb60',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Book",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Book',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
@@ -129,10 +129,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'dolore enim',
             'taskName': 'ullamco mollit Lorem enim nostrud',
             'id': '555b6911f166cf1e18a232cd',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Book",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Book',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
@@ -150,10 +150,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'aliquip esse consequat',
             'taskName': 'ullamco tempor velit',
             'id': '555b6911a9300b1dba92984f',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "4",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '4',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
@@ -171,10 +171,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'consectetur aliqua deserunt',
             'taskName': 'dolor magna occaecat aliqua deserunt',
             'id': '555b69117e221641dd9cbb9b',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
@@ -192,10 +192,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'onsectetur consectetur sunt nostrud',
             'taskName': 'eiusmod cillum elit',
             'id': '555b69117e221641dd9cbb9b',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "4",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '4',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
@@ -213,10 +213,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'excepteur laborum',
             'taskName': 'elit officia id',
             'id': '555b69114ba4c055e4ba9c74',
-            "swimlaneId": "555b6922f5cad468b43fbe8b",
-            "rating": "5",
-            "type": "Book",
-            "assignees" : ["Student Group 1"]
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
+            'rating': '5',
+            'type': 'Book',
+            'assignees' : ['Student Group 1']
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
@@ -234,10 +234,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'nostrud fugiat sit',
             'taskName': 'laborum anim ipsum',
             'id': '555b69110bad6e61c487aac3',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911f5cad468b43fbe8b',
@@ -255,10 +255,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'proident elit elit',
             'taskName': 'deserunt ut in',
             'id': '555b6911255fa88990d6372a',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "3",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '3',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
@@ -276,10 +276,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'minim in cupidatat',
             'taskName': 'mollit ipsum in',
             'id': '555b691118fc43bab7aa34d5',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911a9ce3b29e498cae5',
@@ -297,10 +297,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat quis qui',
             'taskName': 'eu deserunt excepteur',
             'id': '555b69110462e7ebf1fe4e40',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "4",
-            "type": "Book",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '4',
+            'type': 'Book',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
@@ -318,10 +318,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'occaecat mollit cillum',
             'taskName': 'duis eiusmod cillum',
             'id': '555b6911e01072a878822c2a',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "5",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '5',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911b55afadc0db29d98',
@@ -339,10 +339,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'adipisicing velit ea.',
             'taskName': 'esse dolore tempor',
             'id': '555b6911421b45dea86211b7',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "4",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '4',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2']
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
@@ -360,10 +360,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'laborum do cupidatat adipisicing',
             'taskName': 'dolore excepteur et',
             'id': '555b69110463b4b52a1a3711',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "3",
-            "type": "Video",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '3',
+            'type': 'Video',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911faa6e347b8f89d13',
@@ -381,10 +381,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat officia',
             'taskName': 'est velit consectetur',
             'id': '555b6911417547d0f6db768b',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "4",
-            "type": "Video",
-            "assignees" : ["Student Group 1"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '4',
+            'type': 'Video',
+            'assignees' : ['Student Group 1']
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
@@ -402,10 +402,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'tempor ea ipsum',
             'taskName': 'esse aliquip cupidatat',
             'id': '555b6911d53e0734f02bcc74',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "5",
-            "type": "Book",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '5',
+            'type': 'Book',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         },
         {
             'columnId': '555b6911ba6d349f6253cd85',
@@ -423,10 +423,10 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'proident qui fugiat',
             'taskName': 'excepteur dolor sunt',
             'id': '555b6911d53e0734f02bcc74',
-            "swimlaneId": "555b6933a9ce3b29e498cae5",
-            "rating": "2",
-            "type": "Book",
-            "assignees" : ["Student Group 1", "Student Group 2", "Student Group 3"]
+            'swimlaneId': '555b6933a9ce3b29e498cae5',
+            'rating': '2',
+            'type': 'Book',
+            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
         }
     ],
     'columns': [

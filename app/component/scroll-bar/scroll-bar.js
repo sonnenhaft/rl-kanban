@@ -38,7 +38,7 @@ angular.module('component.scroll-bar', [])
 
                 scope.$on('$destroy', function () {
                     ctrl.removeScrollElemnt(element);
-                })
+                });
             }
         };
     })
@@ -51,7 +51,7 @@ angular.module('component.scroll-bar', [])
 
                 scope.$on('$destroy', function () {
                     kanban.removeElement(element);
-                })
+                });
             }
         };
     });

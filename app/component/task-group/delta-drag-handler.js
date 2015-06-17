@@ -59,7 +59,7 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
     return function ($scope, $element, $attr) {
         var watchOnce = $scope.$watch($attr.deltaDragHandler, function(callbacks){
             watchOnce();
-            new DeltaDragHandler($element, callbacks);
+            new DeltaDragHandler($element, callbacks); //jshint ignore: line
         });
     };
 });

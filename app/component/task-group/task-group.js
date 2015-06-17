@@ -34,7 +34,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.$watch('group.$lineSpace', setLeft);
             $scope.$watch('group.width', setWidth);
 
-            $scope.$watch('group.$recalculated', function(value){
+            $scope.$watch('group.$recalculated', function (value) {
                 if (value) {
                     delete $scope.group.$recalculated;
                     taskGroupList.recalculatePositions();
@@ -49,7 +49,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 $timeout(function () {
                     $timeout(function () {
                         $element.removeClass('blink');
-                    }, 500, false)
+                    }, 500, false);
                 }, 100, false);
             }
             var initialWidth, initialLeft, clone;
@@ -93,11 +93,11 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     var snapX = snapValue(deltaX / groupWidth, 1);
                     if (wasResize) {
                         group.width = initialWidth + snapX;
-                    } else  {
+                    } else {
                         group.start = initialLeft + snapX;
                     }
 
-                    if (group.width ==initialWidth && group.start == initialLeft) {
+                    if (group.width === initialWidth && group.start === initialLeft) {
                         group.width = initialWidth;
                         group.start = initialLeft;
                         setLeft(group.$lineSpace);

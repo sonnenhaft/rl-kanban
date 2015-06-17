@@ -23,7 +23,7 @@ angular.module('kanban').value('KanbanGroup', (function () {
             var swimLanes = {};
             this.tasks.forEach(function(task){
                 if (!swimLanes[task.column.swimlane.id]){
-                    swimLanes[task.column.swimlane.id] = [task]
+                    swimLanes[task.column.swimlane.id] = [task];
                 } else {
                     swimLanes[task.column.swimlane.id].push(task);
                 }

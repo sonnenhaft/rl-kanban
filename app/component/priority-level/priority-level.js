@@ -4,7 +4,6 @@ angular.module('component.priority-level', []).directive('priorityLevel', functi
         templateUrl: 'app/component/priority-level/priority-level.html',
         scope: {
             value: '='
-        },
-        link: function (scope, element, attrs) {}
+        }
     };
 });

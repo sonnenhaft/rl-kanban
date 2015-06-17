@@ -3,5 +3,5 @@ angular.module('component.task-groups-button', []).directive('taskGroupsButton',
        replace: true,
        scope: {value: '='},
        templateUrl: 'app/component/task-groups-button/task-groups-button.html'
-   }
+   };
 });

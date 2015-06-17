@@ -2,7 +2,7 @@ angular.module('component.task-group').directive('resizeButton', function ($wind
     var $rootElement = angular.element($window.document.documentElement);
     var body = angular.element($window.document.body);
     return function ($scope, $element, $attrs) {
-        function mouseDown(e) {
+        function mouseDown() {
             $rootElement.bind('mouseup', mouseUp);
             $rootElement.bind('touchend', mouseUp);
             $scope[$attrs.resizeButton] = true;
