@@ -1,0 +1,105 @@
+.task-group {
+    display: inline-block;
+    padding: 2px;
+    .gl-drag-indicator {
+        top: 4px;
+        bottom: 4px;
+    }
+    &.draggy {
+        position: absolute;
+        display: block;
+    }
+    &.opacity {
+        opacity: 0.5;
+    }
+    &.expanded-group {
+        .task-group-content {
+            background: white;
+        }
+        .info {
+            display: block;
+        }
+        .resize-button, .group-name {
+            color: #763597;
+        }
+        .drag-button {
+            background: #763597;
+            color: white;
+        }
+        .card-icon {
+            display: inline-block;
+        }
+        .after-button-area {
+            margin-left: 5px;
+            display: inline-block;
+            cursor: default;
+        }
+    }
+    &.blink {
+        .task-group-content {
+            background: rgba(255, 163, 0, 0.42);
+        }
+    }
+    .after-button-area {
+        margin-left: 2px;
+        cursor: pointer;
+    }
+
+    .task-group-content {
+        transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        padding: 2px 2px 6px 0;
+        background: #f6f6f6;
+        position: relative;
+        color: #5D5D5D;
+        font-weight: bold;
+        font-size: 14px;
+        border: 1px solid #ccc;
+    }
+
+    .info {
+        display: none;
+        margin-left: 11px;
+        .group-info {
+            display: inline-block;
+            width: 201px;
+            vertical-align: top;
+            font-weight: 300;
+            &.secondary {
+                color: #AEACAD;
+            }
+            &.status {
+                color: #ff331d;
+                &.complete {
+                    color: #41903D;
+                }
+            }
+        }
+    }
+
+    .card-icon {
+        display: none;
+    }
+
+    .group-name {
+        margin-left: 11px;
+        margin-top: 2px;
+    }
+
+
+    .resize-button {
+        z-index: 150;
+        display: inline-block;
+        cursor: col-resize;
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        bottom: 2px;
+    }
+
+    .drag-button {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 13px;
+    }
+}

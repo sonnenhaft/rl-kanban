@@ -6,8 +6,8 @@ angular.module('component.star-rating', []).directive('starRating', function () 
             value: '=',
             max: '=?' //optional: default is 5
         },
-        link: function (scope, element, attrs) {
-            if (scope.max == undefined) {
+        link: function (scope) {
+            if (scope.max === undefined) {
                 scope.max = 5;
             }
             scope.stars = [];

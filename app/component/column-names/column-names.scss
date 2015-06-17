@@ -1,16 +1,15 @@
 .column-names {
     .column-title {
-        color: #FFFFFF;
+        color: #fff;
         font-size: 14px;
         font-weight: 600;
-        text-align: left;
-        padding: 10px 6px 10px 10px;
-        background: #555555;
-        border: 1px solid #cdcdcd;
-        border-right: none;
-
-        width: 228px;
+        text-align: center;
+        text-transform: uppercase;
+        background: #555;
         display: inline-block;
+        width: 228px;
+        padding: 15px 6px 15px 10px;
+        border-right: 1px solid #ccc;
     }
     white-space: nowrap;
 }

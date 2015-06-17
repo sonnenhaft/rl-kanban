@@ -1,4 +1,4 @@
-angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask, KanbanGroup, $interval) {
+angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask, KanbanGroup) {
     return {
         scope: {config: '='},
         replace: true,
@@ -38,7 +38,7 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                     });
                 });
             });
-
+            
             function rand(array) {
                 return array[Math.round((Math.random() * (array.length - 1)))].id;
             }
@@ -78,20 +78,6 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
                 task.column.tasks.push(task);
 
             }, 1000, 10);
-
-            $scope.$on('clone:task', function(event, task) {
-                task.taskName += ' (Copy)';
-                task = new KanbanTask(task);
-                task.group = groupsMap[task.groupId];
-                var swimlane = swimlanesMap[task.swimlaneId];
-                swimlane.columns.forEach(function (column) {
-                    if (column.id === task.columnId) {
-                        task.column = column;
-                    }
-                });
-                task.group.tasks.push(task);
-                task.column.tasks.push(task);
-            });
         },
         controller: function ($scope) {
             var registeredElements = [];

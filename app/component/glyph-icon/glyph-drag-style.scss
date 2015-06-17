@@ -1,0 +1,17 @@
+.gl-drag-indicator {
+    cursor: move;
+    position: absolute;
+    left: -9px;
+    width: 30px;
+    overflow: hidden;
+    top: 15px;
+    bottom: 15px;
+    z-index: 1;
+    &:before {
+        font-family: 'RLGlyphs';
+        font-size: 31px;
+        content: "\e613\e613\e613\e613\e613\e613\e613\e613";
+        line-height: 32px;
+        word-wrap: break-word;
+    }
+}

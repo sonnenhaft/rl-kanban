@@ -1,4 +1,4 @@
-angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($location, $window) {
+angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($location) {
     return {
         restrict: 'E',
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
