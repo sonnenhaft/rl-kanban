@@ -20,34 +20,38 @@ angular.module('kanban').value('KanbanGroup', (function () {
             });
         },
         expand: function () {
+            var swimLanes = {};
+            this.tasks.forEach(function(task){
+                if (!swimLanes[task.column.swimlane.id]){
+                    swimLanes[task.column.swimlane.id] = [task]
+                } else {
+                    swimLanes[task.column.swimlane.id].push(task);
+                }
+            });
+
             var start = this.start;
-            var width = this.width;
-            var numberOfTasks = this.tasks.length;
-            var columnAmount = Math.ceil(numberOfTasks / width);
-            angular.forEach(this.tasks, function (task) {
-                var toColumn = task.column.swimlane.columns[start];
-                task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
-                toColumn.tasks.push(task);
-                task.column = toColumn;
-                task.columnId = task.column.id;
-                columnAmount--;
-                numberOfTasks--;
+            var end = this.width;
+            angular.forEach(swimLanes, function(tasks){
+                tasks.forEach(function(task, index){
+                    task.moveToColumn(task.column.swimlane.columns[start + index % end]);
+                });
             });
         },
         recalculate: function () {
-            var min = this.tasks[0].column.index;
-            var max = min;
-            var index;
-            angular.forEach(this.tasks, function (task) {
-                index = task.column.index;
-                if (index < min) {
-                    min = index;
-                } else if (index > max) {
-                    max = index;
+            var minIndex = Number.MAX_VALUE;
+            var maxIndex = 0;
+            this.tasks.forEach(function (task) {
+                var columnIndex = task.column.index;
+                if (columnIndex > maxIndex) {
+                    maxIndex = columnIndex;
+                }
+                if (columnIndex < minIndex) {
+                    minIndex = columnIndex;
                 }
             });
-            this.start = min;
-            this.width = max - min + 1;
+            this.start = minIndex;
+            this.width = maxIndex - minIndex + 1;
+            this.$recalculated = true;
         },
 
         //attention, next 2 methods uses groups collection

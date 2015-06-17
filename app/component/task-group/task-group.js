@@ -34,6 +34,13 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.$watch('group.$lineSpace', setLeft);
             $scope.$watch('group.width', setWidth);
 
+            $scope.$watch('group.$recalculated', function(value){
+                if (value) {
+                    delete $scope.group.$recalculated;
+                    taskGroupList.recalculatePositions();
+                }
+            });
+
             var group = $scope.group;
 
             if (group.$lastTouched) {
@@ -84,21 +91,25 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     group.highlightTasks(false);
                     scrollableElement.stopWatching();
                     var snapX = snapValue(deltaX / groupWidth, 1);
-                    if (snapX) {
-                        if (wasResize) {
-                            group.width = initialWidth + snapX;
-                            group.expand();
-                        } else  {
-                            group.shrink(snapX);
-                        }
+                    if (wasResize) {
+                        group.width = initialWidth + snapX;
+                    } else  {
+                        group.start = initialLeft + snapX;
+                    }
 
-                        group.$lastTouched = true;
-                        taskGroupList.recalculatePositions();
-                    } else {
+                    if (group.width ==initialWidth && group.start == initialLeft) {
                         group.width = initialWidth;
                         group.start = initialLeft;
                         setLeft(group.$lineSpace);
                         wasResize = false;
+                    } else {
+                        if (wasResize) {
+                            group.expand();
+                        } else {
+                            group.shrink(snapX);
+                        }
+                        group.$lastTouched = true;
+                        taskGroupList.recalculatePositions();
                     }
 
                     $scope.$apply();

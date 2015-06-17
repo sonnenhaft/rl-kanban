@@ -9,7 +9,6 @@ angular.module('kanban', [
     //TODO: remove unused dependencies
     'ui.sortable',
     'mm.foundation',
-    'component.kanban-group',
     'component.kanban-column',
     'component.task-group',
     'component.task-group-list',

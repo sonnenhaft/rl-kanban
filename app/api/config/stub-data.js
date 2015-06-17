@@ -527,7 +527,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'state': 'Completed',
             'appRef': 'glyph-kw-logo',
             'index': 1,
-            'start': 2,
+            'start': 1,
             'width': 1,
             'groupName': 'elit id est',
             'id': '555b6911dd143fd022e7d0f7'
@@ -541,7 +541,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'state': 'Completed',
             'appRef': 'glyph-kw-logo',
             'index': 2,
-            'start': 3,
+            'start': 2,
             'width': 1,
             'groupName': 'consectetur dolore cillum',
             'id': '555b691143ccda9c3a78c00a'
@@ -554,9 +554,9 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'creationDate': '2015-04-27T16:25:38.801Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'index': 2,
+            'index': 3,
             'start': 3,
-            'width': 2,
+            'width': 1,
             'groupName': 'officia duis exercitation',
             'id': '555b69117e221641dd9cbb9b'
         },
@@ -569,8 +569,8 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'state': 'In Progress',
             'appRef': 'glyph-eiaf-logo',
             'index': 4,
-            'start': 0,
-            'width': 3,
+            'start': 4,
+            'width': 1,
             'groupName': 'amet enim adipisicing',
             'id': '555b6911d53e0734f02bcc74'
         }
