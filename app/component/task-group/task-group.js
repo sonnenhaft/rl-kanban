@@ -1,4 +1,4 @@
-angular.module('component.task-group').directive('taskGroup', function ($timeout, $window) { //jshint ignore: line
+angular.module('component.task-group').directive('taskGroup', function ($timeout, $window, taskGroupModal) { //jshint ignore: line
     var SNAP_SENSITIVITY = 0.2;
 
     function snapValue(val, sensivity) {
@@ -34,6 +34,12 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.$watch('group.$lineSpace', setLeft);
             $scope.$watch('group.width', setWidth);
 
+            $scope.$watch('group.tasks.length', function(now, before){
+                if (before && !now) {
+                    taskGroupList.removeGroup(group);
+                }
+            });
+
             $scope.$watch('group.$recalculated', function (value) {
                 if (value) {
                     delete $scope.group.$recalculated;
@@ -48,7 +54,10 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.dragHandler = {
                 simpleClick: function () {
                     if (group.$expandedGroup) {
-                        $window.alert('TADA! modal in here will be soon');
+                        taskGroupModal.open(group).result.then(function(){
+                            group.remove();
+                            taskGroupList.removeGroup(group);
+                        });
                     } else {
                         taskGroupList.cleanExpanded(group);
                     }

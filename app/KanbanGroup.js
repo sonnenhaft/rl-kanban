@@ -51,6 +51,11 @@ angular.module('kanban').value('KanbanGroup', (function () {
             this.start = minIndex;
             this.width = maxIndex - minIndex + 1;
             this.$recalculated = true;
+        },
+        remove: function(){
+            this.tasks.forEach(function(task){
+               task.removeFromColumn();
+            });
         }
     };
 

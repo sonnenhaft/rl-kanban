@@ -4,6 +4,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($locat
         link: function ($scope) {
             $scope.search = $location.search();
 
+            $scope.remove = function(){
+                $scope.task.remove();
+            };
+
             $scope.tmpl = $scope.search.tmpl || 'planner';
         }
     };

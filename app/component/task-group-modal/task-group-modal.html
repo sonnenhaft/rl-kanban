@@ -1,0 +1,51 @@
+<h2 class="modal-title">Task Group Information
+    <a class="close-reveal-modal" ng-click="modal.cancel()">&#215;</a>
+</h2>
+<div class="wrapper">
+    <div class="row">
+        <div class="column small-12">
+            <div class="delete-button" ng-click="modal.delete()">Delete Task Group</div>
+            <div class="group-name">
+                <div class="group-icon">
+                    <glyph-icon icon="modal.group.appRef" class="card-icon"></glyph-icon>
+                </div>
+
+                <span>{{::modal.group.groupName}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column small-12">
+            <div class="details">
+                <h3 class="legend"><span>Details</span></h3>
+                <br/>
+                <div class="info">
+                    <div class="group-info">
+                        <div class="info-label-very-bold">Master {{modal.group.masterName}}</div>
+                    </div>
+                    <div class="group-info">
+                        <div><span class="info-label">Created:</span> {{::modal.group.creationDate | date : "MM-dd-yyyy h:mm a" | lowercase}}</div>
+                    </div>
+                    <div class="group-info">
+                        <div><span class="info-label">Owner: </span>{{modal.group.ownerName}}</div>
+                    </div>
+                    <div class="group-info">
+                        <div><span class="info-label">Modified:</span> {{::modal.group.modifiedDate | date : "MM-dd-yyyy h:mm a" | lowercase}}</div>
+                    </div>
+                    <div class="group-info">
+                        <span class="info-label">Status: </span>
+                        <span class="status" ng-class="{Completed: 'complete'}[modal.group.state]">
+                            {{::modal.group.state}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column footer">
+        <button class="button" ng-click="modal.cancel()">Go Back</button>
+    </div>
+</div>
+</div>

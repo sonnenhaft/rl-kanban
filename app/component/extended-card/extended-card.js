@@ -1,7 +1,9 @@
+//TODO: rename to task-card-modal
 angular.module('component.extended-card', [
     'mm.foundation.modal',
     'template/modal/backdrop.html',
     'template/modal/window.html'
+    //TODO: refactor please to service, we don't need to put scope in here.
 ]).directive('extendedCard', function ($modal) {
     return function ($scope) {
         $scope.open = function (task) {
@@ -17,6 +19,11 @@ angular.module('component.extended-card', [
 
                     $scope.copy = function(task){
                         task.clone(task);
+                        $modalInstance.dismiss('cancel');
+                    };
+
+                    $scope.removeCard = function(){
+                        $scope.remove();
                         $modalInstance.dismiss('cancel');
                     };
 

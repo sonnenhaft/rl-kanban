@@ -9,9 +9,10 @@
             <column-names columns="config.columns" columns-width></column-names>
             <task-group-list groups="$parent.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
         </div>
+        <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
     </div>
 
-    <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
+
     <!--TODO: remove swim-lane class from here to directive swimLane -->
     <swim-lane class="swim-lane" ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
 </div>

@@ -24,6 +24,11 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 }
             };
 
+            this.removeGroup = function(group){
+                $scope.groups.splice($scope.groups.indexOf(group), 1);
+                this.recalculatePositions();
+            };
+
             this.recalculatePositions = function () {
                 var lines = [];
 
