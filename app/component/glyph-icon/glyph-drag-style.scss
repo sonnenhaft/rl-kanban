@@ -1,18 +1,8 @@
 .gl-drag-indicator {
-    cursor: move;
-    position: absolute;
-    left: -2px;
-    width: 24px;
-    overflow: hidden;
-    z-index: 1;
-    top: 2px;
-    bottom: 3px;
     &:before {
         font-family: 'RLGlyphs';
         font-size: 17px;
         content: "\e2aa";
-        line-height: 19px;
-        word-wrap: break-word;
         font-weight: normal;
     }
 }
