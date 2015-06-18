@@ -90,6 +90,12 @@
         margin-left: 11px;
         margin-top: 6px;
         margin-bottom: 3px;
+
+        display:inline-block;
+        width:77%;
+        white-space: nowrap;
+        overflow:hidden !important;
+        text-overflow: ellipsis;
     }
 
 
