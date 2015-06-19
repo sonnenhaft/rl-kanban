@@ -23,18 +23,14 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             var scrollableElement = require[1];
             var groupWidth = $scope.width;
 
-            function setLeft(leftPx) {
-                $element.css({'margin-left': leftPx * groupWidth + 'px'});
-            }
+            function setLeft(leftPx) {$element.css({'margin-left': leftPx * groupWidth + 'px'});}
 
-            function setWidth(width) {
-                $element.css('width', width * groupWidth + 'px');
-            }
+            function setWidth(width) {$element.css('width', width * groupWidth + 'px');}
 
             $scope.$watch('group.$lineSpace', setLeft);
             $scope.$watch('group.width', setWidth);
 
-            $scope.$watch('group.tasks.length', function(now, before){
+            $scope.$watch('group.tasks.length', function (now, before) {
                 if (before && !now) {
                     taskGroupList.removeGroup(group);
                 }
@@ -54,7 +50,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.dragHandler = {
                 simpleClick: function () {
                     if (group.$expandedGroup) {
-                        taskGroupModal.open(group).result.then(function(){
+                        taskGroupModal.open(group).result.then(function () {
                             group.remove();
                             taskGroupList.removeGroup(group);
                         });
@@ -98,26 +94,23 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     clone.after($element.removeClass('draggy')).remove();
                     group.highlightTasks(false);
                     scrollableElement.stopWatching();
-                    var snapX = snapValue(deltaX / groupWidth, 1);
-                    if (wasResize) {
-                        group.width = initialWidth + snapX;
-                    } else {
-                        group.start = initialLeft + snapX;
-                    }
-
-                    if (group.width === initialWidth && group.start === initialLeft) {
-                        group.width = initialWidth;
-                        group.start = initialLeft;
-                        setLeft(group.$lineSpace);
-                        wasResize = false;
-                    } else {
+                    var snapX = Math.round(deltaX / groupWidth);
+                    if (snapX) {
                         if (wasResize) {
+                            group.width = initialWidth + snapX;
                             group.expand();
                         } else {
+                            group.start = initialLeft + snapX;
                             group.shrink(snapX);
                         }
                         group.$lastTouched = true;
                         taskGroupList.recalculatePositions();
+                    } else {
+                        group.width = initialWidth;
+                        group.start = initialLeft;
+                        setLeft(initialLeft - 1);
+                        setWidth(initialWidth);
+                        wasResize = false;
                     }
                     $scope.$apply();
                 }
