@@ -44,4 +44,14 @@
             content:"\00a0\2014\00a0";
         }
     }
+
+    .no-tasks-in-groups {
+        background: #f6f6f6;
+        text-align: center;
+        border: 1px solid #DBDCDE;
+        padding: 30px;
+        b {
+            font-weight: bold!important;
+        }
+    }
 }

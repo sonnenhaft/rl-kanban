@@ -7,5 +7,8 @@
         <ng-pluralize class="swim-length" count="swimlane.$tasksCount"
                       when="{'0': 'Empty', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
     </div>
-    <kanban-board columns="swimlane.columns" collapse="isCollapsed"></kanban-board>
+    <kanban-board  ng-show="swimlane.$tasksCount" columns="swimlane.columns" collapse="isCollapsed"></kanban-board>
+    <div ng-hide="swimlane.$tasksCount" class="no-tasks-in-groups">
+        <b>Please select skills before you add resources</b>
+    </div>
 </div>
