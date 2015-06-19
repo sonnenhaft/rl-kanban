@@ -1,5 +1,4 @@
 .swim-lane {
-    display: block;
     .swim-title {
         margin-left: 6px;
         font-size: 18px;
@@ -27,6 +26,7 @@
         padding: 10px 20px;
         border: 1px solid #cbcbcb;
         height: 50px;
+        margin: 0 -8px;
     }
 
     .swim-lane-toggle {

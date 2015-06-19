@@ -1,13 +1,13 @@
-<div class="card-wrapper" ng-class="{opacity: task.$highlight}">
+<div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-click="openTaskCardModal(task)" data-as-sortable-item-handle>
     <div class="card-color" style="background: {{task.group.color}}"></div>
     <div class="card-header">
-        <div class="card-handle  as-sortable-item-handle" data-as-sortable-item-handle>
+        <div class="card-handle">
             <!--<span class="gl-drag-indicator"></span>-->
         </div>
         <div class="app-tag">
             <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
         </div>
-        <div class="card-title" ng-click="open(task)" extended-card>
+        <div class="card-title">
             <span class="card-name">{{::task.appName}}</span>
         </div>
     </div>

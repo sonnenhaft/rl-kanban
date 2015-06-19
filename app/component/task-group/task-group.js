@@ -66,7 +66,8 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     $scope.$apply(function () {
                         group.highlightTasks(true);
                     });
-                    clone = $element.clone().css({opacity: 0.5});
+                    clone = $element.clone();
+                    clone.children().css({borderColor: group.color}).addClass('opacity');
                     $element.after(clone).addClass('draggy');
                     clone.parent().prepend($element);
                     scrollableElement.watchMouse();

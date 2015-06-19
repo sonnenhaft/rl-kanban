@@ -12,7 +12,5 @@
         <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
     </div>
 
-
-    <!--TODO: remove swim-lane class from here to directive swimLane -->
-    <swim-lane class="swim-lane" ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
+    <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
 </div>

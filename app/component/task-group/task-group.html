@@ -1,17 +1,16 @@
-<div class="task-group" delta-drag-handler="dragHandler"  ng-class="{opacity: group.highlight, 'expanded-group': group.$expandedGroup}">
-    <div class="task-group-content" opacity-on-changed="group.$lastTouched" eval-after="group.$lastTouched = false">
-        <div class="drag-button">
+<div class="task-group" delta-drag-handler="dragHandler" ng-class="{opacity: group.highlight, 'expanded-group': group.$expandedGroup}">
+    <div class="task-group-content">
+        <div class="drag-button" ng-style="group.$expandedGroup && {backgroundColor: group.color}">
             <span class="gl-drag-indicator"></span>
         </div>
 
         <div class="after-button-area" >
-            <div class="group-name" style="color: {{::group.color}}">
+            <div class="group-name" ng-style="::{color: group.color}">
                 <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon>
                 <span>{{::group.groupName}}</span>
             </div>
             <div class="info">
                 <div class="group-info">
-
                     <div>Master {{group.masterName}}</div>
                     <div>Owner: {{group.ownerName}}</div>
                 </div>

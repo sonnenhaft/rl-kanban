@@ -1,14 +1,9 @@
-angular.module('component.kanban-card').directive('kanbanCard', function ($location) {
+angular.module('component.kanban-card').directive('kanbanCard', function ($location, extendedCard) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function ($scope) {
             $scope.search = $location.search();
-
-            $scope.remove = function(){
-                $scope.task.remove();
-            };
-
-            $scope.tmpl = $scope.search.tmpl || 'planner';
+            $scope.openTaskCardModal = extendedCard.open;
         }
     };
 });

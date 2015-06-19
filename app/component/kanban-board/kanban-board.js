@@ -1,7 +1,7 @@
 angular.module('component.kanban-board',[
     'component.kanban-card',
     'component.scrollable-element'
-]).directive('kanbanBoard', function ($animate) {
+]).directive('kanbanBoard', function ($animate, $location) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: '^scrollableElement',
@@ -31,6 +31,13 @@ angular.module('component.kanban-board',[
                     if (toSwimlane.id !== fromSwimlane.id) {
                         toSwimlane.$tasksCount++;
                         fromSwimlane.$tasksCount--;
+                    }
+                },
+                accept: function (sourceItemHandleScope, destSortableScope) {
+                    if ($location.search().template==='planner') {
+                        return sourceItemHandleScope.itemScope.sortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
+                    } else {
+                        return true;
                     }
                 }
             };

@@ -1,13 +1,11 @@
 .task-group {
     display: inline-block;
-    padding: 2px;
     vertical-align: top;
+    box-sizing: border-box;
+    padding: 2px 5px;
     &.draggy {
         position: absolute;
         display: block;
-    }
-    &.opacity {
-        opacity: 0.5;
     }
     &.expanded-group {
         .task-group-content {
@@ -15,9 +13,6 @@
         }
         .info {
             display: block;
-        }
-        .resize-button, .group-name {
-            color: #763597!important;
         }
         .drag-button {
             background: #763597;
@@ -42,9 +37,6 @@
             display: inline-block;
         }
     }
-    .task-group-content.opacity-on-changed {
-        background: rgba(255, 163, 0, 0.42)!important;
-    }
     .after-button-area {
         margin-left: 6px;
         cursor: pointer;
@@ -60,6 +52,12 @@
         font-weight: bold;
         font-size: 14px;
         border: 1px solid #ccc;
+        &.opacity {
+            background: #ffffff;
+        }
+        &.opacity > * {
+            opacity: 0;
+        }
     }
 
     .info {
@@ -101,7 +99,7 @@
 
     .resize-button {
         color: #C1C3C5;
-        z-index: 150;
+        z-index: 90;
         display: inline-block;
         cursor: col-resize;
         position: absolute;

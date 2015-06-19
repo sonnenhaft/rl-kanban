@@ -5,10 +5,11 @@ $marker-height: 4px;
     font-size: 14px;
     color: #555;
     background-color: #fff;
-    margin: $gutter 0;
+    margin: $gutter auto;
     position: relative;
     z-index: 0;
     .card-wrapper {
+        cursor: pointer;
         min-height: 86px;
         border: 1px solid #efefef;
         &.opacity {
@@ -30,7 +31,6 @@ $marker-height: 4px;
         table-layout: fixed;
         width: 100%;
         min-height: 50px;
-        cursor: pointer;
     }
     .card-title {
         display: table-cell;
@@ -62,8 +62,8 @@ $marker-height: 4px;
         width: 16px;
         display: table-cell;
         vertical-align: middle;
-        cursor: move;
         overflow: hidden;
+        cursor: move;
         &:before {
             font-family: 'RLGlyphs' !important;
             font-size: 42px;

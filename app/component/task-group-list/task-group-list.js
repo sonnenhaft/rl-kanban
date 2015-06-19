@@ -12,15 +12,16 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
         replace: true,
         controllerAs: 'taskGroupList',
         templateUrl: 'app/component/task-group-list/task-group-list.html',
-        controller: function ($scope) {
-
+        controller: function ($scope, $location) {
             this.cleanExpanded = function (group) {
-                if (!group.$expandedGroup) {
+                if (!group.$expandedGroup && $location.search().template !== 'planner') {
                     $scope.groups.forEach(function (group) {
+                        group.highlightTasks(false);
                         delete group.$expandedGroup;
                     });
                     group.$expandedGroup = true;
-                    $scope.$digest();
+                    group.highlightTasks(true);
+                    $scope.$apply();
                 }
             };
 
