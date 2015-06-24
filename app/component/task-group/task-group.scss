@@ -1,4 +1,7 @@
 .task-group {
+    &.transiton {
+        transition: all 0.5s ease;
+    }
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
