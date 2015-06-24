@@ -19,8 +19,8 @@ angular.module('component.task-card-modal', [
                         $modalInstance.dismiss('cancel');
                     };
 
-                    $scope.removeCard = function () {
-                        $scope.remove();
+                    $scope.removeCard = function (task) {
+                        task.remove();
                         $modalInstance.dismiss('cancel');
                     };
 

@@ -55,7 +55,7 @@
 
   .footer {
     text-align: center;
-    padding-top: 25px;
+    padding-top: 16px;
     .button {
       margin-bottom: 0;
       font-size: 16px;
@@ -82,10 +82,6 @@
     }
   }
 
-  .wrapper {
-    padding: 5px 5px 15px 5px;
-  }
-
   .legend:after {
     content: "\00a0";
     position: absolute;
@@ -100,13 +96,13 @@
     display: table;
     table-layout: fixed;
     width: 100%;
-    min-height: 50px;
+    min-height: 40px;
   }
 
   .title {
     display: table-cell;
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-transform: capitalize;
     padding-right: 12px;

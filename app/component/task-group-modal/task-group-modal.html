@@ -4,48 +4,55 @@
 <div class="wrapper">
     <div class="row">
         <div class="column small-12">
-            <div class="delete-button" ng-click="modal.delete()">Delete Task Group</div>
-            <div class="group-name" ng-style="::{color: modal.group.color}">
+            <div class="header" ng-style="::{color: modal.group.color}">
                 <div class="group-icon">
                     <glyph-icon icon="modal.group.appRef" class="card-icon"></glyph-icon>
                 </div>
-
-                <span>{{::modal.group.groupName}}</span>
+                <span class="group-name">{{::modal.group.groupName}}</span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="column small-12">
-            <div class="details">
-                <h3 class="legend"><span>Details</span></h3>
-                <br/>
-                <div class="info">
-                    <div class="group-info">
-                        <div class="info-label-very-bold">Master {{modal.group.masterName}}</div>
-                    </div>
-                    <div class="group-info">
-                        <div><span class="info-label">Created:</span> {{::modal.group.creationDate | date : "MM-dd-yyyy h:mm a" | lowercase}}</div>
-                    </div>
-                    <div class="group-info">
-                        <div><span class="info-label">Owner: </span>{{modal.group.ownerName}}</div>
-                    </div>
-                    <div class="group-info">
-                        <div><span class="info-label">Modified:</span> {{::modal.group.modifiedDate | date : "MM-dd-yyyy h:mm a" | lowercase}}</div>
-                    </div>
-                    <div class="group-info">
-                        <span class="info-label">Status: </span>
-                        <span class="status" ng-class="{Completed: 'complete'}[modal.group.state]">
-                            {{::modal.group.state}}
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <button class="button white delete-button" ng-click="modal.delete()"><span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span><span>Delete Task Group</span></button>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="column footer">
-        <button class="button" ng-click="modal.cancel()">Go Back</button>
+    <div class="row details">
+        <div class="column small-12">
+            <h3 class="legend"><span>Details</span></h3>
+            <br/>
+        </div>
+        <div class="column small-6 info">
+            <div class="group-info">
+                <div class="info-label-very-bold">Master {{modal.group.masterName}}</div>
+            </div>
+            <div class="group-info">
+                <div><span class="info-label">Owner: </span>{{modal.group.ownerName}}</div>
+            </div>
+            <div class="group-info">
+                <span class="info-label">Status: </span>
+                <span class="status" ng-class="{Completed: 'complete'}[modal.group.state]">{{::modal.group.state}}</span>
+            </div>
+
+        </div>
+        <div class="column small-6 info">
+            <div class="group-info">
+                <div><span class="info-label">Created:</span> {{::modal.group.creationDate | date : "MM-dd-yyyy h:mm a"
+                    | lowercase}}
+                </div>
+            </div>
+            <div class="group-info">
+                <div><span class="info-label">Modified:</span> {{::modal.group.modifiedDate | date : "MM-dd-yyyy h:mm a"
+                    | lowercase}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="column footer">
+            <button class="button" ng-click="modal.cancel()">Go Back</button>
+        </div>
     </div>
 </div>
 </div>

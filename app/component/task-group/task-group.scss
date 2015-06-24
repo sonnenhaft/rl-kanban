@@ -37,6 +37,12 @@
             display: inline-block;
         }
     }
+
+    &.highlighted-group {
+        .drag-button, .resize-button, .group-name {
+            color: #ffffff !important;
+        }
+    }
     .after-button-area {
         margin-left: 6px;
         cursor: pointer;
@@ -53,7 +59,7 @@
         font-size: 14px;
         border: 1px solid #ccc;
         &.opacity {
-            background: #ffffff;
+            background: #ffffff !important;
         }
         &.opacity > * {
             opacity: 0;

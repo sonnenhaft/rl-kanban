@@ -2,14 +2,14 @@
     background: #f0f0f0;
     max-height: 820px;
     overflow-x: hidden;
-    border-left: 1px solid #DBDCDE;
-    border-right: 1px solid #DBDCDE;
+    border: 1px solid #DBDCDE;
+    border-top: none;
     .kanban-wrapper {
         display: table;
         table-layout: fixed;
         height: 100%;
         width: 100%;
-        min-height: 350px;
+        min-height: 145px;
     }
 
     .kanban-column {
@@ -17,7 +17,7 @@
         vertical-align: top;
         width: 228px;
         min-width: 228px;
-        background: #f6f6f6;
+        background: #ededed;
         border-right: 1px solid #DBDCDE;
         box-sizing: border-box;
         &:last-child {
@@ -29,15 +29,22 @@
     }
 
     .empty-placeholder {
-        display: inline-block;
+        position: absolute;
+        max-width: 1140px;
+        padding: 30px 20px 10px;
         vertical-align: middle;
         text-align: center;
-        font-size: 12px;
         color: #555555;
-        height: 0;
         line-height: 80px;
         width: 100%;
         overflow: visible;
+        p {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        button {
+            font-size: 16px;
+        }
     }
 
     .as-sortable-placeholder {
@@ -45,24 +52,10 @@
          border: 1px #b0b0b0 dashed;
          border-radius: 3px;
          margin: 5px auto;
-     }
-
-    .empty-placeholder + .as-sortable-placeholder {
-        margin-top: -10px;
     }
 
-    &.collapse {
-        display: none;
-    }
-
-    &.collapse.in {
-        display: block;
-    }
-
-    &.collapsing {
-        position: relative;
-        height: 0;
-        overflow: hidden;
-        transition: height .35s ease;
+    .select-skills-button {
+        min-width: 230px;
+        border-width: 1px;
     }
 }

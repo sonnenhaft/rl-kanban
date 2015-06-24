@@ -1,0 +1,53 @@
+.add-dropdown {
+  float: right;
+  position: relative;
+  min-width: 170px;
+  .add-dropdown-list {
+    background: #ffffff;
+    position: absolute;
+    width: 100%;
+    border: 2px solid #C5C6C8;
+    z-index: 100;
+  }
+  .add-dropdown-item {
+    padding: 5px 20px;
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 600;
+    a {
+      color: #555555;
+    }
+  }
+  .button {
+    width: 100%;
+    text-align: left;
+    background: #AAAAAA;
+    border: 1px solid #AFC4D5;
+    .glyph-icon {
+      float: right;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    &.expanded {
+      color: #fff;
+      background: #31b3ff;
+      .glyph-chevron-expanded {
+        display: none;
+      }
+      .glyph-chevron-collapsed {
+        display: block;
+      }
+    }
+    &:hover {
+      color: #fff;
+      background: #31b3ff;
+    }
+    .glyph-chevron-collapsed {
+      display: none;
+    }
+  }
+}
+
+add-dropdown {
+  display: block;
+}

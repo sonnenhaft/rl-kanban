@@ -18,6 +18,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     $scope.groups.forEach(function (group) {
                         group.highlightTasks(false);
                         delete group.$expandedGroup;
+                        delete group.$highlightedGroup;
                     });
                     group.$expandedGroup = true;
                     group.highlightTasks(true);
@@ -25,7 +26,19 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 }
             };
 
-            this.removeGroup = function(group){
+            this.highlightGroup = function (group) {
+                if (!group.$expandedGroup) {
+                    $scope.groups.forEach(function (group) {
+                        group.highlightTasks(false);
+                        delete group.$highlightedGroup;
+                    });
+                    group.highlightTasks(true);
+                    group.$highlightedGroup = true;
+                    $scope.$apply();
+                }
+            };
+
+            this.removeGroup = function (group) {
                 $scope.groups.splice($scope.groups.indexOf(group), 1);
                 this.recalculatePositions();
             };
@@ -41,7 +54,9 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
 
                 var maxVal = $scope.columns.length - 1;
 
-                $scope.groups.map(function (group) {return group;}).sort(function (a, b) {
+                $scope.groups.map(function (group) {
+                    return group;
+                }).sort(function (a, b) {
                     return a.start > b.start ? 1 : -1;
                 }).forEach(function (group) {
                     var hasNoLine = true;

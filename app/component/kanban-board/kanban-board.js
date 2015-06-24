@@ -1,5 +1,6 @@
 angular.module('component.kanban-board',[
     'component.kanban-card',
+    'component.expand-collapse',
     'component.scrollable-element'
 ]).directive('kanbanBoard', function ($animate, $location) {
     return {
@@ -7,7 +8,9 @@ angular.module('component.kanban-board',[
         require: '^scrollableElement',
         scope: {
             columns: '=',
-            collapse: '='
+            collapse: '=',
+            swimlane: '=',
+            mode: '='
         },
         replace: true,
         link: function (scope, element, attrs, scrollableElement) {
@@ -41,33 +44,6 @@ angular.module('component.kanban-board',[
                     }
                 }
             };
-
-            function toggleCollapse(value) {
-                if (value) {
-                    element
-                        .css({height: element[0].scrollHeight + 'px'})
-                        .removeClass('collapse')
-                        .addClass('collapsing');
-
-                    $animate.removeClass(element, 'in', {
-                        to: {height: '0'}
-                    }).then(function(){
-                        element.css({height: '0'});
-                        element.removeClass('collapsing');
-                        element.addClass('collapse');
-                    });
-                } else {
-                    element.removeClass('collapse').addClass('collapsing');
-                    $animate.addClass(element, 'in', {
-                        to: { height: element[0].scrollHeight + 'px' }
-                    }).then(function(){
-                        element.removeClass('collapsing');
-                        element.css({height: 'auto'});
-                    });
-                }
-            }
-
-            scope.$watch('collapse', toggleCollapse);
 
         }
     };

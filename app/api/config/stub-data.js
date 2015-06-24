@@ -7,6 +7,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
     //});
     $rootScope.config = hostedStub;
 }).value('hostedStub', {
+    'mode': 'planner',
     'tasks': [
         {
             'columnId': '555b6911f5cad468b43fbe8b',
