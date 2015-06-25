@@ -1,12 +1,14 @@
 <div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount}">
     <div class="swim-lane-header swim-lane-toggle" ng-click="toggleCollapse()">
     <span class="glyph-icon">
-        <span ng-class="{'glyph-chevron-expanded': isCollapsed, 'glyph-chevron-collapsed': !isCollapsed}"></span>
+        <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
     </span>
         <span class="swim-title">{{swimlane.name}}</span>
-        <ng-pluralize class="swim-length" count="swimlane.$tasksCount"
-                      when="{'0': 'No Tasks', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
-        <button class="button add-resource-button" ng-click="addResource($event)" ng-hide="{mode: 'planner'}"><span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>Add resource</button>
+        <ng-pluralize class="swim-length" count="swimlane.$tasksCount" when="{'0': 'No Tasks', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
+        <div class="add-resource-button" ng-click="addResource($event)">
+            <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
+            <button class="button" ng-if="swimlane.addButtonText">{{swimlane.addButtonText}}</button>
+        </div>
     </div>
-    <kanban-board columns="swimlane.columns" swimlane="swimlane" expand-collapse="expanded" mode="mode"></kanban-board>
+    <kanban-board columns="swimlane.columns" swimlane="swimlane" expand-collapse="expanded"></kanban-board>
 </div>

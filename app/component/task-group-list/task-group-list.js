@@ -34,7 +34,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     });
                     group.highlightTasks(true);
                     group.$highlightedGroup = true;
-                    $scope.$apply();
+                    $scope.$evalAsync();
                 }
             };
 

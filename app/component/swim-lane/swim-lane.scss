@@ -51,14 +51,19 @@
     
     .add-resource-button {
         float: right;
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
-        background: transparent;
-        color: #818181;
-        border: none;
-        line-height: 28px;
-        font-weight: 600;
+        .button {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: transparent;
+            color: #818181;
+            border: none;
+            line-height: 28px;
+            font-weight: 600;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
         .glyph-icon {
             font-size: 12px;
             margin-right: 5px;

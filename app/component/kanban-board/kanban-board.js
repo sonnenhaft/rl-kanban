@@ -7,10 +7,8 @@ angular.module('component.kanban-board',[
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: '^scrollableElement',
         scope: {
-            columns: '=',
             collapse: '=',
-            swimlane: '=',
-            mode: '='
+            swimlane: '='
         },
         replace: true,
         link: function (scope, element, attrs, scrollableElement) {
@@ -36,11 +34,11 @@ angular.module('component.kanban-board',[
                         fromSwimlane.$tasksCount--;
                     }
                 },
-                accept: function (sourceItemHandleScope, destSortableScope) {
-                    if ($location.search().template==='planner') {
-                        return sourceItemHandleScope.itemScope.sortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
-                    } else {
+                accept: function (sourceSortableScope, destSortableScope) {
+                    if (scope.swimlane.acceptTasks) {
                         return true;
+                    } else {
+                        return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
                     }
                 }
             };
