@@ -7,7 +7,7 @@
         <ng-pluralize class="swim-length" count="swimlane.$tasksCount" when="{'0': 'No Tasks', '1': '{} Task', 'other': '{} Tasks'}"></ng-pluralize>
         <div class="add-resource-button" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
-            <button class="button" ng-if="swimlane.addButtonText">{{swimlane.addButtonText}}</button>
+            <button class="button" ng-if="swimlane.addButtonText">{{swimlane.addResourcesButtonText}}</button>
         </div>
     </div>
     <kanban-board columns="swimlane.columns" swimlane="swimlane" expand-collapse="expanded"></kanban-board>
