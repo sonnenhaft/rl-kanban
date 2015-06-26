@@ -21,13 +21,13 @@ angular.module('kanban').directive('kanban', function () {
             });
         }
     };
-}).controller('kanbanDataController', function($scope, hostedStub, KanbanTask, KanbanGroup, KanbanColumn){
+}).controller('kanbanDataController', function ($scope, hostedStub, KanbanTask, KanbanGroup, KanbanColumn) {
 
     var config = {
-        tasks: hostedStub.tasks.map(function(task){
+        tasks: hostedStub.tasks.map(function (task) {
             return new KanbanTask(task);
         }),
-        groups:  hostedStub.groups.map(function(group){
+        groups: hostedStub.groups.map(function (group) {
             return new KanbanGroup(group);
         }),
         columns: hostedStub.columns.map(function (column) {
@@ -59,18 +59,27 @@ angular.module('kanban').directive('kanban', function () {
     });
 
     config.groups.forEach(function (group) {
-        group.visible = true;
-        group.expanded = true;
-        group.groupId = group.id;
-        group.members = group.tasks;
+        angular.extend(group, {
+            visible: true,
+            expanded: true,
+            groupId: group.id,
+            members: group.tasks
+        });
+
         group.tasks.forEach(function (task) {
-            task.createdDate = task.creationDate;
-            task.title = task.description;
+            angular.extend(task, {
+                createdDate: task.creationDate,
+                title: task.description
+            });
         });
     });
 
+    config.tasks = config.tasks.filter(function (task) {
+        return task.group;
+    });
+
     var firstColumn = config.swimlanes[0].columns[0];
-    $scope.$on('addToGroup', function(e, group, task){
+    $scope.$on('addToGroup', function (e, group, task) {
         task = new KanbanTask(task);
         task.attachToGroup(group);
         task.attachToColumn(firstColumn);
