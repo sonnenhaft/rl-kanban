@@ -5,7 +5,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
     //}, function () {
     //    $rootScope.config = hostedStub;
     //});
-    $rootScope.config = hostedStub;
+    //$rootScope.config = hostedStub;
 }).value('hostedStub', {
     'tasks': [
         {
@@ -401,7 +401,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appRef': 'glyph-am1-logo',
             'appName': 'tempor ea ipsum',
             'taskName': 'esse aliquip cupidatat',
-            'id': '555b6911d53e0734f02bcc74',
+            'id': '555b6911d53e0734f02bcc7489898',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
             'rating': '5',
             'type': 'Book',
@@ -422,7 +422,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appRef': 'glyph-eiaf-logo',
             'appName': 'proident qui fugiat',
             'taskName': 'excepteur dolor sunt',
-            'id': '555b6911d53e0734f02bcc74',
+            'id': '555b6911d53e0734f02bcc746',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
             'rating': '2',
             'type': 'Book',
@@ -577,7 +577,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'start': 4,
             'width': 1,
             'groupName': 'amet enim adipisicing',
-            'id': '555b6911d53e0734f02bcc74'
+            'id': '21555b6911d53e0734f02bcc74'
         }
     ]
 });

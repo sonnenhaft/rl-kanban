@@ -58,7 +58,11 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 });
                 $scope.lines = lines;
             };
-            this.recalculatePositions();
+
+            var that = this;
+            $scope.$watch('groups', function(){
+                that.recalculatePositions();
+            });
         }
     };
 });

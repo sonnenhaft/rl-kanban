@@ -1,44 +1,8 @@
-angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask, KanbanGroup) {
+angular.module('kanban').directive('kanban', function () {
     return {
         scope: {config: '='},
         replace: true,
         templateUrl: 'app/kanban.html',
-        link: function ($scope) {
-            var tasks = $scope.config.tasks.map(function (task) {
-                return new KanbanTask(task);
-            });
-
-            var columns = $scope.config.columns.map(function (column) {
-                return new KanbanColumn(column);
-            });
-
-            $scope.groups = [];
-            $scope.config.groups.forEach(function (group) {
-                $scope.groups.push(new KanbanGroup(group));
-            });
-
-            $scope.groups.forEach(function (group) {
-                group.tasks = tasks.filter(function (task) {
-                    return task.groupId === group.id;
-                });
-                group.tasks.forEach(function (task) {
-                    task.group = group;
-                });
-            });
-
-            $scope.config.swimlanes.forEach(function (swimlane) {
-                swimlane.columns = angular.copy(columns);
-                swimlane.columns.forEach(function (column) {
-                    column.swimlane = swimlane;
-                    column.tasks = tasks.filter(function (task) {
-                        return task.columnId === column.id && task.swimlaneId === swimlane.id;
-                    });
-                    column.tasks.forEach(function (task) {
-                        task.column = column;
-                    });
-                });
-            });
-        },
         controller: function ($scope) {
             var registeredElements = [];
             this.registerElement = function (childElement) {
@@ -51,10 +15,68 @@ angular.module('kanban').directive('kanban', function (KanbanColumn, KanbanTask,
             };
 
             $scope.$watch('config.columns.length', function (length) {
-                angular.forEach(registeredElements, function (element) {
+                registeredElements.forEach(function (element) {
                     element.css('width', length * 228 + 'px');
                 });
             });
         }
     };
+}).controller('kanbanDataController', function($scope, hostedStub, KanbanTask, KanbanGroup, KanbanColumn){
+
+    var config = {
+        tasks: hostedStub.tasks.map(function(task){
+            return new KanbanTask(task);
+        }),
+        groups:  hostedStub.groups.map(function(group){
+            return new KanbanGroup(group);
+        }),
+        columns: hostedStub.columns.map(function (column) {
+            return new KanbanColumn(column);
+        }),
+        swimlanes: hostedStub.swimlanes
+    };
+
+    config.groups.forEach(function (group) {
+        group.tasks = config.tasks.filter(function (task) {
+            return task.groupId === group.id;
+        });
+        group.tasks.forEach(function (task) {
+            task.group = group;
+        });
+    });
+
+    config.swimlanes.forEach(function (swimlane) {
+        swimlane.columns = angular.copy(config.columns);
+        swimlane.columns.forEach(function (column) {
+            column.swimlane = swimlane;
+            column.tasks = config.tasks.filter(function (task) {
+                return task.columnId === column.id && task.swimlaneId === swimlane.id;
+            });
+            column.tasks.forEach(function (task) {
+                task.column = column;
+            });
+        });
+    });
+
+    config.groups.forEach(function (group) {
+        group.visible = true;
+        group.expanded = true;
+        group.groupId = group.id;
+        group.members = group.tasks;
+        group.tasks.forEach(function (task) {
+            task.createdDate = task.creationDate;
+            task.title = task.description;
+        });
+    });
+
+    var firstColumn = config.swimlanes[0].columns[0];
+    $scope.$on('addToGroup', function(e, group, task){
+        task = new KanbanTask(task);
+        task.attachToGroup(group);
+        task.attachToColumn(firstColumn);
+        config.tasks.push(task);
+        task.taskName = task.title.text;
+    });
+
+    $scope.config = config;
 });

@@ -8,7 +8,7 @@
         <div class="kanban-header" scrollable-element horizontal-scroll>
 
             <column-names columns="config.columns" columns-width></column-names>
-            <task-group-list groups="$parent.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
+            <task-group-list groups="config.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
         </div>
         <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
     </div>

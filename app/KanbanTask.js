@@ -4,6 +4,18 @@ angular.module('kanban').value('KanbanTask', (function () {
     }
 
     KanbanTask.prototype = {
+        attachToGroup: function(group){
+            group.tasks.push(this);
+            this.group = group;
+            this.groupId = group.id;
+        },
+        attachToColumn: function(column){
+            this.column = column;
+            column.tasks.push(this);
+            this.columnId = column.id;
+            this.swimlaneId = column.swimlaneId;
+            column.swimlane.$tasksCount++;
+        },
         removeFromColumn: function () {
             this.column.removeTask(this);
         },
