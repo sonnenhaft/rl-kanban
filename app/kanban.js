@@ -85,6 +85,7 @@ angular.module('kanban').directive('kanban', function () {
         task.attachToColumn(firstColumn);
         config.tasks.push(task);
         task.taskName = task.title.text;
+        group.recalculate();
     });
 
     $scope.config = config;
