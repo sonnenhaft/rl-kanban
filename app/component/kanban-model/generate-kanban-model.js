@@ -1,0 +1,64 @@
+angular.module('component.kanban-model').factory('generateKanbanModel', function(KanbanGroup, KanbanTask, KanbanColumn){
+    return  function createKanbanModel(initialConfig){
+        var config = {
+            tasks: initialConfig.tasks.map(function (task) {
+                return new KanbanTask(task);
+            }),
+            groups: initialConfig.groups.map(function (group) {
+                return new KanbanGroup(group);
+            }),
+            columns: initialConfig.columns.map(function (column) {
+                return new KanbanColumn(column);
+            }),
+            swimlanes: initialConfig.swimlanes.map(function(swimlane){
+                return angular.copy(swimlane);
+            })
+        };
+
+        config.groups.forEach(function (group) {
+            group.tasks = config.tasks.filter(function (task) {
+                return task.groupId === group.id;
+            });
+            group.tasks.forEach(function (task) {
+                task.group = group;
+            });
+            console.log(group.tasks.length)
+        });
+
+
+        config.swimlanes.forEach(function (swimlane) {
+            swimlane.columns = angular.copy(config.columns);
+            swimlane.columns.forEach(function (column) {
+                column.swimlane = swimlane;
+                column.tasks = config.tasks.filter(function (task) {
+                    return task.columnId === column.id && task.swimlaneId === swimlane.id;
+                });
+                column.tasks.forEach(function (task) {
+                    task.column = column;
+                });
+            });
+        });
+
+        config.groups.forEach(function (group) {
+            angular.extend(group, {
+                visible: true,
+                expanded: true,
+                groupId: group.id,
+                members: group.tasks
+            });
+
+            group.tasks.forEach(function (task) {
+                angular.extend(task, {
+                    createdDate: task.creationDate,
+                    title: task.description
+                });
+            });
+        });
+
+        config.tasks = config.tasks.filter(function (task) {
+            return task.group;
+        });
+
+        return config;
+    };
+});

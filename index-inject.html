@@ -45,8 +45,10 @@
         <!-- inject:.tmp/templates-and-app-version:js --><!-- endinject -->
     <!-- endbuild -->
 </head>
-<body ng-controller="kanbanDataController">
-<layout-switcher></layout-switcher>
-<kanban config="config"></kanban>
+<body>
+<kanban-model ng-controller="kanbanDataController" model-name="kanbanModel" config="config">
+    <layout-switcher></layout-switcher>
+    <kanban config="kanbanModel"></kanban>
+</kanban-model>
 </body>
 </html>

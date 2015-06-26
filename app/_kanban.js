@@ -1,5 +1,6 @@
 angular.module('kanban.templates', []);
 angular.module('kanban', [
+    'component.kanban-model',
     'ngAnimate',
     'ngTouch',
     'component.scrollable-element',

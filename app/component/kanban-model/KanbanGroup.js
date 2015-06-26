@@ -1,4 +1,4 @@
-angular.module('kanban').value('KanbanGroup', (function () {
+angular.module('component.kanban-model').value('KanbanGroup', (function () {
     function KanbanGroup(groupData) {
         angular.extend(this, groupData);
     }

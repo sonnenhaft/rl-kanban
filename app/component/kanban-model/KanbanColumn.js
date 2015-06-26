@@ -1,4 +1,4 @@
-  angular.module('kanban').value('KanbanColumn', (function () {
+  angular.module('component.kanban-model').value('KanbanColumn', (function () {
     function KanbanColumn(columnData) {
         angular.extend(this, columnData);
     }

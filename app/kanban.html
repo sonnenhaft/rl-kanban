@@ -1,16 +1,18 @@
-<div ng-if="config" class="kanban" combine-horizontal-scrolls>
-    <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
-    <!--<groups-debug groups="$parent.groups"></groups-debug>-->
+<div>
+    <div ng-if="config" class="kanban" combine-horizontal-scrolls>
+        <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
+        <!--<groups-debug groups="$parent.groups"></groups-debug>-->
 
-    <div class="kanban-header-wrapper" sticky-header>
-        <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
-        <div class="kanban-header" scrollable-element horizontal-scroll>
+        <div class="kanban-header-wrapper" sticky-header>
+            <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
+            <div class="kanban-header" scrollable-element horizontal-scroll>
 
-            <column-names columns="config.columns" columns-width></column-names>
-            <task-group-list groups="config.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
+                <column-names columns="config.columns" columns-width></column-names>
+                <task-group-list groups="config.groups" columns="config.columns" columns-width is-expanded="expanded"></task-group-list>
+            </div>
+            <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
         </div>
-        <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
-    </div>
 
-    <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
+        <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane"></swim-lane>
+    </div>
 </div>
