@@ -1,4 +1,4 @@
-angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($rootScope, $location) {
+angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($location) {
     return {
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
         scope: true,
