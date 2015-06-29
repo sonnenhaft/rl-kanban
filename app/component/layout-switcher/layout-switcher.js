@@ -1,33 +1,36 @@
-angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($rootScope, $location, plannerStub, workTrackerStub) {
+angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($location) {
     return {
-        restrict: 'E',
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
-        scope: {},
-        link: function ($scope, $rootScope) {
-            $scope.contentLevel = $location.search().contentLevel || 'low';
-            $scope.template = $location.search().template || 'planner';
-
-            var stubs = {
-                'planner': plannerStub,
-                'wt': workTrackerStub
-            };
-
+        scope: true,
+        link: function ($scope) {
             $scope.$watch('template', function(template){
-                $rootScope.config = stubs[template];
                 $location.search('template', template);
             });
 
             $scope.$watch('contentLevel', function(contentLevel){
-                $rootScope.config.settings.contentLevel = contentLevel;
                 $location.search('contentLevel', contentLevel);
             });
         }
     };
-}).run(function(workTrackerStub, $location, plannerStub, $rootScope){
-    var stubs = {
-        'planner': plannerStub,
-        'wt': workTrackerStub
-    };
+}).controller('layoutSwitcherController', function($location, $scope, plannerStub, workTrackerStub){
+    $scope.locationSearch = $location.search();
+    $scope.$watch('locationSearch.template', function (template) {
+        if (template === 'planner') {
+            $scope.config = plannerStub;
+        } else {
+            $scope.config = workTrackerStub;
+        }
+    });
 
-    $rootScope.config = stubs[$location.search().template || 'planner'];
+    $scope.$watch('locationSearch.contentLevel', function(template){
+        if (template === 'planner') {
+            $scope.config = plannerStub;
+        } else {
+            $scope.config = workTrackerStub;
+        }
+    });
+
+    $scope.$watch('contentLevel', function(contentLevel){
+        $scope.config.settings.contentLevel = contentLevel || 'low';
+    });
 });

@@ -1,0 +1,26 @@
+.add-menu-control {
+    position: relative;
+    button {
+        margin: 0;
+        padding: 10px 15px;
+
+
+    }
+    .menu-width {
+        width: 100px;
+    }
+    .menu-item {
+        background: white;
+        border: 1px solid black;
+        border-top: 0;
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+            background: darkgrey;
+        }
+    }
+    .menu-items {
+        position: absolute;
+        right: 0;
+    }
+}

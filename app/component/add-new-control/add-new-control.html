@@ -1,0 +1,9 @@
+<div class="add-menu-control text-right">
+    <button ng-click="menuVisible = !menuVisible" class="menu-width">
+        Add new
+    </button>
+    <div ng-show="menuVisible" ng-click="menuVisible = false" class="menu-width menu-items">
+        <div ng-click="addGroup()" class="menu-item">Add group</div>
+        <div ng-click="addTask()" class="menu-item">Add task</div>
+    </div>
+</div>

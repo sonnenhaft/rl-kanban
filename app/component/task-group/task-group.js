@@ -32,7 +32,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
 
             $scope.$watch('group.tasks.length', function (now, before) {
                 if (before && !now) {
-                    taskGroupList.removeGroup(group);
+                    //taskGroupList.removeGroup(group);
                 }
             });
 

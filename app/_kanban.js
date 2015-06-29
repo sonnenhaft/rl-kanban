@@ -1,11 +1,13 @@
 angular.module('kanban.templates', []);
 angular.module('kanban', [
+    'component.kanban-model',
     'ngAnimate',
     'ngTouch',
     'component.scrollable-element',
     'kanban.templates',
     'component.kanban-board',
     'component.task-groups-button',
+    'component.add-new-control',
     //TODO: remove unused dependencies
     'ui.sortable',
     'mm.foundation',

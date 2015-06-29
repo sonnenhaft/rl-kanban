@@ -1,6 +1,4 @@
-angular
-  .module('kanban')
-  .value('plannerStub', {
+angular.module('kanban').value('plannerStub', {
     'tasks': [
         {
             'id': '555b69112a241c792bd5db5d',
@@ -16,8 +14,9 @@ angular
             'modifiedDate': '2015-04-19T23:31:58.676Z',
             'creationDate': '2015-01-22T08:48:03.865Z',
             'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
-        }, {
-            'id': '555b691180e8d65d15e4d649',
+        },
+        {
+            'id': '555b69113b3485646d82e3c6l',
             'groupId': '555b69113b3485646d82e3c6',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
             'columnId': '555b6911f5cad468b43fbe8b',
@@ -30,7 +29,8 @@ angular
             'modifiedDate': '2015-04-19T23:31:58.676Z',
             'creationDate': '2015-01-22T08:48:03.865Z',
             'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
-        }, {
+        },
+        {
             'id': '555b6911bdbc551b3fee3d75',
             'groupId': '555b6911dd143fd022e7d0f7',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
@@ -101,7 +101,7 @@ angular
             'creationDate': '2015-01-22T08:48:03.865Z',
             'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
         }, {
-            'id': '555b69117e221641dd9cbb9b',
+            'id': '555b69117e221641dd9cbb9bz',
             'groupId': '555b69117e221641dd9cbb9b',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
             'columnId': '555b6911faa6e347b8f89d13',
@@ -129,7 +129,7 @@ angular
             'creationDate': '2015-01-22T08:48:03.865Z',
             'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
         }, {
-            'id': '555b69114ba4c055e4ba9c74',
+            'id': '555b69114ba4c055e4ba9c74x',
             'groupId': '555b6911d53e0734f02bcc74',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
             'columnId': '555b6911ba6d349f6253cd85',
@@ -250,34 +250,6 @@ angular
             'applink': '#',
             'resourceName': 'dolore excepteur et',
             'assignees': ['Student Group 1'],
-            'rating': '3',
-            'modifiedDate': '2015-04-19T23:31:58.676Z',
-            'creationDate': '2015-01-22T08:48:03.865Z',
-            'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
-        }, {
-            'id': '555b6911d53e0734f02bcc74',
-            'groupId': '555b6911d53e0734f02bcc74',
-            'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'columnId': '555b6911ba6d349f6253cd85',
-            'appRef': 'glyph-kw-logo',
-            'appName': 'Cupidatat officia',
-            'applink': '#',
-            'resourceName': 'est velit consectetur',
-            'assignees': ['Student Group 2'],
-            'rating': '3',
-            'modifiedDate': '2015-04-19T23:31:58.676Z',
-            'creationDate': '2015-01-22T08:48:03.865Z',
-            'ownerAppLogo': 'https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
-        }, {
-            'id': '555b6911d53e0734f02bcc74',
-            'groupId': '555b6911d53e0734f02bcc74',
-            'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'columnId': '555b6911ba6d349f6253cd85',
-            'appRef': 'glyph-kw-logo',
-            'appName': 'Cupidatat officia',
-            'applink': '#',
-            'resourceName': 'esse aliquip cupidatat',
-            'assignees': ['Student Group 2'],
             'rating': '3',
             'modifiedDate': '2015-04-19T23:31:58.676Z',
             'creationDate': '2015-01-22T08:48:03.865Z',
