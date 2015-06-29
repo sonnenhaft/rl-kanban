@@ -14,18 +14,15 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
     };
 }).controller('layoutSwitcherController', function($location, $scope, plannerStub, workTrackerStub){
     $scope.locationSearch = $location.search();
-    $scope.$watch('locationSearch.template', function (template) {
-        if (template === 'wt') {
+    $scope.$watchCollection('locationSearch', function (locationSearch) {
+        if (locationSearch.template === 'wt') {
             $scope.config = workTrackerStub;
         } else {
             $scope.config = plannerStub;
         }
-    });
-
-    $scope.$watch('locationSearch.contentLevel', function(contentLevel){
-        if (contentLevel) {
+        if (locationSearch.contentLevel) {
+            $scope.config.settings.contentLevel = locationSearch.contentLevel;
             $scope.config = angular.copy($scope.config);
-            $scope.config.settings.contentLevel = contentLevel;
         }
     });
 });
