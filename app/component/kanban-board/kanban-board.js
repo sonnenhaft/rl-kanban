@@ -8,8 +8,9 @@ angular.module('component.kanban-board',[
         require: '^scrollableElement',
         scope: {
             collapse: '=',
-            swimlane: '=',
-            settings: '='
+            columns: '=',
+            settings: '=',
+            length: '='
         },
         replace: true,
         link: function (scope, element, attrs, scrollableElement) {

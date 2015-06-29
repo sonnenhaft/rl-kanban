@@ -323,23 +323,13 @@ angular.module('kanban').value('plannerStub', {
             'index': 0,
             'name': 'Resources',
             'id': '555b6922f5cad468b43fbe8b',
-            'addButtonText': 'Select Skills',
-            'addAlertText': 'Please select skills before you add resources',
-            'addResourcesButtonText': 'Add Resources',
-            'acceptTasks': false,
-            'noContentText': 'No Tasks',
-            'contentText': 'Tasks'
+            'addResourcesButtonText': 'Add Resources'
         },
         {
             'index': 1,
             'name': 'Assessments',
             'id': '555b6933a9ce3b29e498cae5',
-            'addButtonText': 'Select Skills',
-            'addAlertText': 'Please select skills before you add resources',
-            'addResourcesButtonText': 'Add Assessment',
-            'acceptTasks': false,
-            'noContentText': 'No Tasks',
-            'contentText': 'Tasks'
+            'addResourcesButtonText': 'Add Assessment'
         }
     ],
     'groups': [
@@ -425,6 +415,12 @@ angular.module('kanban').value('plannerStub', {
         'allowCopyTask': false,
         'allowDeleteTask': true,
         'contentLevel': 'low',
+        'addButtonText': 'Select Skills',
+        'addAlertText': 'Please select skills before you add resources',
+        'addResourcesButtonText': 'Add Assessment',
+        'acceptTasks': false,
+        'noContentText': 'No Tasks',
+        'contentText': 'Tasks',
         'addResourceLinks': [
             {
                 linkText: 'Add Skill',
