@@ -420,7 +420,7 @@ angular.module('kanban').value('plannerStub', {
         }
     ],
     'settings': {
-        'taskModalWindowTitle': 'Details', //Task Information
+        'taskModalWindowTitle': 'Details',
         'groupsCollapseButtonText': 'Task Groups',
         'allowCopyTask': false,
         'allowDeleteTask': true,

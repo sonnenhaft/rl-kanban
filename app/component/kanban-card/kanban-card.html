@@ -23,7 +23,7 @@
                 <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span>
             </p>
             <p ng-show="task.rating">
-                <span class="text-bold" ng-show="settings.contentLevel === 'maximum'">Rating:&nbsp;</span>
+                <span class="text-bold" ng-show="$parant.settings.contentLevel === 'maximum'">Rating:&nbsp;</span>
                 <star-rating value="task.rating"></star-rating>
             </p>
             <p ng-show="task.state" class="text-bold text-grey">

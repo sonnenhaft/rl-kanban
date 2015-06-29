@@ -15,22 +15,17 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
 }).controller('layoutSwitcherController', function($location, $scope, plannerStub, workTrackerStub){
     $scope.locationSearch = $location.search();
     $scope.$watch('locationSearch.template', function (template) {
-        if (template === 'planner') {
-            $scope.config = plannerStub;
-        } else {
+        if (template === 'wt') {
             $scope.config = workTrackerStub;
+        } else {
+            $scope.config = plannerStub;
         }
     });
 
-    $scope.$watch('locationSearch.contentLevel', function(template){
-        if (template === 'planner') {
-            $scope.config = plannerStub;
-        } else {
-            $scope.config = workTrackerStub;
+    $scope.$watch('locationSearch.contentLevel', function(contentLevel){
+        if (contentLevel) {
+            $scope.config = angular.copy($scope.config);
+            $scope.config.settings.contentLevel = contentLevel;
         }
-    });
-
-    $scope.$watch('contentLevel', function(contentLevel){
-        $scope.config.settings.contentLevel = contentLevel || 'low';
     });
 });
