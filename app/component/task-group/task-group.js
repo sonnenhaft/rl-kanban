@@ -57,10 +57,13 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     } else {
                         taskGroupList.cleanExpanded(group);
                     }
+                    taskGroupList.highlightGroup(group);
+                    group.highlightTasks(true);
                 },
                 start: function () {
                     $scope.$apply(function () {
                         group.highlightTasks(true);
+                        taskGroupList.highlightGroup(group);
                     });
                     clone = $element.clone();
                     clone.children().css({borderColor: group.color}).addClass('opacity');
@@ -92,7 +95,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     clone.parent().css('margin-top', 0);
                     $element.css('margin-top', 0);
                     clone.after($element.removeClass('draggy')).remove();
-                    group.highlightTasks(false);
                     scrollableElement.stopWatching();
                     var snapX = Math.round(deltaX / groupWidth);
                     if (snapX) {

@@ -1,51 +1,45 @@
-<div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-click="openTaskCardModal(task)" data-as-sortable-item-handle>
-    <div class="card-color" style="background: {{task.group.color}}"></div>
+<div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-click="openTaskCardModal(task, $parent.settings)" data-as-sortable-item-handle>
+    <div class="card-color" ng-style="{'background': task.group.color}"></div>
     <div class="card-header">
-        <div class="card-handle">
-            <!--<span class="gl-drag-indicator"></span>-->
-        </div>
+        <div class="card-handle"></div>
         <div class="app-tag">
             <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
         </div>
         <div class="card-title">
-            <span class="card-name">{{::task.appName}}</span>
+            <span class="card-name">{{task.appName}}</span>
         </div>
     </div>
     <div class="card-content">
-        <div class="task-name">
-            <p>{{::task.taskName}}</p>
-        </div>
-        <div class="task-description" ng-show="search.contentLevel === 'maximum'">
-            <p>{{::task.description}}</p>
-        </div>
-        <div class="additional-details" ng-hide="search.contentLevel === 'low'">
-            <div class="task-owner" ng-show="search.template == 'wt'">
-                <div class="owner-avatar"><img src="http://lorempixel.com/30/30/"/></div>
-                <div class="owner-name">{{::task.assigneeName}}</div>
+        <p class="task-name" ng-show="task.taskName">{{task.taskName}}</p>
+        <p class="task-name" ng-show="task.resourceName">{{task.resourceName}}</p>
+        <p class="task-description" ng-show="settings.contentLevel === 'maximum'">{{task.description}}</p>
+        <div class="additional-details" ng-hide="settings.contentLevel === 'low'">
+            <div class="task-owner" ng-show="task.assigneeName">
+                <p class="owner-avatar" ng-show="task.ownerPicture"><img ng-src="{{task.ownerPicture}}"/></p>
+                <p class="owner-name">{{task.assigneeName}}</p>
             </div>
-            <div ng-show="search.template == 'planner'">
-                <p><span class="text-bold">Assigned to:&nbsp;</span><span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></p>
-                <span class="text-bold" ng-show="search.contentLevel === 'maximum'">Rating:&nbsp;</span><star-rating value="task.rating"></star-rating>
+            <p ng-show="task.assignees">
+                <span class="text-bold">Assigned to:&nbsp;</span>
+                <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span>
+            </p>
+            <p ng-show="task.rating">
+                <span class="text-bold" ng-show="settings.contentLevel === 'maximum'">Rating:&nbsp;</span>
+                <star-rating value="task.rating"></star-rating>
+            </p>
+            <p ng-show="task.state" class="text-bold text-grey">
+                <span>{{task.state}}</span>
+                <span ng-show="task.assignability">&nbsp;-&nbsp;Locked</span>
+                <glyph-icon icon="{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
+            </p>
+            <p ng-show="task.priority"><priority-level value="task.priority"></priority-level></p>
+            <div ng-show="settings.contentLevel === 'maximum'">
+                <p ng-show="task.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{task.ownerName}}</p>
+                <p ng-show="task.type"><span class="text-bold">Type:&nbsp;</span>{{task.type}}</p>
+                <p ng-show="task.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
+                <p ng-show="task.creationDate" class="task-date"><span class="text-grey text-bold">Created:&nbsp;</span>{{task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
+                <p ng-show="task.modifiedDate" class="task-date"><span class="text-grey text-bold">Modified:&nbsp;</span>{{task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
             </div>
-            <div ng-show="search.template == 'wt'">
-                <p class="text-bold text-grey">{{::task.state}}
-                    <span ng-if="::task.assignability">&nbsp;-&nbsp;Locked</span>
-                    <glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
-                </p>
-                <priority-level value="::task.priority"></priority-level>
-            </div>
-            <div ng-show="search.contentLevel === 'maximum'">
-                <div ng-show="search.template == 'wt'">
-                    <p><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
-                </div>
-                <p><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>
-                <div ng-show="search.template == 'planner'">
-                    <p><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
-                </div>
-                <p class="task-date text-grey"><span class="text-bold">Created:&nbsp;</span>{{::task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
-                <p class="task-date text-grey"><span class="text-bold">Modified:&nbsp;</span>{{::task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
-            </div>
-            <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30" ng-show="search.template == 'planner'"/>
+            <p ng-show="task.ownerAppLogo"><img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
         </div>
     </div>
 </div>

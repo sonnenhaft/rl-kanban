@@ -2,13 +2,18 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
     return {
         templateUrl: 'app/component/swim-lane/swim-lane.html',
         scope: {
-            swimlane: '='
+            swimlane: '=',
+            settings: '='
         },
         link: function (scope) {
-            scope.isCollapsed = false;
+            scope.expanded = true;
 
             scope.toggleCollapse = function(){
-                scope.isCollapsed = !scope.isCollapsed;
+                scope.expanded = !scope.expanded;
+            };
+
+            scope.addResource = function($event) {
+                $event.stopPropagation();
             };
 
             scope.$watch('swimlane.columns', function(columns){

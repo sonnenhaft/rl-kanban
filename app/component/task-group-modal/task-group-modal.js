@@ -8,7 +8,12 @@ angular.module('component.task-group-modal', [
             return $modal.open({
                 windowClass: 'tiny task-group-modal',
                 templateUrl: 'app/component/task-group-modal/task-group-modal.html',
-                resolve: {group: function(){return group;}},
+                resolve: {
+                    group: function(){
+                        return group;
+                    },
+
+                },
                 controllerAs: 'modal',
                 controller: function ($scope, $modalInstance, group) {
                     this.group = group;

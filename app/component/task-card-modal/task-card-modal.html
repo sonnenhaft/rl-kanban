@@ -4,30 +4,41 @@
 <div class="wrapper">
     <div class="row">
         <div class="column small-12">
-            <div class="header" ng-style="::{color: task.group.color}">
+            <div class="header" ng-style="{color: task.group.color}">
                 <div class="app-tag">
                     <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
                 </div>
-                <span class="title">{{::task.appName}}</span>
+                <span class="title">{{task.appName}}</span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="column small-12">
-            <div class="name">{{::task.taskName}}</div>
-        </div>
-    </div>
-    <div class="div">
-        <div class="column toolbar">
-            <button ng-if="search.template == 'wt'" class="button white toolbar-button" ng-click="copy(task)"><span class="glyph-icon tollbar-icon"><span class="glyph-copy4"></span></span><span>Copy</span></button>
-            <button class="button white toolbar-button" ng-click="removeCard(task)"><span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span><span>Delete</span></button>
+            <div class="name">
+                <a ng-href="{{task.applink}}" target="_blank" ng-show="task.resourceName">
+                    <span class="link-text">{{task.resourceName}}</span>
+                    <glyph-icon icon="'glyph-newtab'" class="link-icon"></glyph-icon></a>
+                <span ng-show="task.taskName">{{task.taskName}}</span>
+            </div>
         </div>
     </div>
     <div class="row">
+        <div class="column small-12 toolbar">
+            <button ng-if="settings.allowCopyTask" class="button white toolbar-button" ng-click="copy(task)">
+                <span class="glyph-icon tollbar-icon"><span class="glyph-copy4"></span></span>
+                <span>Copy</span>
+            </button>
+            <button ng-if="settings.allowDeleteTask" class="button white toolbar-button" ng-click="removeCard(task)">
+                <span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span>
+                <span>Delete</span>
+            </button>
+        </div>
+    </div>
+    <div ng-show="task.description" class="row">
         <div class="column small-12">
             <div class="description">
                 <h3 class="legend"><span>Description</span></h3>
-                <p class="description">{{::task.description}}</p>
+                <p class="description">{{task.description}}</p>
             </div>
         </div>
     </div>
@@ -37,21 +48,37 @@
                 <h3 class="legend"><span>Details</span></h3>
                 <div class="row">
                     <div class="column medium-6">
-                        <h4 class="task-field" ng-show="search.template == 'wt'">Owner: <span>{{::task.ownerName}}</span></h4>
-                        <h4 class="task-field" ng-show="search.template == 'wt'">Assignee: <span>{{::task.assigneeName}}</span></h4>
-                        <h4 class="task-field" ng-show="search.template == 'planner'">Assignee: <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span></h4>
-                        <h4 class="task-field">Task Type: <span>{{::task.type}}</span></h4>
-                        <h4 class="task-field">Status: <span>{{::task.state}}</span></h4>
+                        <p class="task-field" ng-show="task.ownerAppLogo">
+                            <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
+                        <p class="task-field" ng-show="task.ownerName">
+                            <span class="field-title">Owner:&nbsp;</span>
+                            <span>{{task.ownerName}}</span></p>
+                        <p class="task-field" ng-show="task.assigneeName">
+                            <span class="field-label">Assignee:&nbsp;</span>
+                            <span>{{task.assigneeName}}</span></p>
+                        <p class="task-field" ng-show="task.assignees">
+                            <span ng-repeat="assignee in task.assignees" class="task-assignee" ng-style="{color: task.group.color}">{{assignee}}{{$last ? "" : ", "}}</span></p>
+                        <p class="task-field" ng-show="task.type">
+                            <span class="field-label">Task Type:&nbsp;</span>
+                            <span>{{task.type}}</span></p>
+                        <p class="task-field" ng-show="task.state">
+                            <span class="field-label">Status:&nbsp;</span>
+                            <span>{{task.state}}</span></p>
                     </div>
                     <div class="column medium-6">
-                        <h4 class="task-field">Created:
-                            <span>{{::task.creationDate | date : "MMM d, y '/' h:mm a"}}</span></h4>
-                        <h4 class="task-field">Modified:
-                            <span>{{::task.modifiedDate | date : "MMM d, y '/' h:mm a"}}</span></h4>
-                        <h4 class="task-field">Assignability:
-                            <span>{{::task.assignability ? 'Locked' : 'Available'}}</span></h4>
-                        <priority-level ng-show="search.template == 'wt'" value="::task.priority"></priority-level>
-                        <h4 class="task-field" ng-show="search.template == 'planner'">Rating:&nbsp; <star-rating value="task.rating"></star-rating></h4>
+                        <p class="task-field" ng-show="task.creationDate">
+                            <span class="field-label">Created:</span>
+                            <span>{{task.creationDate | date : "MMM d, y '/' h:mm a"}}</span></p>
+                        <p class="task-field" ng-show="task.modifiedDate">
+                            <span class="field-label">Modified:</span>
+                            <span>{{task.modifiedDate | date : "MMM d, y '/' h:mm a"}}</span></p>
+                        <p class="task-field" ng-show="task.assignability">
+                            <span class="field-label">Assignability:</span>
+                            <span>{{task.assignability}}</span></p>
+                        <p class="task-field" ng-show="task.priority">
+                            <priority-level value="task.priority"></priority-level></p>
+                        <p class="task-field" ng-show="task.rating">
+                            <star-rating value="task.rating"></star-rating></p>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     $scope.groups.forEach(function (group) {
                         group.highlightTasks(false);
                         delete group.$expandedGroup;
+                        delete group.$highlightedGroup;
                     });
                     group.$expandedGroup = true;
                     group.highlightTasks(true);
@@ -25,7 +26,19 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 }
             };
 
-            this.removeGroup = function(group){
+            this.highlightGroup = function (group) {
+                if (!group.$expandedGroup) {
+                    $scope.groups.forEach(function (group) {
+                        group.highlightTasks(false);
+                        delete group.$highlightedGroup;
+                    });
+                    group.highlightTasks(true);
+                    group.$highlightedGroup = true;
+                    $scope.$evalAsync();
+                }
+            };
+
+            this.removeGroup = function (group) {
                 $scope.groups.splice($scope.groups.indexOf(group), 1);
                 this.recalculatePositions();
             };

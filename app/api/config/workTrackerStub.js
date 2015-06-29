@@ -1,22 +1,17 @@
-angular.module('kanban').run(function ($rootScope, hostedStub) {
-    //var url = 'http://beta.json-generator.com/api/json/get/Ipvs7FH';
-    //$http.get(url, {cache: false}).then(function (response) {
-    //    $rootScope.config = response.data;
-    //}, function () {
-    //    $rootScope.config = hostedStub;
-    //});
-    //$rootScope.config = hostedStub;
-}).value('hostedStub', {
+angular
+  .module('kanban')
+  .value('workTrackerStub', {
     'tasks': [
         {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'color': '#152C4D',
+            'swimlaneId': '555b6922f5cad468b43fbe8b',
             'priority': '2',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Culpa sint qui reprehenderit cupidatat officia quis commodo do do sit culpa est laboris.',
             'assigneeName': 'Sallie Obrien',
             'groupId': '555b69113b3485646d82e3c6',
             'ownerName': 'Iris Brewer',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-04-19T23:31:58.676Z',
             'creationDate': '2015-01-22T08:48:03.865Z',
             'state': 'Completed',
@@ -24,20 +19,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'appName': 'Cupidatat officia',
             'taskName': 'culpa enim nulla cupidatat officia',
             'id': '555b69112a241c792bd5db5d',
-            'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '3',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'color': '#152C4D',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Lorem do tempor aliquip enim id laborum id ea incididunt.',
             'assigneeName': 'Joanne Graham',
             'groupId': '555b69113b3485646d82e3c6',
             'ownerName': 'April Fletcher',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-04-02T16:53:24.778Z',
             'creationDate': '2015-03-11T21:33:45.360Z',
             'state': 'Completed',
@@ -46,19 +37,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'et eiusmod nisi cupidatat officia',
             'id': '555b691180e8d65d15e4d649',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '4',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'color': '#203E67',
             'priority': '0',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Laboris consectetur et do et proident.',
             'assigneeName': 'Howell Wynn',
             'groupId': '555b6911dd143fd022e7d0f7',
             'ownerName': 'Coffey Perez',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-03-19T04:37:56.100Z',
             'creationDate': '2015-04-24T19:48:26.069Z',
             'state': 'Completed',
@@ -67,19 +55,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'aliqua non proident et do et proident',
             'id': '555b6911bdbc551b3fee3d75',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'color': '#203E67',
             'priority': '1',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Id ipsum aliquip anim sunt anim.',
             'assigneeName': 'Conway Sharp',
             'groupId': '555b6911dd143fd022e7d0f7',
             'ownerName': 'Estella May',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-02-12T06:07:35.757Z',
             'creationDate': '2015-02-26T15:43:09.624Z',
             'state': 'Completed',
@@ -88,19 +73,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'deserunt mollit fugiat',
             'id': '555b6911013efe717127086f',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911b55afadc0db29d98',
-            'color': 'orange',
             'priority': '1',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Consectetur adipisicing ex proident quis nulla est dolore velit.',
             'assigneeName': 'Soto Gomez',
             'groupId': '555b691143ccda9c3a78c00a',
             'ownerName': 'Iris Brewer',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-03-26T23:27:19.819Z',
             'creationDate': '2015-03-31T16:26:33.106Z',
             'state': 'Completed',
@@ -109,19 +91,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'quis nulla est',
             'id': '555b6911cfcb64862481fb60',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Book',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Book'
+        }, {
             'columnId': '555b6911b55afadc0db29d98',
-            'color': 'orange',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Fugiat sint laborum dolore enim nostrud tempor incididunt consectetur proident ea.',
             'assigneeName': 'Adrian Kidd',
             'groupId': '555b691143ccda9c3a78c00a',
             'ownerName': 'Estella May',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-02-14T05:16:55.439Z',
             'creationDate': '2015-02-12T07:30:27.954Z',
             'state': 'Completed',
@@ -130,19 +109,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'ullamco mollit Lorem enim nostrud',
             'id': '555b6911f166cf1e18a232cd',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Book',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Book'
+        }, {
             'columnId': '555b6911faa6e347b8f89d13',
-            'color': 'green',
             'priority': '1',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Eiusmod aliquip esse consequat sunt id officia nulla ut anim.',
             'assigneeName': 'Irene Rios',
             'groupId': '555b69117e221641dd9cbb9b',
             'ownerName': 'Iris Brewer',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-05-17T08:46:14.305Z',
             'creationDate': '2015-04-02T05:23:29.687Z',
             'state': 'In Progress',
@@ -151,19 +127,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'ullamco tempor velit',
             'id': '555b6911a9300b1dba92984f',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '4',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911faa6e347b8f89d13',
-            'color': 'green',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Proident eiusmod duis cillum nisi nisi consectetur aliqua deserunt nulla mollit tempor.',
             'assigneeName': 'Dejesus Hebert',
             'groupId': '555b69117e221641dd9cbb9b',
             'ownerName': 'Diana Leblanc',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-01-01T18:25:15.585Z',
             'creationDate': '2015-03-27T03:17:36.154Z',
             'state': 'Completed',
@@ -172,19 +145,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'dolor magna occaecat aliqua deserunt',
             'id': '555b69117e221641dd9cbb9b',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911ba6d349f6253cd85',
-            'color': 'orange',
             'priority': '0',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Reprehenderit consequat consectetur consectetur sunt nostrud aliqua duis do consequat voluptate eu occaecat aliqua.',
             'assigneeName': 'Evangeline Cline',
             'groupId': '555b6911d53e0734f02bcc74',
             'ownerName': 'Iris Brewer',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-02-28T14:28:32.509Z',
             'creationDate': '2015-04-22T23:19:54.165Z',
             'state': 'Completed',
@@ -193,19 +163,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'eiusmod cillum elit',
             'id': '555b69117e221641dd9cbb9b',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '4',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911ba6d349f6253cd85',
-            'color': 'green',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Pariatur excepteur laborum aute magna enim qui fugiat.',
             'assigneeName': 'Elinor Hensley',
             'groupId': '555b6911d53e0734f02bcc74',
             'ownerName': 'Diana Leblanc',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-03-09T06:02:33.756Z',
             'creationDate': '2015-04-28T16:54:31.372Z',
             'state': 'Completed',
@@ -214,19 +181,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'elit officia id',
             'id': '555b69114ba4c055e4ba9c74',
             'swimlaneId': '555b6922f5cad468b43fbe8b',
-            'rating': '5',
-            'type': 'Book',
-            'assignees' : ['Student Group 1']
-        },
-        {
+            'type': 'Book'
+        }, {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'color': 'green',
             'priority': '2',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Velit aute officia sint nostrud fugiat sit tempor aliqua ad do.',
             'assigneeName': 'Helene Bates',
             'groupId': '555b69113b3485646d82e3c6',
             'ownerName': 'April Fletcher',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-04-27T19:49:29.829Z',
             'creationDate': '2015-02-21T14:59:34.985Z',
             'state': 'In Progress',
@@ -235,19 +199,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'laborum anim ipsum',
             'id': '555b69110bad6e61c487aac3',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911f5cad468b43fbe8b',
-            'color': 'blue',
             'priority': '2',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Officia sunt excepteur proident elit elit ipsum aute nostrud proident esse aliqua.',
             'assigneeName': 'Cassandra Bishop',
             'groupId': '555b69113b3485646d82e3c6',
             'ownerName': 'Estella May',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-01-28T13:16:52.477Z',
             'creationDate': '2015-04-25T06:44:07.458Z',
             'state': 'In Progress',
@@ -256,19 +217,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'deserunt ut in',
             'id': '555b6911255fa88990d6372a',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '3',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'color': 'green',
             'priority': '0',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Tempor id aliquip nostrud minim in cupidatat.',
             'assigneeName': 'Kim Gentry',
             'groupId': '555b6911dd143fd022e7d0f7',
             'ownerName': 'April Fletcher',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-02-20T19:39:14.230Z',
             'creationDate': '2015-01-03T19:00:00.110Z',
             'state': 'In Progress',
@@ -277,19 +235,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'mollit ipsum in',
             'id': '555b691118fc43bab7aa34d5',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911a9ce3b29e498cae5',
-            'color': 'green',
             'priority': '1',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Eiusmod fugiat sint quis qui magna.',
             'assigneeName': 'Enid Christensen',
             'groupId': '555b6911dd143fd022e7d0f7',
             'ownerName': 'April Fletcher',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-03-02T01:54:22.948Z',
             'creationDate': '2015-03-31T06:59:33.044Z',
             'state': 'Completed',
@@ -298,19 +253,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'eu deserunt excepteur',
             'id': '555b69110462e7ebf1fe4e40',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '4',
-            'type': 'Book',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Book'
+        }, {
             'columnId': '555b6911b55afadc0db29d98',
-            'color': 'orange',
             'priority': '0',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Ullamco mollit et occaecat mollit cillum exercitation laboris est sit ex ut.',
             'assigneeName': 'Aurelia Norton',
             'groupId': '555b691143ccda9c3a78c00a',
             'ownerName': 'Coffey Perez',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-05-09T13:12:37.732Z',
             'creationDate': '2015-01-25T02:38:07.926Z',
             'state': 'In Progress',
@@ -319,19 +271,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'duis eiusmod cillum',
             'id': '555b6911e01072a878822c2a',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '5',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911b55afadc0db29d98',
-            'color': 'orange',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Irure incididunt ex nostrud in adipisicing labore sit laborum do cupidatat adipisicing velit ea.',
             'assigneeName': 'Richards Solomon',
             'groupId': '555b691143ccda9c3a78c00a',
             'ownerName': 'Coffey Perez',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-01-26T12:27:27.323Z',
             'creationDate': '2015-01-03T01:30:36.284Z',
             'state': 'Completed',
@@ -340,19 +289,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'esse dolore tempor',
             'id': '555b6911421b45dea86211b7',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '4',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911faa6e347b8f89d13',
-            'color': 'orange',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Sint anim est ullamco sunt.',
             'assigneeName': 'Marsha Allison',
             'groupId': '555b69117e221641dd9cbb9b',
             'ownerName': 'April Fletcher',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-04-03T03:14:19.396Z',
             'creationDate': '2015-02-16T07:26:48.292Z',
             'state': 'In Progress',
@@ -361,19 +307,16 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'dolore excepteur et',
             'id': '555b69110463b4b52a1a3711',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '3',
-            'type': 'Video',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911faa6e347b8f89d13',
-            'color': 'blue',
             'priority': '0',
-            'assignability': true,
+            'assignability': 'Open',
             'description': 'Quis duis excepteur qui elit anim consectetur esse anim sunt consectetur.',
             'assigneeName': 'Knapp Foreman',
             'groupId': '555b69117e221641dd9cbb9b',
             'ownerName': 'Diana Leblanc',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-05-18T03:16:38.584Z',
             'creationDate': '2015-02-18T20:36:53.028Z',
             'state': 'Completed',
@@ -382,52 +325,45 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'taskName': 'est velit consectetur',
             'id': '555b6911417547d0f6db768b',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '4',
-            'type': 'Video',
-            'assignees' : ['Student Group 1']
-        },
-        {
+            'type': 'Video'
+        }, {
             'columnId': '555b6911ba6d349f6253cd85',
-            'color': 'green',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Nostrud commodo tempor ea ipsum minim eu dolor eiusmod labore aliqua duis sit dolor consectetur.',
             'assigneeName': 'Darlene Mathis',
             'groupId': '555b6911d53e0734f02bcc74',
             'ownerName': 'Iris Brewer',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-01-09T04:43:48.752Z',
             'creationDate': '2015-02-13T21:27:43.026Z',
             'state': 'In Progress',
             'appRef': 'glyph-am1-logo',
             'appName': 'tempor ea ipsum',
             'taskName': 'esse aliquip cupidatat',
-            'id': '555b6911d53e0734f02bcc7489898',
+            'id': '555b6911d53e0734f02bcc74',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '5',
-            'type': 'Book',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
-        },
-        {
+            'type': 'Book'
+        }, {
             'columnId': '555b6911ba6d349f6253cd85',
-            'color': 'blue',
             'priority': '0',
-            'assignability': false,
+            'assignability': 'Locked',
             'description': 'Labore et ipsum dolore proident qui fugiat laboris aliqua ad consequat cillum do.',
             'assigneeName': 'Bernard Finch',
             'groupId': '555b6911d53e0734f02bcc74',
             'ownerName': 'Diana Leblanc',
+            'ownerPicture': 'http://lorempixel.com/30/30/',
             'modifiedDate': '2015-02-09T13:57:17.260Z',
             'creationDate': '2015-05-02T02:54:00.376Z',
             'state': 'Completed',
             'appRef': 'glyph-eiaf-logo',
             'appName': 'proident qui fugiat',
             'taskName': 'excepteur dolor sunt',
-            'id': '555b6911d53e0734f02bcc746',
+            'id': '555b6911d53e0734f02bcc74',
             'swimlaneId': '555b6933a9ce3b29e498cae5',
-            'rating': '2',
-            'type': 'Book',
-            'assignees' : ['Student Group 1', 'Student Group 2', 'Student Group 3']
+            'type': 'Book'
         }
+
     ],
     'columns': [
         {
@@ -494,13 +430,25 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
     'swimlanes': [
         {
             'index': 0,
-            'name': 'Swimlane 1 Name',
-            'id': '555b6922f5cad468b43fbe8b'
+            'name': 'Resources',
+            'id': '555b6922f5cad468b43fbe8b',
+            'addButtonText': 'Select Skills',
+            'addAlertText': 'Please select skills before you add resources',
+            'addResourcesButtonText': 'Add Resources',
+            'acceptTasks': true,
+            'noContentText': 'No Tasks',
+            'contentText': 'Tasks'
         },
         {
             'index': 1,
-            'name': 'Swimlane 2 Name',
-            'id': '555b6933a9ce3b29e498cae5'
+            'name': 'Assessments',
+            'id': '555b6933a9ce3b29e498cae5',
+            'addButtonText': 'Select Skills',
+            'addAlertText': 'Please select skills before you add resources',
+            'addResourcesButtonText': 'Add Assessment',
+            'acceptTasks': true,
+            'noContentText': 'No Tasks',
+            'contentText': 'Tasks'
         }
     ],
     'groups': [
@@ -551,7 +499,7 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
         },
         {
             'masterName': 'voluptate excepteur occaecat',
-            'color':'#5975A5',
+            'color': '#5975A5',
             'masterRef': '555b69113f092d0c6f0862cc',
             'ownerName': 'Iris Brewer',
             'modifiedDate': '2015-01-08T09:30:22.292Z',
@@ -577,7 +525,24 @@ angular.module('kanban').run(function ($rootScope, hostedStub) {
             'start': 4,
             'width': 1,
             'groupName': 'amet enim adipisicing',
-            'id': '21555b6911d53e0734f02bcc74'
+            'id': '555b6911d53e0734f02bcc74'
         }
-    ]
+    ],
+    'settings': {
+        'taskModalWindowTitle': 'Task information',
+        'groupsCollapseButtonText': 'Task Groups',
+        'allowCopyTask': true,
+        'allowDeleteTask': true,
+        'addResourceLinks': [
+            {
+                linkText: 'Add Skill',
+                link: "#"
+
+            },
+            {
+                linkText: 'Add Resource',
+                link: "#"
+            }
+        ]
+    }
 });
