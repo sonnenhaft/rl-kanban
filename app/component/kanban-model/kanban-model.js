@@ -7,7 +7,7 @@ angular.module('component.kanban-model').directive('kanbanModel', function(gener
             task.attachToGroup(group);
             task.attachToColumn(firstColumn);
             config.tasks.push(task);
-            task.taskName = task.title.text;
+            task.resourceName = task.title.text;
             group.recalculate();
         });
 

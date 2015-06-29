@@ -1,6 +1,7 @@
-angular.module('component.kanban-model').factory('generateKanbanModel', function(KanbanGroup, KanbanTask, KanbanColumn){
-    return  function createKanbanModel(initialConfig){
-        var config = {
+angular.module('component.kanban-model').factory('generateKanbanModel', function (KanbanGroup, KanbanTask, KanbanColumn) {
+    return function createKanbanModel(initialConfig) {
+        var config = angular.copy(initialConfig);
+        angular.extend(config, {
             tasks: initialConfig.tasks.map(function (task) {
                 return new KanbanTask(task);
             }),
@@ -10,21 +11,20 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
             columns: initialConfig.columns.map(function (column) {
                 return new KanbanColumn(column);
             }),
-            swimlanes: initialConfig.swimlanes.map(function(swimlane){
+            swimlanes: initialConfig.swimlanes.map(function (swimlane) {
                 return angular.copy(swimlane);
             })
-        };
+        });
 
         config.groups.forEach(function (group) {
+            group.tasks = [];
             group.tasks = config.tasks.filter(function (task) {
                 return task.groupId === group.id;
             });
             group.tasks.forEach(function (task) {
                 task.group = group;
             });
-            console.log(group.tasks.length)
         });
-
 
         config.swimlanes.forEach(function (swimlane) {
             swimlane.columns = angular.copy(config.columns);
@@ -50,7 +50,7 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
             group.tasks.forEach(function (task) {
                 angular.extend(task, {
                     createdDate: task.creationDate,
-                    title: task.description
+                    title: task.resourceName
                 });
             });
         });

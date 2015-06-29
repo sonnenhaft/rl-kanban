@@ -1,6 +1,4 @@
-angular
-  .module('kanban')
-  .value('workTrackerStub', {
+angular.module('kanban').value('workTrackerStub', {
     'tasks': [
         {
             'columnId': '555b6911f5cad468b43fbe8b',

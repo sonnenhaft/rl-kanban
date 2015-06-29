@@ -1,4 +1,4 @@
-angular.module('kanban').directive('kanban', function (KanbanGroup) {
+angular.module('kanban').directive('kanban', function () {
     return {
         scope: {config: '='},
         replace: true,
@@ -14,13 +14,13 @@ angular.module('kanban').directive('kanban', function (KanbanGroup) {
                 registeredElements.splice(registeredElements.indexOf(childElement), 1);
             };
 
-            $scope.$watch('config.columns.length', function (length) {
-                registeredElements.forEach(function (element) {
-                    element.css('width', length * 228 + 'px');
-                });
-            });
+            //$scope.$watch('config.columns.length', function (length) {
+            //    registeredElements.forEach(function (element) {
+            //        element.css('width', length * 228 + 'px');
+            //    });
+            //});
         }
     };
-}).controller('kanbanDataController', function ($scope, hostedStub) {
-    $scope.hostedStub = hostedStub;
+}).controller('kanbanDataController', function ($scope, plannerStub) {
+    $scope.hostedStub = plannerStub;
 });
