@@ -44,8 +44,9 @@
     <!-- endbuild -->
 </head>
 <body>
-<kanban-model ng-controller="kanbanDataController" model="kanbanModel" config="hostedStub">
-    <layout-switcher></layout-switcher>
+
+<layout-switcher></layout-switcher>
+<kanban-model ng-controller="layoutSwitcherController" model="kanbanModel" config="config">
     <kanban config="kanbanModel"></kanban>
 </kanban-model>
 </body>
