@@ -2,7 +2,8 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
     return {
         templateUrl: 'app/component/swim-lane/swim-lane.html',
         scope: {
-            swimlane: '='
+            swimlane: '=',
+            settings: '='
         },
         link: function (scope) {
             scope.expanded = true;

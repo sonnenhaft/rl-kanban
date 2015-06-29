@@ -4,15 +4,16 @@ angular.module('component.task-card-modal', [
     'template/modal/window.html'
 ]).factory('extendedCard', function ($modal) {
     return {
-        open: function (task) {
+        open: function (task, settings) {
             return $modal.open({
                 windowClass: 'tiny task-card-modal',
                 templateUrl: 'app/component/task-card-modal/task-card-modal.html',
-                controller: function ($scope, $modalInstance, $location, task) {
+                controller: function ($scope, $modalInstance, $location, task, settings) {
                     $scope.cancel = function () {
                         $modalInstance.dismiss('cancel');
                     };
                     $scope.task = task;
+                    $scope.settings = settings;
 
                     $scope.copy = function (task) {
                         task.clone(task);
@@ -31,6 +32,9 @@ angular.module('component.task-card-modal', [
                 resolve: {
                     task: function () {
                         return task;
+                    },
+                    settings: function () {
+                        return settings;
                     }
                 }
             });

@@ -4,8 +4,8 @@
         <glyph-icon icon="'glyph-chevron-expanded'"></glyph-icon>
     </button>
     <ul id="add-choices" class="add-dropdown-list">
-        <li ng-repeat="(label, url) in linkItems" class="add-dropdown-item">
-            <a href="{{url}}" target="_blank">{{label}}</a>
+        <li ng-repeat="linkItem in settings.addResourceLinks" class="add-dropdown-item">
+            <a href="{{linkItem.link}}" target="_blank">{{linkItem.linkText}}</a>
         </li>
     </ul>
 </div>

@@ -65,10 +65,8 @@
   .task-field {
     font-size: 14px;
     margin: 6px 0;
-    font-weight: 600;
-    span {
-      font-weight: 400;
-    }
+    font-weight: 400;
+    line-height: 1;
   }
 
   .legend {
@@ -76,6 +74,7 @@
     font-weight: 400;
     position: relative;
     font-size: 12px;
+    margin-bottom: 5px;
     span {
       background: #fff;
       padding-right: 10px;
@@ -130,7 +129,7 @@
   }
   
   .tollbar-icon {
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 5px;
   }
 
@@ -140,8 +139,8 @@
     display: inline-block;
     line-height: 16px;
     font-weight: 400;
-    padding: 5px 0;
-    margin: 5px 30px 5px 0;
+    padding: 0;
+    margin: 5px 30px 10px 0;
     font-size: 14px;
     span {
       vertical-align: middle;
@@ -151,6 +150,24 @@
   .priority-level {
     font-size: 14px;
     font-weight: 600;
+  }
+  
+  .star-rating li {
+    font-size: 18px;
+  }
+  
+  .field-label {
+    font-weight: 600;
+  }
+
+  .link-text {
+    vertical-align: middle;
+  }
+  .link-icon {
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 6px;
   }
 }
 
