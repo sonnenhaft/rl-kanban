@@ -452,15 +452,16 @@ angular
         'groupsCollapseButtonText': 'Task Groups',
         'allowCopyTask': false,
         'allowDeleteTask': true,
+        'contentLevel': 'low',
         'addResourceLinks': [
             {
                 linkText: 'Add Skill',
-                link: "#"
+                link: '#'
 
             },
             {
                 linkText: 'Add Resource',
-                link: "#"
+                link: '#'
             }
         ]
     }

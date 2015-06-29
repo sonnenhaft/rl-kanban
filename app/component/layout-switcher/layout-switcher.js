@@ -29,5 +29,5 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         'wt': workTrackerStub
     };
 
-    $rootScope.config = stubs[$location.search().template];
+    $rootScope.config = stubs[$location.search().template || 'planner'];
 });
