@@ -1,4 +1,4 @@
-# Search Control
+# KANBAN CONTROL 
 ##### Installation
 Instal node js and ruby (for scss). Then run:
 ```sh 

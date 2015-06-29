@@ -45,13 +45,30 @@
         }
     }
 
-    .no-tasks-in-groups {
-        background: #f6f6f6;
-        text-align: center;
-        border: 1px solid #DBDCDE;
-        padding: 30px;
-        b {
-            font-weight: bold!important;
+    &.empty .kanban-column {
+        border-right: none;
+    }
+    
+    .add-resource-button {
+        float: right;
+        .button {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: transparent;
+            color: #818181;
+            border: none;
+            line-height: 28px;
+            font-weight: 600;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .glyph-icon {
+            font-size: 12px;
+            margin-right: 5px;
+            position: relative;
+            top: -3px;
         }
     }
 }
