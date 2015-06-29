@@ -12,7 +12,7 @@
                     <task-group-list groups="config.groups" columns="config.columns" settings="config.settings" columns-width></task-group-list>
                 </div>
             </div>
-            <task-groups-button value="expanded" ng-init="expanded = true"></task-groups-button>
+            <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings"></task-groups-button>
         </div>
 
         <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane" settings="config.settings"></swim-lane>
