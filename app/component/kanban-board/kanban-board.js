@@ -37,7 +37,7 @@ angular.module('component.kanban-board',[
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if (scope.swimlane.acceptTasks) {
+                    if (scope.settings.acceptTasks) {
                         return true;
                     } else {
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
