@@ -2,7 +2,7 @@ angular.module('component.kanban-board',[
     'component.kanban-card',
     'component.expand-collapse',
     'component.scrollable-element'
-]).directive('kanbanBoard', function ($animate, $location) {
+]).directive('kanbanBoard', function () {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: '^scrollableElement',

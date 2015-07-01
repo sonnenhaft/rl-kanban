@@ -30,12 +30,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.$watch('group.$lineSpace', setLeft);
             $scope.$watch('group.width', setWidth);
 
-            $scope.$watch('group.tasks.length', function (now, before) {
-                if (before && !now) {
-                    //taskGroupList.removeGroup(group);
-                }
-            });
-
             $scope.$watch('group.$recalculated', function (value) {
                 if (value) {
                     delete $scope.group.$recalculated;

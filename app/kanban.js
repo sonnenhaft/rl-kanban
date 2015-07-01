@@ -19,7 +19,7 @@ angular.module('kanban').directive('kanban', function () {
                 registeredElements.push(childElement);
                 var value;
                 if ($scope.config && $scope.config.columns) {
-                    value = $scope.config.columns
+                    value = $scope.config.columns;
                 }
                 setVal(childElement, value);
             };

@@ -1,11 +1,9 @@
 angular.module('component.add-dropdown',[])
-    .directive('addDropdown', function($animate){
+    .directive('addDropdown', function(){
     return {
         scope: {
             settings: '='
         },
-        templateUrl: 'app/component/add-dropdown/add-dropdown.html',
-        link: function(scope, element, attrs){
-        }
+        templateUrl: 'app/component/add-dropdown/add-dropdown.html'
     };
 });

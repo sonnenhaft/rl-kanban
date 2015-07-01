@@ -21,5 +21,5 @@ angular.module('component.kanban-model').directive('kanbanModel', function(gener
                 $scope[$attrs.model] = null;
             }
         });
-    }
+    };
 });

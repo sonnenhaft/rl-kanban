@@ -8,7 +8,7 @@ angular.module('component.opacity-on-changed', []).directive('opacityOnChanged',
                 if ($attr.setText) {
                     $timeout(function () { $element.text(value); }, 500, false);
                 } else {
-                    $scope.$eval($attr.evalAfter)
+                    $scope.$eval($attr.evalAfter);
                 }
             }
         });

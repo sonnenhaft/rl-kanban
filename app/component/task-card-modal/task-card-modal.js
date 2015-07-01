@@ -39,5 +39,5 @@ angular.module('component.task-card-modal', [
                 }
             });
         }
-    }
+    };
 });

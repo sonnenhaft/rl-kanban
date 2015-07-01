@@ -11,5 +11,5 @@ angular.module('component.add-new-control', []).directive('addNewControl', funct
                 $scope.$emit('addGroup');
             };
         }
-    }
+    };
 });
