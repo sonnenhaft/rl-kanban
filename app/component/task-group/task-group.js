@@ -94,10 +94,18 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     if (snapX) {
                         if (wasResize) {
                             group.width = initialWidth + snapX;
+                            if (group.width < 1) {
+                                group.width = 1;
+                            }
                             group.expand();
                         } else {
                             group.start = initialLeft + snapX;
-                            group.shrink(snapX);
+                            if (group.start < 0) {
+                                group.start = 0;
+                                group.shrink(-initialLeft);
+                            } else {
+                                group.shrink(snapX);
+                            }
                         }
                         group.$lastTouched = true;
                         taskGroupList.recalculatePositions();
