@@ -4,25 +4,25 @@ angular.module('component.expand-collapse',[])
         link: function(scope, element, attrs){
             function toggleCollapse(value) {
                 if (value) {
-                    element.removeClass('collapse').addClass('collapsing');
-                    $animate.addClass(element, 'in', {
+                    element.removeClass('kanban-collapse').addClass('kanban-collapsing');
+                    $animate.addClass(element, 'kanban-in', {
                         to: { height: element[0].scrollHeight + 'px' }
                     }).then(function(){
-                        element.removeClass('collapsing');
+                        element.removeClass('kanban-collapsing');
                         element.css({height: 'auto'});
                     });
                 } else {
                     element
                         .css({height: element[0].scrollHeight + 'px'})
-                        .removeClass('collapse')
-                        .addClass('collapsing');
+                        .removeClass('kanban-collapse')
+                        .addClass('kanban-collapsing');
 
-                    $animate.removeClass(element, 'in', {
+                    $animate.removeClass(element, 'kanban-in', {
                         to: {height: '0'}
                     }).then(function(){
                         element.css({height: '0'});
-                        element.removeClass('collapsing');
-                        element.addClass('collapse');
+                        element.removeClass('kanban-collapsing');
+                        element.addClass('kanban-collapse');
                     });
                 }
             }

@@ -1,12 +1,12 @@
-.collapse {
+.kanban-collapse {
   display: none;
 }
 
-.collapse.in {
+.kanban-collapse.kanban-in {
   display: block;
 }
 
-.collapsing {
+.kanban-collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
