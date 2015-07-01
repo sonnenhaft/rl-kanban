@@ -36,21 +36,29 @@ angular.module('component.kanban-model').value('KanbanGroup', (function () {
                 });
             });
         },
-        recalculate: function () {
-            var minIndex = Number.MAX_VALUE;
-            var maxIndex = 0;
-            this.tasks.forEach(function (task) {
-                var columnIndex = task.column.index;
-                if (columnIndex > maxIndex) {
-                    maxIndex = columnIndex;
-                }
-                if (columnIndex < minIndex) {
-                    minIndex = columnIndex;
-                }
-            });
-            this.start = minIndex;
-            this.width = maxIndex - minIndex + 1;
-            this.$recalculated = true;
+        recalculate: function (skipFlag) {
+            if (this.tasks.length) {
+                var minIndex = Number.MAX_VALUE;
+                var maxIndex = 0;
+                this.tasks.forEach(function (task) {
+                    var columnIndex = task.column.index;
+                    if (columnIndex > maxIndex) {
+                        maxIndex = columnIndex;
+                    }
+                    if (columnIndex < minIndex) {
+                        minIndex = columnIndex;
+                    }
+                });
+                this.start = minIndex;
+                this.width = maxIndex - minIndex + 1;
+            } else {
+                this.start = 0;
+                this.width = 1;
+            }
+
+            if (!skipFlag) {
+                this.$recalculated = true;
+            }
         },
         remove: function(){
             this.tasks.forEach(function(task){

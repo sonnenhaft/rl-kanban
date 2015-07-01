@@ -53,6 +53,8 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
                     title: task.resourceName
                 });
             });
+
+            group.recalculate(true);
         });
 
         config.tasks = config.tasks.filter(function (task) {

@@ -342,9 +342,6 @@ angular.module('kanban').value('plannerStub', {
             'creationDate': '2015-02-19T10:36:04.595Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'index': 0,
-            'start': 0,
-            'width': 1,
             'groupName': 'elit esse laboris',
             'id': '555b69113b3485646d82e3c6'
         },
@@ -372,9 +369,6 @@ angular.module('kanban').value('plannerStub', {
             'creationDate': '2015-04-13T08:50:28.729Z',
             'state': 'Completed',
             'appRef': 'glyph-kw-logo',
-            'index': 2,
-            'start': 2,
-            'width': 1,
             'groupName': 'consectetur dolore cillum',
             'id': '555b691143ccda9c3a78c00a'
         },
@@ -387,9 +381,6 @@ angular.module('kanban').value('plannerStub', {
             'creationDate': '2015-04-27T16:25:38.801Z',
             'state': 'Completed',
             'appRef': 'glyph-am1-logo',
-            'index': 3,
-            'start': 3,
-            'width': 1,
             'groupName': 'officia duis exercitation',
             'id': '555b69117e221641dd9cbb9b'
         },
@@ -402,9 +393,6 @@ angular.module('kanban').value('plannerStub', {
             'creationDate': '2015-04-29T12:15:27.059Z',
             'state': 'In Progress',
             'appRef': 'glyph-eiaf-logo',
-            'index': 4,
-            'start': 4,
-            'width': 1,
             'groupName': 'amet enim adipisicing',
             'id': '555b6911d53e0734f02bcc74'
         }
