@@ -8,12 +8,13 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
     }
 
     return {
-        scope: {groups: '=', columns: '=', isExpanded: '='},
+        scope: {groups: '=', columns: '=', isExpanded: '=', settings: '='},
         replace: true,
         controllerAs: 'taskGroupList',
         templateUrl: 'app/component/task-group-list/task-group-list.html',
-        controller: function ($scope, $location) {
+        controller: function ($scope) {
             this.cleanExpanded = function (group) {
+                if (!$scope.settings.allowGroupExpand) return;
                 $scope.groups.forEach(function (group) {
                     group.highlightTasks(false);
                     delete group.$expandedGroup;

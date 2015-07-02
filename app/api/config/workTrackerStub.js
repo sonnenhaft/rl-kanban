@@ -537,6 +537,7 @@ angular.module('kanban').value('workTrackerStub', {
         'addAlertText': 'Please select skills before you add resources',
         'addResourcesButtonText': 'Add Assessment',
         'acceptTasks': true,
+        'allowGroupExpand': true,
         'noContentText': 'No Tasks',
         'contentText': 'Tasks'
     }

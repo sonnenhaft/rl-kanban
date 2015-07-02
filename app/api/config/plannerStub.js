@@ -407,6 +407,7 @@ angular.module('kanban').value('plannerStub', {
         'addAlertText': 'Please select skills before you add resources',
         'addResourcesButtonText': 'Add Assessment',
         'acceptTasks': false,
+        'allowGroupExpand': false,
         'noContentText': 'No Tasks',
         'contentText': 'Tasks',
         'addResourceLinks': [
