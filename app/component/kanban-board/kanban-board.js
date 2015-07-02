@@ -16,11 +16,10 @@ angular.module('component.kanban-board',[
         link: function (scope, element, attrs, scrollableElement) {
             scope.scrollCallbacks = {
                 dragStart: function(e){
-                    e.source.itemScope.task.group.highlight = true;
+                    e.source.itemScope.task.group.$highlightedGroup = true;
                     scrollableElement.watchMouse();
                 },
                 dragEnd: function(e){
-                    e.source.itemScope.task.group.highlight = false;
                     scrollableElement.stopWatching();
                 },
                 itemMoved: function (e) {

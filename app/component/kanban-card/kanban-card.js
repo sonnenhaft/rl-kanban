@@ -2,7 +2,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function ($scope) {
-            $scope.openTaskCardModal = extendedCard.open;
+            $scope.clickCallbacks = function(task, settings){
+                extendedCard.open(task, settings);
+                task.group.$highlightedGroup = true;
+            }
         }
     };
 });

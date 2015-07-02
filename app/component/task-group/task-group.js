@@ -37,6 +37,12 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 }
             });
 
+            $scope.$watch('group.$highlightedGroup', function (value) {
+                if (value) {
+                    taskGroupList.highlightGroup(group);
+                }
+            });
+
             var initialWidth, initialLeft, clone;
             var wasResize = false;
 
@@ -52,7 +58,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                         taskGroupList.cleanExpanded(group);
                     }
                     taskGroupList.highlightGroup(group);
-                    group.highlightTasks(true);
                 },
                 start: function () {
                     $scope.$apply(function () {
@@ -112,7 +117,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     } else {
                         group.width = initialWidth;
                         group.start = initialLeft;
-                        setLeft(initialLeft - 1);
+                        setLeft(initialLeft);
                         setWidth(initialWidth);
                         wasResize = false;
                     }

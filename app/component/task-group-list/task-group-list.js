@@ -14,28 +14,24 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
         templateUrl: 'app/component/task-group-list/task-group-list.html',
         controller: function ($scope, $location) {
             this.cleanExpanded = function (group) {
-                if (!group.$expandedGroup && $location.search().template !== 'planner') {
-                    $scope.groups.forEach(function (group) {
-                        group.highlightTasks(false);
-                        delete group.$expandedGroup;
-                        delete group.$highlightedGroup;
-                    });
-                    group.$expandedGroup = true;
-                    group.highlightTasks(true);
-                    $scope.$apply();
-                }
+                $scope.groups.forEach(function (group) {
+                    group.highlightTasks(false);
+                    delete group.$expandedGroup;
+                    delete group.$highlightedGroup;
+                });
+                group.$expandedGroup = true;
+                group.highlightTasks(true);
+                $scope.$apply();
             };
 
             this.highlightGroup = function (group) {
-                if (!group.$expandedGroup) {
-                    $scope.groups.forEach(function (group) {
-                        group.highlightTasks(false);
-                        delete group.$highlightedGroup;
-                    });
-                    group.highlightTasks(true);
-                    group.$highlightedGroup = true;
-                    $scope.$evalAsync();
-                }
+                $scope.groups.forEach(function (group) {
+                    group.highlightTasks(false);
+                    delete group.$highlightedGroup;
+                });
+                group.highlightTasks(true);
+                group.$highlightedGroup = true;
+                $scope.$evalAsync();
             };
 
             this.removeGroup = function (group) {
@@ -54,7 +50,9 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
 
                 var maxVal = $scope.columns.length - 1;
 
-                ($scope.groups ||  []).map(function (group) {return group;}).sort(function (a, b) {
+                ($scope.groups || []).map(function (group) {
+                    return group;
+                }).sort(function (a, b) {
                     return a.start > b.start ? 1 : -1;
                 }).forEach(function (group) {
                     var hasNoLine = true;
@@ -73,7 +71,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
             };
 
             var that = this;
-            $scope.$watch('groups', function(groups){
+            $scope.$watch('groups', function (groups) {
                 if (groups) {
                     that.recalculatePositions();
                 }

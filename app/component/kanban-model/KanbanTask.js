@@ -31,10 +31,10 @@ angular.module('component.kanban-model').value('KanbanTask', (function () {
             this.group.recalculate();
         },
         clone: function (task) {
-            task.taskName += ' (Copy)';
-            task = new KanbanTask(task);
-            task.group.tasks.push(task);
-            task.column.tasks.push(task);
+            var clonedTask = new KanbanTask(task);
+            clonedTask.taskName += ' (Copy)';
+            task.group.tasks.push(clonedTask);
+            task.column.tasks.push(clonedTask);
             task.column.swimlane.$tasksCount++;
         }
     };

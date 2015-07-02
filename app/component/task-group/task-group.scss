@@ -12,7 +12,7 @@
     }
     &.expanded-group {
         .task-group-content {
-            background: white;
+            background: white !important;
         }
         .info {
             display: block;
@@ -41,7 +41,7 @@
         }
     }
 
-    &.highlighted-group {
+    &.highlighted-group:not(.expanded-group) {
         .drag-button, .resize-button, .group-name {
             color: #ffffff !important;
         }
