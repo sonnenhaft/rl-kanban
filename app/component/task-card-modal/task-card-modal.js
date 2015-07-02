@@ -8,7 +8,7 @@ angular.module('component.task-card-modal', [
             return $modal.open({
                 windowClass: 'tiny task-card-modal',
                 templateUrl: 'app/component/task-card-modal/task-card-modal.html',
-                controller: function ($scope, $modalInstance, $location, task, settings) {
+                controller: function ($scope, $rootScope, $modalInstance, $location, task, settings) {
                     $scope.cancel = function () {
                         $modalInstance.dismiss('cancel');
                     };
@@ -22,6 +22,7 @@ angular.module('component.task-card-modal', [
 
                     $scope.removeCard = function (task) {
                         task.remove();
+                        $rootScope.$broadcast('kanban:task:remove', {id: task.id});
                         $modalInstance.dismiss('cancel');
                     };
 
