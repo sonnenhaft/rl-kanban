@@ -91,10 +91,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     setWidth(group.width);
                 },
                 stop: function (deltaX) {
-                    clone.parent().css('margin-top', 0);
-                    $element.css('margin-top', 0);
-                    clone.after($element.removeClass('draggy')).remove();
-                    scrollableElement.stopWatching();
                     var snapX = Math.round(deltaX / groupWidth);
                     if (snapX) {
                         if (wasResize) {
@@ -113,14 +109,19 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                             }
                         }
                         group.$lastTouched = true;
-                        taskGroupList.recalculatePositions();
                     } else {
                         group.width = initialWidth;
                         group.start = initialLeft;
-                        setLeft(initialLeft);
-                        setWidth(initialWidth);
+                        setLeft(group.start);
+                        setWidth(group.width);
                         wasResize = false;
                     }
+                    clone.parent().css('margin-top', 0);
+                    $element.css('margin-top', 0);
+                    $element.after(clone).removeClass('draggy');
+                    clone.remove();
+                    scrollableElement.stopWatching();
+                    taskGroupList.recalculatePositions();
                     $scope.$apply();
                 }
             };
