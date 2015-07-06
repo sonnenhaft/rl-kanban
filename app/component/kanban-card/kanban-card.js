@@ -5,7 +5,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.clickCallbacks = function(task, settings){
                 extendedCard.open(task, settings);
                 task.group.$highlightedGroup = true;
-            }
+            };
         }
     };
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html ng-app="kanban">
+<html ng-app="kanban-demo">
 <head lang="en">
     <meta charset="UTF-8">
     <title>RLI Kanban</title>
@@ -40,9 +40,16 @@
         <!-- inject:js --><!-- endinject -->
         <!-- inject:.tmp/templates-and-app-version:js --><!-- endinject -->
     <!-- endbuild -->
+    <script>
+        angular.module('kanban-demo', [
+            'kanban',
+            'events-debugger'
+        ])
+    </script>
 </head>
 <body>
 
+<events-debugger></events-debugger>
 <layout-switcher></layout-switcher>
 <kanban-model ng-controller="layoutSwitcherController" model="kanbanModel" config="config">
     <kanban config="kanbanModel"></kanban>

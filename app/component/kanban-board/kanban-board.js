@@ -16,10 +16,18 @@ angular.module('component.kanban-board',[
         link: function (scope, element, attrs, scrollableElement) {
             scope.scrollCallbacks = {
                 dragStart: function(e){
-                    e.source.itemScope.task.group.$highlightedGroup = true;
+                    var task = e.source.itemScope.task;
+                    scope.$emit('kanban:task:start', task.id);
+                    task.group.$highlightedGroup = true;
                     scrollableElement.watchMouse();
                 },
+                orderChanged: function(e){
+                    var task = e.source.itemScope.task;
+                    scope.$emit('kanban:task:orderchanged', task.id);
+                },
                 dragEnd: function(e){
+                    var task = e.source.itemScope.task;
+                    scope.$emit('tkanban:task:stop', task.id);
                     scrollableElement.stopWatching();
                 },
                 itemMoved: function (e) {
@@ -30,6 +38,7 @@ angular.module('component.kanban-board',[
                     task.columnId = task.column.id;
                     task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
+                    scope.$emit('kanban:task:moved', task.id);
                     if (toSwimlane.id !== fromSwimlane.id) {
                         toSwimlane.$tasksCount++;
                         fromSwimlane.$tasksCount--;
