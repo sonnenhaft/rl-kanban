@@ -10,6 +10,7 @@ bower_components
 npm-debug.log
 index.html
 *.css
+!app/vendor/angular-notify/angular-notify.min.css
 !app/vendor/**/ie8-grid-foundation-4.css
 coverage
 ng-docs

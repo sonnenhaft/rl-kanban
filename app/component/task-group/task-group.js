@@ -93,8 +93,9 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     setLeft(group.start);
                     setWidth(group.width);
                 },
-                stop: function (deltaX) {
+                stop: function (deltaX) { //jshint ignore:line
                     if ($scope.settings.readOnly) return;
+
                     var snapX = Math.round(deltaX / groupWidth);
                     if (snapX) {
                         if (wasResize) {

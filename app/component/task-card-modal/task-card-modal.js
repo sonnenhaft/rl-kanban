@@ -22,7 +22,7 @@ angular.module('component.task-card-modal', [
 
                     $scope.removeCard = function (task) {
                         task.remove();
-                        $rootScope.$broadcast('kanban:task:remove', {id: task.id});
+                        $rootScope.$broadcast('kanban:task:remove', task.id);
                         $modalInstance.dismiss('cancel');
                     };
 

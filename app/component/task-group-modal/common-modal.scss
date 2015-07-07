@@ -27,8 +27,8 @@
         padding: 12px 5px 0;
     }
     .close-reveal-modal {
-        font-size: 40px;
-        line-height: 16px;
+        font-size: 27px;
+        line-height: 25px;
         position: absolute;
         top: 0.27em;
         right: 10px;
@@ -42,9 +42,10 @@
 
     .footer {
         text-align: center;
-        padding-top: 25px;
+        padding-top: 16px;
+        padding-bottom: 16px;
         .button {
-            margin-bottom: 12px;
+            margin-bottom: 0;
             font-size: 16px;
             padding: 10px 40px;
         }
