@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-hide="settings.readOnly">
         <div class="column small-12 toolbar">
             <button ng-if="settings.allowCopyTask" class="button white toolbar-button" ng-click="copy(task)">
                 <span class="glyph-icon tollbar-icon"><span class="glyph-copy4"></span></span>

@@ -127,3 +127,9 @@
         cursor: move;
     }
 }
+
+.kanban-read-only {
+    .task-group .after-button-area {
+        margin-left: 0;
+    }
+}

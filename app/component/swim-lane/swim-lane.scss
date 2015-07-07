@@ -72,3 +72,10 @@
         }
     }
 }
+
+.kanban-read-only {
+    .swim-lane-toggle {
+        cursor: initial;
+        padding: 10px;
+    }
+}

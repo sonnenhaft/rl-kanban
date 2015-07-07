@@ -166,3 +166,14 @@ $marker-height: 4px;
         word-spacing: -2px;
     }
 }
+
+.kanban-read-only {
+    .kanban-card {
+        .card-header {
+            padding: 0 6px;
+        }
+        .card-handle {
+            display: none;
+        }
+    }
+}

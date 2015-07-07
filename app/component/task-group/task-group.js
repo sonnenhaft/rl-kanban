@@ -15,7 +15,8 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
         transclude: true,
         scope: {
             group: '=',
-            width: '='
+            width: '=',
+            settings: '='
         },
         require: ['^taskGroupList', '^scrollableElement'],
         link: function ($scope, $element, ignored, require) {
@@ -50,7 +51,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             $scope.dragHandler = {
                 simpleClick: function () {
                     if (group.$expandedGroup) {
-                        taskGroupModal.open(group).result.then(function () {
+                        taskGroupModal.open(group, $scope.settings).result.then(function () {
                             group.remove();
                             taskGroupList.removeGroup(group);
                         });
@@ -60,6 +61,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     taskGroupList.highlightGroup(group);
                 },
                 start: function () {
+                    if ($scope.settings.readOnly) return;
                     $scope.$apply(function () {
                         group.highlightTasks(true);
                         taskGroupList.highlightGroup(group);
@@ -73,6 +75,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     initialWidth = group.width;
                 },
                 move: function (deltaX) {
+                    if ($scope.settings.readOnly) return;
                     var elementHeight = $element.prop('offsetHeight');
                     clone.parent().css({'margin-top': elementHeight + 'px'});
                     $element.css({'margin-top': -elementHeight + 'px'});
@@ -91,6 +94,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     setWidth(group.width);
                 },
                 stop: function (deltaX) {
+                    if ($scope.settings.readOnly) return;
                     var snapX = Math.round(deltaX / groupWidth);
                     if (snapX) {
                         if (wasResize) {

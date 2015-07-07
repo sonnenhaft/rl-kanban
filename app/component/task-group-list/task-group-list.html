@@ -4,9 +4,9 @@
     </div>
 
     <div ng-repeat="line in lines" class="task-group-line">
-        <task-group group="group" width="228" ng-repeat="group in line.groups track by group.id"></task-group>
+        <task-group group="group" width="228" ng-repeat="group in line.groups track by group.id" settings="settings"></task-group>
     </div>
-    <div class="task-group-empty" ng-if="!lines.length">
+    <div class="task-group-empty" ng-if="!lines.length" ng-hide="settings.readOnly">
         <p>You haven't selected any [Skills].</p>
         <p><a ng-href="" ng-click="alert('no action yet')">Go back</a>&nbsp;to add [Skills]</p>
     </div>

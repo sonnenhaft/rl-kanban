@@ -1,4 +1,4 @@
-angular.module('component.task-group').directive('deltaDragHandler', function ($window) {
+angular.module('component.task-group').directive('deltaDragHandler', function ($window, $parse) {
     var $rootElement = angular.element($window.document.documentElement);
 
     function touchToMouse(e) {
@@ -65,9 +65,10 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
         });
     }
     
-    return function ($scope, $element, $attr) {
-        var watchOnce = $scope.$watch($attr.deltaDragHandler, function(callbacks){
+    return function ($scope, $element, $attrs) {
+        var watchOnce = $scope.$watch($attrs.deltaDragHandler, function(callbacks){
             watchOnce();
+            if (callbacks.disabled) return;
             new DeltaDragHandler($element, callbacks); //jshint ignore: line
         });
     };

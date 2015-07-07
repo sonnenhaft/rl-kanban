@@ -14,3 +14,9 @@
         text-transform: uppercase;
     }
 }
+
+.kanban-read-only {
+    .task-groups-button {
+        display: none;
+    }
+}

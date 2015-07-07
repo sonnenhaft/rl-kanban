@@ -18,3 +18,9 @@
 .modal-open {
     overflow: hidden;
 }
+
+.kanban-read-only {
+    .kanban-header-wrapper {
+        margin-bottom: 16px;
+    }
+}

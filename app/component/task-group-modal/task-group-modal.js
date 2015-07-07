@@ -12,10 +12,13 @@ angular.module('component.task-group-modal', [
                     group: function(){
                         return group;
                     },
-
+                    settings: function(){
+                        return settings;
+                    }
                 },
                 controllerAs: 'modal',
-                controller: function ($scope, $modalInstance, group) {
+                controller: function ($scope, $modalInstance, group, settings) {
+                    this.settings = settings;
                     this.group = group;
                     this.cancel = function () {
                         $modalInstance.dismiss('cancel');

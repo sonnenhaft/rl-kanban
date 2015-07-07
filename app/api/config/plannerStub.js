@@ -402,6 +402,7 @@ angular.module('kanban').value('plannerStub', {
         'groupsCollapseButtonText': 'Task Groups',
         'allowCopyTask': false,
         'allowDeleteTask': true,
+        'readOnly': false,
         'contentLevel': 'low',
         'addButtonText': 'Select Skills',
         'addAlertText': 'Please select skills before you add resources',

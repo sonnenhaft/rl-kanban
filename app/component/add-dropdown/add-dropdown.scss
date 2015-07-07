@@ -51,3 +51,9 @@
 add-dropdown {
   display: block;
 }
+
+.kanban-read-only {
+  add-dropdown {
+    display: none;
+  }
+}

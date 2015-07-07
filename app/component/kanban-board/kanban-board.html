@@ -1,10 +1,10 @@
 <div class="kanban-board" horizontal-scroll scrollable-element>
-    <div class="empty-placeholder" ng-hide="!length">
+    <div class="empty-placeholder" ng-hide="!length || settings.readOnly">
         <p>{{::settings.addAlertText}}</p>
         <button class="button blue select-skills-button">{{::settings.addButtonText}}</button>
     </div>
     <div class="kanban-wrapper" columns-width>
-        <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks" data-as-sortable="scrollCallbacks">
+        <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks" data-as-sortable="scrollCallbacks" is-disabled="settings.readOnly">
             <kanban-card class="kanban-card as-sortable-item" ng-repeat="task in column.tasks" data-as-sortable-item></kanban-card>
         </div>
     </div>

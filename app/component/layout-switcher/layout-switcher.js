@@ -3,16 +3,20 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
         scope: true,
         link: function ($scope) {
-            $scope.$watch('template', function(template){
+            $scope.$watch('template', function (template) {
                 $location.search('template', template);
             });
 
-            $scope.$watch('contentLevel', function(contentLevel){
+            $scope.$watch('contentLevel', function (contentLevel) {
                 $location.search('contentLevel', contentLevel);
+            });
+
+            $scope.$watch('readOnly', function (readOnly) {
+                $location.search('readOnly', readOnly);
             });
         }
     };
-}).controller('layoutSwitcherController', function($location, $scope, plannerStub, workTrackerStub){
+}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub) {
     $scope.locationSearch = $location.search();
     $scope.$watchCollection('locationSearch', function (locationSearch) {
         if (locationSearch.template === 'wt') {
@@ -22,7 +26,8 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         }
         if (locationSearch.contentLevel) {
             $scope.config.settings.contentLevel = locationSearch.contentLevel;
-            $scope.config = angular.copy($scope.config);
         }
+        $scope.config.settings.readOnly = locationSearch.readOnly;
+        $scope.config = angular.copy($scope.config);
     });
 });

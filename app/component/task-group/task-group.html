@@ -1,6 +1,6 @@
 <div class="task-group" delta-drag-handler="dragHandler" ng-class="{opacity: group.highlight, 'expanded-group': group.$expandedGroup, 'highlighted-group': group.$highlightedGroup}">
     <div class="task-group-content" ng-style="group.$highlightedGroup && {'background': group.color, 'borderColor': group.color}">
-        <div class="drag-button" ng-style="group.$expandedGroup && {backgroundColor: group.color}">
+        <div class="drag-button" ng-style="group.$expandedGroup && {backgroundColor: group.color}" ng-hide="settings.readOnly">
             <span class="gl-drag-indicator-kanban"></span>
         </div>
 
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div resize-button="resize" class="resize-button" expand-area>
+        <div ng-hide="settings.readOnly" resize-button="resize" class="resize-button" expand-area>
             <glyph-icon icon="'glyph-arrow7'"></glyph-icon>
         </div>
 
