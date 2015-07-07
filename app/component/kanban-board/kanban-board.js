@@ -27,7 +27,7 @@ angular.module('component.kanban-board',[
                 },
                 dragEnd: function(e){
                     var task = e.source.itemScope.task;
-                    scope.$emit('tkanban:task:stop', task.id);
+                    scope.$emit('kanban:task:stop', task.id);
                     scrollableElement.stopWatching();
                 },
                 itemMoved: function (e) {
