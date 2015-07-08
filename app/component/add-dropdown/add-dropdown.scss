@@ -21,8 +21,9 @@
   .button {
     width: 100%;
     text-align: left;
-    background: #AAAAAA;
     border: 1px solid #AFC4D5;
+    color: #fff;
+    background: #31b3ff;
     .glyph-icon {
       float: right;
       font-size: 12px;
@@ -38,13 +39,12 @@
         display: block;
       }
     }
-    &:hover {
-      color: #fff;
-      background: #31b3ff;
-    }
     .glyph-chevron-collapsed {
       display: none;
     }
+  }
+  &.no-groups .button {
+    background: #AAAAAA;
   }
 }
 

@@ -2,7 +2,7 @@
     <!--TODO: remove ng-init-->
     <div class="kanban" ng-class="{'kanban-read-only': config.settings.readOnly}" combine-horizontal-scrolls>
         <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
-        <add-dropdown settings="config.settings"></add-dropdown>
+        <add-dropdown settings="config.settings" groups="config.groups"></add-dropdown>
         <!--<groups-debug groups="$parent.groups"></groups-debug>-->
         <div class="kanban-header-wrapper" sticky-header>
             <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
@@ -15,6 +15,6 @@
             <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings"></task-groups-button>
         </div>
 
-        <swim-lane ng-repeat="swimlane in config.swimlanes" swimlane="swimlane" settings="config.settings"></swim-lane>
+        <swim-lane ng-repeat="swimlane in config.swimlanes" groups="config.groups" swimlane="swimlane" settings="config.settings"></swim-lane>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount}">
+<div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount, 'no-groups': !groups.length}" ng>
     <div class="swim-lane-header swim-lane-toggle" ng-click="toggleCollapse()">
     <span class="glyph-icon" ng-hide="settings.readOnly">
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>

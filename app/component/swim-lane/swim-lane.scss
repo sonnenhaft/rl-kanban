@@ -48,7 +48,14 @@
     &.empty .kanban-column {
         border-right: none;
     }
-    
+
+    &.no-groups .add-resource-button {
+        color: #AAAAAA;
+        .button {
+            color: #AAAAAA;
+        }
+    }
+
     .add-resource-button {
         color: #31b3ff;
         float: right;
