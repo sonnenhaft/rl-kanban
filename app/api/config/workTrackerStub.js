@@ -539,6 +539,7 @@ angular.module('kanban').value('workTrackerStub', {
         'acceptTasks': true,
         'allowGroupExpand': true,
         'noContentText': 'No Tasks',
+        'groupContentType': 'Skills',
         'contentText': 'Tasks'
     }
 });

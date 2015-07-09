@@ -329,7 +329,7 @@ angular.module('kanban').value('plannerStub', {
             'index': 1,
             'name': 'Assessments',
             'id': '555b6933a9ce3b29e498cae5',
-            'addResourcesButtonText': 'Add Assessment'
+            'addResourcesButtonText': 'Add Assessments'
         }
     ],
     'groups': [
@@ -404,13 +404,14 @@ angular.module('kanban').value('plannerStub', {
         'allowDeleteTask': true,
         'readOnly': false,
         'contentLevel': 'low',
-        'addButtonText': 'Select Skills',
-        'addAlertText': 'Please select skills before you add resources',
-        'addResourcesButtonText': 'Add Assessment',
+        'addButtonText': 'Select Task Groups',
+        'addAlertText': 'Please select task groups before you add resources',
+        'addResourcesButtonText': 'Add Assessments',
         'acceptTasks': false,
         'allowGroupExpand': false,
         'noContentText': 'No Tasks',
         'contentText': 'Tasks',
+        'groupContentType': 'Task Groups',
         'addResourceLinks': [
             {
                 linkText: 'Add Skill',

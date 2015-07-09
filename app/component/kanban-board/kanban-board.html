@@ -1,7 +1,7 @@
 <div class="kanban-board" horizontal-scroll scrollable-element>
-    <div class="empty-placeholder" ng-hide="!length || settings.readOnly">
+    <div class="empty-placeholder" ng-hide="tasksCount || settings.readOnly">
         <p>{{::settings.addAlertText}}</p>
-        <button class="button blue select-skills-button">{{::settings.addButtonText}}</button>
+        <button class="button blue select-skills-button" onClick="alert('No action Yet')">{{::settings.addButtonText}}</button>
     </div>
     <div class="kanban-wrapper" columns-width>
         <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks" data-as-sortable="scrollCallbacks" is-disabled="settings.readOnly">

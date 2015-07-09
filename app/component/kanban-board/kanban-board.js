@@ -7,10 +7,9 @@ angular.module('component.kanban-board',[
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: '^scrollableElement',
         scope: {
-            collapse: '=',
             columns: '=',
             settings: '=',
-            length: '='
+            tasksCount: '='
         },
         replace: true,
         link: function (scope, element, attrs, scrollableElement) {
