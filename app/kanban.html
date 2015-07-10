@@ -2,7 +2,7 @@
     <!--TODO: remove ng-init-->
     <div class="kanban" ng-class="{'kanban-read-only': config.settings.readOnly}" combine-horizontal-scrolls>
         <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
-        <add-dropdown settings="config.settings" groups="config.groups"></add-dropdown>
+        <add-dropdown settings="config.settings" groups="config.groups" ng-show="config.settings.showAddNew"></add-dropdown>
         <!--<groups-debug groups="$parent.groups"></groups-debug>-->
         <div class="kanban-header-wrapper" sticky-header>
             <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>

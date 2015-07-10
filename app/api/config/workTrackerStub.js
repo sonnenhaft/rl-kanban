@@ -517,6 +517,7 @@ angular.module('kanban').value('workTrackerStub', {
         }
     ],
     'settings': {
+        showAddNew: true,
         'taskModalWindowTitle': 'Task information',
         'groupsCollapseButtonText': 'Task Groups',
         'allowCopyTask': true,
