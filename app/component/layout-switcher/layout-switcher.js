@@ -14,6 +14,10 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
             $scope.$watch('readOnly', function (readOnly) {
                 $location.search('readOnly', readOnly);
             });
+
+            $scope.$watch('empty', function (empty) {
+                $location.search('empty', empty);
+            });
         }
     };
 }).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub) {
@@ -26,6 +30,10 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         }
         if (locationSearch.contentLevel) {
             $scope.config.settings.contentLevel = locationSearch.contentLevel;
+        }
+        if (locationSearch.empty) {
+            $scope.config.groups = [];
+            $scope.config.tasks = [];
         }
         $scope.config.settings.readOnly = locationSearch.readOnly;
         $scope.config = angular.copy($scope.config);
