@@ -7,12 +7,7 @@ angular.module('kanban').value('tasksDisplayFields', {
         'rating': false,
         'modifiedDate': false,
         'creationDate': false,
-        'ownerAppLogo': false,
-        'taskName': true, //wt
-        'assigneeName': true, //wt
-        'ownerPicture': false, //wt
-        'state': false, //wt
-        'priority': false //wt
+        'ownerAppLogo': false
     },
     'medium': {
         'appRef': true,
@@ -22,12 +17,7 @@ angular.module('kanban').value('tasksDisplayFields', {
         'rating': false,
         'modifiedDate': false,
         'creationDate': false,
-        'ownerAppLogo': true,
-        'taskName': true, //wt
-        'assigneeName': true, //wt
-        'ownerPicture': false, //wt
-        'state': true, //wt
-        'priority': true //wt
+        'ownerAppLogo': true
     },
     'maximum': {
         'appRef': true,
@@ -37,11 +27,6 @@ angular.module('kanban').value('tasksDisplayFields', {
         'rating': true,
         'modifiedDate': false,
         'creationDate': false,
-        'ownerAppLogo': true,
-        'taskName': true, //wt
-        'assigneeName': true, //wt
-        'ownerPicture': true, //wt
-        'state': true, //wt
-        'priority': true //wt
+        'ownerAppLogo': true
     }
 });
