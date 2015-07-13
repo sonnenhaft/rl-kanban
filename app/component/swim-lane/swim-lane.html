@@ -4,7 +4,7 @@
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
     </span>
         <span class="swim-title">{{swimlane.name}}</span>
-        <ng-pluralize class="swim-length" count="swimlane.$tasksCount" when="{'0': settings.noContentText, 'other': '{}' + '&nbsp;' + settings.contentText}"></ng-pluralize>
+        <ng-pluralize class="swim-length" count="swimlane.$tasksCount" when="{0: settings.noContentText, 1: '{}' + '&nbsp;' + settings.contentTextSingleItem, 'other': '{}' + '&nbsp;' + settings.contentText}"></ng-pluralize>
         <div class="add-resource-button" ng-hide="settings.readOnly" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
             <button class="button" ng-if="swimlane.addResourcesButtonText" onClick="alert('No action Yet')">{{swimlane.addResourcesButtonText}}</button>
