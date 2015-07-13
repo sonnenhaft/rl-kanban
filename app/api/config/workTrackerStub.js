@@ -541,6 +541,17 @@ angular.module('kanban').value('workTrackerStub', {
         'allowGroupExpand': true,
         'noContentText': 'No Tasks',
         'groupContentType': 'Skills',
-        'contentText': 'Tasks'
+        'contentText': 'Tasks',
+        'tasksDisplayFields': {
+            'appRef': true,
+            'appName': true,
+            'taskName': true,
+            'assigneeName': false,
+            'ownerPicture': false,
+            'state': false,
+            'priority': true,
+            'modifiedDate': false,
+            'creationDate': false
+        }
     }
 });

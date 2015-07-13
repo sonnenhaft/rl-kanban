@@ -2,44 +2,41 @@
     <div class="card-color" ng-style="{'background': task.group.color}"></div>
     <div class="card-header">
         <div class="card-handle"></div>
-        <div class="app-tag">
+        <div class="app-tag" ng-show="$parent.settings.tasksDisplayFields.appRef">
             <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
         </div>
-        <div class="card-title">
+        <div class="card-title" ng-show="$parent.settings.tasksDisplayFields.appName">
             <span class="card-name">{{task.appName}}</span>
         </div>
     </div>
     <div class="card-content">
-        <p class="task-name" ng-show="task.taskName">{{task.taskName}}</p>
-        <p class="task-name" ng-show="task.resourceName">{{task.resourceName}}</p>
-        <p class="task-description" ng-show="settings.contentLevel === 'maximum'">{{task.description}}</p>
-        <div class="additional-details" ng-hide="settings.contentLevel === 'low'">
-            <div class="task-owner" ng-show="task.assigneeName">
-                <p class="owner-avatar" ng-show="task.ownerPicture"><img ng-src="{{task.ownerPicture}}"/></p>
+        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName">{{task.taskName}}</p>
+        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName">{{task.resourceName}}</p>
+        <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
+        <hr class="card-divider"/>
+        <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
+        <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.group.color}">
+            <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span>
+        </p>
+        <div class="additional-details">
+            <div class="task-owner" ng-show="$parent.settings.tasksDisplayFields.assigneeName">
+                <p class="owner-avatar" ng-show="$parent.settings.tasksDisplayFields.ownerPicture"><img ng-src="{{task.ownerPicture}}"/></p>
                 <p class="owner-name">{{task.assigneeName}}</p>
             </div>
-            <p ng-show="task.assignees">
-                <span class="text-bold">Assigned to:&nbsp;</span>
-                <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span>
-            </p>
-            <p ng-show="task.rating">
-                <span class="text-bold" ng-show="$parant.settings.contentLevel === 'maximum'">Rating:&nbsp;</span>
+            <p ng-show="$parent.settings.tasksDisplayFields.rating">
                 <star-rating value="task.rating"></star-rating>
             </p>
-            <p ng-show="task.state" class="text-bold text-grey">
+            <p ng-show="$parent.settings.tasksDisplayFields.state" class="text-bold text-grey">
                 <span>{{task.state}}</span>
-                <span ng-show="task.assignability">&nbsp;-&nbsp;Locked</span>
+                <span ng-show="$parent.settings.tasksDisplayFields.assignability">&nbsp;-&nbsp;Locked</span>
                 <glyph-icon icon="{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
             </p>
-            <p ng-show="task.priority"><priority-level value="task.priority"></priority-level></p>
-            <div ng-show="settings.contentLevel === 'maximum'">
-                <p ng-show="task.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{task.ownerName}}</p>
-                <p ng-show="task.type"><span class="text-bold">Type:&nbsp;</span>{{task.type}}</p>
-                <p ng-show="task.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
-                <p ng-show="task.creationDate" class="task-date"><span class="text-grey text-bold">Created:&nbsp;</span>{{task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
-                <p ng-show="task.modifiedDate" class="task-date"><span class="text-grey text-bold">Modified:&nbsp;</span>{{task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
-            </div>
-            <p ng-show="task.ownerAppLogo"><img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
+            <p ng-show="$parent.settings.tasksDisplayFields.priority"><priority-level value="task.priority"></priority-level></p>
+            <p ng-show="$parent.settings.tasksDisplayFields.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{task.ownerName}}</p>
+            <p ng-show="$parent.settings.tasksDisplayFields.type"><span class="text-bold">Type:&nbsp;</span>{{task.type}}</p>
+            <p ng-show="$parent.settings.tasksDisplayFields.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
+            <p ng-show="$parent.settings.tasksDisplayFields.creationDate" class="task-date"><span class="text-grey text-bold">Created:&nbsp;</span>{{task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
+            <p ng-show="$parent.settings.tasksDisplayFields.modifiedDate" class="task-date"><span class="text-grey text-bold">Modified:&nbsp;</span>{{task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
         </div>
     </div>
 </div>
