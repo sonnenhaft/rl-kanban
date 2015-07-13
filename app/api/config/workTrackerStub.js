@@ -542,6 +542,7 @@ angular.module('kanban').value('workTrackerStub', {
         'noContentText': 'No Tasks',
         'groupContentType': 'Skills',
         'contentText': 'Tasks',
+        'contentTextSingleItem': 'Task',
         'tasksDisplayFields': {
             'appRef': true,
             'appName': true,
