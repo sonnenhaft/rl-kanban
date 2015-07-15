@@ -1,10 +1,10 @@
-<h2 class="modal-title">Task Information
+<h2 class="modal-title">{{settings.taskModalWindowTitle}}
     <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
 </h2>
 <div class="wrapper">
     <div class="row">
         <div class="column small-12">
-            <div class="header" ng-style="{color: task.group.color}">
+            <div class="header">
                 <div class="app-tag">
                     <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
                 </div>
@@ -15,10 +15,8 @@
     <div class="row">
         <div class="column small-12">
             <div class="name">
-                <a ng-href="{{task.applink}}" target="_blank" ng-show="task.resourceName">
-                    <span class="link-text">{{task.resourceName}}</span>
-                    <glyph-icon icon="'glyph-newtab'" class="link-icon"></glyph-icon></a>
-                <span ng-show="task.taskName">{{task.taskName}}</span>
+                <span ng-show="settings.tasksDisplayFields.resourceName">{{task.resourceName}}</span>
+                <span ng-show="settings.tasksDisplayFields.taskName">{{task.taskName}}</span>
             </div>
         </div>
     </div>
@@ -34,10 +32,11 @@
             </button>
         </div>
     </div>
-    <div ng-show="task.description" class="row">
+    <div ng-show="settings.tasksDisplayFields.description" class="row">
         <div class="column small-12">
             <div class="description">
-                <h3 class="legend"><span>Description</span></h3>
+                <!--<h3 class="legend"><span>Description</span></h3>-->
+                <hr class="modal-divider"/>
                 <p class="description">{{task.description}}</p>
             </div>
         </div>
@@ -45,39 +44,40 @@
     <div class="row">
         <div class="column small-12">
             <div class="details">
-                <h3 class="legend"><span>Details</span></h3>
+                <!--<h3 class="legend"><span>Details</span></h3>-->
+                <hr class="modal-divider"/>
                 <div class="row">
                     <div class="column medium-6">
-                        <p class="task-field" ng-show="task.ownerAppLogo">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.ownerAppLogo">
                             <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
-                        <p class="task-field" ng-show="task.ownerName">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.ownerName">
                             <span class="field-label">Owner:&nbsp;</span>
                             <span>{{task.ownerName}}</span></p>
-                        <p class="task-field" ng-show="task.assigneeName">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.assigneeName">
                             <span class="field-label">Assignee:&nbsp;</span>
                             <span>{{task.assigneeName}}</span></p>
-                        <p class="task-field" ng-show="task.assignees">
-                            <span ng-repeat="assignee in task.assignees" class="task-assignee" ng-style="{color: task.group.color}">{{assignee}}{{$last ? "" : ", "}}</span></p>
-                        <p class="task-field" ng-show="task.type">
+                        <p class="task-field assignees" ng-show="settings.tasksDisplayFields.assignees">
+                            <span ng-style="{color: task.group.color}">{{task.assignees}}</span></p>
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.type">
                             <span class="field-label">Task Type:&nbsp;</span>
                             <span>{{task.type}}</span></p>
-                        <p class="task-field" ng-show="task.state">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.state">
                             <span class="field-label">Status:&nbsp;</span>
                             <span>{{task.state}}</span></p>
                     </div>
                     <div class="column medium-6">
-                        <p class="task-field" ng-show="task.creationDate">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.creationDate">
                             <span class="field-label">Created:</span>
                             <span>{{task.creationDate | date : "MMM d, y '/' h:mm a"}}</span></p>
-                        <p class="task-field" ng-show="task.modifiedDate">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.modifiedDate">
                             <span class="field-label">Modified:</span>
                             <span>{{task.modifiedDate | date : "MMM d, y '/' h:mm a"}}</span></p>
-                        <p class="task-field" ng-show="task.assignability">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.assignability">
                             <span class="field-label">Assignability:</span>
                             <span>{{task.assignability}}</span></p>
-                        <p class="task-field" ng-show="task.priority">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.priority">
                             <priority-level value="task.priority"></priority-level></p>
-                        <p class="task-field" ng-show="task.rating">
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.rating">
                             <star-rating value="task.rating"></star-rating></p>
                     </div>
                 </div>

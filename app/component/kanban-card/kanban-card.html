@@ -16,7 +16,7 @@
         <hr class="card-divider"/>
         <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
         <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.group.color}">
-            <span ng-repeat="assignee in task.assignees" class="task-assignee">{{assignee}}{{$last ? "" : ", "}}</span>
+            <span class="task-assignee">{{task.assignees}}</span>
         </p>
         <div class="additional-details">
             <div class="task-owner" ng-show="$parent.settings.tasksDisplayFields.assigneeName">

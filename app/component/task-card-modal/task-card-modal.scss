@@ -76,7 +76,6 @@
     font-weight: 600;
     text-transform: capitalize;
     padding-right: 8px;
-    padding-top: 5px;
   }
 
   .app-tag {
@@ -142,6 +141,15 @@
     margin-top: -10px;
     position: relative;
     top: 4px;
+  }
+  
+  .modal-divider {
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+  
+  .assignees {
+    font-weight: bold;
   }
 }
 
