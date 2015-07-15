@@ -59,9 +59,15 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     var hasNoLine = true;
                     group.$width = group.start + group.width;
                     lines.forEach(function (line) {
-                        if (hasNoLine && line.width <= group.start && line.width + group.$width <= maxVal) {
-                            add(line, group);
-                            hasNoLine = false;
+                        if (hasNoLine) {
+                            if (!group.tasks.length) {
+                                group.start = line.width;
+                                group.$width = group.start + group.width;
+                            }
+                            if (line.width <= group.start && line.width + group.$width <= maxVal) {
+                                add(line, group);
+                                hasNoLine = false;
+                            }
                         }
                     });
                     if (hasNoLine) {
