@@ -20,11 +20,14 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
             });
         }
     };
-}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub, tasksDisplayFields, tasksDisplayFieldsWT) {
+}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub, plannerNoTasksStub, tasksDisplayFields, tasksDisplayFieldsWT) {
     $scope.locationSearch = $location.search();
     $scope.$watchCollection('locationSearch', function (locationSearch) {
         if (locationSearch.template === 'wt') {
             $scope.config = workTrackerStub;
+        } else if(locationSearch.template === 'plannerNoTasksStub') {
+            console.log('no tasks')
+            $scope.config = plannerNoTasksStub;
         } else {
             $scope.config = plannerStub;
         }

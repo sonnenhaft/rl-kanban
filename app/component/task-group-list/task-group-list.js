@@ -49,7 +49,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     return line;
                 }
 
-                var maxVal = $scope.columns.length - 1;
+                var maxVal = $scope.columns.length;
 
                 ($scope.groups || []).map(function (group) {
                     return group;
@@ -62,7 +62,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                         if (hasNoLine) {
                             if (!group.tasks.length) {
                                 group.start = line.width;
-                                group.$width = group.start + group.width;
+                                group.$width = group.width;
                             }
                             if (line.width <= group.start && line.width + group.$width <= maxVal) {
                                 add(line, group);
