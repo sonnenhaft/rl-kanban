@@ -261,62 +261,44 @@ angular.module('kanban').factory('plannerStub', function (tasksDisplayFields) {
                 {
                     'tasks': [],
                     'index': 0,
-                    'name': 'List 1 Name',
+                    'name': 'Monday',
                     'id': '555b6911f5cad468b43fbe8b'
                 },
                 {
                     'tasks': [],
                     'index': 1,
-                    'name': 'List 2 Name',
+                    'name': 'Tuesday',
                     'id': '555b6911a9ce3b29e498cae5'
                 },
                 {
                     'tasks': [],
                     'index': 2,
-                    'name': 'List 3 Name',
+                    'name': 'Wednesday',
                     'id': '555b6911b55afadc0db29d98'
                 },
                 {
                     'tasks': [],
                     'index': 3,
-                    'name': 'List 4 Name',
+                    'name': 'Thursday',
                     'id': '555b6911faa6e347b8f89d13'
                 },
                 {
                     'tasks': [],
                     'index': 4,
-                    'name': 'List 5 Name',
+                    'name': 'Friday',
                     'id': '555b6911ba6d349f6253cd85'
                 },
                 {
                     'tasks': [],
                     'index': 5,
-                    'name': 'List 6 Name',
+                    'name': 'Sunday',
                     'id': '555b691139298d43bd911c79'
                 },
                 {
                     'tasks': [],
                     'index': 6,
-                    'name': 'List 7 Name',
+                    'name': 'Saturday',
                     'id': '555b6911bf45a59cd4a60f55'
-                },
-                {
-                    'tasks': [],
-                    'index': 7,
-                    'name': 'List 8 Name',
-                    'id': '555b6911f4192b317bcc155e'
-                },
-                {
-                    'tasks': [],
-                    'index': 8,
-                    'name': 'List 9 Name',
-                    'id': '555b69111e5a2b050aab6096'
-                },
-                {
-                    'tasks': [],
-                    'index': 9,
-                    'name': 'List 10 Name',
-                    'id': '555b6911ca5cf62610a05a67'
                 }
             ],
             'swimlanes': [
@@ -324,13 +306,17 @@ angular.module('kanban').factory('plannerStub', function (tasksDisplayFields) {
                     'index': 0,
                     'name': 'Resources',
                     'id': '555b6922f5cad468b43fbe8b',
-                    'addResourcesButtonText': 'Add Resources'
+                    'addResourcesButtonText': 'Add Resources',
+                    'addButtonText': 'Start Adding Resources',
+                    'addAlertText': 'Please select task groups before you add resources',
                 },
                 {
                     'index': 1,
                     'name': 'Assessments',
                     'id': '555b6933a9ce3b29e498cae5',
-                    'addResourcesButtonText': 'Add Assessments'
+                    'addResourcesButtonText': 'Add Assessments',
+                    'addButtonText': 'Start Adding Resources',
+                    'addAlertText': 'Please select task groups before you add resources',
                 }
             ],
             'groups': [
@@ -399,13 +385,13 @@ angular.module('kanban').factory('plannerStub', function (tasksDisplayFields) {
                 }
             ],
             'settings': {
+                'showAddNew': false,
                 'taskModalWindowTitle': 'Details',
                 'groupsCollapseButtonText': 'Task Groups',
+                'groupsExpandButtonText': 'Task Groups',
                 'allowCopyTask': false,
                 'allowDeleteTask': true,
                 'readOnly': false,
-                'addButtonText': 'Select Task Groups',
-                'addAlertText': 'Please select task groups before you add resources',
                 'addResourcesButtonText': 'Add Assessments',
                 'acceptTasks': false,
                 'allowGroupExpand': false,
