@@ -14,7 +14,9 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
             };
 
             scope.addResource = function($event) {
+                if (!scope.swimlane.$tasksCount) return;
                 $event.stopPropagation();
+                alert('No action yet')
             };
 
             scope.$watch('swimlane.columns', function(columns){

@@ -79,6 +79,15 @@
             top: -3px;
         }
     }
+    &.empty .add-resource-button {
+        cursor: default;
+        .button {
+            cursor: default;
+        }
+        .button:hover {
+            text-decoration: none;
+        }
+    } 
 }
 
 .kanban-read-only {
