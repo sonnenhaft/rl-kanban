@@ -1,4 +1,4 @@
-angular.module('kanban').value('plannerNoTasksStub', {
+angular.module('kanban').value('emptyPlanner', {
     'settings': {
         'taskModalWindowTitle': 'Details',
         'groupsCollapseButtonText': 'SKILLS',
@@ -64,34 +64,5 @@ angular.module('kanban').value('plannerNoTasksStub', {
             'name': 'Friday'
         }
     ],
-    'groups': [
-        {
-            'id': '5ea3bfaa479de311b77c005056801da1',
-            'groupName': 'Find all factor pairs for a number',
-            'start': 0,
-            'width': 1,
-            'color': '#152C4D'
-        },
-        {
-            'id': '5fa3bfaa479de311b77c005056801da1',
-            'groupName': 'Recognize a number as a multiple of factors',
-            'start': 1,
-            'width': 1,
-            'color': '#152C4D'
-        },
-        {
-            'id': '60a3bfaa479de311b77c005056801da1',
-            'groupName': 'Identify a multiple of a number',
-            'start': 2,
-            'width': 1,
-            'color': '#152C4D'
-        },
-        {
-            'id': '1ca4bfaa479de311b77c005056801da1',
-            'groupName': 'Convert measurements in 1 system: 2-column table',
-            'start': 3,
-            'width': 1,
-            'color': '#152C4D'
-        }
-    ]
+    'groups': []
 });

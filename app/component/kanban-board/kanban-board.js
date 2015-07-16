@@ -12,21 +12,24 @@ angular.module('component.kanban-board',[
             tasksCount: '='
         },
         replace: true,
-        link: function (scope, element, attrs, scrollableElement) {
-            scope.scrollCallbacks = {
+        link: function ($scope, $element, $attrs, scrollableElement) {
+            $scope.addResources = function(){
+               $scope.$emit('kanban:add-task');
+            };
+            $scope.scrollCallbacks = {
                 dragStart: function(e){
                     var task = e.source.itemScope.task;
-                    scope.$emit('kanban:task:start', task.id);
+                    $scope.$emit('kanban:task:start', task.id);
                     task.group.$highlightedGroup = true;
                     scrollableElement.watchMouse();
                 },
                 orderChanged: function(e){
                     var task = e.source.itemScope.task;
-                    scope.$emit('kanban:task:orderchanged', task.id);
+                    $scope.$emit('kanban:task:orderchanged', task.id);
                 },
                 dragEnd: function(e){
                     var task = e.source.itemScope.task;
-                    scope.$emit('kanban:task:stop', task.id);
+                    $scope.$emit('kanban:task:stop', task.id);
                     scrollableElement.stopWatching();
                 },
                 itemMoved: function (e) {
@@ -38,14 +41,14 @@ angular.module('component.kanban-board',[
                     task.columnId = task.column.id;
                     task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
-                    scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId);
+                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId);
                     if (toSwimlane.id !== fromSwimlane.id) {
                         toSwimlane.$tasksCount++;
                         fromSwimlane.$tasksCount--;
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if (scope.settings.acceptTasks) {
+                    if ($scope.settings.acceptTasks) {
                         return true;
                     } else {
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;

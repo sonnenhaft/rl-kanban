@@ -6,21 +6,22 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
             settings: '=',
             groups: '='
         },
-        link: function (scope) {
-            scope.expanded = true;
+        link: function ($scope) {
+            $scope.expanded = true;
 
-            scope.toggleCollapse = function(){
-                scope.expanded = !scope.expanded;
+            $scope.toggleCollapse = function(){
+                $scope.expanded = !$scope.expanded;
             };
 
-            scope.addResource = function($event) {
+            $scope.addResource = function($event) {
+                $scope.$emit('kanban:add-task', $scope.swimlane.id);
                 $event.stopPropagation();
             };
 
-            scope.$watch('swimlane.columns', function(columns){
-                scope.swimlane.$tasksCount = 0;
+            $scope.$watch('swimlane.columns', function(columns){
+                $scope.swimlane.$tasksCount = 0;
                 angular.forEach(columns, function(column) {
-                    scope.swimlane.$tasksCount += column.tasks.length;
+                    $scope.swimlane.$tasksCount += column.tasks.length;
                 });
             });
         }

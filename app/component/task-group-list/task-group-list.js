@@ -25,6 +25,10 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 $scope.$apply();
             };
 
+            this.addGroup = function(){
+                $scope.$emit('kanban:add-group');
+            };
+
             this.highlightGroup = function (group) {
                 $scope.groups.forEach(function (group) {
                     group.highlightTasks(false);
