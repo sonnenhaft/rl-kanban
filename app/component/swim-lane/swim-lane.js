@@ -14,7 +14,7 @@ angular.module('component.swim-lane',[]).directive('swimLane', function () {
             };
 
             $scope.addResource = function($event) {
-                if (!$scope.swimlane.$tasksCount) return;
+                if (!$scope.groups.length) return;
                 $scope.$emit('kanban:add-task', $scope.swimlane.id);
                 $event.stopPropagation();
             };
