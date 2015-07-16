@@ -308,15 +308,15 @@ angular.module('kanban').factory('plannerStub', function (tasksDisplayFields) {
                     'id': '555b6922f5cad468b43fbe8b',
                     'addResourcesButtonText': 'Add Resources',
                     'addButtonText': 'Start Adding Resources',
-                    'addAlertText': 'Please select task groups before you add resources',
+                    'addAlertText': 'Please select skills before you add resources'
                 },
                 {
                     'index': 1,
                     'name': 'Assessments',
                     'id': '555b6933a9ce3b29e498cae5',
                     'addResourcesButtonText': 'Add Assessments',
-                    'addButtonText': 'Start Adding Resources',
-                    'addAlertText': 'Please select task groups before you add resources',
+                    'addButtonText': 'Start Adding Assessments',
+                    'addAlertText': 'Please select skills before you add assessments'
                 }
             ],
             'groups': [
@@ -398,7 +398,7 @@ angular.module('kanban').factory('plannerStub', function (tasksDisplayFields) {
                 'noContentText': 'No Tasks',
                 'contentTextSingleItem': 'Task',
                 'contentText': 'Tasks',
-                'groupContentType': 'Task Groups',
+                'groupContentType': 'Skills',
                 'addResourceLinks': [
                     {
                         linkText: 'Add Skill',
