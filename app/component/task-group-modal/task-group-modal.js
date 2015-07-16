@@ -4,7 +4,7 @@ angular.module('component.task-group-modal', [
     'template/modal/window.html'
 ]).factory('taskGroupModal', function ($modal) {
     return {
-        open: function (group) {
+        open: function (group, settings) {
             return $modal.open({
                 windowClass: 'tiny task-group-modal',
                 templateUrl: 'app/component/task-group-modal/task-group-modal.html',

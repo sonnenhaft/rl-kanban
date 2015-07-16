@@ -25,6 +25,10 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                 $scope.$apply();
             };
 
+            this.addGroup = function(){
+                $scope.$emit('kanban:add-group');
+            };
+
             this.highlightGroup = function (group) {
                 $scope.groups.forEach(function (group) {
                     group.highlightTasks(false);
@@ -49,7 +53,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     return line;
                 }
 
-                var maxVal = $scope.columns.length - 1;
+                var maxVal = $scope.columns.length;
 
                 ($scope.groups || []).map(function (group) {
                     return group;
@@ -59,9 +63,15 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
                     var hasNoLine = true;
                     group.$width = group.start + group.width;
                     lines.forEach(function (line) {
-                        if (hasNoLine && line.width <= group.start && line.width + group.$width <= maxVal) {
-                            add(line, group);
-                            hasNoLine = false;
+                        if (hasNoLine) {
+                            if (!group.tasks.length) {
+                                group.start = line.width;
+                                group.$width = group.width;
+                            }
+                            if (line.width <= group.start && line.width + group.$width <= maxVal) {
+                                add(line, group);
+                                hasNoLine = false;
+                            }
                         }
                     });
                     if (hasNoLine) {

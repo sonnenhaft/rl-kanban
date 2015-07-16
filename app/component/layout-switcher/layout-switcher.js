@@ -20,11 +20,16 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
             });
         }
     };
-}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub, tasksDisplayFields, tasksDisplayFieldsWT) {
+}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub, plannerNoTasksStub, tasksDisplayFields, tasksDisplayFieldsWT, emptyPlanner) { //jshint ignore:line
     $scope.locationSearch = $location.search();
+    var map = {
+        wt: workTrackerStub,
+        plannerNoTasksStub: plannerNoTasksStub,
+        emptyPlanner: emptyPlanner
+    };
     $scope.$watchCollection('locationSearch', function (locationSearch) {
-        if (locationSearch.template === 'wt') {
-            $scope.config = workTrackerStub;
+        if (map[locationSearch.template]) {
+            $scope.config = map[locationSearch.template];
         } else {
             $scope.config = plannerStub;
         }

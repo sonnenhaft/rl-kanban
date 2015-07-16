@@ -1,7 +1,7 @@
 <div class="kanban-board" horizontal-scroll scrollable-element>
-    <div class="empty-placeholder" ng-hide="tasksCount || settings.readOnly">
-        <p>{{::$parent.swimlane.addAlertText}}</p>
-        <button class="button blue select-skills-button" onClick="alert('No action Yet')">{{::$parent.swimlane.addButtonText}}</button>
+    <div class="empty-placeholder" ng-hide="swimlane.$tasksCount || settings.readOnly">
+        <p>{{::swimlane.addAlertText}}</p>
+        <button class="button blue select-skills-button" ng-click="addResources()">{{::swimlane.addButtonText}}</button>
     </div>
     <div class="kanban-wrapper" columns-width>
         <div class="kanban-column as-sortable" ng-repeat="column in columns" ng-model="column.tasks" data-as-sortable="scrollCallbacks" is-disabled="settings.readOnly">

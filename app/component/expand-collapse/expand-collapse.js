@@ -4,7 +4,7 @@ angular.module('component.expand-collapse', [])
             link: function (scope, element, attrs) {
 
                 var isDisabled = $parse(attrs.expandDisabled)(scope);
-                if (isDisabled) return;
+                if (isDisabled) {return;}
 
                 function toggleCollapse(value) {
                     if (value) {

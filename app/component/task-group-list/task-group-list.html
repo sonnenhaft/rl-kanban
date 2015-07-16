@@ -8,6 +8,6 @@
     </div>
     <div class="task-group-empty" ng-if="!lines.length" ng-hide="settings.readOnly">
         <p>You haven't selected any {{settings.groupContentType}}</p>
-        <p><a ng-href="" onClick="alert('no action yet')">Go Back</a><span>&nbsp;and add {{settings.groupContentType}}</span></p>
+        <p><a ng-click="taskGroupList.addGroup()">Go back</a><span>&nbsp;to add {{settings.groupContentType}}</span></p>
     </div>
 </div>
