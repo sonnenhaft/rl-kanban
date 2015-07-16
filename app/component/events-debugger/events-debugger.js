@@ -9,7 +9,8 @@ angular.module('events-debugger', [
             'kanban:task:orderchanged',
             'kanban:task:remove',
             'kanban:add-group',
-            'kanban:add-task'
+            'kanban:add-task',
+            'kanban:add-task-assessment'
         ].forEach(function(eventName){
             $scope.$on(eventName, function(){
                 var args = Array.prototype.slice.call(arguments, 1);

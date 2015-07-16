@@ -10,5 +10,5 @@
             <button class="button" ng-if="swimlane.addResourcesButtonText">{{swimlane.addResourcesButtonText}}</button>
         </div>
     </div>
-    <kanban-board columns="swimlane.columns" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings" tasks-count="swimlane.$tasksCount"></kanban-board>
+    <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings"></kanban-board>
 </div>

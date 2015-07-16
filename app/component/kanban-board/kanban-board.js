@@ -7,14 +7,14 @@ angular.module('component.kanban-board',[
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: '^scrollableElement',
         scope: {
-            columns: '=',
-            settings: '=',
-            tasksCount: '='
+            swimlane: '=',
+            settings: '='
         },
         replace: true,
         link: function ($scope, $element, $attrs, scrollableElement) {
+            $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function(){
-               $scope.$emit('kanban:add-task');
+               $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
             };
             $scope.scrollCallbacks = {
                 dragStart: function(e){
