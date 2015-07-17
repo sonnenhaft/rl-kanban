@@ -13,6 +13,12 @@
         border: 2px solid #a5a5a5;
         text-transform: uppercase;
     }
+    .glyph-icon {
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-top: -5px;
+        display: inline-block;
+    }
 }
 
 .kanban-read-only {
