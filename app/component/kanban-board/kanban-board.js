@@ -36,12 +36,15 @@ angular.module('component.kanban-board',[
                     var task = e.source.itemScope.task;
                     var toSwimlane = e.dest.sortableScope.$parent.column.swimlane;
                     var fromSwimlane = e.source.sortableScope.$parent.column.swimlane;
+
                     task.column = e.dest.sortableScope.$parent.column;
+
                     var oldColumnId  = task.columnId;
                     task.columnId = task.column.id;
+                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId);
+
                     task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
-                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId);
                     if (toSwimlane.id !== fromSwimlane.id) {
                         toSwimlane.$tasksCount++;
                         fromSwimlane.$tasksCount--;

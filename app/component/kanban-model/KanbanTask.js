@@ -1,4 +1,4 @@
-angular.module('component.kanban-model').value('KanbanTask', (function () {
+angular.module('component.kanban-model').factory('KanbanTask', function ($rootScope) {
     function KanbanTask(taskData) {
         angular.extend(this, taskData);
     }
@@ -20,6 +20,10 @@ angular.module('component.kanban-model').value('KanbanTask', (function () {
             this.column.removeTask(this);
         },
         moveToColumn: function(column){
+            if (column === this.column) {
+                return;
+            }
+            $rootScope.$broadcast('kanban:task:moved', this.column.id, column.id);
             this.column.tasks.splice(this.column.tasks.indexOf(this), 1);
             column.tasks.push(this);
             this.columnId = column.id;
@@ -40,4 +44,4 @@ angular.module('component.kanban-model').value('KanbanTask', (function () {
     };
 
     return KanbanTask;
-})());
+});

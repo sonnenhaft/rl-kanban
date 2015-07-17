@@ -1,4 +1,4 @@
-angular.module('component.kanban-model').value('KanbanGroup', (function () {
+angular.module('component.kanban-model').factory('KanbanGroup', function ($rootScope) {
     function KanbanGroup(groupData) {
         angular.extend(this, groupData);
     }
@@ -10,12 +10,8 @@ angular.module('component.kanban-model').value('KanbanGroup', (function () {
             });
         },
         shrink: function (delta) {
-            angular.forEach(this.tasks, function (task) {
-                var toColumn = task.column.swimlane.columns[task.column.index + delta];
-                task.column.tasks.splice(task.column.tasks.indexOf(task), 1);
-                toColumn.tasks.push(task);
-                task.column = toColumn;
-                task.columnId = task.column.id;
+            this.tasks.forEach(function (task) {
+                task.moveToColumn(task.column.swimlane.columns[task.column.index + delta]);
             });
         },
         expand: function () {
@@ -68,4 +64,4 @@ angular.module('component.kanban-model').value('KanbanGroup', (function () {
     };
 
     return KanbanGroup;
-})());
+});
