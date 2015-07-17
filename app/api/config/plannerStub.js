@@ -405,7 +405,7 @@ angular.module('kanban').factory('plannerStub', function () {
         'settings': {
             'showAddNew': false,
             'taskModalWindowTitle': 'Details',
-            'groupsCollapseButtonText': 'Task Groups',
+            'groupsCollapseButtonText': 'Hide',
             'groupsExpandButtonText': 'Task Groups',
             'allowCopyTask': false,
             'allowDeleteTask': true,
