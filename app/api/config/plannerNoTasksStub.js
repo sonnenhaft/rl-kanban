@@ -1,10 +1,10 @@
 angular.module('kanban').value('plannerNoTasksStub', {
     'settings': {
         'taskModalWindowTitle': 'Details',
-        'groupsCollapseButtonText': 'SKILLS',
+        'groupsCollapseButtonText': 'HIDE SKILLS',
+        'groupsExpandButtonText': 'SHOW SKILLS',
         'allowCopyTask': false,
         'allowDeleteTask': true,
-        'contentLevel': 'low',
         'addButtonText': 'add tasks',
         'addAlertText': 'No Skills',
         'addResourcesButtonText': 'Add Resources',
