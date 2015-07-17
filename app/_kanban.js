@@ -23,4 +23,6 @@ angular.module('kanban', [
     'component.expand-collapse',
     'component.stickyHeader',
     'component.add-dropdown'
-]);
+]).constant('kanbanVersion', '0.0.2').run(function($log, kanbanVersion){
+    $log.debug('rl-kanban version: v' + kanbanVersion);
+});
