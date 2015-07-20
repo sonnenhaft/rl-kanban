@@ -23,7 +23,7 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             if (column === this.column) {
                 return;
             }
-            $rootScope.$broadcast('kanban:task:moved', this.column.id, column.id);
+            $rootScope.$broadcast('kanban:task:moved', this.id, this.column.id, column.id);
             this.column.tasks.splice(this.column.tasks.indexOf(this), 1);
             column.tasks.push(this);
             this.columnId = column.id;
