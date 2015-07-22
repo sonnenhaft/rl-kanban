@@ -29,6 +29,4 @@ angular.module('kanban').directive('kanban', function () {
             };
         }
     };
-}).controller('kanbanDataController', function ($scope, plannerStub) {
-    $scope.hostedStub = plannerStub;
 });

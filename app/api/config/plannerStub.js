@@ -305,26 +305,6 @@ angular.module('kanban').factory('plannerStub', function () {
                 'index': 5,
                 'name': 'List 6 Name',
                 'id': '555b691139298d43bd911c79'
-            },
-            {
-                'index': 6,
-                'name': 'List 7 Name',
-                'id': '555b6911bf45a59cd4a60f55'
-            },
-            {
-                'index': 7,
-                'name': 'List 8 Name',
-                'id': '555b6911f4192b317bcc155e'
-            },
-            {
-                'index': 8,
-                'name': 'List 9 Name',
-                'id': '555b69111e5a2b050aab6096'
-            },
-            {
-                'index': 9,
-                'name': 'List 10 Name',
-                'id': '555b6911ca5cf62610a05a67'
             }
         ],
         'swimlanes': [
@@ -367,9 +347,6 @@ angular.module('kanban').factory('plannerStub', function () {
                 'creationDate': '2015-03-18T18:34:58.193Z',
                 'state': 'Completed',
                 'appRef': 'glyph-kw-logo',
-                'index': 1,
-                'start': 1,
-                'width': 1,
                 'groupName': 'elit id est',
                 'id': '555b6911dd143fd022e7d0f7'
             },
