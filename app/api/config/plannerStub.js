@@ -268,7 +268,7 @@ angular.module('kanban').factory('plannerStub', function () {
                 'applink': '#',
                 'resourceName': 'dolore excepteur et',
                 'assignees': 'Group 2',
-                'assigneesColor': '#5391c
+                'assigneesColor': '#5391c7',
                 'rating': '3',
                 'modifiedDate': '2015-04-19T23:31:58.676Z',
                 'creationDate': '2015-01-22T08:48:03.865Z',
