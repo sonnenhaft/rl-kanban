@@ -268,7 +268,7 @@ angular.module('kanban').factory('plannerStub', function () {
                 'applink': '#',
                 'resourceName': 'dolore excepteur et',
                 'assignees': 'Group 2',
-                'assigneesColor': '#5391c7',
+                'assigneesColor': '#5391c
                 'rating': '3',
                 'modifiedDate': '2015-04-19T23:31:58.676Z',
                 'creationDate': '2015-01-22T08:48:03.865Z',
@@ -300,11 +300,6 @@ angular.module('kanban').factory('plannerStub', function () {
                 'index': 4,
                 'name': 'Friday',
                 'id': '555b6911ba6d349f6253cd85'
-            },
-            {
-                'index': 5,
-                'name': 'List 6 Name',
-                'id': '555b691139298d43bd911c79'
             }
         ],
         'swimlanes': [

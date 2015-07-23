@@ -1,7 +1,7 @@
 .kanban-board {
     background: #f0f0f0;
     max-height: 820px;
-    min-height: 156px;
+    min-height: 146px;
     overflow-x: hidden;
     border: 1px solid #DBDCDE;
     border-top: none;
@@ -9,11 +9,10 @@
         display: table;
         table-layout: fixed;
         height: 100%;
-        width: 100%;
         min-height: 145px;
     }
 
-    .kanban-column {
+    .kanban-clmn {
         display: table-cell;
         vertical-align: top;
         width: 228px;
@@ -21,10 +20,6 @@
         background: #ededed;
         border-right: 1px solid #DBDCDE;
         box-sizing: border-box;
-        &:last-child {
-            border-right: none;
-            float: none;
-        }
         padding-top: 8px;
         padding-bottom: 20px;
     }
@@ -59,4 +54,8 @@
         min-width: 230px;
         border-width: 1px;
     }
+}
+
+.swim-lane.empty .kanban-clmn {
+    display: none;
 }

@@ -5,7 +5,7 @@
         <add-dropdown settings="config.settings" groups="config.groups" ng-show="config.settings.showAddNew"></add-dropdown>
         <!--<groups-debug groups="$parent.groups"></groups-debug>-->
         <div class="kanban-header-wrapper" sticky-header>
-            <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
+            <scrollbar class="scroll-bar" columns="config.columns" ng-show="config.columns.length > 5" horizontal-scroll></scrollbar>
             <div class="kanban-header" scrollable-element horizontal-scroll>
                 <column-names columns="config.columns" columns-width></column-names>
                 <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups">
