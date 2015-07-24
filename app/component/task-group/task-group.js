@@ -115,7 +115,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                             }
                             group.expand();
                         } else {
-                            if (group.start < 0) {
+                            if (group.start <= 0) {
                                 group.start = 0;
                                 group.shrink(-initialLeft);
                             } else {
