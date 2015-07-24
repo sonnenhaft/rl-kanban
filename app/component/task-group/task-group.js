@@ -74,8 +74,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     scrollableElement.watchMouse();
                     initialLeft = group.start;
                     initialWidth = group.width;
-                    maxWidth = $scope.columns.length - group.start;
-                    maxLeft = $scope.columns.length - group.width;
+                    maxSnap = $scope.columns.length - (group.start + group.width);
                 },
                 move: function (deltaX) {
                     if ($scope.settings.readOnly) { return;}
@@ -83,16 +82,18 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     clone.parent().css({'margin-top': elementHeight + 'px'});
                     $element.css({'margin-top': -elementHeight + 'px'});
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
-                    if ($scope.resize) {
-                        wasResize = true;
-                        var newWidth = initialWidth + snapX;
-                        if (newWidth >= 1 && newWidth <= maxWidth) {
-                            group.width = newWidth;
-                        }
-                    } else {
-                        var newLeft = initialLeft + snapX;
-                        if (newLeft >= 0 && newLeft <= maxLeft) {
-                            group.start = newLeft;
+                    if (snapX <= maxSnap) {
+                        if ($scope.resize) {
+                            wasResize = true;
+                            var newWidth = initialWidth + snapX;
+                            if (newWidth >= 1) {
+                                group.width = newWidth;
+                            }
+                        } else {
+                            var newLeft = initialLeft + snapX;
+                            if (newLeft >= 0) {
+                                group.start = newLeft;
+                            }
                         }
                     }
 
@@ -103,20 +104,22 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     if ($scope.settings.readOnly) {return;}
 
                     var snapX = Math.round(deltaX / groupWidth);
-
                     if (snapX) {
-                        if (wasResize && initialWidth + snapX <= maxWidth) {
+                        if (snapX > maxSnap) {
+                            snapX = maxSnap;
+                        }
+                        if (wasResize) {
                             group.width = initialWidth + snapX;
                             if (group.width < 1) {
                                 group.width = 1;
                             }
                             group.expand();
-                        } else if (initialLeft + snapX <= maxLeft) {
-                            group.start = initialLeft + snapX;
+                        } else {
                             if (group.start < 0) {
                                 group.start = 0;
                                 group.shrink(-initialLeft);
                             } else {
+                                group.start = initialLeft + snapX;
                                 group.shrink(snapX);
                             }
                         }
