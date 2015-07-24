@@ -16,7 +16,8 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
         scope: {
             group: '=',
             width: '=',
-            settings: '='
+            settings: '=',
+            columns: '='
         },
         require: ['^taskGroupList', '^scrollableElement'],
         link: function ($scope, $element, ignored, require) {
@@ -44,7 +45,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 }
             });
 
-            var initialWidth, initialLeft, clone;
+            var initialWidth, initialLeft, maxWidth, maxLeft, clone;
             var wasResize = false;
 
             var group = $scope.group;
@@ -73,21 +74,26 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     scrollableElement.watchMouse();
                     initialLeft = group.start;
                     initialWidth = group.width;
+                    maxWidth = $scope.columns.length - group.start;
+                    maxLeft = $scope.columns.length - group.width;
                 },
                 move: function (deltaX) {
                     if ($scope.settings.readOnly) { return;}
                     var elementHeight = $element.prop('offsetHeight');
                     clone.parent().css({'margin-top': elementHeight + 'px'});
                     $element.css({'margin-top': -elementHeight + 'px'});
-
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
                     if ($scope.resize) {
                         wasResize = true;
-                        if (initialWidth + snapX >= 1) {
-                            group.width = initialWidth + snapX;
+                        var newWidth = initialWidth + snapX;
+                        if (newWidth >= 1 && newWidth <= maxWidth) {
+                            group.width = newWidth;
                         }
-                    } else if (initialLeft + snapX >= 0) {
-                        group.start = initialLeft + snapX;
+                    } else {
+                        var newLeft = initialLeft + snapX;
+                        if (newLeft >= 0 && newLeft <= maxLeft) {
+                            group.start = newLeft;
+                        }
                     }
 
                     setLeft(group.start);
@@ -97,14 +103,15 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     if ($scope.settings.readOnly) {return;}
 
                     var snapX = Math.round(deltaX / groupWidth);
+
                     if (snapX) {
-                        if (wasResize) {
+                        if (wasResize && initialWidth + snapX <= maxWidth) {
                             group.width = initialWidth + snapX;
                             if (group.width < 1) {
                                 group.width = 1;
                             }
                             group.expand();
-                        } else {
+                        } else if (initialLeft + snapX <= maxLeft) {
                             group.start = initialLeft + snapX;
                             if (group.start < 0) {
                                 group.start = 0;

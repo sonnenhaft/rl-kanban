@@ -4,7 +4,7 @@
     </div>
 
     <div ng-repeat="line in lines" class="task-group-line">
-        <task-group group="group" width="228" ng-repeat="group in line.groups track by group.id" settings="settings"></task-group>
+        <task-group group="group" width="228" columns="columns" ng-repeat="group in line.groups track by group.id" settings="settings"></task-group>
     </div>
     <div class="task-group-empty" ng-if="!lines.length" ng-hide="settings.readOnly">
         <p>You haven't selected any {{settings.groupContentType}}</p>
