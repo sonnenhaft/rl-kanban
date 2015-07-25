@@ -40,9 +40,6 @@
         font-size: 18px;
         line-height: 27px;
         vertical-align: middle;
-        &:before {
-            content:"\00a0\2014\00a0";
-        }
     }
 
     &.empty .kanban-column {

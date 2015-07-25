@@ -4,7 +4,7 @@
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
     </span>
         <span class="swim-title">{{swimlane.name}}</span>
-        <span class="swim-length">&nbsp;{{swimlane.$tasksCount}}</span>
+        <span class="swim-length">({{swimlane.$tasksCount}})</span>
         <div class="add-resource-button" ng-hide="settings.readOnly">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
             <button class="button" ng-if="swimlane.addResourcesButtonText" ng-click="addResource($event)">{{swimlane.addResourcesButtonText}}</button>
