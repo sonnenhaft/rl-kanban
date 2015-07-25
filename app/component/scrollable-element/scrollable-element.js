@@ -1,5 +1,5 @@
 angular.module('component.scrollable-element').directive('scrollableElement', function ($window, ScrollableElementFactory) {
-    var SCROLL_STEP = 10;
+    var SCROLL_STEP = 10*2;
     var SENSITIVITY_AREA = 50;
 
     function getCoordinatePartToScroll(coord, dimensionProp) {
