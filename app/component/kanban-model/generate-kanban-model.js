@@ -26,6 +26,10 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
             });
         });
 
+        config.columns.forEach(function (column, index) {
+            column.index = index;
+        });
+
         config.swimlanes.forEach(function (swimlane) {
             swimlane.columns = angular.copy(config.columns);
             swimlane.columns.forEach(function (column) {

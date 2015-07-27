@@ -277,27 +277,22 @@ angular.module('kanban').factory('plannerStub', function () {
         ],
         'columns': [
             {
-                'index': 0,
                 'name': 'Monday',
                 'id': '555b6911f5cad468b43fbe8b'
             },
             {
-                'index': 1,
                 'name': 'Tuesday',
                 'id': '555b6911a9ce3b29e498cae5'
             },
             {
-                'index': 2,
                 'name': 'Wednesday',
                 'id': '555b6911b55afadc0db29d98'
             },
             {
-                'index': 3,
                 'name': 'Thursday',
                 'id': '555b6911faa6e347b8f89d13'
             },
             {
-                'index': 4,
                 'name': 'Friday',
                 'id': '555b6911ba6d349f6253cd85'
             }
