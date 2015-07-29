@@ -14,12 +14,14 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
         var eventObject = this;
 
         function dragListen(e) {
-            var mouseDownEvent = e;
             var lastEvent = e;
 
+            var originalPageX = e.pageX;
+            var originalPageY = e.pageY;
+
             function sendDelta(e, fn) {
-                var deltaX = e.pageX - mouseDownEvent.pageX;
-                var deltaY = e.pageY - mouseDownEvent.pageY;
+                var deltaX = e.pageX - originalPageX;
+                var deltaY = e.pageY - originalPageY;
                 fn(deltaX, deltaY);
                 lastEvent = e;
             }
