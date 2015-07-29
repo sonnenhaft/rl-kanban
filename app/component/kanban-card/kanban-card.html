@@ -1,4 +1,4 @@
-<div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-click="clickCallbacks(task, $parent.settings)" data-as-sortable-item-handle>
+<div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-lazy-click="clickCallbacks(task, $parent.settings, $event)" data-as-sortable-item-handle>
     <div class="card-color" ng-style="{'background': task.group.color}"></div>
     <div class="card-header">
         <div class="card-handle"></div>
@@ -14,7 +14,7 @@
         <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName">{{task.resourceName}}</p>
         <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
         <hr class="card-divider"/>
-        <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
+        <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
         <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.assigneesColor}">
             <span class="task-assignee">{{task.assignees}}</span>
         </p>

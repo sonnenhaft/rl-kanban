@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="column medium-6">
                         <p class="task-field" ng-show="settings.tasksDisplayFields.ownerAppLogo">
-                            <img class="owner-logo" src="https://placeholdit.imgix.net/~text?txtsize=8&txt=200%C3%9730&w=200&h=30"/></p>
+                            <img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
                         <p class="task-field" ng-show="settings.tasksDisplayFields.ownerName">
                             <span class="field-label">Owner:&nbsp;</span>
                             <span>{{task.ownerName}}</span></p>
