@@ -24,8 +24,8 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             });
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
-                this.y = getCoordinatePartToScroll($window.scrollY + mouseMoveEvent.y - element.offsetTop, element.offsetHeight);
-                this.x = getCoordinatePartToScroll( $window.scrollX + mouseMoveEvent.x - element.offsetLeft, element.offsetWidth);
+                this.y = getCoordinatePartToScroll($window.scrollY + mouseMoveEvent.clientY - element.offsetTop, element.offsetHeight);
+                this.x = getCoordinatePartToScroll( $window.scrollX + mouseMoveEvent.clientX - element.offsetLeft, element.offsetWidth);
             };
 
             var lastEvent;
