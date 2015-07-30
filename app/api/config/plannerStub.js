@@ -318,7 +318,7 @@ angular.module('kanban').factory('plannerStub', function () {
         'groups': [
             {
                 'masterName': 'aliqua irure Lorem',
-                'color': '#152C4D',
+                'color': '#f3cc17',
                 'masterRef': '555b69114201bc1a33601265',
                 'ownerName': 'Coffey Perez',
                 'modifiedDate': '2015-03-08T08:14:54.028Z',
@@ -330,7 +330,7 @@ angular.module('kanban').factory('plannerStub', function () {
             },
             {
                 'masterName': 'excepteur laboris excepteur',
-                'color': '#203E67',
+                'color': '#597fff',
                 'masterRef': '555b6911300f79d92b615349',
                 'ownerName': 'Diana Leblanc',
                 'modifiedDate': '2015-05-01T15:55:24.580Z',
@@ -342,7 +342,7 @@ angular.module('kanban').factory('plannerStub', function () {
             },
             {
                 'masterName': 'nulla aliquip esse',
-                'color': '#2C517F',
+                'color': '#ff5d3d',
                 'masterRef': '555b691133332c0d9e45b283',
                 'ownerName': 'Estella May',
                 'modifiedDate': '2015-01-05T16:09:17.100Z',
@@ -354,7 +354,7 @@ angular.module('kanban').factory('plannerStub', function () {
             },
             {
                 'masterName': 'voluptate excepteur occaecat',
-                'color': '#5975A5',
+                'color': '#00d49b',
                 'masterRef': '555b69113f092d0c6f0862cc',
                 'ownerName': 'Iris Brewer',
                 'modifiedDate': '2015-01-08T09:30:22.292Z',
@@ -366,7 +366,7 @@ angular.module('kanban').factory('plannerStub', function () {
             },
             {
                 'masterName': 'aliquip dolore qui',
-                'color': '#7D8EB6',
+                'color': '#f24dba',
                 'masterRef': '555b691166eddb96bcbc31ed',
                 'ownerName': 'April Fletcher',
                 'modifiedDate': '2015-05-07T09:56:49.867Z',
