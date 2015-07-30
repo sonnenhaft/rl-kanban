@@ -2,9 +2,19 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function (scope, element) {
+            var modal;
             scope.clickCallbacks = function (task, settings) {
-                extendedCard.open(task, settings);
+                modal = extendedCard.open(task, settings);
+                modal.result.finally(function(){
+                    modal = null;
+                });
             };
+
+            scope.$on('$destroy', function(){
+                if (modal) {
+                    modal.dismiss('cancel');
+                }
+            });
 
             var isIOS = /iPad|iPhone|iPod/.test( navigator.userAgent );
 
