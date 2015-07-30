@@ -59,3 +59,9 @@
 .swim-lane.empty .kanban-clmn {
     display: none;
 }
+
+.kanban.kanban-ios {
+    .kanban-board {
+        overflow: scroll;
+    }
+}

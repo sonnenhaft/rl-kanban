@@ -1,20 +1,50 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard) {
+angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, $timeout) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
-        link: function (scope) {
-            scope.clickCallbacks = function (task, settings, $event) {
+        link: function (scope, element) {
+            scope.clickCallbacks = function (task, settings) {
                 extendedCard.open(task, settings);
             };
+
+            var isIOS = /iPad|iPhone|iPod/.test( navigator.userAgent );
+
+            if (isIOS) {
+                scope.$parent.settings.isDisabled = true;
+
+                var timeout = null;
+                element.on('touchstart', function () {
+                    timeout = $timeout(function () {
+                        scope.$parent.settings.isDisabled = false;
+                    }, 500);
+                });
+
+                element.on('touchend', function () {
+                    scope.$parent.settings.isDisabled = true;
+                    $timeout.cancel(timeout);
+                });
+
+                var handler = angular.element(element[0].getElementsByClassName('card-handle')[0]);
+                handler.on('touchstart', function () {
+                    scope.$parent.settings.isDisabled = false;
+                    scope.$apply();
+                });
+
+                handler.on('touchend', function () {
+                    scope.$parent.settings.isDisabled = true;
+                    scope.$apply();
+                });
+
+            }
         }
     };
-}).directive('ngLazyClick', ['$parse', function($parse) {
+}).directive('ngLazyClick', ['$parse', function ($parse) {
     return {
-        compile: function($element, attr) {
+        compile: function ($element, attr) {
             var fn = $parse(attr["ngLazyClick"]);
             return function handler(scope, element) {
-                element.on('click', function(event) {
-                    scope.$apply(function() {
-                        fn(scope, {$event:event});
+                element.on('click', function (event) {
+                    scope.$apply(function () {
+                        fn(scope, {$event: event});
                     });
                 });
             };

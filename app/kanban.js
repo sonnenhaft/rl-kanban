@@ -9,6 +9,8 @@ angular.module('kanban').directive('kanban', function () {
         controller: function ($scope) {
             var registeredElements = [];
 
+            $scope.isIOS = /iPad|iPhone|iPod/.test( navigator.userAgent );
+
             $scope.$watch('config.columns.length', function(value){
                 registeredElements.forEach(function(childElement){
                     setVal(childElement, value);

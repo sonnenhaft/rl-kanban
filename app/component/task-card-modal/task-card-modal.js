@@ -25,10 +25,6 @@ angular.module('component.task-card-modal', [
                         $rootScope.$broadcast('kanban:task:remove', task.id);
                         $modalInstance.dismiss('cancel');
                     };
-
-                    $scope.search = $location.search();
-
-                    $scope.tmpl = $scope.search.template || 'planner';
                 },
                 resolve: {
                     task: function () {
