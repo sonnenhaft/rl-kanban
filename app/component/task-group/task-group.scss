@@ -54,7 +54,7 @@
         top: 0;
         height: 100%;
         background-color: black;
-        width: 6px;
+        width: 5px;
         left: 0;
         bottom: 0;
     }
@@ -69,10 +69,8 @@
         font-weight: bold;
         font-size: 14px;
         border: 1px solid #efefef;
-        border-left: none;
         &.opacity {
             background: #ffffff !important;
-            border-left: 1px solid;
         }
         &.opacity > * {
             opacity: 0;
