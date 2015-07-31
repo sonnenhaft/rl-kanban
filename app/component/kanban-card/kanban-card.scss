@@ -174,6 +174,8 @@ $marker-height: 4px;
     }
 }
 
-.kanban-ios {
-    user-select: none;
+.kanban-touch {
+    .kanban-card {
+        user-select: none;
+    }
 }

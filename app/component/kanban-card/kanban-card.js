@@ -16,9 +16,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }
             });
 
-            var isIOS = /iPad|iPhone|iPod/.test( navigator.userAgent );
+            var isTouch = 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch;
 
-            if (isIOS) {
+            if (isTouch) {
                 scope.$parent.settings.isDisabled = true;
 
                 var timeout = null;
