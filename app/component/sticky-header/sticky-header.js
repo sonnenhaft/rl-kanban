@@ -9,7 +9,7 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
             var wrapper = $element.wrap('<div></div>').parent();
 
             function scrollSpy() {
-                var pos = $window.document.body.scrollTop;
+                var pos = $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
 
                 if (!isStuck && pos > start) {
                     wrapper.css({height: iElement.offsetHeight + parseInt(style.marginTop) + parseInt(style.marginBottom) + 'px'});
