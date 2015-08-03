@@ -23,7 +23,8 @@ angular.module('component.scroll-bar', [])
 
                 function combineHorizontalScrolls(event) {
                     angular.forEach(targetNodes, function (targetNode) {
-                        targetNode.scrollLeft = event.target.scrollLeft;
+                        if (targetNode.scrollLeft !== event.target.scrollLeft)
+                            targetNode.scrollLeft = event.target.scrollLeft;
                     });
                 }
             }
