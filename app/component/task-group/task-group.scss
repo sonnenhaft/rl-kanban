@@ -134,6 +134,12 @@
         padding-top: 7px;
         cursor: move;
     }
+
+    &.highlighted-group {
+        .group-name, .resize-button, .drag-button  {
+            color: #ffffff;
+        }
+    }
 }
 
 .kanban-read-only {

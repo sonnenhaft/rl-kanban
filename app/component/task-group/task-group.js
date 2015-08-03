@@ -139,6 +139,13 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     taskGroupList.recalculatePositions();
                     $scope.$apply();
                 }
+
+            };
+            $scope.getStyle = function (group, isHighlighted) {
+                return {
+                    "backgroundColor": isHighlighted ? group.color : angular.noop,
+                    "borderColor": group.color
+                }
             };
         },
         templateUrl: 'app/component/task-group/task-group.html'

@@ -1,5 +1,5 @@
 <div class="task-group" delta-drag-handler="dragHandler" ng-class="{'opacity': group.opacity, 'expanded-group': group.$expandedGroup, 'highlighted-group': group.$highlightedGroup}">
-    <div class="task-group-content" ng-style="{borderColor: group.color}">
+    <div class="task-group-content" ng-style="getStyle(group, group.$highlightedGroup)">
         <div class="task-group-color" ng-style="{'background': group.color}"></div>
         <div class="drag-button" ng-hide="settings.readOnly">
             <span class="gl-drag-indicator-kanban"></span>
