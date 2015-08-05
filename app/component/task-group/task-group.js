@@ -45,7 +45,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 }
             });
 
-            var initialWidth, initialLeft, maxWidth, maxLeft, clone;
+            var initialWidth, initialLeft, clone;
             var wasResize = false;
 
             var group = $scope.group;
