@@ -1,7 +1,6 @@
 .kanban-board {
     background: #f0f0f0;
     max-height: 620px;
-    min-height: 146px;
     overflow-x: hidden;
     border: 1px solid #DBDCDE;
     border-top: none;
@@ -56,8 +55,13 @@
     }
 }
 
-.swim-lane.empty .kanban-clmn {
-    display: none;
+.swim-lane.empty {
+    .kanban-clmn {
+        display: none;
+    }
+    .kanban-board {
+        min-height: 146px;
+    }
 }
 
 .kanban.kanban-touch {
