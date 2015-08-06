@@ -5,9 +5,9 @@
     </span>
         <span class="swim-title">{{swimlane.name}}</span>
         <span class="swim-length">({{swimlane.$tasksCount}})</span>
-        <div class="add-resource-button" ng-hide="settings.readOnly">
+        <div class="add-resource-button" ng-hide="settings.readOnly" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
-            <button class="button" ng-if="swimlane.addResourcesButtonText" ng-click="addResource($event)">{{swimlane.addResourcesButtonText}}</button>
+            <button class="button" ng-if="swimlane.addResourcesButtonText">{{swimlane.addResourcesButtonText}}</button>
         </div>
     </div>
     <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings"></kanban-board>
