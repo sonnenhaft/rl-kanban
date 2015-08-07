@@ -295,7 +295,28 @@ angular.module('kanban').factory('plannerStub', function () {
             {
                 'name': 'Friday',
                 'id': '555b6911ba6d349f6253cd85'
+            },
+            {
+                'name': '6 Column',
+                'id': '685b6911ba6d349f6253cd85'
+            },
+            {
+                'name': '7 Column',
+                'id': '485b6911ba6d349f6253cd85'
+            },
+            {
+                'name': '8 Column',
+                'id': '385b6911ba6d349f6253cd85'
+            },
+            {
+                'name': '9 Column',
+                'id': '285b6911ba6d349f6253cd85'
+            },
+            {
+                'name': '10 Column',
+                'id': '185b6911ba6d349f6253cd85'
             }
+
         ],
         'swimlanes': [
             {
