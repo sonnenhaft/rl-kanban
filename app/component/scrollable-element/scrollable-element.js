@@ -1,12 +1,13 @@
 angular.module('component.scrollable-element').directive('scrollableElement', function ($window, ScrollableElementFactory) {
-    var SCROLL_STEP = 10*2;
+    var SCROLL_STEP = 100;
     var SENSITIVITY_AREA = 50;
 
     function getCoordinatePartToScroll(coord, dimensionProp) {
-        if (coord > dimensionProp - SENSITIVITY_AREA) {
-            return SCROLL_STEP;
+        var delta = coord - dimensionProp;
+        if (delta + SENSITIVITY_AREA > 0 ) {
+            return delta <= 0 ? SCROLL_STEP / Math.abs(delta) : SCROLL_STEP;
         } else if (coord < SENSITIVITY_AREA) {
-            return -SCROLL_STEP;
+            return coord >= 0 ? SCROLL_STEP / -Math.abs(coord) : -SCROLL_STEP;
         } else {
             return 0;
         }
