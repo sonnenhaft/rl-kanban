@@ -1,10 +1,10 @@
 # KANBAN CONTROL 
 ##### Installation
-Instal node js and ruby (for scss). Then run:
+Install node js and ruby (for Sass). Then run:
 ```sh 
 $ npm install && bower install
 ```
-##### Development running
+##### Running Development Server 
 Start application fist time:
 ```sh
 $ gulp serve
@@ -14,17 +14,17 @@ First time sass sources will be compiled into css. Each next time, you can run g
 ```sh
 $ gulp
 ```
-##### Test run
+##### Running Tests
 To run app for testing, when sources are compiled, use next command:
 ```sh
 $ gulp host
 ```
-##### Production build
+##### Production Build
 To get production build run next command:
 ```sh
 $ gulp build
 ```
-##### Other tasks
+##### Other Tasks
 Manually to remove all generated sources (like css files and build folder and generated index.html) run:
 ```sh
 $ gulp clean-generated
@@ -41,7 +41,7 @@ To run jshint on sources use:
 ```sh
 $ gulp jshint
 ```
-##### Unit testing
+##### Unit Testing
 You are able to run tests quickly each time we change sources with the command:
 ```sh
 $ gulp test-dev
@@ -56,19 +56,25 @@ $ gulp test-and-build
 ```
 
 
-## Configuration
-`<kanban-model model="kanbanModel" config="config">  
+#### Configuration
+```
+<kanban-model model="kanbanModel" config="config">  
     <kanban config="kanbanModel"></kanban>  
-</kanban-model>`
-### kanban-model
-Generates kanban model from incoming configuration object, and pass it to kanban
-- model: Name of Kanban model
-- config: Configuration object
-### kanban
+</kanban-model>
+```
+
+##### kanban-model
+Generate kanban model from incoming configuration object, and pass it to kanban
+`model`: A reference to the Kanban model. The Kanban control exposes this model for introspection by the container at any time.
+`config`: Configuration object, defined by container.
+
+##### kanban
 Main component
-- config: Kanban model name
-### Configuration object
-#### Tasks
+`config`: A reference to the Kanban model (not the config object!)
+
+##### Configuration object
+###### Tasks
+```
 	{
 	'id': '555b69112a241c792bd5db5d',
 	'groupId': '555b69113b3485646d82e3c6',
@@ -85,28 +91,35 @@ Main component
 	'creationDate': '2015-01-22T08:48:03.865Z',
 	'ownerAppLogo': 'https://placeholdit.imgix.net/\~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
 	}
-- id: Unique identificator for task
-- groupId: Unique identificator for group
-- swimlaneId: Unique identificator for swimlane
-- columnId: Unique identificator for column
-- appRef: Icon corresponds to resource file
-- appName: Resource type
-- applink: Link to tasks’s source (opens in new tab)
-- resourceName: Name of task’s source
-- assignees: For whom this task assigned
-- assigneesColor: Font color for ‘assignees’ filed 
-- rating: Stars glyphs
-- modifiedDate: Last modification date
-- creationDate: Creation date
-- ownerAppLogo: Source logo
-#### Columns
+```
+`id`: Unique id for task
+`groupId`: Unique id for group
+`swimlaneId`: Unique id for swimlane
+`columnId`: Unique id for column
+`appRef`: Icon corresponding to resource file
+`appName`: Resource type
+`applink`: Link to tasks's source (opens in new tab)
+`resourceName`: Name of task's source
+`assignees`: Users for whom this task assigned
+`assigneesColor`: Font color for 'assignees' field 
+`rating`: Number of rating stars
+`modifiedDate`: Last modification date
+`creationDate`: Creation date
+`ownerAppLogo`: Source logo
+
+###### Columns
+```
 	{
 	'name': 'Monday',
 	'id': '555b6911f5cad468b43fbe8b'
 	}
-- name: Displaying column name
-- id: Unique identificator for column in each swimlane
-#### Swimlanes
+```
+
+`name`: column display name
+`id`: Unique id for column in each swimlane
+
+###### Swimlanes
+```
 	{
 	'index': 0,
 	'name': 'Resources',
@@ -115,13 +128,17 @@ Main component
 	'addButtonText': 'Start Adding Resources',
 	'addAlertText': 'Please select skills before you add resources'
 	}
-- index: Index of swimlane from top to bottom
-- name: Displaying name
-- id: Unique identificator for swimlane
-- addResourcesButtonText: Text for add button in swimlane heading
-- addButtonText: Text for add button inside empty swimlane canvas
-- addAlertText: Text for help block inside empty swimlane canvas
-#### Task Groups
+```
+`index`: Index of swimlane, from top to bottom
+`name`: Display name
+`id`: Unique id for swimlane
+`addResourcesButtonText`: Text for add button in swimlane header
+`addButtonText`: Text for add button inside empty swimlane canvas
+`addAlertText`: Text for help block inside empty swimlane canvas
+
+###### Task Groups
+
+```
 	{
 	'masterName': 'aliqua irure Lorem',
 	'color': '#f3cc17',
@@ -133,17 +150,20 @@ Main component
 	'groupName': 'elit esse laboris',
 	'id': '555b69113b3485646d82e3c6'
 	}
-- masterName: Group source name
-- color: Group source color
-- masterRef: Group source 
-- ownerName: Source owner name
--  modifiedDate: Last modification date
-- creationDate: Creation date
-- state: Current state (Complited, In progress, etc)
-- appRef: Source icon
-- groupName: Group name
-- id: Unique identificator for group
-#### Settings
+`masterName`: Group source name
+`color`: Group source color
+`masterRef`: Group source 
+`ownerName`: Source owner name
+`modifiedDate`: Last modification date
+`creationDate`: Creation date
+`state`: Current state (Complited, In progress, etc)
+`appRef`: Source icon
+`groupName`: Group name
+`id`: Unique id for group
+
+###### Settings
+
+```
 	{
 	'showAddNew': false,
 	'taskModalWindowTitle': 'Details',
@@ -155,7 +175,7 @@ Main component
 	'addResourcesButtonText': 'Add Assessments',
 	'acceptTasks': false,
 	'allowGroupExpand': false,
-	‘noContentText': 'No Tasks',
+	'noContentText': 'No Tasks',
 	'groupContentType': 'Skills',
 	'addResourceLinks': [
 	{
@@ -170,7 +190,7 @@ Main component
 	'tasksDisplayFields': {
 	'appRef': true,
 	'appName': true,
-	‘resourceName': true,
+	'resourceName': true,
 	'assignees': true,
 	'rating': false,
 	'modifiedDate': false,
@@ -178,39 +198,53 @@ Main component
 	'ownerAppLogo': false
 	}
 	}
-- showAddNew: Showhide add
-- taskModalWindowTitle: Text in header of task card modal window
-- groupsCollapseButtonText: Text for collapseexpand button in groups canvas, for expanded state
-- groupsExpandButtonText: Text for collapseexpand button in groups canvas, for collapsed state
-- allowCopyTask: enable/disable copying functionality for task cards
-- allowDeleteTask: enable/disable deleting functionality for task cards
-- readOnly: enable/disable readonly state (user can only view kanban: hided and disabled dragging, expandingcollapsing, copyingdeleting; no add buttons)
-- acceptTasks: enable/disable dragging task cards between swimlanes
-- allowGroupExpand: enabledisable group expanding to detailed view
-- noContentText: Help text inside groups canvas, when it empty
-- groupContentType: Help text, describing type of groups source (used for empty state, in groups canvas)
-- addResourceLinks: link and text for items in ‘Add New’ dropdown
-- tasksDisplayFields: sets visibility for task cards fields (see tasks config). The common place for configuring ‘content level’.
-## Events
-Kanban communicate with outside directive by angular’s events system. Outside directive can subscribe and listen to next events:
-### ‘kanban:task:remove' `[taskId]`
-- taskId: identificator of deleted card
-### ‘kanban:add-task-assessment’ `[swimlaneId]`
+```
+`showAddNew`: Show/hide Add Resources button
+`taskModalWindowTitle`: Text in header of task card modal window
+`groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
+`groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
+`allowCopyTask`: enable/disable copy functionality for task cards
+`allowDeleteTask`: enable/disable delete functionality for task cards
+`readOnly`: enable/disable read-only state (user can only view kanban; dragging, expand/collapse, copy, delete and "add" buttons are disabled)
+`acceptTasks`: enable/disable dragging task cards between swimlanes
+`allowGroupExpand`: enable/disable group expanding to detailed view
+`noContentText`: Help text inside groups canvas, when it's empty
+`groupContentType`: Help text, describing type of groups source (used for empty state, in groups canvas)
+`addResourceLinks`: link and text for items in 'Add New' dropdown
+`tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
+
+#### Events
+The Kanban control communicates with its container via the angular event system. The container can subscribe and listen to the following events:
+##### 'kanban:task:remove' `[taskId]`
+`taskId`: id of deleted card
+##### 'kanban:add-task-assessment' `[swimlaneId]`
 User clicks add button inside empty swimlane canvas
-- swimlaneId: identificator of target swimlane
-### ‘kanban:task:start’ `[taskId]`
+`swimlaneId`: id of target swimlane
+##### 'kanban:task:start' `[taskId]`
 User starts dragging the task card
-- taskId: identificator of target task card
-### ‘kanban:task:stop’ `[taskId]`
-User finished dragging of task card
-- taskId: identificator of target task card
-### ‘kanban:task:moved’ `[taskId, fromColumnId, toColumnId]`
-- taskId: identificator of moved card
-- fromColumnId: identificator of previous column 
-- toColumnId: identificator of new column
-### 'kanban:task:orderchanged' `[taskId]`
-User changed ordering of tasks in column
-- taskId: identificator of target task card
+`taskId`: id of target task card
+##### 'kanban:task:stop' `[taskId]`
+User finished dragging task card
+`taskId`: id of target task card
+##### 'kanban:task:moved' `[taskId, fromColumnId, toColumnId]`
+`taskId`: id of moved card
+`fromColumnId`: id of previous column 
+`toColumnId`: id of new column
+##### 'kanban:task:orderchanged' `[taskId]`
+User changed order of tasks in column
+`taskId`: id of target task card
+
+Here is an example of listening for an event:
+
+```
+angular.module('kanban').controller('KanbanTestController', function($rootScope) {
+
+  $rootScope.$on('kanban:task:start', function(e, taskID) {
+    console.log('Task', taskID, 'had a drag start event!');
+  });
+});
+
+```
 
 
 
@@ -218,6 +252,4 @@ User changed ordering of tasks in column
 
 
 
-
-#
 
