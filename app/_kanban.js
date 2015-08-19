@@ -22,7 +22,16 @@ angular.module('kanban', [
     'component.layout-switcher',
     'component.expand-collapse',
     'component.stickyHeader',
-    'component.add-dropdown'
-]).constant('kanbanVersion', '0.0.2').run(function($log, kanbanVersion){
-    $log.debug('rl-kanban version: v' + kanbanVersion);
+    'component.add-dropdown',
+    'kanban-constant'
+]).run(function($log, kanbanVersion, $http){
+    if (kanbanVersion) {
+        $log.debug('rl-kanban version: v' + kanbanVersion);
+    } else {
+        $http.get('./package.json').then(function(data){
+            $log.debug('running dev, using version ' + data.data.version);
+        })
+    }
 });
+
+angular.module('kanban-constant', []).constant('kanbanVersion', false);
