@@ -1,11 +1,11 @@
 # KANBAN CONTROL 
-#### Development Setup
-##### Installation
+## Development Setup
+### Installation
 Install node js and ruby (for Sass). Then run:
 ```sh 
 $ npm install && bower install
 ```
-##### Running Development Server 
+### Running Development Server 
 Start application for the first time:
 ```sh
 $ gulp serve
@@ -17,16 +17,16 @@ To run app for automated testing or continuous integration, without live reload:
 ```sh
 $ gulp host
 ```
-##### Production Build
+### Production Build
 ```sh
 $ gulp build
 ```
 Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
-###### "Vendor" Files
+#### "Vendor" Files
 For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "deployment/js/vendor.js" and "deployment/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
 Custom files are unique to the Kanban control.  Custom files get compiled into "depployment/js/rlkanban.js" and "deployment/css/rlkanban.css".  
 
-##### Other Tasks
+### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
 ```sh
 $ gulp clean-generated
@@ -43,7 +43,7 @@ To run jshint on source:
 ```sh
 $ gulp jshint
 ```
-##### Unit Testing
+### Unit Testing
 To run tests quickly each time code is changed:
 ```sh
 $ gulp test-dev
@@ -62,7 +62,7 @@ Generate documentation:
 $ gulp ngdocs
 ```
 
-#### Configuration
+## Configuration
 Add the Kanban control to a container Angular app. as follows:
 ```
 <kanban-model model="kanbanModel" config="config">  
@@ -70,18 +70,18 @@ Add the Kanban control to a container Angular app. as follows:
 </kanban-model>
 ```
 
-##### kanban-model directive
+### kanban-model directive
 The kanban model is generated based on the incoming configuration object, and is passed to the Kanban directive.
 `model`: A reference to the Kanban model. The Kanban control exposes this model for introspection by the container at any time.
 `config`: Configuration object, defined by container.
 
-##### kanban directive
+### kanban directive
 This is the main component of the Kanban control.
 `config`: A reference to the Kanban model (not the config object!)
 
-##### Configuration object
+### Configuration object
 See app/api/config/ for full stub files.
-###### Tasks
+#### Tasks
 ```
 	{
 	'id': '555b69112a241c792bd5db5d',
@@ -115,7 +115,7 @@ See app/api/config/ for full stub files.
 `creationDate`: Creation date
 `ownerAppLogo`: Source logo
 
-###### Columns
+#### Columns
 ```
 	{
 	'name': 'Monday',
@@ -126,7 +126,7 @@ See app/api/config/ for full stub files.
 `name`: column display name
 `id`: Unique id for column in each swimlane
 
-###### Swimlanes
+#### Swimlanes
 ```
 	{
 	'index': 0,
@@ -144,7 +144,7 @@ See app/api/config/ for full stub files.
 `addButtonText`: Text for add button inside empty swimlane canvas
 `addAlertText`: Text for help block inside empty swimlane canvas
 
-###### Task Groups
+#### Task Groups
 
 ```
 	{
@@ -170,7 +170,7 @@ See app/api/config/ for full stub files.
 `id`: Unique id for group
 ```
 
-###### Settings
+#### Settings
 
 ```
 	{
@@ -205,7 +205,7 @@ See app/api/config/ for full stub files.
 	'modifiedDate': false,
 	'creationDate': false,
 	'ownerAppLogo': false
-	}
+}
 	}
 ```
 `showAddNew`: Show/hide Add Resources button
@@ -222,28 +222,28 @@ See app/api/config/ for full stub files.
 `addResourceLinks`: link and text for items in 'Add New' dropdown
 `tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
 
-#### Events
+## Events
 The Kanban control communicates with its container via the angular event system. The container can subscribe and listen to the following events:
-##### 'kanban:task:remove' `[taskId]`
+### 'kanban:task:remove' `[taskId]`
 `taskId`: id of deleted card
-##### 'kanban:add-task-assessment' `[swimlaneId]`
+### 'kanban:add-task-assessment' `[swimlaneId]`
 User clicks add button inside empty swimlane canvas
 `swimlaneId`: id of target swimlane
-##### 'kanban:task:start' `[taskId]`
+### 'kanban:task:start' `[taskId]`
 User starts dragging the task card
 `taskId`: id of target task card
-##### 'kanban:task:stop' `[taskId]`
+### 'kanban:task:stop' `[taskId]`
 User finished dragging task card
 `taskId`: id of target task card
-##### 'kanban:task:moved' `[taskId, fromColumnId, toColumnId]`
+### 'kanban:task:moved' `[taskId, fromColumnId, toColumnId]`
 `taskId`: id of moved card
 `fromColumnId`: id of previous column 
 `toColumnId`: id of new column
-##### 'kanban:task:orderchanged' `[taskId]`
+### 'kanban:task:orderchanged' `[taskId]`
 User changed order of tasks in column
 `taskId`: id of target task card
 
-##### Example of Listening to an Event
+### Example of Listening to an Event
 
 ```
 angular.module('kanban').controller('KanbanTestController', function($rootScope) {
