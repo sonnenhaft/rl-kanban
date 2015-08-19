@@ -10,8 +10,8 @@ Start application for the first time:
 ```sh
 $ gulp serve
 ```
-This will create simple express server and prepare app for first time.
-First time sass source will be compiled into css. Each subsequent time, you can run `gulp default` or `gulp` with no args.
+This will create a simple express server and prepare app for first time.
+The first time, sass source will be compiled into css. Each subsequent time, you can run `gulp default` or `gulp` with no args.
 
 To run app for automated testing or continuous integration, without live reload:
 ```sh
@@ -21,12 +21,17 @@ $ gulp host
 ```sh
 $ gulp build
 ```
+Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
+###### "Vendor" Files
+For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "deployment/js/vendor.js" and "deployment/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
+Custom files are unique to the Kanban control.  Custom files get compiled into "depployment/js/rlkanban.js" and "deployment/css/rlkanban.css".  
+
 ##### Other Tasks
-Manually to remove all generated source (like css files, build folder, and generated index.html):
+Remove all generated source (css files, build folder, and generated index.html):
 ```sh
 $ gulp clean-generated
 ```
-Manually to generate index.html:
+Manually generate index.html:
 ```sh
 $ gulp inject-files
 ```
@@ -34,12 +39,12 @@ Manually compile all sass files into css:
 ```sh
 $ gulp sass
 ```
-To run jshint on source use:
+To run jshint on source:
 ```sh
 $ gulp jshint
 ```
 ##### Unit Testing
-To run tests quickly each time code is changed with the command:
+To run tests quickly each time code is changed:
 ```sh
 $ gulp test-dev
 ```
@@ -52,21 +57,26 @@ Run jshint and tests; build if everything is fine:
 $ gulp test-and-build
 ```
 
+Generate documentation:
+```sh
+$ gulp ngdocs
+```
+
 #### Configuration
-Add the control to an Angular app. as follows:
+Add the Kanban control to a container Angular app. as follows:
 ```
 <kanban-model model="kanbanModel" config="config">  
     <kanban config="kanbanModel"></kanban>  
 </kanban-model>
 ```
 
-##### kanban-model
-Generate kanban model from incoming configuration object, and pass it to kanban
+##### kanban-model directive
+The kanban model is generated based on the incoming configuration object, and is passed to the Kanban directive.
 `model`: A reference to the Kanban model. The Kanban control exposes this model for introspection by the container at any time.
 `config`: Configuration object, defined by container.
 
-##### kanban
-Main component
+##### kanban directive
+This is the main component of the Kanban control.
 `config`: A reference to the Kanban model (not the config object!)
 
 ##### Configuration object
