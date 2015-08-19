@@ -1,62 +1,59 @@
 # KANBAN CONTROL 
+#### Development Setup
 ##### Installation
 Install node js and ruby (for Sass). Then run:
 ```sh 
 $ npm install && bower install
 ```
 ##### Running Development Server 
-Start application fist time:
+Start application for the first time:
 ```sh
 $ gulp serve
 ```
 This will create simple express server and prepare app for first time.
-First time sass sources will be compiled into css. Each next time, you can run gulp default, or gulp command without any task name:
-```sh
-$ gulp
-```
-##### Running Tests
-To run app for testing, when sources are compiled, use next command:
+First time sass source will be compiled into css. Each subsequent time, you can run `gulp default` or `gulp` with no args.
+
+To run app for automated testing or continuous integration, without live reload:
 ```sh
 $ gulp host
 ```
 ##### Production Build
-To get production build run next command:
 ```sh
 $ gulp build
 ```
 ##### Other Tasks
-Manually to remove all generated sources (like css files and build folder and generated index.html) run:
+Manually to remove all generated source (like css files, build folder, and generated index.html):
 ```sh
 $ gulp clean-generated
 ```
-Manually to generate index.html run:
+Manually to generate index.html:
 ```sh
 $ gulp inject-files
 ```
-Manually to compile all sass files into css files run:
+Manually compile all sass files into css:
 ```sh
 $ gulp sass
 ```
-To run jshint on sources use:
+To run jshint on source use:
 ```sh
 $ gulp jshint
 ```
 ##### Unit Testing
-You are able to run tests quickly each time we change sources with the command:
+To run tests quickly each time code is changed with the command:
 ```sh
 $ gulp test-dev
 ```
-If you need run tests and stop, then we need to run:
+To run tests and stop:
 ```sh
 $ gulp test
 ```
-To jshint and test, and if everything fine to build run:
+Run jshint and tests; build if everything is fine:
 ```sh
 $ gulp test-and-build
 ```
 
-
 #### Configuration
+Add the control to an Angular app. as follows:
 ```
 <kanban-model model="kanbanModel" config="config">  
     <kanban config="kanbanModel"></kanban>  
@@ -245,11 +242,3 @@ angular.module('kanban').controller('KanbanTestController', function($rootScope)
 });
 
 ```
-
-
-
-
-
-
-
-
