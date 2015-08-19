@@ -243,7 +243,7 @@ User finished dragging task card
 User changed order of tasks in column
 `taskId`: id of target task card
 
-Here is an example of listening for an event:
+##### Example of Listening to an Event
 
 ```
 angular.module('kanban').controller('KanbanTestController', function($rootScope) {
