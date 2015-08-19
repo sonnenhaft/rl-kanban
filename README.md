@@ -80,6 +80,7 @@ This is the main component of the Kanban control.
 `config`: A reference to the Kanban model (not the config object!)
 
 ##### Configuration object
+See app/api/config/ for full stub files.
 ###### Tasks
 ```
 	{
@@ -167,6 +168,7 @@ This is the main component of the Kanban control.
 `appRef`: Source icon
 `groupName`: Group name
 `id`: Unique id for group
+```
 
 ###### Settings
 
