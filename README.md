@@ -100,20 +100,20 @@ See app/api/config/ for full stub files.
 	'ownerAppLogo': 'https://placeholdit.imgix.net/\~text?txtsize=8&txt=200%C3%9730&w=200&h=30'
 	}
 ```
-`id`: Unique id for task
-`groupId`: Unique id for group
-`swimlaneId`: Unique id for swimlane
-`columnId`: Unique id for column
-`appRef`: Icon corresponding to resource file
-`appName`: Resource type
-`applink`: Link to tasks's source (opens in new tab)
-`resourceName`: Name of task's source
-`assignees`: Users for whom this task assigned
-`assigneesColor`: Font color for 'assignees' field 
-`rating`: Number of rating stars
-`modifiedDate`: Last modification date
-`creationDate`: Creation date
-`ownerAppLogo`: Source logo
+* `id`: Unique id for task
+* `groupId`: Unique id for group
+* `swimlaneId`: Unique id for swimlane
+* `columnId`: Unique id for column
+* `appRef`: Icon corresponding to resource file
+* `appName`: Resource type
+* `applink`: Link to tasks's source (opens in new tab)
+* `resourceName`: Name of task's source
+* `assignees`: Users for whom this task assigned
+* `assigneesColor`: Font color for 'assignees' field 
+* `rating`: Number of rating stars
+* `modifiedDate`: Last modification date
+* `creationDate`: Creation date
+* `ownerAppLogo`: Source logo
 
 #### Columns
 ```
@@ -123,8 +123,8 @@ See app/api/config/ for full stub files.
 	}
 ```
 
-`name`: column display name
-`id`: Unique id for column in each swimlane
+* `name`: column display name
+* `id`: Unique id for column in each swimlane
 
 #### Swimlanes
 ```
@@ -137,12 +137,12 @@ See app/api/config/ for full stub files.
 	'addAlertText': 'Please select skills before you add resources'
 	}
 ```
-`index`: Index of swimlane, from top to bottom
-`name`: Display name
-`id`: Unique id for swimlane
-`addResourcesButtonText`: Text for add button in swimlane header
-`addButtonText`: Text for add button inside empty swimlane canvas
-`addAlertText`: Text for help block inside empty swimlane canvas
+* `index`: Index of swimlane, from top to bottom
+* `name`: Display name
+* `id`: Unique id for swimlane
+* `addResourcesButtonText`: Text for add button in swimlane header
+* `addButtonText`: Text for add button inside empty swimlane canvas
+* `addAlertText`: Text for help block inside empty swimlane canvas
 
 #### Task Groups
 
@@ -158,17 +158,17 @@ See app/api/config/ for full stub files.
 	'groupName': 'elit esse laboris',
 	'id': '555b69113b3485646d82e3c6'
 	}
-`masterName`: Group source name
-`color`: Group source color
-`masterRef`: Group source 
-`ownerName`: Source owner name
-`modifiedDate`: Last modification date
-`creationDate`: Creation date
-`state`: Current state (Complited, In progress, etc)
-`appRef`: Source icon
-`groupName`: Group name
-`id`: Unique id for group
 ```
+* `masterName`: Group source name
+* `color`: Group source color
+* `masterRef`: Group source 
+* `ownerName`: Source owner name
+* `modifiedDate`: Last modification date
+* `creationDate`: Creation date
+* `state`: Current state (Complited, In progress, etc)
+* `appRef`: Source icon
+* `groupName`: Group name
+* `id`: Unique id for group
 
 #### Settings
 
@@ -208,19 +208,19 @@ See app/api/config/ for full stub files.
 }
 	}
 ```
-`showAddNew`: Show/hide Add Resources button
-`taskModalWindowTitle`: Text in header of task card modal window
-`groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
-`groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
-`allowCopyTask`: enable/disable copy functionality for task cards
-`allowDeleteTask`: enable/disable delete functionality for task cards
-`readOnly`: enable/disable read-only state (user can only view kanban; dragging, expand/collapse, copy, delete and "add" buttons are disabled)
-`acceptTasks`: enable/disable dragging task cards between swimlanes
-`allowGroupExpand`: enable/disable group expanding to detailed view
-`noContentText`: Help text inside groups canvas, when it's empty
-`groupContentType`: Help text, describing type of groups source (used for empty state, in groups canvas)
-`addResourceLinks`: link and text for items in 'Add New' dropdown
-`tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
+* `showAddNew`: Show/hide Add Resources button
+* `taskModalWindowTitle`: Text in header of task card modal window
+* `groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
+* `groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
+* `allowCopyTask`: enable/disable copy functionality for task cards
+* `allowDeleteTask`: enable/disable delete functionality for task cards
+* `readOnly`: enable/disable read-only state (user can only view kanban; dragging, expand/collapse, copy, delete and "add" buttons are disabled)
+* `acceptTasks`: enable/disable dragging task cards between swimlanes
+* `allowGroupExpand`: enable/disable group expanding to detailed view
+* `noContentText`: Help text inside groups canvas, when it's empty
+* `groupContentType`: Help text, describing type of groups source (used for empty state, in groups canvas)
+* `addResourceLinks`: link and text for items in 'Add New' dropdown
+* `tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
 
 ## Events
 The Kanban control communicates with its container via the angular event system. The container can subscribe and listen to the following events:
