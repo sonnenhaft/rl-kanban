@@ -48,6 +48,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             var initialWidth, initialLeft, clone;
             var wasResize = false;
 
+            var maxSnap;
             var group = $scope.group;
             $scope.dragHandler = {
                 simpleClick: function () {
@@ -142,9 +143,9 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
             };
             $scope.getStyle = function (group, isHighlighted) {
                 return {
-                    "backgroundColor": isHighlighted ? group.color : angular.noop,
-                    "borderColor": group.color
-                }
+                    'backgroundColor': isHighlighted ? group.color : angular.noop,
+                    'borderColor': group.color
+                };
             };
         },
         templateUrl: 'app/component/task-group/task-group.html'

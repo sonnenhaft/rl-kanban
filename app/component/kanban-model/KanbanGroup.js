@@ -1,4 +1,4 @@
-angular.module('component.kanban-model').factory('KanbanGroup', function ($rootScope) {
+angular.module('component.kanban-model').factory('KanbanGroup', function () {
     function KanbanGroup(groupData) {
         angular.extend(this, groupData);
     }

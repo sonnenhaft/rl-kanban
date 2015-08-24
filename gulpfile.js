@@ -71,11 +71,7 @@ function initPrivateTasks() {
     gulp.task('ng-templates&app-version', function () {
         var gulpNgConfig = require('gulp-ng-config');
         gulp.src('package.json')
-            .pipe(gulpNgConfig('kanban-constant', {
-                constants: {
-                    kanbanVersion: pkg.version
-                }
-            }))
+            .pipe(gulpNgConfig('kanban-constant', {constants: {kanbanVersion: pkg.version}}))
             .pipe(gulp.dest('.tmp/'));
 
         var templateCache = require('gulp-angular-templatecache');
