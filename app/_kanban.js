@@ -24,13 +24,9 @@ angular.module('kanban', [
     'component.stickyHeader',
     'component.add-dropdown',
     'kanban-constant'
-]).run(function($log, kanbanVersion, $http){
+]).run(function($log, kanbanVersion){
     if (kanbanVersion) {
-        $log.debug('rl-kanban version: v' + kanbanVersion);
-    } else {
-        $http.get('./package.json').then(function(data){
-            $log.debug('running dev, using version ' + data.data.version);
-        })
+        $log.info('rl-kanban version: v' + kanbanVersion);
     }
 });
 
