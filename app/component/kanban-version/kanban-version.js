@@ -12,5 +12,5 @@ angular.module('component.kanban-version', [
 }).provider('kanbanVersionValue', function () {
     var version;
     this.set = function (_version) {version = _version;};
-    this.$get = function () {return this._version;};
+    this.$get = function () {return version;};
 });

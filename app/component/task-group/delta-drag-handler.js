@@ -35,9 +35,9 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
                     $rootElement.css('cursor', 'pointer');
                     eventObject.start();
                     if (scrollableElement) {
-                        var x1 = 0;
                         scrollableElement.watchMouse(function(x, y){
                             originalPageX -= x;
+                            originalPageY -= y;
                             sendDelta(lastEvent, eventObject.move);
                         });
                     }

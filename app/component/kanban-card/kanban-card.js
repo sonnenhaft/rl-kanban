@@ -1,4 +1,4 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, $timeout) {
+angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, $timeout, $window) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function (scope, element) {
@@ -16,7 +16,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }
             });
 
-            var isTouch = 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch;
+            var isTouch = 'ontouchstart' in $window || $window.DocumentTouch && $window.document instanceof $window.DocumentTouch;
 
             if (isTouch) {
                 scope.$parent.settings.isDisabled = true;
@@ -47,10 +47,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             }
         }
     };
-}).directive('ngLazyClick', ['$parse', function ($parse) {
+}).directive('ngLazyClick', function ($parse) {
     return {
         compile: function ($element, attr) {
-            var fn = $parse(attr["ngLazyClick"]);
+            var fn = $parse(attr.ngLazyClick);
             return function handler(scope, element) {
                 element.on('click', function (event) {
                     scope.$apply(function () {
@@ -60,4 +60,4 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             };
         }
     };
-}]);
+});
