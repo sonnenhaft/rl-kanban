@@ -61,6 +61,7 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     }
                     taskGroupList.highlightGroup(group);
                 },
+                scrollableElement: scrollableElement,
                 start: function () {
                     if ($scope.settings.readOnly) {return;}
                     $scope.$apply(function () {
@@ -71,7 +72,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     clone.children().css({borderColor: group.color}).addClass('opacity');
                     $element.after(clone).addClass('draggy');
                     clone.parent().prepend($element);
-                    scrollableElement.watchMouse();
                     initialLeft = group.start;
                     initialWidth = group.width;
                     maxSnap = $scope.columns.length - (group.start + group.width);
@@ -135,7 +135,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                     $element.css('margin-top', 0);
                     $element.after(clone).removeClass('draggy');
                     clone.remove();
-                    scrollableElement.stopWatching();
                     taskGroupList.recalculatePositions();
                     $scope.$apply();
                 }

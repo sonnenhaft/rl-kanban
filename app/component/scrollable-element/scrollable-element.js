@@ -17,11 +17,13 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
 
     return {
         controller: function ($element) {
+            var fn = angular.noop;
             var element = $element[0];
 
             var elementScroll = new ScrollableElementFactory(function (x, y) {
                 element.scrollTop += y;
                 element.scrollLeft += x;
+                fn(x, y);
             });
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
@@ -54,7 +56,8 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
                 });
             }
 
-            this.watchMouse = function () {
+            this.watchMouse = function (_fn) {
+                fn = _fn || fn;
                 $body.bind('mousemove', scrollOnBorder);
                 $body.bind('touchmove', touchOnBorder);
             };
