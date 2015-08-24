@@ -13,6 +13,8 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
         angular.extend(this, callbacks);
         var eventObject = this;
 
+        var scrollableElement = callbacks.scrollableElement;
+
         function dragListen(e) {
             var lastEvent = e;
 
@@ -32,6 +34,13 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
                     $element.css('z-index', 9999);
                     $rootElement.css('cursor', 'pointer');
                     eventObject.start();
+                    if (scrollableElement) {
+                        var x1 = 0;
+                        scrollableElement.watchMouse(function(x, y){
+                            originalPageX -= x;
+                            sendDelta(lastEvent, eventObject.move);
+                        });
+                    }
                 }
                 sendDelta(e, eventObject.move);
             }
@@ -50,6 +59,9 @@ angular.module('component.task-group').directive('deltaDragHandler', function ($
                     eventObject.$moved = false;
                     $rootElement.css('cursor', 'default');
                     $element.css('z-index', 0);
+                    if (scrollableElement) {
+                        scrollableElement.stopWatching();
+                    }
                     sendDelta(lastEvent, eventObject.stop);
                 } else {
                     eventObject.simpleClick();
