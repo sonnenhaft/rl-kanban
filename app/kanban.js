@@ -1,4 +1,4 @@
-angular.module('kanban').directive('kanban', function ($window) {
+angular.module('kanban').directive('kanban', function (isTouch) {
     function setVal(childElement, value) {
         childElement.css('width', (value || 0) * 228 + 'px');
     }
@@ -9,12 +9,10 @@ angular.module('kanban').directive('kanban', function ($window) {
         controller: function ($scope) {
             var registeredElements = [];
 
-            $scope.isTouch = 'ontouchstart' in $window.window || $window.window.DocumentTouch && $window.document instanceof $window.DocumentTouch;
+            $scope.isTouch = isTouch;
 
             $scope.$watch('config.columns.length', function(value){
-                registeredElements.forEach(function(childElement){
-                    setVal(childElement, value);
-                });
+                registeredElements.forEach(function(childElement){setVal(childElement, value);});
             });
 
             this.registerElement = function (childElement) {
