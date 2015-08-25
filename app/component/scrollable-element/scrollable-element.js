@@ -4,7 +4,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
 
     function getCoordinatePartToScroll(coord, dimensionProp) {
         var delta = coord - dimensionProp;
-        if (delta + SENSITIVITY_AREA > 0 ) {
+        if (delta + SENSITIVITY_AREA > 0) {
             return delta <= 0 ? SCROLL_STEP / Math.abs(delta) : SCROLL_STEP;
         } else if (coord < SENSITIVITY_AREA) {
             return coord >= 0 ? SCROLL_STEP / -Math.abs(coord) : -SCROLL_STEP;
@@ -23,12 +23,14 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             var elementScroll = new ScrollableElementFactory(function (x, y) {
                 element.scrollTop += y;
                 element.scrollLeft += x;
-                fn(x, y);
+                x = element.scrollLeft && element.scrollLeft < element.clientWidth ? x : 0;
+                y = element.scrollTop && element.scrollTop < element.clientHeight ? y : 0;
+                if (x || y) {fn(x, y);}
             });
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
                 this.y = getCoordinatePartToScroll($window.scrollY + mouseMoveEvent.clientY - element.offsetTop, element.offsetHeight);
-                this.x = getCoordinatePartToScroll( $window.scrollX + mouseMoveEvent.clientX - element.offsetLeft, element.offsetWidth);
+                this.x = getCoordinatePartToScroll($window.scrollX + mouseMoveEvent.clientX - element.offsetLeft, element.offsetWidth);
             };
 
             var lastEvent;
@@ -52,7 +54,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
                 var firstTouch = e.touches[0];
                 scrollOnBorder({
                     x: firstTouch.pageX - $window.scrollX,
-                    y: firstTouch.pageY- $window.scrollY
+                    y: firstTouch.pageY - $window.scrollY
                 });
             }
 
