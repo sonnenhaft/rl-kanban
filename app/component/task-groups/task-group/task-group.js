@@ -1,4 +1,4 @@
-angular.module('component.task-group').directive('taskGroup', function ($timeout, $window, taskGroupModal) { //jshint ignore: line
+angular.module('component.task-groups.task-group').directive('taskGroup', function ($timeout, $window, taskGroupModal) { //jshint ignore: line
     var SNAP_SENSITIVITY = 0.2;
 
     function snapValue(val, sensivity) {
@@ -148,6 +148,6 @@ angular.module('component.task-group').directive('taskGroup', function ($timeout
                 };
             };
         },
-        templateUrl: 'app/component/task-group/task-group.html'
+        templateUrl: 'app/component/task-groups/task-group/task-group.html'
     };
 });

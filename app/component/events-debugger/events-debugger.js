@@ -3,7 +3,7 @@ angular.module('events-debugger', [
     'cgNotify'
 ]).directive('eventsDebugger', function(eventsToDebug, notify, $log, isNotTouch){
     return function($scope){
-        if (isNotTouch) {
+        if (isNotTouch && false) {
             eventsToDebug.forEach(function(eventName){
                 $scope.$on(eventName, function(){
                     var args = Array.prototype.slice.call(arguments, 1);

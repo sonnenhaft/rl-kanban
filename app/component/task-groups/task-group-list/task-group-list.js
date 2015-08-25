@@ -1,4 +1,4 @@
-angular.module('component.task-group-list', []).directive('taskGroupList', function () {
+angular.module('component.task-groups.task-group-list', []).directive('taskGroupList', function () {
     function add(line, group) {
         group.$lineSpace = group.start - line.width;
         line.width = group.$width;
@@ -11,7 +11,7 @@ angular.module('component.task-group-list', []).directive('taskGroupList', funct
         scope: {groups: '=', columns: '=', isExpanded: '=', settings: '='},
         replace: true,
         controllerAs: 'taskGroupList',
-        templateUrl: 'app/component/task-group-list/task-group-list.html',
+        templateUrl: 'app/component/task-groups/task-group-list/task-group-list.html',
         controller: function ($scope) {
             this.cleanExpanded = function (group) {
                 if (!$scope.settings.allowGroupExpand) {return;}

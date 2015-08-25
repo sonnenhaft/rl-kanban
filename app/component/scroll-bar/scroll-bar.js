@@ -1,49 +1,6 @@
-angular.module('component.scroll-bar', [])
-    .directive('scrollbar', function () {
-        return {
-            restrict: 'E',
-            template: '<div class="inner" columns-width></div>'
-        };
-    })
-    .directive('combineHorizontalScrolls', function () {
-        return {
-            restrict: 'A',
-            controller: function () {
-                var targetNodes = [];
+angular.module('component.scroll-bar').directive('scrollbar', function () {return {template: '<div class="inner" columns-width></div>'};})
 
-                this.registerScrollElemnt = function (element) {
-                    targetNodes.push(element[0]);
-                    element.on('scroll', combineHorizontalScrolls);
-                };
 
-                this.removeScrollElemnt = function (element) {
-                    targetNodes.splice(targetNodes.indexOf(element[0]), 1);
-                    element.off('scroll', combineHorizontalScrolls);
-                };
-
-                function combineHorizontalScrolls(event) {
-                    targetNodes.forEach(function (targetNode) {
-                        if (targetNode.scrollLeft !== event.target.scrollLeft) {
-                            targetNode.scrollLeft = event.target.scrollLeft;
-                        }
-                    });
-                }
-            }
-        };
-    })
-    .directive('horizontalScroll', function () {
-        return {
-            restrict: 'A',
-            require: '^combineHorizontalScrolls',
-            link: function (scope, element, attrs, ctrl) {
-                ctrl.registerScrollElemnt(element);
-
-                scope.$on('$destroy', function () {
-                    ctrl.removeScrollElemnt(element);
-                });
-            }
-        };
-    })
     .directive('columnsWidth', function () {
         return {
             restrict: 'A',

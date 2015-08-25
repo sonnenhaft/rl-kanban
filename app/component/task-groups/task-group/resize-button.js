@@ -1,4 +1,4 @@
-angular.module('component.task-group').directive('resizeButton', function ($window) {
+angular.module('component.task-groups.task-group').directive('resizeButton', function ($window) {
     var $rootElement = angular.element($window.document.documentElement);
     var body = angular.element($window.document.body);
     return function ($scope, $element, $attrs) {
