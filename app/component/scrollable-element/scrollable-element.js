@@ -54,7 +54,9 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
                 var firstTouch = e.touches[0];
                 scrollOnBorder({
                     x: firstTouch.pageX - $window.scrollX,
-                    y: firstTouch.pageY - $window.scrollY
+                    y: firstTouch.pageY - $window.scrollY,
+                    clientX: firstTouch.clientX,
+                    clientY: firstTouch.clientY
                 });
             }
 
