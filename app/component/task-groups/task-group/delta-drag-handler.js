@@ -1,4 +1,4 @@
-angular.module('component.task-group').directive('deltaDragHandler', function ($window) {
+angular.module('component.task-groups.task-group').directive('deltaDragHandler', function ($window) {
     var $rootElement = angular.element($window.document.documentElement);
 
     function touchToMouse(e) {

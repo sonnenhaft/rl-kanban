@@ -84,12 +84,18 @@
         .button:hover {
             text-decoration: none;
         }
-    } 
+    }
 }
 
 .kanban-read-only {
     .swim-lane-toggle {
         cursor: initial;
         padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .swim-lane .swim-lane-header {
+        margin: 0;
     }
 }
