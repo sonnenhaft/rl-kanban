@@ -12,3 +12,13 @@
         background: rgba(255, 0, 0, 0.27);
     }
 }
+
+.cg-notify-message {
+    font-size: 12px;
+    padding: 6px;
+    opacity: 0.7;
+    .cg-notify-close {
+        right: -6px;
+        line-height: 16px;
+    }
+}
