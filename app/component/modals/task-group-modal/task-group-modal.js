@@ -1,4 +1,4 @@
-angular.module('component.task-groups.task-group-modal', [
+angular.module('component.modal.task-group-modal', [
     'mm.foundation.modal',
     'template/modal/backdrop.html',
     'template/modal/window.html'
@@ -7,7 +7,7 @@ angular.module('component.task-groups.task-group-modal', [
         open: function (group, settings) {
             return $modal.open({
                 windowClass: 'tiny task-group-modal',
-                templateUrl: 'app/component/task-groups/task-group-modal/task-group-modal.html',
+                templateUrl: 'app/component/modals/task-group-modal/task-group-modal.html',
                 resolve: {
                     group: function(){
                         return group;

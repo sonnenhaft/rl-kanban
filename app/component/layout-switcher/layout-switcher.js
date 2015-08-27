@@ -4,19 +4,27 @@ angular.module('component.layout-switcher', []).directive('layoutSwitcher', func
         scope: true,
         link: function ($scope) {
             $scope.$watch('template', function (template) {
-                $location.search('template', template);
+                if (template) {
+                    $location.search('template', template);
+                }
             });
 
             $scope.$watch('contentLevel', function (contentLevel) {
-                $location.search('contentLevel', contentLevel);
+                if (contentLevel) {
+                    $location.search('contentLevel', contentLevel);
+                }
             });
 
             $scope.$watch('readOnly', function (readOnly) {
-                $location.search('readOnly', readOnly);
+                if (readOnly) {
+                    $location.search('readOnly', readOnly);
+                }
             });
 
             $scope.$watch('empty', function (empty) {
-                $location.search('empty', empty);
+                if (empty) {
+                    $location.search('empty', empty);
+                }
             });
         }
     };

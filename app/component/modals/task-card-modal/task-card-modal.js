@@ -1,4 +1,4 @@
-angular.module('component.task-card-modal', [
+angular.module('component.modals.task-card-modal', [
     'mm.foundation.modal',
     'template/modal/backdrop.html',
     'template/modal/window.html'
@@ -7,7 +7,7 @@ angular.module('component.task-card-modal', [
         open: function (task, settings) {
             return $modal.open({
                 windowClass: 'tiny task-card-modal',
-                templateUrl: 'app/component/task-card-modal/task-card-modal.html',
+                templateUrl: 'app/component/modals/task-card-modal/task-card-modal.html',
                 controller: function ($scope, $rootScope, $modalInstance, $location, task, settings) {
                     $scope.cancel = function () {
                         $modalInstance.dismiss('cancel');
