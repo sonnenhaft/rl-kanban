@@ -61,8 +61,9 @@ angular.module('component.task-groups.task-group-list', []).directive('taskGroup
                     return a.start > b.start ? 1 : -1;
                 }).forEach(function (group, index) {
                     var hasNoLine = true;
-                    if (!group.tasks.length) {
+                    if (!group.tasks.length && !group.$emptyButPositioned) {
                         group.start = group.start || index;
+                        group.$emptyButPositioned = true;
                     }
                     group.$width = group.start + group.width;
                     lines.forEach(function (line) {

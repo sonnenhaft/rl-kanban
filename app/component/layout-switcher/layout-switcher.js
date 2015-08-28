@@ -16,11 +16,7 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
     $scope.locationSearch = $location.search();
 
     $scope.$watchCollection('locationSearch', function (locationSearch) {
-        if (!locationSearch.layout) {
-            return;
-        }
-
-        $scope.config = angular.copy(layoutSwitcherConfigs[locationSearch.layout]);
+        $scope.config = angular.copy(layoutSwitcherConfigs[locationSearch.layout || 'planner']);
         if (locationSearch.contentLevel) {
             var config = contentLevelConfigs[(locationSearch.layout === 'workTracker' ?  locationSearch.layout : 'planner')];
             $scope.config.settings.tasksDisplayFields = config[locationSearch.contentLevel];
