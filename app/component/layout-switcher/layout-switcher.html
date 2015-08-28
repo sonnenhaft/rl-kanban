@@ -1,17 +1,13 @@
 <div class="layout-switcher" ng-class="{show: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
-    <div class="button-group">
-        <button type="button" class="button" ng-model="contentLevel" btn-radio="'minimum'">Minimum Content Level</button>
-        <button type="button" class="button" ng-model="contentLevel" btn-radio="'medium'">Medium Content Level</button>
-        <button type="button" class="button" ng-model="contentLevel" btn-radio="'maximum'">Maximum Content Level</button>
-    </div>
-    <div class="button-group">
-        <button type="button" class="button" ng-model="template" btn-radio="'planner'">Planner</button>
-        <button type="button" class="button" ng-model="template" btn-radio="'plannerNoTasksStub'">Planner without tasks</button>
-        <button type="button" class="button" ng-model="template" btn-radio="'emptyPlanner'">Empty planner</button>
-        <button type="button" class="button" ng-model="template" btn-radio="'wt'">Work Tracker</button>
-    </div>
-    <div class="button-group">
-        <button type="button" class="button" ng-model="readOnly" btn-checkbox>Read only</button>
-        <button type="button" class="button" ng-model="empty" btn-checkbox>Empty State</button>
-    </div>
+    <label><input type="radio" ng-model="hash.contentLevel" value="minimum"/>Minimum Content Level</label>
+    <label><input type="radio" ng-model="hash.contentLevel" value="medium"/>Medium Content Level</label>
+    <label><input type="radio" ng-model="hash.contentLevel" value="maximum"/>Maximum Content Level</label>
+    <hr/>
+    <label><input type="radio" ng-model="hash.layout" value="planner"/>Planner</label>
+    <label><input type="radio" ng-model="hash.layout" value="plannerNoTasks"/>Planner [no tasks]</label>
+    <label><input type="radio" ng-model="hash.layout" value="emptyPlanner"/>Empty planner</label>
+    <label><input type="radio" ng-model="hash.layout" value="workTracker"/>Work Tracker</label>
+    <hr/>
+    <label><input type="checkbox" ng-model="hash.readOnly"/>Read Only</label>
+    <label><input type="checkbox" ng-model="hash.empty"/>Empty State</label>
 </div>
