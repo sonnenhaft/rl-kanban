@@ -1,58 +1,40 @@
-angular.module('component.layout-switcher', []).directive('layoutSwitcher', function ($location) {
+angular.module('component.layout-switcher').directive('layoutSwitcher', function ($location) {
     return {
         templateUrl: 'app/component/layout-switcher/layout-switcher.html',
         scope: true,
         link: function ($scope) {
-            $scope.$watch('template', function (template) {
-                if (template) {
-                    $location.search('template', template);
-                }
-            });
-
-            $scope.$watch('contentLevel', function (contentLevel) {
-                if (contentLevel) {
-                    $location.search('contentLevel', contentLevel);
-                }
-            });
-
-            $scope.$watch('readOnly', function (readOnly) {
-                if (readOnly) {
-                    $location.search('readOnly', readOnly);
-                }
-            });
-
-            $scope.$watch('empty', function (empty) {
-                if (empty) {
-                    $location.search('empty', empty);
-                }
+            $scope.hash = $location.search();
+            $scope.hash.layout = $scope.hash.layout  || 'planner';
+                ['layout', 'contentLevel', 'readOnly', 'empty'].forEach(function(key){
+                $scope.$watch('hash.' + key, function (value) {
+                    $location.search(key, value);
+                });    
             });
         }
     };
-}).controller('layoutSwitcherController', function ($location, $scope, plannerStub, workTrackerStub, plannerNoTasksStub, tasksDisplayFields, tasksDisplayFieldsWT, emptyPlanner) { //jshint ignore:line
+}).controller('layoutSwitcherController', function ($location, $scope, layoutSwitcherConfigs, contentLevelConfigs) {
     $scope.locationSearch = $location.search();
-    var map = {
-        wt: workTrackerStub,
-        plannerNoTasksStub: plannerNoTasksStub,
-        emptyPlanner: emptyPlanner
-    };
+
     $scope.$watchCollection('locationSearch', function (locationSearch) {
-        if (map[locationSearch.template]) {
-            $scope.config = map[locationSearch.template];
-        } else {
-            $scope.config = plannerStub;
+        if (!locationSearch.layout) {
+            return;
         }
+
+        $scope.config = angular.copy(layoutSwitcherConfigs[locationSearch.layout]);
         if (locationSearch.contentLevel) {
-            if (locationSearch.template === 'wt') {
-                $scope.config.settings.tasksDisplayFields = tasksDisplayFieldsWT[locationSearch.contentLevel];
-            } else {
-                $scope.config.settings.tasksDisplayFields = tasksDisplayFields[locationSearch.contentLevel];
-            }
+            var config = contentLevelConfigs[(locationSearch.layout === 'workTracker' ?  locationSearch.layout : 'planner')];
+            $scope.config.settings.tasksDisplayFields = config[locationSearch.contentLevel];
         }
+
         if (locationSearch.empty) {
             $scope.config.groups = [];
             $scope.config.tasks = [];
         }
-        $scope.config.settings.readOnly = locationSearch.readOnly;
-        $scope.config = angular.copy($scope.config);
+
+        if ($scope.config.settings) {
+            $scope.config.settings.readOnly = locationSearch.readOnly;
+        }
     });
+}).constant('layoutSwitcherConfigs', {
+}).constant('contentLevelConfigs', {
 });

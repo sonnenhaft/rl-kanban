@@ -1,5 +1,5 @@
-angular.module('kanban').factory('plannerStub', function () {
-    return {
+angular.module('component.layout-switcher').config(function(layoutSwitcherConfigs){
+    layoutSwitcherConfigs.planner = {
         'tasks': [
             {
                 'id': '555b69112a241c792bd5db5d',
