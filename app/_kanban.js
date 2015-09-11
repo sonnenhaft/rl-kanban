@@ -23,6 +23,7 @@ angular.module('kanban', [
     'component.expand-collapse',
     'component.stickyHeader',
     'component.add-dropdown',
+    'component.sanitize-filter',
     'kanban-constant'
 ]).run(function($log, kanbanVersion){
     if (kanbanVersion) {
