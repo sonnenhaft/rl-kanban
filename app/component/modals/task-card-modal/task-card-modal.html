@@ -15,8 +15,8 @@
     <div class="row">
         <div class="column small-12">
             <div class="name">
-                <span ng-show="settings.tasksDisplayFields.resourceName">{{task.resourceName}}</span>
-                <span ng-show="settings.tasksDisplayFields.taskName">{{task.taskName}}</span>
+                <span ng-show="settings.tasksDisplayFields.resourceName" ng-bind-html="task.resourceName | sanitize"></span>
+                <span ng-show="settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></span>
             </div>
         </div>
     </div>

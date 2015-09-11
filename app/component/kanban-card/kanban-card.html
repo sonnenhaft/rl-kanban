@@ -10,8 +10,8 @@
         </div>
     </div>
     <div class="card-content">
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName">{{task.taskName}}</p>
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName">{{task.resourceName}}</p>
+        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>
+        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName" ng-bind-html="task.resourceName | sanitize"></p>
         <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
         <hr class="card-divider"/>
         <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
