@@ -53,17 +53,21 @@ angular.module('component.task-groups.task-group-list', []).directive('taskGroup
                     return line;
                 }
 
-                var maxVal = $scope.columns.length;
+                var maxVal = $scope.columns.length, index = 0;
 
                 ($scope.groups || []).map(function (group) {
                     return group;
                 }).sort(function (a, b) {
                     return a.start > b.start ? 1 : -1;
-                }).forEach(function (group, index) {
+                }).forEach(function (group) {
                     var hasNoLine = true;
                     if (!group.tasks.length && !group.$emptyButPositioned) {
+                        if (!$scope.columns[index]) {
+                            index = 0;
+                        }
                         group.start = group.start || index;
                         group.$emptyButPositioned = true;
+                        index++;
                     }
                     group.$width = group.start + group.width;
                     lines.forEach(function (line) {
