@@ -8,7 +8,7 @@
         <div class="after-button-area" >
             <div class="group-name">
                 <glyph-icon icon="group.appRef" class="card-icon"></glyph-icon>
-                <span>{{::group.groupName}} </span>
+                <span ng-bind-html="::group.groupName | sanitize"></span>
                 <span class="unbold">({{group.tasks.length}})</span>
             </div>
             <div class="info">
