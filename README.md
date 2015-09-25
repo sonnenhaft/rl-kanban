@@ -10,8 +10,8 @@ Start application for the first time:
 ```sh
 $ gulp serve
 ```
-This will create a simple express server and prepare app for first time.
-The first time, sass source will be compiled into css. Each subsequent time, you can run `gulp default` or `gulp` with no args.
+This will create a simple Express.js server and prepare app for first time.
+The first time, Sass source will be compiled into css. Each subsequent time, you can run `gulp default` or `gulp` with no args.
 
 To run app for automated testing or continuous integration, without live reload:
 ```sh
