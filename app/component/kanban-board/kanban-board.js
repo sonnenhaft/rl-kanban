@@ -41,7 +41,7 @@ angular.module('component.kanban-board',[
 
                     var oldColumnId  = task.columnId;
                     task.columnId = task.column.id;
-                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId);
+                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
 
                     task.swimlaneId = task.column.swimlane.id;
                     task.group.recalculate();
