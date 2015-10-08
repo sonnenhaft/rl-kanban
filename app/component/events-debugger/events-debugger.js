@@ -20,6 +20,7 @@ angular.module('events-debugger', [
     'kanban:task:moved',
     'kanban:task:orderchanged',
     'kanban:task:remove',
+    'kanban:task:modalopen',
     'kanban:add-group',
     'kanban:add-task',
     'kanban:add-task-assessment'
