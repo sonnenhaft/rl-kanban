@@ -524,6 +524,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'groupsExpandButtonText': 'Task Groups',
             'allowCopyTask': true,
             'allowDeleteTask': true,
+            'allowEmptySwimlanes': true,
             'contentLevel': 'low',
             'addResourceLinks': [
                 {
