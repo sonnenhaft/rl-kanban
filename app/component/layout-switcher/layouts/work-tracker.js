@@ -525,6 +525,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'allowCopyTask': true,
             'allowDeleteTask': true,
             'allowEmptySwimlanes': true,
+            'legacyCardModal': true,
             'contentLevel': 'low',
             'addResourceLinks': [
                 {

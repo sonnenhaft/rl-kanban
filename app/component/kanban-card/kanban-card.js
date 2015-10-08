@@ -4,8 +4,14 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
         link: function ($scope, $element) {
             var modal;
             $scope.clickCallbacks = function (task, settings) {
+                if (settings.legacyCardModal) {
+                    $scope.$emit('kanban:task:modalopen', task);
+                    return;
+                }
                 modal = extendedCard.open(task, settings);
-                modal.result.finally(function(){modal = null;});
+                modal.result.finally(function(){
+                    modal = null;
+                });
             };
 
             $scope.$on('$destroy', function(){
