@@ -5,7 +5,8 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
         link: function ($scope) {
             $scope.hash = $location.search();
             $scope.hash.layout = $scope.hash.layout  || 'workTracker';
-                ['layout', 'contentLevel', 'readOnly', 'empty'].forEach(function(key){
+            $scope.hash.contentLevel = $scope.hash.contentLevel  || 'maximum';
+            ['layout', 'contentLevel', 'readOnly', 'empty'].forEach(function(key){
                 $scope.$watch('hash.' + key, function (value) {
                     $location.search(key, value);
                 });    

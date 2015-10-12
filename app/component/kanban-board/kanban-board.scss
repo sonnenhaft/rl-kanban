@@ -23,6 +23,11 @@
         padding-bottom: 20px;
     }
 
+    .kanban-clmn-barred {
+        opacity: 0.2;
+        background: darken(#ededed, 20%);
+    }
+
     .empty-placeholder {
         position: absolute;
         max-width: 1140px;

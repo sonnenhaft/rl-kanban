@@ -8,11 +8,11 @@
             <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
             <div class="kanban-header" scrollable-element horizontal-scroll>
                 <column-names columns="config.columns" columns-width></column-names>
-                <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups">
+                <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups" ng-show="config.groups">
                     <task-group-list groups="config.groups" columns="config.columns" settings="config.settings" columns-width></task-group-list>
                 </div>
             </div>
-            <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings"></task-groups-button>
+            <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings" ng-show="config.groups"></task-groups-button>
         </div>
 
         <swim-lane ng-repeat="swimlane in config.swimlanes" groups="config.groups" swimlane="swimlane" settings="config.settings"></swim-lane>
