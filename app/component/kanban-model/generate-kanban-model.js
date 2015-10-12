@@ -1,69 +1,102 @@
 angular.module('component.kanban-model').factory('generateKanbanModel', function (KanbanGroup, KanbanTask, KanbanColumn) {
     return function createKanbanModel(initialConfig) {
         var config = angular.copy(initialConfig);
-        angular.extend(config, {
-            tasks: initialConfig.tasks.map(function (task) {
-                return new KanbanTask(task);
-            }),
-            groups: initialConfig.groups.map(function (group) {
-                return new KanbanGroup(group);
-            }),
-            columns: initialConfig.columns.map(function (column) {
-                return new KanbanColumn(column);
-            }),
-            swimlanes: initialConfig.swimlanes.map(function (swimlane) {
-                return angular.copy(swimlane);
-            })
-        });
 
-        config.groups.forEach(function (group) {
-            group.tasks = [];
-            group.tasks = config.tasks.filter(function (task) {
-                return task.groupId === group.id;
+        if (angular.isDefined(initialConfig.tasks)) {
+            angular.extend(config, {
+                tasks: initialConfig.tasks.map(function (task) {
+                    return new KanbanTask(task);
+                })
             });
-            group.tasks.forEach(function (task) {
-                task.group = group;
+        }
+        if (angular.isDefined(initialConfig.groups)) {
+            angular.extend(config, {
+                groups: initialConfig.groups.map(function (group) {
+                    return new KanbanGroup(group);
+                })
             });
-        });
+        }
+        if (angular.isDefined(initialConfig.columns)) {
+            angular.extend(config, {
+                columns: initialConfig.columns.map(function (column) {
+                    return new KanbanColumn(column);
+                })
+            });
+        }
+        if (angular.isDefined(initialConfig.swimlanes)) {
+            angular.extend(config, {
+                swimlanes: initialConfig.swimlanes.map(function (swimlane) {
+                    return angular.copy(swimlane);
+                })
+            });
+        }
 
-        config.columns.forEach(function (column, index) {
-            column.index = index;
-        });
-
-        config.swimlanes.forEach(function (swimlane) {
-            swimlane.columns = angular.copy(config.columns);
-            swimlane.columns.forEach(function (column) {
-                column.swimlane = swimlane;
-                column.tasks = config.tasks.filter(function (task) {
-                    return task.columnId === column.id && task.swimlaneId === swimlane.id;
+        if (angular.isDefined(config.groups)) {
+            config.groups.forEach(function (group) {
+                group.tasks = [];
+                group.tasks = config.tasks.filter(function (task) {
+                    return task.groupId === group.id;
                 });
-                column.tasks.forEach(function (task) {
-                    task.column = column;
-                });
-            });
-        });
-
-        config.groups.forEach(function (group) {
-            angular.extend(group, {
-                visible: true,
-                expanded: true,
-                groupId: group.id,
-                members: group.tasks
-            });
-
-            group.tasks.forEach(function (task) {
-                angular.extend(task, {
-                    createdDate: task.creationDate,
-                    title: task.resourceName
+                group.tasks.forEach(function (task) {
+                    task.group = group;
                 });
             });
+        }
+        if (angular.isDefined(config.columns)) {
+            config.columns.forEach(function (column, index) {
+                column.index = index;
+            });
+        }
 
-            group.recalculate(true);
-        });
+        if (angular.isDefined(config.swimlanes)) {
+            config.swimlanes.forEach(function (swimlane) {
+                swimlane.columns = angular.copy(config.columns);
+                swimlane.columns.forEach(function (column) {
+                    column.swimlane = swimlane;
+                    column.tasks = config.tasks.filter(function (task) {
+                        return task.columnId === column.id && task.swimlaneId === swimlane.id;
+                    });
+                    column.tasks.forEach(function (task) {
+                        task.column = column;
+                    });
+                });
+            });
+        }
 
-        config.tasks = config.tasks.filter(function (task) {
-            return task.group;
-        });
+        if (angular.isDefined(config.groups)) {
+            config.groups.forEach(function (group) {
+                angular.extend(group, {
+                    visible: true,
+                    expanded: true,
+                    groupId: group.id,
+                    members: group.tasks
+                });
+
+                group.tasks.forEach(function (task) {
+                    angular.extend(task, {
+                        createdDate: task.creationDate,
+                        title: task.resourceName
+                    });
+                });
+
+                group.recalculate(true);
+            });
+        }
+
+        if (angular.isDefined(config.tasks)) {
+            config.tasks.forEach(function (task) {
+                task.barredColumns = [];
+                if (angular.isArray(task.barredColumnsId)) {
+                    config.swimlanes.forEach(function (swimlane) {
+                        swimlane.columns.forEach(function (column) {
+                            if(task.barredColumnsId.indexOf(column.id) > -1) {
+                                task.barredColumns.push(column);
+                            }
+                        });
+                    });
+                }
+            });
+        }
 
         return config;
     };

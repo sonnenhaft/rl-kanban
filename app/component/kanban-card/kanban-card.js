@@ -3,8 +3,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         link: function ($scope, $element) {
             var modal;
-            $scope.clickCallbacks = function (task, settings) {
-                if (settings.legacyCardModal) {
+            $scope.clickCallbacks = function (task, settings, $event, force) {
+                $event.stopImmediatePropagation();
+                if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
                     return;
                 }

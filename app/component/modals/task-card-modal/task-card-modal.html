@@ -5,7 +5,7 @@
     <div class="row">
         <div class="column small-12">
             <div class="header">
-                <div class="app-tag">
+                <div class="app-tag" ng-show="task.appRef">
                     <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
                 </div>
                 <span class="title">{{task.appName}}</span>
@@ -64,6 +64,14 @@
                         <p class="task-field" ng-show="settings.tasksDisplayFields.state">
                             <span class="field-label">Status:&nbsp;</span>
                             <span>{{task.state}}</span></p>
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.id">
+                            <span class="field-label">ID#&nbsp;</span>
+                            <span>{{task.id}}</span></p>
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.grade">
+                            <span class="field-label">Grade&nbsp;</span>
+                            <span>{{task.grade}}</span></p>
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.priority">
+                            <priority-level value="task.priority"></priority-level></p>
                     </div>
                     <div class="column medium-6">
                         <p class="task-field" ng-show="settings.tasksDisplayFields.creationDate">
@@ -75,12 +83,11 @@
                         <p class="task-field" ng-show="settings.tasksDisplayFields.assignability">
                             <span class="field-label">Assignability:</span>
                             <span>{{task.assignability}}</span></p>
-                        <p class="task-field" ng-show="settings.tasksDisplayFields.priority">
-                            <priority-level value="task.priority"></priority-level></p>
                         <p class="task-field" ng-show="settings.tasksDisplayFields.rating">
                             <star-rating value="task.rating"></star-rating></p>
+                        <p class="task-field" ng-show="settings.tasksDisplayFields.notes">
+                            <span>{{task.notes}}</span></p>
                     </div>
-                </div>
             </div>
         </div>
     </div>

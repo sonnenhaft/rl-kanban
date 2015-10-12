@@ -20,7 +20,14 @@ angular.module('component.kanban-board',[
                 dragStart: function(e){
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:start', task.id);
-                    task.group.$highlightedGroup = true;
+                    if (angular.isDefined(task.group)) {
+                        task.group.$highlightedGroup = true;
+                    }
+                    if (angular.isArray(task.barredColumns)) {
+                        task.barredColumns.forEach(function(column) {
+                            column.$barred = true;
+                        });
+                    }
                     scrollableElement.watchMouse();
                 },
                 orderChanged: function(e){
@@ -31,6 +38,11 @@ angular.module('component.kanban-board',[
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:stop', task.id);
                     scrollableElement.stopWatching();
+                    if (angular.isArray(task.barredColumns)) {
+                        task.barredColumns.forEach(function(column) {
+                            delete column.$barred;
+                        })
+                    }
                 },
                 itemMoved: function (e) {
                     var task = e.source.itemScope.task;
@@ -44,7 +56,10 @@ angular.module('component.kanban-board',[
                     $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
 
                     task.swimlaneId = task.column.swimlane.id;
-                    task.group.recalculate();
+                    if (angular.isDefined(task.group)) {
+                        task.group.recalculate();
+                    }
+
                     if (toSwimlane.id !== fromSwimlane.id) {
                         toSwimlane.$tasksCount++;
                         fromSwimlane.$tasksCount--;
@@ -52,7 +67,7 @@ angular.module('component.kanban-board',[
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
                     if ($scope.settings.acceptTasks) {
-                        return true;
+                        return !destSortableScope.$parent.column.$barred;
                     } else {
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
                     }
