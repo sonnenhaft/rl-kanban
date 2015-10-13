@@ -44,8 +44,8 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             });
 
             windowScroll.calculateDot = function (mouseMoveEvent) {
-                this.y = getCoordinatePartToScroll(mouseMoveEvent.y, $window.innerHeight);
-                this.x = getCoordinatePartToScroll(mouseMoveEvent.x, $window.innerWidth);
+                this.y = getCoordinatePartToScroll(mouseMoveEvent.clientY, $window.innerHeight);
+                this.x = getCoordinatePartToScroll(mouseMoveEvent.clientX, $window.innerWidth);
             };
 
             function scrollOnBorder(e) {
