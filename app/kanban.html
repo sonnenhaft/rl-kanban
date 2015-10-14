@@ -1,18 +1,17 @@
 <div>
     <!--TODO: remove ng-init-->
     <div class="kanban" ng-class="{'kanban-read-only': config.settings.readOnly, 'kanban-touch': isTouch}" combine-horizontal-scrolls>
-        <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
         <add-dropdown settings="config.settings" groups="config.groups" ng-show="config.settings.showAddNew"></add-dropdown>
         <!--<groups-debug groups="$parent.groups"></groups-debug>-->
         <div class="kanban-header-wrapper" sticky-header>
             <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
             <div class="kanban-header" scrollable-element horizontal-scroll>
                 <column-names columns="config.columns" columns-width></column-names>
-                <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups" ng-show="config.groups">
+                <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups" ng-hide="config.settings.hideGroups">
                     <task-group-list groups="config.groups" columns="config.columns" settings="config.settings" columns-width></task-group-list>
                 </div>
             </div>
-            <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings" ng-show="config.groups"></task-groups-button>
+            <task-groups-button value="expanded" ng-init="expanded = true" settings="config.settings" ng-hide="config.settings.hideGroups"></task-groups-button>
         </div>
 
         <swim-lane ng-repeat="swimlane in config.swimlanes" groups="config.groups" swimlane="swimlane" settings="config.settings"></swim-lane>

@@ -360,6 +360,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'allowCopyTask': false,
             'allowDeleteTask': false,
             'allowEmptySwimlanes': true,
+            'hideGroups': true,
             'legacyCardModal': true,
             'acceptTasks': true,
             'allowGroupExpand': true,
