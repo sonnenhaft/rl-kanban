@@ -359,7 +359,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'groupsExpandButtonText': 'Task Groups',
             'allowCopyTask': false,
             'allowDeleteTask': false,
-            'allowEmptySwimlanes': true,
+            'disableDefaultMessaging': true,
             'hideGroups': true,
             'legacyCardModal': true,
             'acceptTasks': true,

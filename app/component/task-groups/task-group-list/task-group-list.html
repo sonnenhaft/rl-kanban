@@ -6,7 +6,7 @@
     <div ng-repeat="line in lines" class="task-group-line">
         <task-group group="group" width="228" columns="columns" ng-repeat="group in line.groups track by group.id" settings="settings"></task-group>
     </div>
-    <div class="task-group-empty" ng-if="!lines.length" ng-hide="settings.readOnly">
+    <div class="task-group-empty" ng-hide="lines.length || settings.readOnly || settings.disableDefaultMessaging">
         <p>You haven't selected any {{settings.groupContentType}}</p>
         <p><a ng-click="taskGroupList.addGroup()">Go back</a><span>&nbsp;to add {{settings.groupContentType}}</span></p>
     </div>

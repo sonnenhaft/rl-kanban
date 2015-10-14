@@ -1,5 +1,5 @@
 <div class="kanban-board" horizontal-scroll scrollable-element>
-    <div class="empty-placeholder" ng-hide="swimlane.$tasksCount || settings.readOnly || settings.allowEmptySwimlanes">
+    <div class="empty-placeholder" ng-hide="swimlane.$tasksCount || settings.readOnly || settings.disableDefaultMessaging">
         <p>{{::swimlane.addAlertText}}</p>
         <button class="button blue select-skills-button" ng-click="addResources()" ng-show="::swimlane.addButtonText">{{::swimlane.addButtonText}}</button>
     </div>
