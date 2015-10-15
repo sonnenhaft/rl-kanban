@@ -189,6 +189,13 @@ $marker-height: 4px;
         padding: 0;
         margin: 0;
         display: inline-block;
+        &:hover {
+            color: #31B3FF;
+        }
+    }
+
+    .card-ellipsis {
+        color: #31B3FF;
     }
 }
 
