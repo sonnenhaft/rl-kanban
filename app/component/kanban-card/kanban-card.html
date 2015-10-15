@@ -35,7 +35,7 @@
             <p ng-show="$parent.settings.tasksDisplayFields.grade"><span class="text-grey text-left">Grade&nbsp;</span>{{task.grade}}</p>
             <p ng-show="$parent.settings.tasksDisplayFields.notes" class="text-grey" ng-init="limit = 50">
                 <span>{{task.notes | limitTo: limit}} </span>
-                <span ng-show="task.notes.length > limit" ng-click="$event.stopImmediatePropagation();limit=task.notes.length;">[&hellip;]</span></p>
+                <span class="card-ellipsis" ng-show="task.notes.length > limit" ng-click="$event.stopImmediatePropagation();limit=task.notes.length;">[&hellip;]</span></p>
             <p ng-show="$parent.settings.tasksDisplayFields.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{task.ownerName}}</p>
             <p ng-show="$parent.settings.tasksDisplayFields.type"><span class="text-bold">Type:&nbsp;</span>{{task.type}}</p>
             <p ng-show="$parent.settings.tasksDisplayFields.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
