@@ -15,7 +15,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 4,
                 'flag': true,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
 
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
@@ -31,7 +31,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 1,
                 'flag': true,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'priority': '0',
@@ -46,7 +46,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 4,
                 'flag': true,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'priority': '1',
@@ -61,7 +61,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 2,
                 'flag': true,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'priority': '1',
@@ -75,7 +75,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 1,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'priority': '0',
@@ -89,7 +90,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 1,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'priority': '1',
@@ -103,7 +105,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'priority': '0',
@@ -117,7 +120,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'priority': '0',
@@ -131,7 +135,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 1,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'priority': '0',
@@ -145,7 +150,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 3,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
                 'priority': '2',
@@ -160,7 +166,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 4,
                 'flag': false,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
                 'priority': '2',
@@ -174,7 +180,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'priority': '0',
@@ -189,7 +196,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Video',
                 'grade': 3,
                 'flag': false,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'priority': '1',
@@ -204,7 +211,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Book',
                 'grade': 2,
                 'flag': false,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'priority': '0',
@@ -218,7 +225,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 3,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'priority': '0',
@@ -232,7 +240,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 3,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'priority': '0',
@@ -246,7 +255,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 1,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'priority': '0',
@@ -260,7 +270,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 4,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'priority': '0',
@@ -274,7 +285,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Book',
                 'grade': 4,
-                'flag': false
+                'flag': false,
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'priority': '0',
@@ -289,7 +301,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'type': 'Book',
                 'grade': 3,
                 'flag': false,
-                'barredColumnsId': ['555b6911ba6d349f6253cd85', '555b6911faa6e347b8f89d13']
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
             }
 
         ],
@@ -360,6 +372,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'allowCopyTask': false,
             'allowDeleteTask': false,
             'disableDefaultMessaging': true,
+            'allowEmptySwimlanes': true,
             'hideGroups': true,
             'legacyCardModal': true,
             'acceptTasks': true,
