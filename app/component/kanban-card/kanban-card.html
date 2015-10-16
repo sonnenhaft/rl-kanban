@@ -1,52 +1,52 @@
 <div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color}" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, false)" data-as-sortable-item-handle>
-    <div class="card-color" ng-style="{'background': task.group.color}" ng-show="task.group.length"></div>
+    <div class="card-color" ng-style="{'background': task.group.color}" ng-hide="::$parent.settings.hideGroups"></div>
     <div class="card-header">
         <div class="card-handle"></div>
-        <div class="app-tag" ng-show="$parent.settings.tasksDisplayFields.appRef">
+        <div class="app-tag" ng-show="::$parent.settings.tasksDisplayFields.appRef">
             <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
         </div>
-        <div class="card-title" ng-show="$parent.settings.tasksDisplayFields.appName">
-            <span class="card-name">{{task.appName}}</span>
+        <div class="card-title" ng-show="::$parent.settings.tasksDisplayFields.appName">
+            <span class="card-name">{{::task.appName}}</span>
         </div>
     </div>
     <div class="card-content">
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName" ng-bind-html="task.resourceName | sanitize"></p>
-        <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
-        <hr class="card-divider" ng-show="$parent.settings.tasksDisplayFields.taskName || $parent.settings.tasksDisplayFields.resourceName"/>
-        <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
-        <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.assigneesColor}">
-            <span class="task-assignee">{{task.assignees}}</span>
+        <p class="task-name" ng-show="::$parent.settings.tasksDisplayFields.taskName" ng-bind-html="::task.taskName | sanitize"></p>
+        <p class="task-name" ng-show="::$parent.settings.tasksDisplayFields.resourceName" ng-bind-html="::task.resourceName | sanitize"></p>
+        <p class="task-description" ng-show="::$parent.settings.tasksDisplayFields.description">{{::task.description}}</p>
+        <hr class="card-divider" ng-show="::$parent.settings.tasksDisplayFields.taskName || ::$parent.settings.tasksDisplayFields.resourceName"/>
+        <p ng-show="::$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{::task.ownerAppLogo}}"/></p>
+        <p ng-show="::$parent.settings.tasksDisplayFields.assignees" ng-style="::{color: task.assigneesColor}">
+            <span class="task-assignee">{{::ask.assignees}}</span>
         </p>
         <div class="additional-details">
-            <div class="task-owner" ng-show="$parent.settings.tasksDisplayFields.assigneeName">
-                <p class="owner-avatar" ng-show="$parent.settings.tasksDisplayFields.ownerPicture"><img ng-src="{{task.ownerPicture}}"/></p>
-                <p class="owner-name">{{task.assigneeName}}</p>
+            <div class="task-owner" ng-show="::$parent.settings.tasksDisplayFields.assigneeName">
+                <p class="owner-avatar" ng-show="::$parent.settings.tasksDisplayFields.ownerPicture"><img ng-src="{{::task.ownerPicture}}"/></p>
+                <p class="owner-name">{{::task.assigneeName}}</p>
             </div>
-            <p ng-show="$parent.settings.tasksDisplayFields.rating">
+            <p ng-show="::$parent.settings.tasksDisplayFields.rating">
                 <star-rating value="task.rating"></star-rating>
             </p>
-            <p ng-show="$parent.settings.tasksDisplayFields.state" class="text-bold text-grey">
-                <span>{{task.state}}</span>
-                <span ng-show="$parent.settings.tasksDisplayFields.assignability">&nbsp;-&nbsp;Locked</span>
-                <glyph-icon icon="{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
+            <p ng-show="::$parent.settings.tasksDisplayFields.state" class="text-bold text-grey">
+                <span>{{::task.state}}</span>
+                <span ng-show="::$parent.settings.tasksDisplayFields.assignability">&nbsp;-&nbsp;Locked</span>
+                <glyph-icon icon="::{'glyph-lock3' : task.assignability}" class="card-icon"></glyph-icon>
             </p>
-            <p ng-show="$parent.settings.tasksDisplayFields.id"><span class="text-grey text-left">ID#&nbsp;</span>{{task.id}}</p>
-            <p ng-show="$parent.settings.tasksDisplayFields.grade"><span class="text-grey text-left">Grade&nbsp;</span>{{task.grade}}</p>
-            <p ng-show="$parent.settings.tasksDisplayFields.notes" class="text-grey" ng-init="limit = 50">
+            <p ng-show="::$parent.settings.tasksDisplayFields.id"><span class="text-grey text-left">ID#&nbsp;</span>{{task.id}}</p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.grade"><span class="text-grey text-left">Grade&nbsp;</span>{{task.grade}}</p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.notes" class="text-grey" ng-init="limit = 50">
                 <span>{{task.notes | limitTo: limit}} </span>
                 <span class="card-ellipsis" ng-show="task.notes.length > limit" ng-click="$event.stopImmediatePropagation();limit=task.notes.length;">[&hellip;]</span></p>
-            <p ng-show="$parent.settings.tasksDisplayFields.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{task.ownerName}}</p>
-            <p ng-show="$parent.settings.tasksDisplayFields.type"><span class="text-bold">Type:&nbsp;</span>{{task.type}}</p>
-            <p ng-show="$parent.settings.tasksDisplayFields.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{task.assignability ? 'Locked' : 'Available'}}</span></p>
-            <p ng-show="$parent.settings.tasksDisplayFields.creationDate" class="task-date"><span class="text-grey text-bold">Created:&nbsp;</span>{{task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
-            <p ng-show="$parent.settings.tasksDisplayFields.modifiedDate" class="task-date"><span class="text-grey text-bold">Modified:&nbsp;</span>{{task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
-            <div class="card-footer clearfix" ng-show="$parent.settings.tasksDisplayFields.priority || $parent.settings.tasksDisplayFields.flag || $parent.settings.tasksDisplayFields.preview">
+            <p ng-show="::$parent.settings.tasksDisplayFields.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.type"><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.assignability"><span class="text-bold">Assignability:&nbsp;</span><span>{{::task.assignability ? 'Locked' : 'Available'}}</span></p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.creationDate" class="task-date"><span class="text-grey text-bold">Created:&nbsp;</span>{{::task.creationDate | date : "MMM d, y 'at' h:mma"}}<p>
+            <p ng-show="::$parent.settings.tasksDisplayFields.modifiedDate" class="task-date"><span class="text-grey text-bold">Modified:&nbsp;</span>{{::task.modifiedDate | date : "MMM d, y 'at' h:mma"}}</p>
+            <div class="card-footer clearfix" ng-show="::$parent.settings.tasksDisplayFields.priority || ::$parent.settings.tasksDisplayFields.flag || ::$parent.settings.tasksDisplayFields.preview">
                 <hr class="card-divider"/>
-                <p ng-show="$parent.settings.tasksDisplayFields.priority" class="text-left"><priority-level value="task.priority"></priority-level></p>
+                <p ng-show="::$parent.settings.tasksDisplayFields.priority" class="text-left"><priority-level value="task.priority"></priority-level></p>
                 <div class="text-right">
-                    <span ng-show="$parent.settings.tasksDisplayFields.flag"><glyph-icon icon="'glyph-flag'" class="card-icon text-orange" ng-show="task.flag" class="task-flag"></glyph-icon></span>
-                    <button ng-show="$parent.settings.tasksDisplayFields.preview" type="button" class="button card-button" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, true)">
+                    <span ng-show="::$parent.settings.tasksDisplayFields.flag"><glyph-icon icon="'glyph-flag'" class="card-icon text-orange" ng-show="t::ask.flag" class="task-flag"></glyph-icon></span>
+                    <button ng-show="::$parent.settings.tasksDisplayFields.preview" type="button" class="button card-button" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, true)">
                         <glyph-icon icon="'glyph-eye'"></glyph-icon>
                     </button>
                 </div>
