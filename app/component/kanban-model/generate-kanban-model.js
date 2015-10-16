@@ -86,10 +86,10 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
         if (angular.isDefined(config.tasks)) {
             config.tasks.forEach(function (task) {
                 task.barredColumns = [];
-                if (angular.isArray(task.barredColumnsId)) {
+                if (angular.isArray(task.validStates)) {
                     config.swimlanes.forEach(function (swimlane) {
                         swimlane.columns.forEach(function (column) {
-                            if(task.barredColumnsId.indexOf(column.id) > -1) {
+                            if(task.validStates.indexOf(column.id) === -1) {
                                 task.barredColumns.push(column);
                             }
                         });
