@@ -3,7 +3,6 @@
     <div class="kanban" ng-class="{'kanban-read-only': config.settings.readOnly, 'kanban-touch': isTouch}" combine-horizontal-scrolls>
         <add-dropdown settings="config.settings" groups="config.groups" ng-show="config.settings.showAddNew"></add-dropdown>
         <!--<groups-debug groups="$parent.groups"></groups-debug>-->
-        <div style="visibility: hidden;">TODO: REMOVE (FOR TESTING STICKY HEADER ONLY)</div>
         <div class="kanban-header-wrapper" sticky-header>
             <scrollbar class="scroll-bar" columns="config.columns" horizontal-scroll></scrollbar>
             <div class="kanban-header" scrollable-element horizontal-scroll>
