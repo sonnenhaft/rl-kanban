@@ -379,7 +379,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'allowGroupExpand': true,
             'contentText': 'Tasks',
             'contentTextSingleItem': 'Task',
-            'barredColumnMessage': 'Workflow State Unavailable for Selected Card'
+            'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
+            'highlightTaskOnClick': true
         }
     }
 });

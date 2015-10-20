@@ -27,6 +27,14 @@ angular.module('kanban').directive('kanban', function (isTouch) {
             this.removeElement = function (childElement) {
                 registeredElements.splice(registeredElements.indexOf(childElement), 1);
             };
+
+            this.highlightTask = function (task) {
+                $scope.config.tasks.forEach(function (task) {
+                    delete task.$highlight;
+                });
+                task.$highlight = true;
+                $scope.$evalAsync();
+            };
         }
     };
 });
