@@ -35,6 +35,7 @@
         left: 10%;
         right: 10%;
         z-index: 1;
+        color: #555555;
         glyph-icon {
             font-size: 24px;
             display: block;
@@ -54,12 +55,6 @@
 
         .kanban-clmn-warning {
             display: block;
-        }
-    }
-    .kanban-clmn-barred {
-        background: darken(#ededed, 20%);
-        .as-sortable-placeholder {
-            display: none;
         }
     }
 
