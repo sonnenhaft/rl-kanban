@@ -5,13 +5,15 @@ angular.module('component.kanban-board',[
 ]).directive('kanbanBoard', function () {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
-        require: '^scrollableElement',
+        require: ['^scrollableElement', '^kanban'],
         scope: {
             swimlane: '=',
             settings: '='
         },
         replace: true,
-        link: function ($scope, $element, $attrs, scrollableElement) {
+        link: function ($scope, $element, $attrs, $ctrl) {
+            var scrollableElement = $ctrl[0];
+            var kanban = $ctrl[1];
             $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function(){
                $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
@@ -27,6 +29,9 @@ angular.module('component.kanban-board',[
                         task.barredColumns.forEach(function(column) {
                             column.$barred = true;
                         });
+                    }
+                    if ($scope.settings.highlightTaskOnClick) {
+                        kanban.highlightTask(task);
                     }
                     scrollableElement.watchMouse();
                 },

@@ -1,18 +1,22 @@
 angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, $timeout, isTouch) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
-        link: function ($scope, $element) {
+        require: '^kanban',
+        link: function ($scope, $element, $attrs, kanban) {
             var modal;
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopImmediatePropagation();
+                if (settings.highlightTaskOnClick) {
+                    kanban.highlightTask(task);
+                }
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
-                    return;
+                } else {
+                    modal = extendedCard.open(task, settings);
+                    modal.result.finally(function(){
+                        modal = null;
+                    });
                 }
-                modal = extendedCard.open(task, settings);
-                modal.result.finally(function(){
-                    modal = null;
-                });
             };
 
             $scope.$on('$destroy', function(){
