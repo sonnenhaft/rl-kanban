@@ -184,14 +184,11 @@ $marker-height: 4px;
     .card-button {
         background: none;
         border: none;
-        color: inherit;
         font-size: 20px;
         padding: 0;
         margin: 0;
         display: inline-block;
-        &:hover {
-            color: #31B3FF;
-        }
+        color: #31B3FF;
     }
 
     .card-ellipsis {
