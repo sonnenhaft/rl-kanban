@@ -5,7 +5,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
         link: function ($scope, $element, $attrs, kanban) {
             var modal;
             $scope.clickCallbacks = function (task, settings, $event, force) {
-                $event.stopImmediatePropagation();
+                $event.stopPropagation();
                 if (settings.highlightTaskOnClick) {
                     kanban.highlightTask(task);
                 }
@@ -16,6 +16,16 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                     modal.result.finally(function(){
                         modal = null;
                     });
+                }
+            };
+
+            $scope.limit = 50;
+
+            $scope.showFullDescription = function(task, settings, $event) {
+                $event.stopPropagation();
+                $scope.limit = task.notes.length;
+                if (settings.highlightTaskOnClick) {
+                    kanban.highlightTask(task);
                 }
             };
 
