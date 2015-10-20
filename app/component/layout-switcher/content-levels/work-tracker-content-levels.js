@@ -8,7 +8,7 @@ angular.module('component.layout-switcher').config(function (contentLevelConfigs
         },
         'medium': {
             'appName': true,
-            'taskName': true, //wt
+            'skillShortName': true, //wt
             'priority': true,
             'grade': true,
             'id': true,
@@ -17,7 +17,7 @@ angular.module('component.layout-switcher').config(function (contentLevelConfigs
         },
         'maximum': {
             'appName': true,
-            'taskName': true, //wt
+            'skillShortName': true, //wt
             'priority': true,
             'grade': true,
             'id': true,

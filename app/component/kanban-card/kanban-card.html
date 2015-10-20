@@ -11,9 +11,9 @@
     </div>
     <div class="card-content">
         <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.resourceName" ng-bind-html="task.resourceName | sanitize"></p>
+        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.skillShortName" ng-bind-html="task.skillShortName | sanitize"></p>
         <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
-        <hr class="card-divider" ng-show="$parent.settings.tasksDisplayFields.taskName || $parent.settings.tasksDisplayFields.resourceName"/>
+        <hr class="card-divider" ng-show="$parent.settings.tasksDisplayFields.taskName || $parent.settings.tasksDisplayFields.skillShortName"/>
         <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
         <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.assigneesColor}">
             <span class="task-assignee">{{task.assignees}}</span>
