@@ -21,11 +21,46 @@
         box-sizing: border-box;
         padding-top: 8px;
         padding-bottom: 20px;
+        position: relative;
+    }
+
+    .kanban-clmn-warning {
+        display: none;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        position: absolute;
+        top: 250px;
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        z-index: 1;
+        glyph-icon {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 14px;
+        }
+
     }
 
     .kanban-clmn-barred {
-        opacity: 0.2;
+        background: #cccccc;
+        .kanban-card {
+            opacity: 0.1;
+        }
+        .as-sortable-placeholder {
+            display: none;
+        }
+
+        .kanban-clmn-warning {
+            display: block;
+        }
+    }
+    .kanban-clmn-barred {
         background: darken(#ededed, 20%);
+        .as-sortable-placeholder {
+            display: none;
+        }
     }
 
     .empty-placeholder {

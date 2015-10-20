@@ -45,29 +45,34 @@ angular.module('component.kanban-board',[
                     }
                 },
                 itemMoved: function (e) {
-                    var task = e.source.itemScope.task;
-                    var toSwimlane = e.dest.sortableScope.$parent.column.swimlane;
-                    var fromSwimlane = e.source.sortableScope.$parent.column.swimlane;
+                    if (e.dest.sortableScope.$parent.column.$barred) {
+                        e.dest.sortableScope.removeItem(e.dest.index);
+                        e.source.itemScope.sortableScope.insertItem(e.source.index, e.source.itemScope.task);
+                    } else {
+                        var task = e.source.itemScope.task;
+                        var toSwimlane = e.dest.sortableScope.$parent.column.swimlane;
+                        var fromSwimlane = e.source.sortableScope.$parent.column.swimlane;
 
-                    task.column = e.dest.sortableScope.$parent.column;
+                        task.column = e.dest.sortableScope.$parent.column;
 
-                    var oldColumnId  = task.columnId;
-                    task.columnId = task.column.id;
-                    $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
+                        var oldColumnId  = task.columnId;
+                        task.columnId = task.column.id;
+                        $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
 
-                    task.swimlaneId = task.column.swimlane.id;
-                    if (angular.isDefined(task.group)) {
-                        task.group.recalculate();
-                    }
+                        task.swimlaneId = task.column.swimlane.id;
+                        if (angular.isDefined(task.group)) {
+                            task.group.recalculate();
+                        }
 
-                    if (toSwimlane.id !== fromSwimlane.id) {
-                        toSwimlane.$tasksCount++;
-                        fromSwimlane.$tasksCount--;
+                        if (toSwimlane.id !== fromSwimlane.id) {
+                            toSwimlane.$tasksCount++;
+                            fromSwimlane.$tasksCount--;
+                        }
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
                     if ($scope.settings.acceptTasks) {
-                        return !destSortableScope.$parent.column.$barred;
+                        return true;
                     } else {
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
                     }
