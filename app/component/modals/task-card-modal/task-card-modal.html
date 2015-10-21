@@ -69,7 +69,7 @@
                             <span>{{task.id}}</span></p>
                         <p class="task-field" ng-show="settings.tasksDisplayFields.grade">
                             <span class="field-label">Grade&nbsp;</span>
-                            <span>{{task.grade}}</span></p>
+                            <span ng-repeat="grade in task.grades">{{grade.name}}{{$last ? '' : ', '}}</span></p>
                         <p class="task-field" ng-show="settings.tasksDisplayFields.priority">
                             <priority-level value="task.priority._id"></priority-level></p>
                     </div>
