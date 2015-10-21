@@ -29,17 +29,19 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             function runFn(x, y) {
                 x = e.scrollLeft && e.scrollLeft < e.scrollWidth - e.clientWidth - 1 ? x : 0;
                 y = e.scrollTop && e.scrollTop < e.scrollHeight - e.clientHeight - 1 ? y : 0;
-                if (x || y) {fn(x, y);}
+                if (x || y) {
+                    fn(x, y);
+                }
             }
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
-                this.y = getCoordinatePartToScroll(document.documentElement.scrollTop + mouseMoveEvent.clientY - e.offsetTop, e.offsetHeight);
-                this.x = getCoordinatePartToScroll(document.documentElement.scrollLeft + mouseMoveEvent.clientX - e.offsetLeft, e.offsetWidth);
+                this.y = getCoordinatePartToScroll($window.pageYOffset + mouseMoveEvent.clientY - e.offsetTop, e.offsetHeight);
+                this.x = getCoordinatePartToScroll($window.pageXOffset + mouseMoveEvent.clientX - e.offsetLeft, e.offsetWidth);
             };
 
             var lastEvent;
             var windowScroll = new ScrollableElementFactory(function (x, y) {
-                $window.scrollTo(document.documentElement.scrollLeft + x, document.documentElement.scrollTop + y);
+                $window.scrollTo($window.pageXOffset + x, $window.pageYOffset + y);
                 elementScroll.scrollIfNecessary(lastEvent);
             });
 
@@ -57,8 +59,8 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             function touchOnBorder(e) {
                 var firstTouch = e.touches[0];
                 scrollOnBorder({
-                    x: firstTouch.pageX - document.documentElement.scrollLeft,
-                    y: firstTouch.pageY - document.documentElement.scrollTop,
+                    x: firstTouch.pageX - $window.pageXOffset,
+                    y: firstTouch.pageY - $window.scrollY,
                     clientX: firstTouch.clientX,
                     clientY: firstTouch.clientY
                 });
