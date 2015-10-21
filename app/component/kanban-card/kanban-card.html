@@ -8,6 +8,9 @@
         <div class="card-title" ng-show="$parent.settings.tasksDisplayFields.appName">
             <span class="card-name">{{task.appName}}</span>
         </div>
+        <div class="card-title" ng-show="$parent.settings.tasksDisplayFields.contentTypes">
+            <span lass="card-name" ng-repeat="contentType in task.contentTypes">{{contentType.name}}{{$last ? '' : ', '}}</span>
+        </div>
     </div>
     <div class="card-content">
         <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>

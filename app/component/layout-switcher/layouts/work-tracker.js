@@ -20,6 +20,13 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                         "parentId": "CTCAT_ROOT",
                         "name": "AR360 Article",
                         "description": "AR360 Article"
+                    },
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Book",
+                        "description": "AR360 Book"
                     }
                 ],
                 "grades": [

@@ -1,13 +1,13 @@
 angular.module('component.layout-switcher').config(function (contentLevelConfigs) {
     contentLevelConfigs.workTracker = {
         'minimum': {
-            'appName': true,
+            'contentTypes': true,
             'priority': true, //wt
             'grade': true,
             'id': true
         },
         'medium': {
-            'appName': true,
+            'contentTypes': true,
             'skillShortName': true, //wt
             'priority': true,
             'grade': true,
@@ -16,7 +16,7 @@ angular.module('component.layout-switcher').config(function (contentLevelConfigs
             'preview': true//wt
         },
         'maximum': {
-            'appName': true,
+            'contentTypes': true,
             'skillShortName': true, //wt
             'priority': true,
             'grade': true,
