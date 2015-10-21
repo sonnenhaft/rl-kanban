@@ -24,6 +24,20 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 ],
                 "grades": [
                     {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
                         "_id": "GRADE_3",
                         "tagsetId": "GRADE",
                         "parentId": "GRADE_ROOT",
@@ -41,14 +55,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    "_id": "PRIORITY_TEST",
+                    "_id": "PRIORITY_HIGH",
                     "tagsetId": "PRIORITY",
                     "parentId": "PRIORITY_ROOT",
                     "name": "test",
                     "description": "test"
                 },
                 flag: {
-                    "_id": "FLAG_TEST",
+                    "_id": "FLAG_FALSE",
                     "tagsetId": "FLAG",
                     "parentId": "FLAG_ROOT",
                     "name": "test",
@@ -57,7 +71,6 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             },
             {
                 'columnId': '555b6911f5cad468b43fbe8b',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Lorem do tempor aliquip enim id laborum id ea incididunt.',
                 'modifiedDate': '2015-04-02T16:53:24.778Z',
@@ -68,11 +81,71 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 1,
-                'flag': true,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_4",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "4",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
-                'priority': '0',
                 'assignability': 'Open',
                 'notes': 'Laboris consectetur et do et proident.',
                 'modifiedDate': '2015-03-19T04:37:56.100Z',
@@ -83,11 +156,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 4,
-                'flag': true,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
-                'priority': '1',
                 'assignability': 'Open',
                 'notes': 'Id ipsum aliquip anim sunt anim.',
                 'modifiedDate': '2015-02-12T06:07:35.757Z',
@@ -98,11 +224,50 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 2,
-                'flag': true,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
-                'priority': '1',
                 'assignability': 'Open',
                 'notes': 'Consectetur adipisicing ex proident quis nulla est dolore velit.',
                 'modifiedDate': '2015-03-26T23:27:19.819Z',
@@ -113,11 +278,57 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 1,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Fugiat sint laborum dolore enim nostrud tempor incididunt consectetur proident ea.',
                 'modifiedDate': '2015-02-14T05:16:55.439Z',
@@ -128,11 +339,50 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 1,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
-                'priority': '1',
                 'assignability': 'Locked',
                 'notes': 'Eiusmod aliquip esse consequat sunt id officia nulla ut anim.',
                 'modifiedDate': '2015-05-17T08:46:14.305Z',
@@ -143,11 +393,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Proident eiusmod duis cillum nisi nisi consectetur aliqua deserunt nulla mollit tempor.',
                 'modifiedDate': '2015-01-01T18:25:15.585Z',
@@ -158,11 +461,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
-                'priority': '0',
                 'assignability': 'Open',
                 'notes': 'Reprehenderit consequat consectetur consectetur sunt nostrud aliqua duis do consequat voluptate eu occaecat aliqua.',
                 'modifiedDate': '2015-02-28T14:28:32.509Z',
@@ -173,11 +529,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Video',
                 'grade': 1,
-                'flag': false,
-                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Pariatur excepteur laborum aute magna enim qui fugiat.',
                 'modifiedDate': '2015-03-09T06:02:33.756Z',
@@ -188,11 +597,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6922f5cad468b43fbe8b',
                 'type': 'Book',
                 'grade': 3,
-                'flag': false,
-                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
-                'priority': '2',
                 'assignability': 'Open',
                 'notes': 'Velit aute officia sint nostrud fugiat sit tempor aliqua ad do.',
                 'modifiedDate': '2015-04-27T19:49:29.829Z',
@@ -203,11 +665,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 4,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_HIGH",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
-                'priority': '2',
                 'assignability': 'Open',
                 'notes': 'Officia sunt excepteur proident elit elit ipsum aute nostrud proident esse aliqua.',
                 'modifiedDate': '2015-01-28T13:16:52.477Z',
@@ -218,11 +733,71 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 2,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_4",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "4",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
-                'priority': '0',
                 'assignability': 'Open',
                 'notes': 'Tempor id aliquip nostrud minim in cupidatat.',
                 'modifiedDate': '2015-02-20T19:39:14.230Z',
@@ -233,11 +808,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 3,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
-                'priority': '1',
                 'assignability': 'Locked',
                 'notes': 'Eiusmod fugiat sint quis qui magna.',
                 'ownerName': 'April Fletcher',
@@ -248,11 +876,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Book',
                 'grade': 2,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
-                'priority': '0',
                 'assignability': 'Open',
                 'notes': 'Ullamco mollit et occaecat mollit cillum exercitation laboris est sit ex ut.',
                 'modifiedDate': '2015-05-09T13:12:37.732Z',
@@ -263,11 +944,57 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 3,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Irure incididunt ex nostrud in adipisicing labore sit laborum do cupidatat adipisicing velit ea.',
                 'modifiedDate': '2015-01-26T12:27:27.323Z',
@@ -278,11 +1005,57 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 3,
-                'flag': false,
-                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Sint anim est ullamco sunt.',
                 'modifiedDate': '2015-04-03T03:14:19.396Z',
@@ -293,11 +1066,50 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 1,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_MED",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
-                'priority': '0',
                 'assignability': 'Open',
                 'notes': 'Quis duis excepteur qui elit anim consectetur esse anim sunt consectetur.',
                 'modifiedDate': '2015-05-18T03:16:38.584Z',
@@ -308,11 +1120,57 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Video',
                 'grade': 4,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_LOW",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Nostrud commodo tempor ea ipsum minim eu dolor eiusmod labore aliqua duis sit dolor consectetur.',
                 'modifiedDate': '2015-01-09T04:43:48.752Z',
@@ -323,11 +1181,64 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Book',
                 'grade': 4,
-                'flag': false,
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_LOW",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_FALSE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
-                'priority': '0',
                 'assignability': 'Locked',
                 'notes': 'Labore et ipsum dolore proident qui fugiat laboris aliqua ad consequat cillum do.',
                 'modifiedDate': '2015-02-09T13:57:17.260Z',
@@ -338,8 +1249,62 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'swimlaneId': '555b6933a9ce3b29e498cae5',
                 'type': 'Book',
                 'grade': 3,
-                'flag': false,
-                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87']
+                'validStates': ['555b6911ba6d349f6253cd85', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                "contentTypes": [
+                    {
+                        "_id": "CTCAT_AR360ART",
+                        "tagsetId": "CTCAT",
+                        "parentId": "CTCAT_ROOT",
+                        "name": "AR360 Article",
+                        "description": "AR360 Article"
+                    }
+                ],
+                "grades": [
+                    {
+                        "_id": "GRADE_1",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "1",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_2",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "2",
+                        "description": "Grade Three"
+                    },
+                    {
+                        "_id": "GRADE_3",
+                        "tagsetId": "GRADE",
+                        "parentId": "GRADE_ROOT",
+                        "name": "3",
+                        "description": "Grade Three"
+                    }
+                ],
+                "skills": [
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    }
+                ],
+                priority: {
+                    "_id": "PRIORITY_LOW",
+                    "tagsetId": "PRIORITY",
+                    "parentId": "PRIORITY_ROOT",
+                    "name": "test",
+                    "description": "test"
+                },
+                flag: {
+                    "_id": "FLAG_TRUE",
+                    "tagsetId": "FLAG",
+                    "parentId": "FLAG_ROOT",
+                    "name": "test",
+                    "description": "test"
+                }
             }
 
         ],
