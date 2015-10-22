@@ -13,9 +13,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                     $scope.$emit('kanban:task:modalopen', task);
                 } else {
                     modal = extendedCard.open(task, settings);
-                    modal.result.finally(function(){
-                        modal = null;
-                    });
+                    modal.result.finally(function(){modal = null;});
                 }
             };
 

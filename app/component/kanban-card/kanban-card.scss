@@ -212,3 +212,48 @@ $marker-height: 4px;
         user-select: none;
     }
 }
+
+
+.tooltip-popup.skill-tooltip {
+    max-width: 450px;
+    padding: 20px;
+    .glyph-close {
+        width: 0;
+        height: 0;
+        margin-left: -9px;
+        margin-top: -9px;
+    }
+    .skills-title {
+        font-weight: bold;
+        padding: 0 0 10px 0;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .skills-description {
+        max-height: 150px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #F2F2F2;
+        padding: 10px 10px;
+        font-size: 16px;
+        margin: 0 0 10px 0;
+        > div {
+            padding-bottom: 5px;
+            .color {
+                background: #A7A7A7;
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                float: left;
+                margin: 8px 5px 0 0;
+            }
+            .title {
+                display: block;
+                padding-left: 10px;
+            }
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
