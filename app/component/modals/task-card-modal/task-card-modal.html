@@ -8,7 +8,9 @@
                 <div class="app-tag" ng-show="task.appRef">
                     <glyph-icon icon="task.appRef" class="card-icon"></glyph-icon>
                 </div>
-                <span class="title">{{task.appName}}</span>
+                <div class="title" ng-show="settings.tasksDisplayFields.contentTypes">
+                    <span ng-repeat="contentType in task.contentTypes">{{contentType.name}}{{$last ? '' : ', '}}</span>
+                </div>
             </div>
         </div>
     </div>

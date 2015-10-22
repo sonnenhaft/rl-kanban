@@ -61,14 +61,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -136,14 +136,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -203,14 +203,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -256,14 +256,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -316,14 +316,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -369,14 +369,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -436,14 +436,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -503,14 +503,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -570,14 +570,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -637,14 +637,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -704,14 +704,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_HIGH',
+                    '_id': 'AUTHPRI_HIGH',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -778,14 +778,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -845,14 +845,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -912,14 +912,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -972,14 +972,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1032,14 +1032,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1085,14 +1085,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_MED',
+                    '_id': 'AUTHPRI_MED',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1145,14 +1145,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_LOW',
+                    '_id': 'AUTHPRI_LOW',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1212,14 +1212,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_LOW',
+                    '_id': 'AUTHPRI_LOW',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_FALSE',
+                    '_id': 'AUTHFLAG_FALSE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1279,14 +1279,14 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     }
                 ],
                 priority: {
-                    '_id': 'PRIORITY_LOW',
+                    '_id': 'AUTHPRI_LOW',
                     'tagsetId': 'PRIORITY',
-                    'parentId': 'PRIORITY_ROOT',
+                    'parentId': 'AUTHPRI_ROOT',
                     'name': 'test',
                     'description': 'test'
                 },
                 flag: {
-                    '_id': 'FLAG_TRUE',
+                    '_id': 'AUTHFLAG_TRUE',
                     'tagsetId': 'FLAG',
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
@@ -1373,7 +1373,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'highlightTaskOnClick': true,
             'tasksDisplayFields': {
                 'contentTypes': true,
-                'skillShortName': true, //wt
+                'skillShortName': true,
                 'priority': true,
                 'grade': true,
                 'id': true,
