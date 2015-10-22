@@ -1337,7 +1337,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'id': '555b6911ba6d349f6253cd85'
             },
             {
-                'name': 'Copy Edit',
+                'name': 'MEDIA IDENTIFICATION AND INSERTION',
                 'id': '555b6911ba6d349f6253cd86'
             },
             {
