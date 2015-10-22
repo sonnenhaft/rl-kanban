@@ -14,11 +14,8 @@
     </div>
     <div class="card-content">
         <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>
-        <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.skillShortName" ng-bind-html="task.skillShortName | sanitize"></p>
-        <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description && !task.skills.length">{{task.description}}</p>
-        <p ng-show="task.skills.length">
-            <b style="font-weight: bold">{{task.skills[0].name}}</b>
-            <br/>
+        <p ng-show="task.skills.length && $parent.settings.tasksDisplayFields.skillShortName">
+            <p class="task-name" ng-bind-html="task.skills[0].name | sanitize"></p>
             <a ng-if="task.skills.length > 1">
                 <tool-tip template-url="app/component/kanban-card/tip-template.html"
                           type="long" event="click" scope="task" tip-class="skill-tooltip">
@@ -26,6 +23,7 @@
                 </tool-tip>
             </a>
         </p>
+        <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
         <hr class="card-divider" ng-show="$parent.settings.tasksDisplayFields.taskName || $parent.settings.tasksDisplayFields.skillShortName"/>
         <p ng-show="$parent.settings.tasksDisplayFields.ownerAppLogo"><img class="owner-logo" ng-src="{{task.ownerAppLogo}}"/></p>
         <p ng-show="$parent.settings.tasksDisplayFields.assignees" ng-style="{color: task.assigneesColor}">
