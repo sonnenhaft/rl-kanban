@@ -1370,7 +1370,17 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'contentText': 'Tasks',
             'contentTextSingleItem': 'Task',
             'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
-            'highlightTaskOnClick': true
+            'highlightTaskOnClick': true,
+            'tasksDisplayFields': {
+                'contentTypes': true,
+                'skillShortName': true, //wt
+                'priority': true,
+                'grade': true,
+                'id': true,
+                'notes': true,
+                'flag': true,
+                'preview': true
+            }
         }
     }
 });
