@@ -48,7 +48,7 @@
                 <hr class="card-divider"/>
                 <p ng-show="$parent.settings.tasksDisplayFields.priority" class="text-left"><priority-level value="task.priority._id"></priority-level></p>
                 <div class="text-right">
-                    <span ng-show="$parent.settings.tasksDisplayFields.flag"><glyph-icon icon="'glyph-flag'" class="card-icon text-orange" ng-show="task.flag._id === 'FLAG_TRUE'" class="task-flag"></glyph-icon></span>
+                    <span ng-show="$parent.settings.tasksDisplayFields.flag"><glyph-icon icon="'glyph-flag'" class="card-icon text-orange" ng-show="task.flag._id === 'AUTHFLAG_TRUE'" class="task-flag"></glyph-icon></span>
                     <button ng-show="$parent.settings.tasksDisplayFields.preview" type="button" class="button card-button" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, true)">
                         <glyph-icon icon="'glyph-eye'"></glyph-icon>
                     </button>
