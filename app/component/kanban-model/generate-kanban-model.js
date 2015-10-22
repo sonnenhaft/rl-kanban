@@ -83,21 +83,6 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
             });
         }
 
-        if (angular.isDefined(config.tasks)) {
-            config.tasks.forEach(function (task) {
-                task.barredColumns = [];
-                if (angular.isArray(task.validStates)) {
-                    config.swimlanes.forEach(function (swimlane) {
-                        swimlane.columns.forEach(function (column) {
-                            if(task.validStates.indexOf(column.id) === -1) {
-                                task.barredColumns.push(column);
-                            }
-                        });
-                    });
-                }
-            });
-        }
-
         return config;
     };
 });
