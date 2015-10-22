@@ -25,10 +25,8 @@ angular.module('component.kanban-board',[
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
                     }
-                    if (angular.isArray(task.barredColumns)) {
-                        task.barredColumns.forEach(function(column) {
-                            column.$barred = true;
-                        });
+                    if (angular.isArray(task.validStates)) {
+                        kanban.validateStates(task)
                     }
                     if ($scope.settings.highlightTaskOnClick) {
                         kanban.highlightTask(task);
@@ -43,10 +41,8 @@ angular.module('component.kanban-board',[
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:stop', task.id);
                     scrollableElement.stopWatching();
-                    if (angular.isArray(task.barredColumns)) {
-                        task.barredColumns.forEach(function(column) {
-                            delete column.$barred;
-                        })
+                    if (angular.isArray(task.validStates)) {
+                        kanban.clearInvalidStates();
                     }
                 },
                 itemMoved: function (e) {

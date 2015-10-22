@@ -2,6 +2,7 @@ angular.module('kanban').directive('kanban', function (isTouch) {
     function setVal(childElement, value) {
         childElement.css('width', (value || 0) * 228 + 'px');
     }
+
     return {
         scope: {config: '='},
         replace: true,
@@ -11,8 +12,10 @@ angular.module('kanban').directive('kanban', function (isTouch) {
 
             $scope.isTouch = isTouch;
 
-            $scope.$watch('config.columns.length', function(value){
-                registeredElements.forEach(function(childElement){setVal(childElement, value);});
+            $scope.$watch('config.columns.length', function (value) {
+                registeredElements.forEach(function (childElement) {
+                    setVal(childElement, value);
+                });
             });
 
             this.registerElement = function (childElement) {
@@ -34,6 +37,26 @@ angular.module('kanban').directive('kanban', function (isTouch) {
                 });
                 task.$highlight = true;
                 $scope.$evalAsync();
+            };
+
+            this.validateStates = function (task) {
+                $scope.config.swimlanes.forEach(function (swimlane) {
+                    swimlane.columns.forEach(function (column) {
+                        if (task.validStates.indexOf(column.id) === -1) {
+                            column.$barred = true;
+                        }
+                    });
+                });
+            };
+
+            this.clearInvalidStates = function () {
+                $scope.config.swimlanes.forEach(function (swimlane) {
+                    swimlane.columns.forEach(function (column) {
+                        if (column.$barred) {
+                            delete column.$barred;
+                        }
+                    });
+                });
             };
         }
     };
