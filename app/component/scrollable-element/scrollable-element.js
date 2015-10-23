@@ -13,7 +13,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
         }
     }
 
-    var $body = angular.element(document).find('body');
+    var $body = angular.element($window.document.body);
 
     return {
         controller: function ($element) {
@@ -37,11 +37,6 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             elementScroll.calculateDot = function (mouseMoveEvent) {
                 this.y = getCoordinatePartToScroll($window.pageYOffset + mouseMoveEvent.clientY - e.offsetTop, e.offsetHeight);
                 this.x = getCoordinatePartToScroll($window.pageXOffset + mouseMoveEvent.clientX - e.offsetLeft, e.offsetWidth);
-                angular.element(document).triggerHandler({
-                    type : "mousemove",
-                    pageY: $window.pageYOffset + mouseMoveEvent.clientY,
-                    pageX: $window.pageXOffset + mouseMoveEvent.clientX
-                });
             };
 
             var lastEvent;
