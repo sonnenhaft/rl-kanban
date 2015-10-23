@@ -53,11 +53,25 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 ],
                 'skills': [
                     {
-                        '_id': 'SKILL_0AC56544B1B14D6DACC6BB213B7601D0',
-                        'tagsetId': 'SKILL',
-                        'parentId': 'SKILL_ALGEBRAICTHINKING6RI',
-                        'name': 'Use a basic addition or subtraction fact number sentence to represent a situation',
-                        'description': 'Use a basic addition or subtraction fact number sentence to represent a situation'
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    },
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
+                    },
+                    {
+                        "_id": "SKILL_0AC56544B1B14D6DACC6BB213B7601D0",
+                        "tagsetId": "SKILL",
+                        "parentId": "SKILL_ALGEBRAICTHINKING6RI",
+                        "name": "Use a basic addition or subtraction fact number sentence to represent a situation",
+                        "description": "Use a basic addition or subtraction fact number sentence to represent a situation"
                     }
                 ],
                 priority: {

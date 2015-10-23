@@ -1,0 +1,10 @@
+<div>
+    <div class="skills-title">
+        {{::skills.length - 1}} Skill<span ng-show="::skills.length !== 2">s</span>
+    </div>
+    <div class="skills-description">
+        <div ng-repeat="skill in skills" class="clearfix" ng-show="$index">
+            <span class="title" ng-bind-html="skill.name"></span>
+        </div>
+    </div>
+</div>

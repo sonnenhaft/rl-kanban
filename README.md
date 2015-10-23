@@ -187,6 +187,14 @@ See app/api/config/ for full stub files.
 	'allowGroupExpand': false,
 	'noContentText': 'No Tasks',
 	'groupContentType': 'Skills',
+  'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
+  'disableDefaultMessaging': true,
+  'allowEmptySwimlanes': true,
+  'hideGroups': true,
+  'legacyCardModal': true,
+  'acceptTasks': true,
+  'allowGroupExpand': true,
+  'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
 	'addResourceLinks': [
 	{
 	linkText: 'Add Skill',
@@ -209,18 +217,24 @@ See app/api/config/ for full stub files.
 }
 	}
 ```
-* `showAddNew`: Show/hide Add Resources button
-* `taskModalWindowTitle`: Text in header of task card modal window
-* `groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
-* `groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
+* `acceptTasks`: enable/disable dragging task cards between swimlanes
+* `addResourceLinks`: link and text for items in 'Add New' dropdown
 * `allowCopyTask`: enable/disable copy functionality for task cards
 * `allowDeleteTask`: enable/disable delete functionality for task cards
-* `readOnly`: enable/disable read-only state (user can only view kanban; dragging, expand/collapse, copy, delete and "add" buttons are disabled)
-* `acceptTasks`: enable/disable dragging task cards between swimlanes
+* `allowEmptySwimLanes`: Allow empty swim lanes
 * `allowGroupExpand`: enable/disable group expanding to detailed view
-* `noContentText`: Help text inside groups canvas, when it's empty
+* `barredColumnMessage`: Text to show when in an invalid workflow state column
+* `disableDefaultMessaging`: Hide UI in empty swim lanes
 * `groupContentType`: Help text, describing type of groups source (used for empty state, in groups canvas)
-* `addResourceLinks`: link and text for items in 'Add New' dropdown
+* `groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
+* `groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
+* `hideGroups`: Hides the Task Groups section at the top of the page.
+* `highlightTaskOnClick`: Show a highlight (i.e. selection) around a task card when it's clicked
+* `legacyCardModal`: If false, show the built-in modal when task card is clicked.  Else a `kanban:task:modalopen` event will be fired (and you can hook up a custom modal).
+* `noContentText`: Help text inside groups canvas, when it's empty
+* `readOnly`: enable/disable read-only state (user can only view kanban; dragging, expand/collapse, copy, delete and "add" buttons are disabled)
+* `showAddNew`: Show/hide Add Resources button
+* `taskModalWindowTitle`: Text in header of task card modal window
 * `tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
 
 ## Events
