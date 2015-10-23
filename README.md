@@ -114,6 +114,7 @@ See app/api/config/ for full stub files.
 * `modifiedDate`: Last modification date
 * `creationDate`: Creation date
 * `ownerAppLogo`: Source logo
+* `preview`: show/hide preview button on card (tasksDisplayFields.preview should be true)
 
 #### Columns
 ```

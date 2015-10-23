@@ -73,7 +73,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             },
             {
                 'columnId': '555b6911f5cad468b43fbe8b',
@@ -148,7 +149,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'assignability': 'Open',
@@ -215,7 +217,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'assignability': 'Open',
@@ -268,7 +271,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'assignability': 'Open',
@@ -328,7 +332,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'assignability': 'Locked',
@@ -381,7 +386,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'assignability': 'Locked',
@@ -448,7 +454,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'assignability': 'Locked',
@@ -515,7 +522,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'assignability': 'Open',
@@ -582,7 +590,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'assignability': 'Locked',
@@ -649,7 +658,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
                 'assignability': 'Open',
@@ -716,7 +726,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
                 'assignability': 'Open',
@@ -790,7 +801,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'assignability': 'Open',
@@ -857,7 +869,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
                 'assignability': 'Locked',
@@ -924,7 +937,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'assignability': 'Open',
@@ -984,7 +998,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
                 'assignability': 'Locked',
@@ -1044,7 +1059,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'assignability': 'Locked',
@@ -1097,7 +1113,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
                 'assignability': 'Open',
@@ -1157,7 +1174,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'assignability': 'Locked',
@@ -1224,7 +1242,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: true
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
                 'assignability': 'Locked',
@@ -1291,7 +1310,8 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'parentId': 'FLAG_ROOT',
                     'name': 'test',
                     'description': 'test'
-                }
+                },
+                preview: false
             }
 
         ],
