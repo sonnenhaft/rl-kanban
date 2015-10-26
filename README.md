@@ -194,6 +194,7 @@ See app/api/config/ for full stub files.
   'legacyCardModal': true,
   'acceptTasks': true,
   'allowGroupExpand': true,
+  'editableSwimlanes': true,
   'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
 	'addResourceLinks': [
 	{
@@ -236,6 +237,7 @@ See app/api/config/ for full stub files.
 * `showAddNew`: Show/hide Add Resources button
 * `taskModalWindowTitle`: Text in header of task card modal window
 * `tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
+* `editableSwimlanes`: enable\disable per swimlane Edit Mode feature.
 
 ## Events
 The Kanban control communicates with its container via the angular event system. The container can subscribe and listen to the following events:
