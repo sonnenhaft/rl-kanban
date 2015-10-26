@@ -194,6 +194,31 @@ $marker-height: 4px;
     .card-ellipsis {
         color: #31B3FF;
     }
+    
+    .card-edit {
+        background: #f6f6f6;
+        .card-header, .card-content {
+            opacity: 0.5;
+        }
+        &:hover {
+            background: #FFFFFF;
+            .card-header, .card-content {
+                opacity: 1;
+            }
+        }
+    }
+
+    .delete-card-button {
+        background: #dd2f2f;
+        color: #fff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        font-size: 9px;
+    }
 }
 
 .kanban-read-only {

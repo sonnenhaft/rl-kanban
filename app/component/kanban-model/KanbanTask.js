@@ -31,8 +31,10 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
         },
         remove: function(){
             this.removeFromColumn();
-            this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
-            this.group.recalculate();
+            if (angular.isDefined(this.group)) {
+                this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
+                this.group.recalculate();
+            }
         },
         clone: function (task) {
             var clonedTask = new KanbanTask(task);

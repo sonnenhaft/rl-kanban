@@ -1405,6 +1405,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'contentTextSingleItem': 'Task',
             'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
             'highlightTaskOnClick': true,
+            'editableSwimlanes': true,
             'tasksDisplayFields': {
                 'contentTypes': true,
                 'skillShortName': true,
