@@ -40,6 +40,8 @@ function initPrivateTasks() {
             'app/**/_*.js',
             'app/**/*.js',
             'app/**/*.css',
+            '!app/sc-deps/**/*.css',
+            '!app/sc-deps/**/*.js',
             '!app/vendor/**/*.css',
             '!app/vendor/**/*.js',
             '!app/**/*spec.js',
@@ -54,6 +56,7 @@ function initPrivateTasks() {
             relative: true,
             name: 'vendor'
         });
+
         return gulp.src('index-inject.html')
             .pipe(rename('index.html'))
             .pipe(gulp.dest('./'))
@@ -101,56 +104,58 @@ function initPrivateTasks() {
         gulp.src(['app/component/**/*.png']).pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
         gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
 
-        var uglify = require('gulp-uglify'),
-            rename = require('gulp-rename'),
-            clone = require('gulp-clone'),
-            cloneJS = clone.sink(), cloneVendorJS = clone.sink(),
-            cloneCSS = clone.sink(), cloneVendorCSS = clone.sink();
+        var uglify = require('gulp-uglify');
+        var rename = require('gulp-rename');
+        var clone = require('gulp-clone');
+        var cloneJS = clone.sink();
+        var cloneVendorJS = clone.sink();
+        var cloneCSS = clone.sink();
+        var cloneVendorCSS = clone.sink();
+        var cloneScCSS = clone.sink();
+        var cloneScJS = clone.sink();
 
-        var cssOpts = [
-            sourcemaps.init(),
-           // cssBase64({maxWeightResource: 200 * 1024}),
-            urlAdjuster({prepend: '/' + staticAssetsDir}),
-            'concat',
-            cloneCSS,
-            minifyCss(),
-            rename({suffix: '.min'}),
-            sourcemaps.write('.')
-        ];
-        var vendorCSSOpts = [
-            sourcemaps.init(),
-        //    cssBase64({maxWeightResource: 200 * 1024}),
-            urlAdjuster({prepend: '/' + staticAssetsDir}),
-            'concat',
-            cloneVendorCSS,
-            minifyCss(),
-            rename({suffix: '.min'}),
-            sourcemaps.write('.')
-        ];
-        var jsOpts = [
-            ngAnnotate(),
-            cloneJS,
-            sourcemaps.init(),
-            uglify(),
-            rename({suffix: '.min'}),
-            sourcemaps.write('.')
-        ];
-        var vendorJSOpts = [
-            ngAnnotate(),
-            cloneVendorJS,
-            sourcemaps.init(),
-            //uglify(),
-            rename({suffix: '.min'}),
-            sourcemaps.write('.')
-        ];
-        //js: [ngAnnotate(), uglify(), ver({prefix: 'v'})]
-        if (commander.versioned === true) {
-            vendorCSSOpts.push(ver({prefix: 'v'}));
-            vendorJSOpts.push(ver({prefix: 'v'}));
-            cssOpts.push(ver({prefix: 'v'}));
-            jsOpts.push(ver({prefix: 'v'}));
+        function css(el) {
+            return [
+                sourcemaps.init(),
+                // cssBase64({maxWeightResource: 200 * 1024}),
+                urlAdjuster({prepend: '/' + staticAssetsDir}),
+                'concat',
+                el,
+                minifyCss(),
+                rename({suffix: '.min'}),
+                sourcemaps.write('.')
+            ];
         }
 
+        var cssOpts = css(cloneCSS);
+        var vendorCSSOpts = css(cloneVendorCSS);
+        var scCSSOpts = css(cloneScCSS);
+
+        function js(el, ug) {
+            var array = [
+                ngAnnotate(),
+                el,
+                sourcemaps.init()
+            ];
+            if (ug) {
+                array.push(uglify());
+            }
+
+            array.push(rename({suffix: '.min'}));
+            array.push(sourcemaps.write('.'));
+            return array;
+        }
+
+        var jsOpts = js(cloneJS, true);
+        var vendorJSOpts = js(cloneVendorJS);
+        var scJSOpts = js(cloneScJS, true);
+
+        //js: [ngAnnotate(), uglify(), ver({prefix: 'v'})]
+        if (commander.versioned === true) {
+            [scJSOpts, scCSSOpts, vendorCSSOpts, vendorJSOpts, cssOpts, jsOpts].forEach(function (o) {
+                o.push(ver({prefix: 'v'}));
+            });
+        }
 
         return gulp.src('index.html')
             .pipe(inject(gulp.src(['.tmp/templates.js', '.tmp/package.js'], {read: false}),
@@ -164,7 +169,9 @@ function initPrivateTasks() {
                 css: cssOpts,
                 js: jsOpts,
                 vendorJS: vendorJSOpts,
-                vendorCSS: vendorCSSOpts
+                vendorCSS: vendorCSSOpts,
+                scDepsCSS: scCSSOpts,
+                scDepsJS: scJSOpts
             }))
             .pipe(cloneVendorCSS.tap())
             .pipe(cloneCSS.tap())
@@ -259,7 +266,6 @@ gulp.task('build', function () {
     );
 });
 
-
 gulp.task('host', function () {
     initPrivateTasks();
     return runSequence('clean-generated', ['sass', 'ng-templates&app-version'], 'inject-files', 'usemin', 'server', function () {
@@ -271,7 +277,7 @@ function runKarma(done, singleRun) {
     require('karma').server.start({
         configFile: __dirname + '/resources/karma.conf.js',
         singleRun: singleRun || false
-    }, function() {
+    }, function () {
         done();
     });
 }
@@ -328,36 +334,36 @@ gulp.task('ngdocs', [], function () {
 var svn = require('gulp-svn');
 
 function cleanUpSVNCheckouts() {
-  util.log('deleting ./svn-temp');
-  return gulp.src('svn-temp', {read:false}).pipe(clean({force:true}));
+    util.log('deleting ./svn-temp');
+    return gulp.src('svn-temp', {read: false}).pipe(clean({force: true}));
 }
 gulp.task('cleanup-svn-checkouts', cleanUpSVNCheckouts);
 
-gulp.task('checkout-rl-components', ['cleanup-svn-checkouts'], function(cb) {
-  util.log('IMPORTANT: You must be connected to RLI network to run svn commands');
-  svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlSlider/trunk/deployment', 'svn-temp/rlSlider', {}, function(err) {
-    svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlReputationWidget/trunk/deployment', 'svn-temp/rlRepuationWidget', {}, 
-      function(err) {
-        if (err) {
-          throw err;
+gulp.task('checkout-rl-components', ['cleanup-svn-checkouts'], function (cb) {
+    util.log('IMPORTANT: You must be connected to RLI network to run svn commands');
+    svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlSlider/trunk/deployment', 'svn-temp/rlSlider', {}, function (err) {
+            svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlReputationWidget/trunk/deployment', 'svn-temp/rlRepuationWidget', {},
+                function (err) {
+                    if (err) {
+                        throw err;
+                    }
+                    cb();
+                });
+            if (err) {
+                throw err;
+            }
         }
-        cb();
-      });
-      if (err) {
-        throw err;
-      }
-    }
-  );
+    );
 });
 
-gulp.task('copy-rl-components', ['checkout-rl-components'], function() {
-  return gulp.src(['svn-temp/**/*.js', 'svn-temp/**/*.css', '!svn-temp/**/*.min.js'])
-    .pipe(rename({
-      dirname: ''
-    }))
-    .pipe(gulp.dest('app/vendor/rl'));
+gulp.task('copy-rl-components', ['checkout-rl-components'], function () {
+    return gulp.src(['svn-temp/**/*.js', 'svn-temp/**/*.css', '!svn-temp/**/*.min.js'])
+        .pipe(rename({
+            dirname: ''
+        }))
+        .pipe(gulp.dest('app/vendor/rl'));
 });
 
-gulp.task('merge-rl-components', ['copy-rl-components'], function() {
-  cleanUpSVNCheckouts();
+gulp.task('merge-rl-components', ['copy-rl-components'], function () {
+    cleanUpSVNCheckouts();
 });
