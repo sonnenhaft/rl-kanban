@@ -28,7 +28,7 @@ angular.module('component.kanban-board',[
                     if (angular.isArray(task.validStates)) {
                         kanban.validateStates(task)
                     }
-                    if ($scope.settings.highlightTaskOnClick) {
+                    if ($scope.settings.highlightTaskOnClick && !task.$highlight) {
                         kanban.highlightTask(task);
                     }
                     scrollableElement.watchMouse();
@@ -46,29 +46,22 @@ angular.module('component.kanban-board',[
                     }
                 },
                 itemMoved: function (e) {
-                    if (e.dest.sortableScope.$parent.column.$barred) {
+                    var newColumn = e.dest.sortableScope.$parent.column;
+                    if (newColumn.$barred) {
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, e.source.itemScope.task);
                     } else {
-                        var task = e.source.itemScope.task;
-                        var toSwimlane = e.dest.sortableScope.$parent.column.swimlane;
-                        var fromSwimlane = e.source.sortableScope.$parent.column.swimlane;
+                        var toSwimlane = newColumn.swimlane;
 
-                        task.column = e.dest.sortableScope.$parent.column;
+                        kanban.getHighlighted().forEach(function(task){
+                            var fromSwimlane = task.column.swimlane;
+                            var oldColumnId  = task.columnId;
 
-                        var oldColumnId  = task.columnId;
-                        task.columnId = task.column.id;
-                        $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
+                            task.removeFromColumn();
+                            task.attachToColumn(newColumn);
 
-                        task.swimlaneId = task.column.swimlane.id;
-                        if (angular.isDefined(task.group)) {
-                            task.group.recalculate();
-                        }
-
-                        if (toSwimlane.id !== fromSwimlane.id) {
-                            toSwimlane.$tasksCount++;
-                            fromSwimlane.$tasksCount--;
-                        }
+                            $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
+                        });
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {

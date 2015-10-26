@@ -7,8 +7,15 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
-                    kanban.highlightTask(task);
+                    if ($event.ctrlKey) {
+                        task.$highlight = true;
+                    } else {
+                        if (!task.$highlight) {
+                            kanban.highlightTask(task);
+                        }
+                    }
                 }
+
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
                 } else {
