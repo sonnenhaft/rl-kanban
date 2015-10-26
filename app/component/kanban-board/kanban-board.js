@@ -25,9 +25,7 @@ angular.module('component.kanban-board',[
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
                     }
-                    if (angular.isArray(task.validStates)) {
-                        kanban.validateStates(task)
-                    }
+                    kanban.validateStates();
                     if ($scope.settings.highlightTaskOnClick && !task.$highlight) {
                         kanban.highlightTask(task);
                     }
@@ -51,16 +49,8 @@ angular.module('component.kanban-board',[
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, e.source.itemScope.task);
                     } else {
-                        var toSwimlane = newColumn.swimlane;
-
                         kanban.getHighlighted().forEach(function(task){
-                            var fromSwimlane = task.column.swimlane;
-                            var oldColumnId  = task.columnId;
-
-                            task.removeFromColumn();
-                            task.attachToColumn(newColumn);
-
-                            $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
+                            task.moveToColumn(newColumn);
                         });
                     }
                 },
