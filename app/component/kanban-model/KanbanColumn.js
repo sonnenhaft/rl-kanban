@@ -5,7 +5,10 @@
 
     KanbanColumn.prototype = {
         removeTask: function (task) {
-            this.tasks.splice(this.tasks.indexOf(task), 1);
+            var index = this.tasks.indexOf(task);
+            if (index !== -1) {
+                this.tasks.splice(index, 1);
+            }
             this.swimlane.$tasksCount--;
         }
     };
