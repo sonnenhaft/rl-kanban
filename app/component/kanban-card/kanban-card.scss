@@ -197,6 +197,7 @@ $marker-height: 4px;
     
     .card-edit {
         background: #f6f6f6;
+        user-select: none;
         .card-header, .card-content {
             opacity: 0.5;
         }
