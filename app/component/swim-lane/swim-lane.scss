@@ -41,6 +41,37 @@
         line-height: 27px;
         vertical-align: middle;
     }
+    
+    .swim-lane-header:hover {
+        .edit-tasks-button {
+            visibility: visible;
+        }
+    }
+
+    .edit-tasks-button {
+        float: right;
+        visibility: hidden;
+        .button {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: transparent;
+            border: none;
+            line-height: 28px;
+            font-weight: 400;
+            text-decoration: underline;
+            color: #ccc;
+            &:hover {
+                color: #31b3ff;
+            }
+        }
+    }
+
+    &.edit {
+        .edit-tasks-button {
+            visibility: visible;
+        }
+    }
 
     &.empty .kanban-column {
         border-right: none;

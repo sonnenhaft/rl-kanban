@@ -1,4 +1,4 @@
-<div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount && !settings.allowEmptySwimlanes, 'no-groups': !groups.length}">
+<div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount && !settings.allowEmptySwimlanes, 'no-groups': !groups.length, 'edit': $edit}">
     <div class="swim-lane-header swim-lane-toggle" ng-click="toggleCollapse()">
     <span class="glyph-icon" ng-hide="settings.readOnly">
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
@@ -8,6 +8,9 @@
         <div class="add-resource-button" ng-hide="settings.readOnly || !swimlane.addResourcesButtonText" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
             <button class="button">{{swimlane.addResourcesButtonText}}</button>
+        </div>
+        <div class="edit-tasks-button" ng-hide="settings.readOnly || !settings.editableSwimlanes" ng-click="editTasks($event)">
+            <button class="button" type="button">{{$edit ? 'Done' : 'Edit Tasks'}}</button>
         </div>
     </div>
     <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings"></kanban-board>
