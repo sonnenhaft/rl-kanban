@@ -36,7 +36,7 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
                         column.tasks.forEach(function(task){
                             $scope.settings.isDisabled = true;
                             task.$edit = true;
-                            delete task.$highlight
+                            task.$highlight = undefined;
                         });
                     });
                 } else {

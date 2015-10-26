@@ -11,10 +11,15 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
         },
         attachToColumn: function(column){
             this.column = column;
-            column.tasks.push(this);
+            if (column.tasks.indexOf(this) === -1) {
+                column.tasks.push(this);
+            }
             this.columnId = column.id;
             this.swimlaneId = column.swimlaneId;
             column.swimlane.$tasksCount++;
+            if (angular.isDefined(this.group)) {
+                this.group.recalculate();
+            }
         },
         removeFromColumn: function () {
             this.column.removeTask(this);

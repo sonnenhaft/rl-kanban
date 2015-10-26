@@ -31,6 +31,12 @@ angular.module('kanban').directive('kanban', function (isTouch) {
                 registeredElements.splice(registeredElements.indexOf(childElement), 1);
             };
 
+            this.getHighlighted = function(fn){
+                return $scope.config.tasks.filter(function(t){
+                    return t.$highlight;
+                })
+            }
+
             this.highlightTask = function (task) {
                 $scope.config.tasks.forEach(function (task) {
                     delete task.$highlight;
