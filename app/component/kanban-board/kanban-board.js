@@ -1,4 +1,4 @@
-angular.module('component.kanban-board',[
+angular.module('component.kanban-board', [
     'component.kanban-card',
     'component.expand-collapse',
     'component.scrollable-element'
@@ -15,29 +15,27 @@ angular.module('component.kanban-board',[
             var scrollableElement = $ctrl[0];
             var kanban = $ctrl[1];
             $scope.columns = $scope.swimlane.columns;
-            $scope.addResources = function(){
-               $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
+            $scope.addResources = function () {
+                $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
             };
             $scope.scrollCallbacks = {
-                dragStart: function(e){
+                dragStart: function (e) {
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:start', task.id);
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
                     }
-                    if (angular.isArray(task.validStates)) {
-                        kanban.validateStates(task)
-                    }
+                    kanban.validateStates();
                     if ($scope.settings.highlightTaskOnClick && !task.$highlight) {
                         kanban.highlightTask(task);
                     }
                     scrollableElement.watchMouse();
                 },
-                orderChanged: function(e){
+                orderChanged: function (e) {
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:orderchanged', task.id);
                 },
-                dragEnd: function(e){
+                dragEnd: function (e) {
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:stop', task.id);
                     scrollableElement.stopWatching();
@@ -47,20 +45,19 @@ angular.module('component.kanban-board',[
                 },
                 itemMoved: function (e) {
                     var newColumn = e.dest.sortableScope.$parent.column;
+                    var sourceTask = e.source.itemScope.task;
                     if (newColumn.$barred) {
                         e.dest.sortableScope.removeItem(e.dest.index);
-                        e.source.itemScope.sortableScope.insertItem(e.source.index, e.source.itemScope.task);
+                        e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
                     } else {
-                        var toSwimlane = newColumn.swimlane;
+                        kanban.getHighlighted().forEach(function (task) {
+                            task.moveToColumn(newColumn);
 
-                        kanban.getHighlighted().forEach(function(task){
-                            var fromSwimlane = task.column.swimlane;
-                            var oldColumnId  = task.columnId;
-
-                            task.removeFromColumn();
-                            task.attachToColumn(newColumn);
-
-                            $scope.$emit('kanban:task:moved', task.id, oldColumnId, task.columnId, fromSwimlane.id, toSwimlane.id);
+                            if (task !== sourceTask) {
+                                var tasks = task.column.tasks;
+                                tasks.splice(tasks.indexOf(task), 1);
+                                tasks.splice(tasks.indexOf(sourceTask) + 1, 0, task);
+                            }
                         });
                     }
                 },
