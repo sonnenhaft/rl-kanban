@@ -23,16 +23,16 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
         },
         removeFromColumn: function () {
             this.column.removeTask(this);
+            return this;
         },
         moveToColumn: function(column){
             if (column === this.column) {
                 return;
             }
             $rootScope.$broadcast('kanban:task:moved', this.id, this.column.id, column.id, this.column.swimlane.id, column.swimlane.id);
-            this.column.tasks.splice(this.column.tasks.indexOf(this), 1);
-            column.tasks.push(this);
-            this.columnId = column.id;
-            this.column = column;
+
+            this.removeFromColumn()
+                .attachToColumn(column);
         },
         remove: function(){
             this.removeFromColumn();

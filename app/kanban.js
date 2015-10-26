@@ -1,7 +1,9 @@
-angular.module('kanban').directive('kanban', function (isTouch) {
+angular.module('kanban').directive('kanban', function (isTouch, $window) {
     function setVal(childElement, value) {
         childElement.css('width', (value || 0) * 228 + 'px');
     }
+
+    var $body = angular.element($window.document.body);
 
     return {
         scope: {config: '='},
@@ -11,6 +13,20 @@ angular.module('kanban').directive('kanban', function (isTouch) {
             var registeredElements = [];
 
             $scope.isTouch = isTouch;
+
+
+            $body.bind('keyup', function onEscPressed (e) {
+                if (e.which === 27) {
+                    $scope.config.tasks.forEach(function (task) {
+                        delete    task.$highlight;
+                        $scope.$digest();
+                    })
+                }
+            });
+
+            $scope.$on('$destroy', function(){
+                $body.unbind('keyup', onEscPressed);
+            });
 
             $scope.$watch('config.columns.length', function (value) {
                 registeredElements.forEach(function (childElement) {
@@ -31,8 +47,8 @@ angular.module('kanban').directive('kanban', function (isTouch) {
                 registeredElements.splice(registeredElements.indexOf(childElement), 1);
             };
 
-            this.getHighlighted = function(fn){
-                return $scope.config.tasks.filter(function(t){
+            this.getHighlighted = function (fn) {
+                return $scope.config.tasks.filter(function (t) {
                     return t.$highlight;
                 })
             }
@@ -45,12 +61,14 @@ angular.module('kanban').directive('kanban', function (isTouch) {
                 $scope.$evalAsync();
             };
 
-            this.validateStates = function (task) {
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.forEach(function (column) {
-                        if (task.validStates.indexOf(column.id) === -1) {
+            this.validateStates = function () {
+                this.getHighlighted().forEach(function (task) {
+                    $scope.config.swimlanes.forEach(function (swimlane) {
+                        swimlane.columns.filter(function (column) {
+                            return !column.$barred && task.validStates && task.validStates.indexOf(column.id) === -1;
+                        }).forEach(function (column) {
                             column.$barred = true;
-                        }
+                        });
                     });
                 });
             };
