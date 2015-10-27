@@ -1,4 +1,3 @@
-
 # KANBAN CONTROL 
 ## Development Setup
 ### Installation
