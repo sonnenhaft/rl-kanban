@@ -4,12 +4,12 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
         scope: true,
         link: function ($scope) {
             $scope.hash = $location.search();
-            $scope.hash.layout = $scope.hash.layout  || 'workTracker';
-            $scope.hash.contentLevel = $scope.hash.contentLevel  || 'maximum';
-            ['layout', 'contentLevel', 'readOnly', 'empty'].forEach(function(key){
+            $scope.hash.layout = $scope.hash.layout || 'workTracker';
+            $scope.hash.contentLevel = $scope.hash.contentLevel || 'maximum';
+            ['layout', 'contentLevel', 'readOnly', 'empty'].forEach(function (key) {
                 $scope.$watch('hash.' + key, function (value) {
                     $location.search(key, value);
-                });    
+                });
             });
         }
     };
@@ -19,7 +19,7 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
     $scope.$watchCollection('locationSearch', function (locationSearch) {
         $scope.config = angular.copy(layoutSwitcherConfigs[locationSearch.layout || 'planner']);
         if (locationSearch.contentLevel) {
-            var config = contentLevelConfigs[(locationSearch.layout === 'workTracker' ?  locationSearch.layout : 'planner')];
+            var config = contentLevelConfigs[(locationSearch.layout === 'workTracker' ? locationSearch.layout : 'planner')];
             $scope.config.settings.tasksDisplayFields = config[locationSearch.contentLevel];
         }
 
@@ -31,7 +31,14 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
         if ($scope.config.settings) {
             $scope.config.settings.readOnly = locationSearch.readOnly;
         }
+
+        $scope.$on('kanban:task:moved', function ($event, taskId) {
+            var columnId = '555b6911ba6d349f6253cd85';
+            $scope.kanbanModel.tasks.forEach(function (task) {
+                if (task.id === taskId) {
+                    task.validStates.push(columnId);
+                }
+            });
+        });
     });
-}).constant('layoutSwitcherConfigs', {
-}).constant('contentLevelConfigs', {
-});
+}).constant('layoutSwitcherConfigs', {}).constant('contentLevelConfigs', {});
