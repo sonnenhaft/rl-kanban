@@ -232,6 +232,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
@@ -286,6 +287,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
@@ -347,6 +349,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
@@ -469,6 +472,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
@@ -605,6 +609,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
@@ -673,6 +678,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911f5cad468b43fbe8b',
@@ -816,6 +822,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911a9ce3b29e498cae5',
@@ -952,6 +959,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911b55afadc0db29d98',
@@ -1074,6 +1082,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
@@ -1128,6 +1137,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911faa6e347b8f89d13',
@@ -1257,6 +1267,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
+                published: true,
                 preview: true
             }, {
                 'columnId': '555b6911ba6d349f6253cd85',
@@ -1325,7 +1336,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                     'name': 'test',
                     'description': 'test'
                 },
-                preview: false
+                preview: false,
             }
 
         ],
@@ -1391,18 +1402,11 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
         ],
         'settings': {
             'taskModalWindowTitle': 'Task information',
-            'groupsCollapseButtonText': 'Task Groups',
-            'groupsExpandButtonText': 'Task Groups',
-            'allowCopyTask': false,
-            'allowDeleteTask': false,
             'disableDefaultMessaging': true,
             'allowEmptySwimlanes': true,
             'hideGroups': true,
             'legacyCardModal': true,
             'acceptTasks': true,
-            'allowGroupExpand': true,
-            'contentText': 'Tasks',
-            'contentTextSingleItem': 'Task',
             'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
             'highlightTaskOnClick': true,
             'editableSwimlanes': true,
