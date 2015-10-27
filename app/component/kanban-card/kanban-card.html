@@ -1,6 +1,6 @@
 <div class="card-wrapper" ng-style="task.$highlight && {borderColor: task.group.color || '#326295'}" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, false)" ng-class="{'card-edit': task.$edit}" data-as-sortable-item-handle>
     <div class="card-color" ng-style="{'background': task.group.color}" ng-show="task.group.length"></div>
-    <button class="button card-button delete-card-button" type="button" ng-click="deleteTask($event, task)" ng-show="task.$edit">
+    <button class="button card-button delete-card-button" type="button" ng-click="deleteTask($event, task)" ng-show="task.$edit && !task.published">
         <span class="glyph-icon"><span class="glyph-close"></span></span>
     </button>
     <div class="card-header">
