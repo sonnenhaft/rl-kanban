@@ -8,7 +8,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
                     if ($event.ctrlKey || $event.metaKey) {
-                        task.$highlight = true;
+                        task.$highlight = !task.$highlight;;
                     } else {
                         if (!task.$highlight) {
                             kanban.highlightTask(task);
