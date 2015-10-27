@@ -7,7 +7,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
-                    if ($event.ctrlKey) {
+                    if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = true;
                     } else {
                         if (!task.$highlight) {
