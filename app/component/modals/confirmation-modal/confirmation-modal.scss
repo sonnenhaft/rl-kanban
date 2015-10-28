@@ -1,0 +1,47 @@
+.reveal-modal.confirmation-modal {
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  position: fixed;
+  top: 25% !important;
+  left: 0;
+  right: 0;
+  transform: translateY(-25%);
+  z-index: 99;
+  background-color: white;
+  border: solid 1px #555;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 500px;
+  outline: none;
+
+  .footer .button {
+    padding: 10px 0;
+    min-width: 84px;
+  }
+
+  .glyph-icon {
+    font-size:48px;
+    color: #fd7700;
+    display: block;
+    vertical-align: top;
+  }
+
+  .content {
+    font-size: 14px;
+    color: #A0A2A1;
+    line-height: 1.46;
+    padding-top: 3px;
+  }
+
+  .wrapper {
+    padding: 30px 20px 20px;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    padding: 0;
+  }
+}

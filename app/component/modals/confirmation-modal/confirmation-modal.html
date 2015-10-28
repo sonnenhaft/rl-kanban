@@ -1,0 +1,19 @@
+<h2 class="modal-title">Are you sure you want to delete this card?
+    <a class="close-reveal-modal" ng-click="$dismiss()">&#215;</a>
+</h2>
+<div class="wrapper">
+    <div class="row">
+        <div class="small-2 columns">
+            <glyph-icon icon="'glyph-warning'"></glyph-icon>
+        </div>
+        <div class="small-10 columns content">
+            <span class="ng-binding">You may want to confirm you've selected the right card details by opening the dropbox.</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column footer">
+            <button class="button blue" ng-click="$dismiss()">No</button>
+            <button class="button" ng-click="$close({})">Yes</button>
+        </div>
+    </div>
+</div>

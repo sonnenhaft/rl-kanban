@@ -203,7 +203,6 @@ $marker-height: 4px;
         }
         &:hover {
             background: #FFFFFF;
-            animation: bounce 200ms linear infinite;
             .card-header, .card-content {
                 opacity: 1;
             }
@@ -283,10 +282,4 @@ $marker-height: 4px;
             }
         }
     }
-}
-
-@keyframes bounce {
-    0%, 100%, 50% {transform: rotate(0deg);}
-    25% {transform: rotate(2deg);}
-    75% {transform: rotate(-2deg);}
 }

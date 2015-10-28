@@ -1,4 +1,4 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, $timeout, isTouch, $rootScope) {
+angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
@@ -36,8 +36,11 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
             $scope.deleteTask = function($event, task) {
                 $event.stopPropagation();
-                task.remove();
-                $rootScope.$broadcast('kanban:task:remove', task.id);
+                modal = confirmationModal.open();
+                modal.result.then(function(){
+                    task.remove();
+                    $rootScope.$broadcast('kanban:task:remove', task.id);
+                })
             };
 
             $scope.$on('$destroy', function(){
