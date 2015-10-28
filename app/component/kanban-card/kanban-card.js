@@ -40,7 +40,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 modal.result.then(function(){
                     task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
-                })
+                }).finally(function(){modal = null;});
             };
 
             $scope.$on('$destroy', function(){
