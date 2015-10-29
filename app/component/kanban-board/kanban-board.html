@@ -1,13 +1,14 @@
-<div class="kanban-board" horizontal-scroll scrollable-element ng-class="{'team-kanban': swimlane.isTeam}">
+<div class="kanban-board" horizontal-scroll scrollable-element ng-class="::{'team-kanban': swimlane.isTeam, 'not-team-kanban': !swimlane.isTeam}">
     <div class="empty-placeholder" ng-hide="swimlane.isTeam || swimlane.$tasksCount || settings.readOnly || settings.disableDefaultMessaging || settings.allowEmptySwimlanes">
         <p>{{::swimlane.addAlertText}}</p>
         <button class="button blue select-skills-button" ng-click="addResources()" ng-show="::swimlane.addButtonText">{{::swimlane.addButtonText}}</button>
     </div>
+    <div class="team-message">
+        Drop here to assign card to this team. <br/>
+        Card will remain in the same workflow state column.
+    </div>
     <div class="kanban-wrapper" columns-width>
-        <div class="team-message">
-            Drop here to assign card to this team. <br/>
-            Card will remain in the same workflow state column.
-        </div>
+
         <div class="kanban-clmn as-sortable" ng-repeat="column in columns" ng-model="column.tasks" data-as-sortable="scrollCallbacks" is-disabled="settings.readOnly || swimlane.$disabled" ng-class="{'kanban-clmn-barred': $parent.column.$barred}">
             <div class="kanban-clmn-warning">
                 <glyph-icon icon="'glyph-warning2'"></glyph-icon>
