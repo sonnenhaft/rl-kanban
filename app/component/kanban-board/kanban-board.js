@@ -57,13 +57,15 @@ angular.module('component.kanban-board', [
                     } else {
                         kanban.getHighlighted().forEach(function (task) {
                             task.moveToColumn(newColumn);
-
                             if (task !== sourceTask) {
                                 var tasks = task.column.tasks;
                                 tasks.splice(tasks.indexOf(task), 1);
                                 tasks.splice(tasks.indexOf(sourceTask) + 1, 0, task);
                             }
                         });
+                        if (newColumn.swimlane.isTeam)    {
+                            newColumn.tasks = []
+                        }
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
