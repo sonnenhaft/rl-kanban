@@ -64,14 +64,22 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                 $scope.$evalAsync();
             };
 
-            this.validateStates = function () {
-                this.getHighlighted().forEach(function (task) {
-                    $scope.config.swimlanes.forEach(function (swimlane) {
-                        swimlane.columns.filter(function (column) {
-                            return !column.$barred && task.validStates && task.validStates.indexOf(column.id) === -1;
-                        }).forEach(function (column) {
-                            column.$barred = true;
-                        });
+            this.validateStates = function (task) {
+                if ($scope.config.settings.highlightTaskOnClick) {
+                    this.getHighlighted().forEach(function (task) {
+                        this.validateColumns(task);
+                    }.bind(this));
+                } else {
+                    this.validateColumns(task);
+                }
+            };
+
+            this.validateColumns = function(task) {
+                $scope.config.swimlanes.forEach(function (swimlane) {
+                    swimlane.columns.filter(function (column) {
+                        return !column.$barred && task.validStates && task.validStates.indexOf(column.id) === -1;
+                    }).forEach(function (column) {
+                        column.$barred = true;
                     });
                 });
             };
