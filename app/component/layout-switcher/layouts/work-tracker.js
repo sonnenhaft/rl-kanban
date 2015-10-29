@@ -1393,11 +1393,13 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             },
             {
                 'name': 'Team B',
-                'id': '555b6933a9ce3b29e498cae7'
+                'id': '555b6933a9ce3b29e498cae7',
+                isTeam: true
             },
             {
                 'name': 'Team C',
-                'id': '555b6933a9ce3b29e498cae8'
+                'id': '555b6933a9ce3b29e498cae8',
+                isTeam: true
             }
         ],
         'settings': {

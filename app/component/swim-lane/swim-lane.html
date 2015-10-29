@@ -4,12 +4,12 @@
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
     </span>
         <span class="swim-title">{{swimlane.name}}</span>
-        <span class="swim-length">({{swimlane.$tasksCount}})</span>
-        <div class="add-resource-button" ng-hide="settings.readOnly || !swimlane.addResourcesButtonText" ng-click="addResource($event)">
+        <span class="swim-length" ng-hide="::swimlane.isTeam">({{swimlane.$tasksCount}})</span>
+        <div class="add-resource-button" ng-show="!settings.readOnly && swimlane.addResourcesButtonText" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
             <button class="button">{{swimlane.addResourcesButtonText}}</button>
         </div>
-        <div class="edit-tasks-button" ng-hide="settings.readOnly || !settings.editableSwimlanes" ng-click="toggleEdit($event, swimlane)">
+        <div class="edit-tasks-button" ng-hide="swimlane.isTeam || settings.readOnly || !settings.editableSwimlanes" ng-click="toggleEdit($event, swimlane)">
             <button class="button" type="button">{{swimlane.$edit ? 'Done' : 'Edit Tasks'}}</button>
         </div>
     </div>

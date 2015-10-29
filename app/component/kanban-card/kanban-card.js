@@ -8,11 +8,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
                     if ($event.ctrlKey || $event.metaKey) {
-                        task.$highlight = !task.$highlight;;
-                    } else {
-                        if (!task.$highlight) {
-                            kanban.highlightTask(task);
-                        }
+                        task.$highlight = !task.$highlight;
+                    } else if (!task.$highlight) {
+                        kanban.highlightTask(task);
                     }
                 }
 
@@ -20,13 +18,13 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                     $scope.$emit('kanban:task:modalopen', task);
                 } else {
                     modal = extendedCard.open(task, settings);
-                    modal.result.finally(function(){modal = null;});
+                    modal.result.finally(function () {modal = null;});
                 }
             };
 
             $scope.limit = 50;
 
-            $scope.showFullDescription = function(task, settings, $event) {
+            $scope.showFullDescription = function (task, settings, $event) {
                 $event.stopPropagation();
                 $scope.limit = task.notes.length;
                 if (settings.highlightTaskOnClick && !task.$edit) {
@@ -34,7 +32,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }
             };
 
-            $scope.deleteTask = function($event, task) {
+            $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
                 modal = confirmationModal.open();
                 modal.result.then(function(){
@@ -43,7 +41,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }).finally(function(){modal = null;});
             };
 
-            $scope.$on('$destroy', function(){
+            $scope.$on('$destroy', function () {
                 if (modal) {modal.dismiss('cancel');}
             });
 

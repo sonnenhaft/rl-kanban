@@ -4,11 +4,35 @@
     overflow-x: hidden;
     border: 1px solid #DBDCDE;
     border-top: none;
+    .team-message {
+        position: absolute;
+        z-index: 1;
+        width: 1095px;
+        margin: 20px;
+        padding: 30px;
+        text-align: center;
+        border: 1px black dashed;
+    }
     .kanban-wrapper {
+        position: relative;
         display: table;
         table-layout: fixed;
         min-height: 300px;
         height: 300px;
+    }
+
+    .team-message {
+        display: none;
+    }
+
+    &.team-kanban {
+        .kanban-wrapper {
+             min-height: 135px;
+            height: 135px;
+        }
+        .team-message {
+            display: block;
+        }
     }
 
     .kanban-clmn {
@@ -68,6 +92,7 @@
         line-height: 80px;
         width: 100%;
         overflow: visible;
+        z-index: 1;
         p {
             font-weight: 600;
             font-size: 16px;
