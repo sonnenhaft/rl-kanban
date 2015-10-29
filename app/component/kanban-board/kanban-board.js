@@ -29,7 +29,7 @@ angular.module('component.kanban-board', [
                         kanban.highlightTask(task);
                     }
                     if (task.validStates) {
-                        kanban.validateStates();
+                        kanban.validateStates(task);
                     }
                     if ($scope.settings.editableSwimlanes) {
                         kanban.checkEditableSwimlanes();
