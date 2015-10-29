@@ -7,7 +7,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
-                    if ($event.ctrlKey || $event.metaKey) {
+                    if (!settings.enableMultiSelect) {
+                       kanban.highlightTask(task);
+                    } else if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = !task.$highlight;
                     } else if (!task.$highlight) {
                         kanban.highlightTask(task);
@@ -50,7 +52,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
                 if (!swimlane.$disabled) {
                     swimlane.$disabled = true;
-                };
+                }
 
                 var timeout = null;
                 $element.on('touchstart', function () {
