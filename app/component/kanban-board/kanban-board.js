@@ -25,9 +25,11 @@ angular.module('component.kanban-board', [
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
                     }
-                    kanban.validateStates();
                     if ($scope.settings.highlightTaskOnClick && !task.$highlight) {
                         kanban.highlightTask(task);
+                    }
+                    if (task.validStates) {
+                        kanban.validateStates();
                     }
                     scrollableElement.watchMouse();
                 },
