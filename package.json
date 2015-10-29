@@ -1,6 +1,6 @@
 {
   "name": "kanban",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "description": "RenLearn-kanban",
   "main": "gulpfile.js",
   "directories": {
