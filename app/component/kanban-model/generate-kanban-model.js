@@ -1,4 +1,4 @@
-angular.module('component.kanban-model').factory('generateKanbanModel', function (KanbanGroup, KanbanTask, KanbanColumn) {
+angular.module('component.kanban-model').factory('generateKanbanModel', function (KanbanGroup, KanbanTask, KanbanColumn, KanbanSwimlane) {
     return function createKanbanModel(initialConfig) {
         var config = angular.copy(initialConfig);
 
@@ -26,11 +26,10 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
         if (angular.isDefined(initialConfig.swimlanes)) {
             angular.extend(config, {
                 swimlanes: initialConfig.swimlanes.map(function (swimlane) {
-                    return angular.copy(swimlane);
+                    return new KanbanSwimlane(swimlane);
                 })
             });
         }
-
         if (angular.isDefined(config.groups)) {
             config.groups.forEach(function (group) {
                 group.tasks = [];
