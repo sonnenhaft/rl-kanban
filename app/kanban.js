@@ -48,10 +48,10 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
             };
 
             this.getHighlighted = function (fn) {
-                return $scope.config.tasks.filter(function (t) {
-                    return t.$highlight;
+                return $scope.config.tasks.filter(function (task) {
+                    return task.$highlight;
                 })
-            }
+            };
 
             this.highlightTask = function (task) {
                 $scope.config.tasks.forEach(function (task) {
