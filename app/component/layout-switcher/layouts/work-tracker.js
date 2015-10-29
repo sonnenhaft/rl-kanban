@@ -1403,6 +1403,7 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             }
         ],
         'settings': {
+            enableMultiSelect: true,
             'taskModalWindowTitle': 'Task information',
             'disableDefaultMessaging': true,
             'allowEmptySwimlanes': true,

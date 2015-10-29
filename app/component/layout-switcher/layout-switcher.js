@@ -35,7 +35,7 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
         $scope.$on('kanban:task:moved', function ($event, taskId) {
             var columnId = '555b6911ba6d349f6253cd85';
             $scope.kanbanModel.tasks.forEach(function (task) {
-                if (task.id === taskId) {
+                if (task.id === taskId && task.validStates) {
                     task.validStates.push(columnId);
                 }
             });

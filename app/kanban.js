@@ -47,17 +47,20 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                 registeredElements.splice(registeredElements.indexOf(childElement), 1);
             };
 
-            this.getHighlighted = function (fn) {
+            this.getHighlighted = function () {
+                var m = $scope.config.settings.enableMultiSelect;
                 return $scope.config.tasks.filter(function (task) {
-                    return task.$highlight;
-                })
+                    return m ? task.$highlight : task.$lastHighlight;
+                });
             };
 
             this.highlightTask = function (task) {
                 $scope.config.tasks.forEach(function (task) {
                     task.$highlight = false;
+                    task.$lastHighlight = false;
                 });
                 task.$highlight = true;
+                task.$lastHighlight = true;
                 $scope.$evalAsync();
             };
 
