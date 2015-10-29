@@ -1,3 +1,7 @@
+.as-sortable-un-selectable .kanban-board:hover .team-message {
+        background: #DAECF8 !important;
+}
+
 .kanban-board {
     background: #f0f0f0;
     max-height: 620px;
@@ -21,17 +25,36 @@
         height: 300px;
     }
 
-    .team-message {
-        display: none;
-    }
-
     &.team-kanban {
         .kanban-wrapper {
-             min-height: 135px;
+            min-height: 135px;
+            max-height: 135px;
             height: 135px;
         }
         .team-message {
             display: block;
+        }
+        .as-sortable-placeholder {
+            //display: none;
+        }
+    }
+
+    &.not-team-kanban {
+        .team-message {
+            display: none;
+        }
+        .kanban-clmn-barred {
+            background: #cccccc;
+            .kanban-card {
+                opacity: 0.1;
+            }
+            .as-sortable-placeholder {
+                display: none;
+            }
+
+            .kanban-clmn-warning {
+                display: block;
+            }
         }
     }
 
@@ -65,21 +88,6 @@
             display: block;
             margin-bottom: 14px;
         }
-
-    }
-
-    .kanban-clmn-barred {
-        background: #cccccc;
-        .kanban-card {
-            opacity: 0.1;
-        }
-        .as-sortable-placeholder {
-            display: none;
-        }
-
-        .kanban-clmn-warning {
-            display: block;
-        }
     }
 
     .empty-placeholder {
@@ -103,10 +111,10 @@
     }
 
     .as-sortable-placeholder {
-         background: #f9f9f9;
-         border: 1px #b0b0b0 dashed;
-         border-radius: 3px;
-         margin: 5px auto;
+        background: #f9f9f9;
+        border: 1px #b0b0b0 dashed;
+        border-radius: 3px;
+        margin: 5px auto;
     }
 
     .select-skills-button {
