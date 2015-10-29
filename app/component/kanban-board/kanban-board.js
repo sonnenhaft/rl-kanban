@@ -55,14 +55,18 @@ angular.module('component.kanban-board', [
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
                     } else {
-                        kanban.getHighlighted().forEach(function (task) {
-                            task.moveToColumn(newColumn);
-                            if (task !== sourceTask) {
-                                var tasks = task.column.tasks;
-                                tasks.splice(tasks.indexOf(task), 1);
-                                tasks.splice(tasks.indexOf(sourceTask) + 1, 0, task);
-                            }
-                        });
+                        if ($scope.settings.highlightTaskOnClick) {
+                            kanban.getHighlighted().forEach(function (task) {
+                                task.moveToColumn(newColumn);
+                                if (task !== sourceTask) {
+                                    var tasks = task.column.tasks;
+                                    tasks.splice(tasks.indexOf(task), 1);
+                                    tasks.splice(tasks.indexOf(sourceTask) + 1, 0, task);
+                                }
+                            });
+                        } else {
+                            sourceTask.moveToColumn(newColumn);
+                        }
                         if (newColumn.swimlane.isTeam)    {
                             newColumn.tasks = []
                         }
