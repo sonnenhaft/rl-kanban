@@ -48,24 +48,27 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             });
 
             if (isTouch) {
-                //TODO: remove parent from here, STOP merging scopes
-                $scope.$parent.settings.isDisabled = true;
+                var swimlane = $scope.task.column.swimlane;
+
+                if (!swimlane.$disabled) {
+                    swimlane.$disabled = true;
+                };
 
                 var timeout = null;
                 $element.on('touchstart', function () {
                     timeout = $timeout(function () {
-                        $scope.$parent.settings.isDisabled = false;
+                        swimlane.$disabled = false;
                     }, 500);
                 }).on('touchend', function () {
-                    $scope.$parent.settings.isDisabled = true;
+                    swimlane.$disabled = true;
                     $timeout.cancel(timeout);
                 });
 
                 angular.element($element[0].getElementsByClassName('card-handle')[0]).on('touchstart', function () {
-                    $scope.$parent.settings.isDisabled = false;
+                    swimlane.$disabled = false;
                     $scope.$apply();
                 }).on('touchend', function () {
-                    $scope.$parent.settings.isDisabled = true;
+                    swimlane.$disabled = true;
                     $scope.$apply();
                 });
             }

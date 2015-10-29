@@ -31,6 +31,9 @@ angular.module('component.kanban-board', [
                     if (task.validStates) {
                         kanban.validateStates();
                     }
+                    if ($scope.settings.editableSwimlanes) {
+                        kanban.checkEditableSwimlanes();
+                    }
                     scrollableElement.watchMouse();
                 },
                 orderChanged: function (e) {

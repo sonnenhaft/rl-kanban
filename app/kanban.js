@@ -15,7 +15,7 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
             $scope.isTouch = isTouch;
 
 
-            $body.bind('keyup', function onEscPressed (e) {
+            $body.bind('keyup', function onEscPressed(e) {
                 if (e.which === 27) {
                     $scope.config.tasks.forEach(function (task) {
                         delete    task.$highlight;
@@ -24,7 +24,7 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                 }
             });
 
-            $scope.$on('$destroy', function(){
+            $scope.$on('$destroy', function () {
                 $body.unbind('keyup', onEscPressed);
             });
 
@@ -55,7 +55,7 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
 
             this.highlightTask = function (task) {
                 $scope.config.tasks.forEach(function (task) {
-                    delete task.$highlight;
+                    task.$highlight = false;
                 });
                 task.$highlight = true;
                 $scope.$evalAsync();
@@ -77,11 +77,19 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                 $scope.config.swimlanes.forEach(function (swimlane) {
                     swimlane.columns.forEach(function (column) {
                         if (column.$barred) {
-                            delete column.$barred;
+                            column.$barred = false;
                         }
                     });
                 });
             };
+
+            this.checkEditableSwimlanes = function () {
+                $scope.config.swimlanes.forEach(function (swimlane) {
+                    if (swimlane.$edit) {
+                        swimlane.cancelEdit();
+                    }
+                });
+            }
         }
     };
 });

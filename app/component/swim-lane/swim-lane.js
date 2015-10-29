@@ -8,7 +8,6 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
         },
         link: function ($scope) {
             $scope.expanded = true;
-            $scope.$edit = false;
 
             $scope.toggleCollapse = function () {
                 $scope.expanded = !$scope.expanded;
@@ -28,24 +27,12 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
                 });
             });
 
-            $scope.editTasks = function ($event) {
+            $scope.toggleEdit = function ($event, swimlane) {
                 $event.stopPropagation();
-                $scope.$edit = !$scope.$edit;
-                if ($scope.$edit) {
-                    $scope.swimlane.columns.forEach(function(column){
-                        column.tasks.forEach(function(task){
-                            $scope.settings.isDisabled = true;
-                            task.$edit = true;
-                            task.$highlight = undefined;
-                        });
-                    });
+                if (swimlane.$edit) {
+                    swimlane.cancelEdit();
                 } else {
-                    $scope.swimlane.columns.forEach(function(column){
-                        column.tasks.forEach(function(task){
-                            $scope.settings.isDisabled = false;
-                            delete task.$edit;
-                        });
-                    });
+                    swimlane.edit();
                 }
             }
         }
