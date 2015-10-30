@@ -57,9 +57,7 @@ angular.module('component.kanban-board', [
                 itemMoved: function (e) {
                     var newColumn = e.dest.sortableScope.$parent.column;
                     var sourceTask = e.source.itemScope.task;
-                    console.log( e.dest.sortableScope.$parent)
-                    if (newColumn.$barred) {
-
+                    if (newColumn.$barred && !newColumn.swimlane.isTeam) {
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
                     } else {
