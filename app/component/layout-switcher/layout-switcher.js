@@ -41,13 +41,13 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
             });
         });
 
-        $scope.$on('kanban:task:modalopen', function ($event, taskId) {
+        $scope.$on('kanban:task:modalopen', function () {
             var modal = $modal.open({
                 windowClass: 'tiny task-card-modal-demo',
                 templateUrl: 'app/component/layout-switcher/demo-modal.html'
             });
 
-            modal.result.finally(function(){modal = null});
+            modal.result.finally(function(){modal = null;});
         });
     });
 }).constant('layoutSwitcherConfigs', {}).constant('contentLevelConfigs', {});

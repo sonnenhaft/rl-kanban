@@ -14,15 +14,16 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
 
             $scope.isTouch = isTouch;
 
-
-            $body.bind('keyup', function onEscPressed(e) {
+            function onEscPressed(e) {
                 if (e.which === 27) {
                     $scope.config.tasks.forEach(function (task) {
                         delete    task.$highlight;
                         $scope.$digest();
-                    })
+                    });
                 }
-            });
+            }
+
+            $body.bind('keyup', onEscPressed);
 
             $scope.$on('$destroy', function () {
                 $body.unbind('keyup', onEscPressed);
@@ -100,7 +101,7 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                         swimlane.cancelEdit();
                     }
                 });
-            }
+            };
         }
     };
 });

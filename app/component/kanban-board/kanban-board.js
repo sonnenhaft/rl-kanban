@@ -74,7 +74,7 @@ angular.module('component.kanban-board', [
                             sourceTask.moveToColumn(newColumn);
                         }
                         if (newColumn.swimlane.isTeam)    {
-                            newColumn.tasks = []
+                            newColumn.tasks = [];
                         }
                     }
                 },
