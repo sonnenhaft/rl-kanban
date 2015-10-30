@@ -18,6 +18,12 @@ angular.module('component.kanban-board', [
             $scope.addResources = function () {
                 $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
             };
+
+            if ($scope.swimlane.isTeam) {
+                //just for capability with non team swimlanes
+                $scope.column = $scope.columns[0];
+            }
+
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
                     var task = e.source.itemScope.task;
@@ -51,7 +57,9 @@ angular.module('component.kanban-board', [
                 itemMoved: function (e) {
                     var newColumn = e.dest.sortableScope.$parent.column;
                     var sourceTask = e.source.itemScope.task;
+                    console.log( e.dest.sortableScope.$parent)
                     if (newColumn.$barred) {
+
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
                     } else {
