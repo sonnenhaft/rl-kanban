@@ -11,6 +11,8 @@
  */
 
 //@deprecated - spaghetti code
+/*jshint maxcomplexity:10 */
+/*jshint maxstatements: 25 */
 angular.module('component.tool-tip', [
     'mm.foundation.position'
 ]).directive('toolTip', function ($http, $window, $document, $timeout, $compile, $position, $templateCache) {

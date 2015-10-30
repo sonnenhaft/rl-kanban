@@ -1,4 +1,5 @@
 angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope) {
+    /*jshint maxcomplexity:10 */
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
@@ -8,7 +9,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 $event.stopPropagation();
                 if (settings.highlightTaskOnClick && !task.$edit) {
                     if (!settings.enableMultiSelect) {
-                       kanban.highlightTask(task);
+                        kanban.highlightTask(task);
                     } else if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = !task.$highlight;
                     } else if (!task.$highlight) {
@@ -18,9 +19,11 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
-                } else if (!$edit) {
+                } else if (!task.$edit) {
                     modal = extendedCard.open(task, settings);
-                    modal.result.finally(function () {modal = null;});
+                    modal.result.finally(function () {
+                        modal = null;
+                    });
                 }
             };
 
@@ -28,24 +31,29 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
             $scope.showFullDescription = function (task, settings, $event) {
                 $event.stopPropagation();
-                if (task.$edit) return;
-                $scope.limit = task.notes.length;
-                if (settings.highlightTaskOnClick && !task.$edit) {
-                    kanban.highlightTask(task);
+                if (!task.$edit) {
+                    $scope.limit = task.notes.length;
+                    if (settings.highlightTaskOnClick && !task.$edit) {
+                        kanban.highlightTask(task);
+                    }
                 }
             };
 
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
                 modal = confirmationModal.open();
-                modal.result.then(function(){
+                modal.result.then(function () {
                     task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
-                }).finally(function(){modal = null;});
+                }).finally(function () {
+                    modal = null;
+                });
             };
 
             $scope.$on('$destroy', function () {
-                if (modal) {modal.dismiss('cancel');}
+                if (modal) {
+                    modal.dismiss('cancel');
+                }
             });
 
             if (isTouch) {
@@ -81,7 +89,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             var fn = $parse($attr.ngLazyClick);
             return function ($scope, $element) {
                 $element.on('click', function ($event) {
-                    $scope.$apply(function () {fn($scope, {$event: $event});});
+                    $scope.$apply(function () {
+                        fn($scope, {$event: $event});
+                    });
                 });
             };
         }

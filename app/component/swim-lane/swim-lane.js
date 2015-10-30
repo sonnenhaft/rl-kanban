@@ -34,7 +34,7 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
                 } else {
                     swimlane.edit();
                 }
-            }
+            };
         }
     };
 });

@@ -76,5 +76,5 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
             'contentText': 'Tasks',
             'contentTextSingleItem': 'Task'
         }
-    }
+    };
 });

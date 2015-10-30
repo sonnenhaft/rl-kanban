@@ -23,7 +23,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             var elementScroll = new ScrollableElementFactory(function (x, y) {
                 e.scrollTop += y;
                 e.scrollLeft += x;
-                runFn(x, y)
+                runFn(x, y);
             });
 
             function runFn(x, y) {

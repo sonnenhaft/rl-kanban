@@ -95,5 +95,5 @@ angular.module('component.layout-switcher').config(function (layoutSwitcherConfi
                 'color': '#152C4D'
             }
         ]
-    }
+    };
 });

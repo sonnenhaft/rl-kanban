@@ -104,15 +104,15 @@ function initPrivateTasks() {
         gulp.src(['app/component/**/*.png']).pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
         gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
 
-        var uglify = require('gulp-uglify');
-        var rename = require('gulp-rename');
-        var clone = require('gulp-clone');
-        var cloneJS = clone.sink();
-        var cloneVendorJS = clone.sink();
-        var cloneCSS = clone.sink();
-        var cloneVendorCSS = clone.sink();
-        var cloneScCSS = clone.sink();
-        var cloneScJS = clone.sink();
+        var uglify = require('gulp-uglify'),
+            rename = require('gulp-rename'),
+            clone = require('gulp-clone'),
+            cloneJS = clone.sink(),
+            cloneVendorJS = clone.sink(),
+            cloneCSS = clone.sink(),
+            cloneVendorCSS = clone.sink(),
+            cloneScCSS = clone.sink(),
+            cloneScJS = clone.sink();
 
         function css(el) {
             return [
@@ -342,7 +342,8 @@ gulp.task('cleanup-svn-checkouts', cleanUpSVNCheckouts);
 gulp.task('checkout-rl-components', ['cleanup-svn-checkouts'], function (cb) {
     util.log('IMPORTANT: You must be connected to RLI network to run svn commands');
     svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlSlider/trunk/deployment', 'svn-temp/rlSlider', {}, function (err) {
-            svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlReputationWidget/trunk/deployment', 'svn-temp/rlRepuationWidget', {},
+            svn.checkout('http://subv-linux.wrpwi.root.local/svn/RPHosted/ClientComponents/rlReputationWidget/trunk/deployment',
+                'svn-temp/rlRepuationWidget', {},
                 function (err) {
                     if (err) {
                         throw err;
