@@ -12,3 +12,19 @@
 .layout-switcher.show {
   opacity: 0.5;
 }
+
+.task-card-modal-demo {
+  position: absolute;
+  z-index: 9999;
+  transform: translateX(-50%);
+  left: 50%;
+  outline: none;
+  overflow-y: scroll;
+  height: 100%;
+
+  iframe {
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+}

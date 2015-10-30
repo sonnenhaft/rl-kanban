@@ -13,7 +13,7 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
             });
         }
     };
-}).controller('layoutSwitcherController', function ($location, $scope, layoutSwitcherConfigs, contentLevelConfigs) {
+}).controller('layoutSwitcherController', function ($location, $scope, layoutSwitcherConfigs, contentLevelConfigs, $modal) {
     $scope.locationSearch = $location.search();
 
     $scope.$watchCollection('locationSearch', function (locationSearch) {
@@ -39,6 +39,15 @@ angular.module('component.layout-switcher').directive('layoutSwitcher', function
                     task.validStates.push(columnId);
                 }
             });
+        });
+
+        $scope.$on('kanban:task:modalopen', function ($event, taskId) {
+            var modal = $modal.open({
+                windowClass: 'tiny task-card-modal-demo',
+                templateUrl: 'app/component/layout-switcher/demo-modal.html'
+            });
+
+            modal.result.finally(function(){modal = null});
         });
     });
 }).constant('layoutSwitcherConfigs', {}).constant('contentLevelConfigs', {});
