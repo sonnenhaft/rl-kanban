@@ -18,7 +18,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
-                } else {
+                } else if (!$edit) {
                     modal = extendedCard.open(task, settings);
                     modal.result.finally(function () {modal = null;});
                 }
@@ -28,6 +28,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
 
             $scope.showFullDescription = function (task, settings, $event) {
                 $event.stopPropagation();
+                if (task.$edit) return;
                 $scope.limit = task.notes.length;
                 if (settings.highlightTaskOnClick && !task.$edit) {
                     kanban.highlightTask(task);
