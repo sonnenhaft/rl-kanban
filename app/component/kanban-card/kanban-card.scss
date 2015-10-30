@@ -181,7 +181,7 @@ $marker-height: 4px;
         }
     }
     
-    .card-button {
+    .card-preview {
         background: none;
         border: none;
         font-size: 20px;
@@ -200,6 +200,15 @@ $marker-height: 4px;
         user-select: none;
         .card-header, .card-content {
             opacity: 0.5;
+        }
+        .card-preview, .card-ellipsis, .card-tooltip {
+            color: #aaa7a7;
+        }
+        .card-handle {
+            cursor: pointer;
+        }
+        .card-tooltip {
+            pointer-events: none;
         }
         &:hover {
             background: #FFFFFF;
@@ -220,6 +229,9 @@ $marker-height: 4px;
         top: -5px;
         font-size: 9px;
         transition: none;
+        border: none;
+        padding: 0;
+        margin: 0;
     }
 }
 
