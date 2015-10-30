@@ -1,3 +1,12 @@
+.kanban-notify.cg-notify-message {
+    background: #0FAE4A;
+    color: white;
+    opacity: 1;
+    border: none;
+    //sorry for this margin
+    margin-left: -145px;
+}
+
 .kanban-board {
     background: #f0f0f0;
     max-height: 620px;
@@ -14,13 +23,13 @@
         border: 1px black dashed;
         overflow: hidden;
         .as-sortable-placeholder {
-            background: #DAECF8 ;
+            background: #DAECF8;
             z-index: -1;
             position: absolute;
             left: 0;
             top: 0;
             margin: 0;
-            width: 100%!important;
+            width: 100% !important;
         }
     }
     .kanban-wrapper {
