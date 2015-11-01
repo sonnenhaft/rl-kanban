@@ -12,6 +12,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                         kanban.highlightTask(task);
                     } else if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = !task.$highlight;
+                        return;
                     } else if (!task.$highlight) {
                         kanban.highlightTask(task);
                     }
