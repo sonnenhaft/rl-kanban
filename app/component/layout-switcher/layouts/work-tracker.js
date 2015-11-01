@@ -2,24 +2,17 @@ angular.module("component.layout-switcher").config(function (layoutSwitcherConfi
     layoutSwitcherConfigs.workTracker = {
         "tasks": [
             {
-                "columnId": "555b6911f5cad468b43fbe8b",
-                "swimlaneId": "555b6922f5cad468b43fbe8b",
-                "assignability": "Locked",
-                "notes": "Culpa sint qui reprehenderit cupidatat officia quis commodo do do sit culpa est laboris.",
-                "modifiedDate": "2015-04-19T23:31:58.676Z",
-                "creationDate": "2015-01-22T08:48:03.865Z",
-                "skillShortName": "Culpa enim nulla cupidatat officia",
-                "id": "555b69",
-                "type": "Video",
-                "validStates": [
-                    "555b6911f5cad468b43fbe8b",
-                    "555b6911a9ce3b29e498cae5",
-                    "555b6911b55afadc0db29d98",
-                    "555b6911faa6e347b8f89d13",
-                    "555b6911ba6d349f6253cd86",
-                    "555b6911ba6d349f6253cd87"
-                ],
-                "contentTypes": [
+                'columnId': '555b6911f5cad468b43fbe8b',
+                'swimlaneId': '555b6922f5cad468b43fbe8b',
+                'assignability': 'Locked',
+                'notes': 'Culpa sint qui reprehenderit cupidatat officia quis commodo do do sit culpa est laboris.',
+                'modifiedDate': '2015-04-19T23:31:58.676Z',
+                'creationDate': '2015-01-22T08:48:03.865Z',
+                'skillShortName': 'Culpa enim nulla cupidatat officia',
+                'id': '555b69',
+                'type': 'Video',
+                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                'contentTypes': [
                     {
                         "_id": "CTCAT_AR360ART",
                         "tagsetId": "CTCAT",
