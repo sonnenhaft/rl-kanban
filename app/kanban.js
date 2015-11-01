@@ -75,31 +75,35 @@ angular.module('kanban').directive('kanban', function (isTouch, $window) {
                 }
             };
 
-            this.validateColumns = function(task) {
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.filter(function (column) {
-                        return !column.$barred && task.validStates && task.validStates.indexOf(column.id) === -1;
-                    }).forEach(function (column) {
-                        column.$barred = true;
+            this.validateColumns = function (task) {
+                if (task.validStates && task.validStates.length) {
+                    $scope.config.swimlanes.forEach(function (swimlane) {
+                        swimlane.columns.filter(function (column) {
+                            return !column.$barred && task.column !== column;
+                        }).filter(function (column) {
+                            return task.validStates.indexOf(column.id) === -1;
+                        }).forEach(function (column) {
+                            column.$barred = true;
+                        });
                     });
-                });
+                }
             };
 
             this.clearInvalidStates = function () {
                 $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.forEach(function (column) {
-                        if (column.$barred) {
-                            column.$barred = false;
-                        }
+                    swimlane.columns.filter(function (column) {
+                        return column.$barred;
+                    }).forEach(function (column) {
+                        column.$barred = false;
                     });
                 });
             };
 
             this.checkEditableSwimlanes = function () {
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    if (swimlane.$edit) {
-                        swimlane.cancelEdit();
-                    }
+                $scope.config.swimlanes.filter(function (swimlane) {
+                    return swimlane.$edit;
+                }).forEach(function (swimlane) {
+                    swimlane.cancelEdit();
                 });
             };
         }
