@@ -16,8 +16,8 @@
     .team-message {
         position: absolute;
         z-index: 1;
-        width: 1100px;
-        margin: 20px;
+        width: 1094px;
+        margin: 30px 23px;
         padding: 30px;
         text-align: center;
         border: 1px black dashed;
@@ -25,6 +25,7 @@
         .as-sortable-placeholder {
             background: #DAECF8;
             z-index: -1;
+            border: none;
             position: absolute;
             left: 0;
             top: 0;
@@ -42,15 +43,11 @@
 
     &.team-kanban {
         .kanban-wrapper {
-            min-height: 135px;
-            max-height: 135px;
-            height: 135px;
+            min-height: 150px;
+            height: 153px;
         }
         .team-message {
             display: block;
-        }
-        .as-sortable-placeholder {
-            //display: none;
         }
     }
 
