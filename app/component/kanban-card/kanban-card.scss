@@ -1,6 +1,7 @@
 $gutter: 5px;
 $marker-height: 4px;
 .kanban-card {
+    user-select: none;
     width: 218px;
     font-size: 14px;
     color: #555;
