@@ -69,7 +69,7 @@ angular.module('kanban').directive('kanban', function (isTouch, globalOnClickOnE
                     if (task.validStates && task.validStates.length) {
                         $scope.config.swimlanes.forEach(function (swimlane) {
                             swimlane.columns.filter(function (column) {
-                                return !column.$barred && task.column !== column;
+                                return !column.$barred && task.column.id !== column.id;
                             }).filter(function (column) {
                                 return task.validStates.indexOf(column.id) === -1;
                             }).forEach(function (column) {
