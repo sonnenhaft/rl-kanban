@@ -11,7 +11,7 @@ angular.module("component.layout-switcher").config(function (layoutSwitcherConfi
                 'skillShortName': 'Culpa enim nulla cupidatat officia',
                 'id': '555b69',
                 'type': 'Video',
-                'validStates': ['555b6911f5cad468b43fbe8b', '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
+                'validStates': [ '555b6911a9ce3b29e498cae5', '555b6911b55afadc0db29d98', '555b6911faa6e347b8f89d13', '555b6911ba6d349f6253cd86', '555b6911ba6d349f6253cd87'],
                 'contentTypes': [
                     {
                         "_id": "CTCAT_AR360ART",
