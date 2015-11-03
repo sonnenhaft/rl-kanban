@@ -1,9 +1,8 @@
 angular.module('component.kanban-board', [
     'component.kanban-card',
     'component.expand-collapse',
-    'component.scrollable-element',
-    'cgNotify'
-]).directive('kanbanBoard', function (notify) {
+    'component.scrollable-element'
+]).directive('kanbanBoard', function () {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban'],
@@ -69,13 +68,6 @@ angular.module('component.kanban-board', [
                                     var tasks = task.column.tasks;
                                     tasks.splice(tasks.indexOf(task), 1);
                                     tasks.splice(tasks.indexOf(sourceTask) + 1, 0, task);
-                                }
-                                if (newColumn.swimlane.isTeam) {
-                                    notify({
-                                        message: 'Successfully assigned Kanban #' + task.id + ' to ' + newColumn.swimlane.name,
-                                        duration: 5000,
-                                        templateUrl: 'app/component/kanban-board/kanban-delete-message.html'
-                                    })
                                 }
                             });
                         } else {
