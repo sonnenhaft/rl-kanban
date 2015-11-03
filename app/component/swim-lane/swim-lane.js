@@ -6,8 +6,12 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
             settings: '=',
             groups: '='
         },
-        link: function ($scope) {
+        link: function ($scope, $element) {
             $scope.expanded = true;
+
+            $element.bind('click', function(e){
+                e.stopPropagation();
+            });
 
             $scope.toggleCollapse = function () {
                 $scope.expanded = !$scope.expanded;
