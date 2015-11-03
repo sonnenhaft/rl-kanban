@@ -7,24 +7,26 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             var modal;
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
-                if (settings.highlightTaskOnClick && !task.$edit) {
-                    if (!settings.enableMultiSelect) {
-                        kanban.highlightTask(task);
-                    } else if ($event.ctrlKey || $event.metaKey) {
-                        task.$highlight = !task.$highlight;
-                        return;
-                    } else if (!task.$highlight) {
-                        kanban.highlightTask(task);
+                if (!task.$edit) {
+                    if (settings.highlightTaskOnClick) {
+                        if (!settings.enableMultiSelect) {
+                            kanban.highlightTask(task);
+                        } else if ($event.ctrlKey || $event.metaKey) {
+                            task.$highlight = !task.$highlight;
+                            return;
+                        } else if (!task.$highlight) {
+                            kanban.highlightTask(task);
+                        }
                     }
-                }
 
-                if (settings.legacyCardModal && !force) {
-                    $scope.$emit('kanban:task:modalopen', task);
-                } else if (!task.$edit) {
-                    modal = extendedCard.open(task, settings);
-                    modal.result.finally(function () {
-                        modal = null;
-                    });
+                    if (settings.legacyCardModal && !force) {
+                        $scope.$emit('kanban:task:modalopen', task);
+                    } else if (!task.$edit) {
+                        modal = extendedCard.open(task, settings);
+                        modal.result.finally(function () {
+                            modal = null;
+                        });
+                    }
                 }
             };
 
