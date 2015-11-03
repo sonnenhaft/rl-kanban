@@ -10,7 +10,11 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
             $scope.expanded = true;
 
             $element.bind('click', function(e){
-                e.stopPropagation();
+                var parent = e.target.parentNode;
+                var el = $element[0];
+                if (parent === el || parent.parentNode === el) {
+                    e.stopPropagation();
+                }
             });
 
             $scope.toggleCollapse = function () {
