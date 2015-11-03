@@ -9,12 +9,12 @@
   transform: translateY(-25%);
   z-index: 99;
   background-color: white;
-  border: solid 1px #555;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
   font-size: 14px;
   margin: 0 auto !important;
   width: 100% !important;
-  max-width: 500px;
+  max-width: 450px;
   outline: none;
 
   .footer .button {
@@ -30,14 +30,25 @@
   }
 
   .content {
-    font-size: 14px;
-    color: #A0A2A1;
-    line-height: 1.46;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.25;
     padding-top: 3px;
+    padding-left: 66px;
+    position: relative;
+    min-height: 48px;
+    padding-right: 0;
+    .icon {
+      left: 0;
+      top: 7px;
+      height: 48px;
+      display: block;
+      position: absolute;
+    }
   }
 
   .wrapper {
-    padding: 30px 20px 20px;
+    padding: 20px 20px 19px;
   }
   
   .footer {
