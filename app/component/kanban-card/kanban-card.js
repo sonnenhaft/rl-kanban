@@ -7,26 +7,24 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             var modal;
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
-                if (!task.$edit) {
-                    if (settings.highlightTaskOnClick) {
-                        if (!settings.enableMultiSelect) {
-                            kanban.highlightTask(task);
-                        } else if ($event.ctrlKey || $event.metaKey) {
-                            task.$highlight = !task.$highlight;
-                            return;
-                        } else if (!task.$highlight) {
-                            kanban.highlightTask(task);
-                        }
+                if (!task.$edit && settings.highlightTaskOnClick) {
+                    if (!settings.enableMultiSelect) {
+                        kanban.highlightTask(task);
+                    } else if ($event.ctrlKey || $event.metaKey) {
+                        task.$highlight = !task.$highlight;
+                        return;
+                    } else if (!task.$highlight) {
+                        kanban.highlightTask(task);
                     }
+                }
 
-                    if (settings.legacyCardModal && !force) {
-                        $scope.$emit('kanban:task:modalopen', task);
-                    } else if (!task.$edit) {
-                        modal = extendedCard.open(task, settings);
-                        modal.result.finally(function () {
-                            modal = null;
-                        });
-                    }
+                if (settings.legacyCardModal && !force) {
+                    $scope.$emit('kanban:task:modalopen', task);
+                } else if (!task.$edit) {
+                    modal = extendedCard.open(task, settings);
+                    modal.result.finally(function () {
+                        modal = null;
+                    });
                 }
             };
 
@@ -76,12 +74,17 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                     $timeout.cancel(timeout);
                 });
 
-                angular.element($element[0].getElementsByClassName('card-handle')[0]).on('touchstart', function () {
+                var cardHandle = angular.element($element[0].getElementsByClassName('card-handle'));
+                cardHandle.on('touchstart', function () {
                     swimlane.$disabled = false;
                     $scope.$apply();
                 }).on('touchend', function () {
                     swimlane.$disabled = true;
                     $scope.$apply();
+                });
+
+                $scope.$on('$destroy', function () {
+                    cardHandle.off();
                 });
             }
         }
