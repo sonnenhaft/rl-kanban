@@ -6,7 +6,7 @@ angular.module('component.scroll-bar').directive('horizontalScroll', function ()
             ctrl.registerScrollElement(element);
 
             scope.$on('$destroy', function () {
-                ctrl.removeScrollElemnt(element);
+                ctrl.removeScrollElement(element);
             });
         }
     };

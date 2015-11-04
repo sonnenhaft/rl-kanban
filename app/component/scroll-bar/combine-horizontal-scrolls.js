@@ -9,7 +9,7 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 $element.on('scroll', combineHorizontalScrolls);
             };
 
-            this.removeScrollElemnt = function ($element) {
+            this.removeScrollElement = function ($element) {
                 targetNodes.splice(targetNodes.indexOf($element[0]), 1);
                 $element.off('scroll', combineHorizontalScrolls);
             };
