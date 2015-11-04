@@ -60,6 +60,13 @@ angular.module('component.kanban-board', [
                     if (newColumn.$barred && !newColumn.swimlane.isTeam) {
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
+                        var el = e.source.itemScope.element;
+                        var parent = el.parent().parent().parent()[0];
+                        var topBorder = el.prop('offsetTop') - el.prop('offsetHeight');
+                        if (parent.scrollTop < topBorder) {
+                            parent.scrollTop = topBorder;
+                        }
+
                     } else {
                         if ($scope.settings.highlightTaskOnClick) {
                             kanban.getHighlighted().forEach(function (task) {
