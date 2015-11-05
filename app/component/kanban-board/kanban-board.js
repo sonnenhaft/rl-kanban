@@ -2,22 +2,7 @@ angular.module('component.kanban-board', [
     'component.kanban-card',
     'component.expand-collapse',
     'component.scrollable-element'
-]).directive('kanbanBoard', function () {
-
-    function scrollToChild(child, parent, borderPosition, dimension) {
-        var childBorder = child['offset' + borderPosition];
-        var childWidth = child['offset' + dimension];
-        var parentScroll = parent['scroll' + borderPosition];
-        var parentWidth = parent['offset' + dimension];
-        var customBorder = childBorder + childWidth - parentWidth;
-        if (parentScroll > childBorder) {
-            parent['scroll' + borderPosition] = childBorder;
-        } else if (parentScroll < customBorder) {
-            parent['scroll' + borderPosition] = customBorder;
-        }
-        child.scrollIntoView();
-    }
-
+]).directive('kanbanBoard', function ($window) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
@@ -40,8 +25,28 @@ angular.module('component.kanban-board', [
                 $scope.column = $scope.columns[0];
             }
 
+            var conditions;
+
+            function rememberScrolls(){
+                conditions = {
+                    scrollTop: $element[0].scrollTop,
+                    scrollLeft: horizontalScroll.$element[0].scrollLeft,
+                    scrollX: $window.scrollX,
+                    scrollY: $window.scrollY
+                }
+            }
+
+            function rollbackScrolls(){
+                if (!conditions) {return};
+                $element[0].scrollTop = conditions.scrollTop;
+                horizontalScroll.$element[0].scrollLeft = conditions.scrollLeft;
+                $window.scrollTo(conditions.scrollX, conditions.scrollY);
+            }
+
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
+                    rememberScrolls();
+
                     scrollableElement.watchMouse();
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:start', task.id);
@@ -77,12 +82,7 @@ angular.module('component.kanban-board', [
                     if (newColumn.$barred && !newColumn.swimlane.isTeam) {
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
-                        var $card = e.source.itemScope.element[0];
-                        var $column = $card.parentNode;
-                        var $horizontalScroll = horizontalScroll.$element[0];
-                        scrollToChild($column, $horizontalScroll, 'Left', 'Width');
-                        scrollToChild($card, $column.parentNode.parentNode, 'Top', 'Height');
-
+                        rollbackScrolls();
                     } else {
                         if ($scope.settings.highlightTaskOnClick) {
                             kanban.getHighlighted().forEach(function (task) {
@@ -98,7 +98,6 @@ angular.module('component.kanban-board', [
                         }
                         if (newColumn.swimlane.isTeam) {
                             newColumn.tasks = [];
-
                         }
                     }
                 },
