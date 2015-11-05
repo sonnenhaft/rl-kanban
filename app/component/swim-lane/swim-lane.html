@@ -3,7 +3,10 @@
     <span class="glyph-icon" ng-hide="settings.readOnly">
         <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
     </span>
-        <span class="swim-title">{{swimlane.name}}</span>
+        <span class="swim-title">
+            <span ng-show="::swimlane.isTeam">Assign To </span>
+            {{swimlane.name}}
+        </span>
         <span class="swim-length" ng-hide="::swimlane.isTeam">({{swimlane.$tasksCount}})</span>
         <div class="add-resource-button" ng-show="!settings.readOnly && swimlane.addResourcesButtonText" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
