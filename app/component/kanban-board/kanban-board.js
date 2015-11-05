@@ -3,9 +3,24 @@ angular.module('component.kanban-board', [
     'component.expand-collapse',
     'component.scrollable-element'
 ]).directive('kanbanBoard', function () {
+
+    function scrollToChild(child, parent, borderPosition, dimension) {
+        var childBorder = child['offset' + borderPosition];
+        var childWidth = child['offset' + dimension];
+        var parentScroll = parent['scroll' + borderPosition];
+        var parentWidth = parent['offset' + dimension];
+        var customBorder = childBorder + childWidth - parentWidth;
+        if (parentScroll > childBorder) {
+            parent['scroll' + borderPosition] = childBorder;
+        } else if (parentScroll < customBorder) {
+            parent['scroll' + borderPosition] = customBorder;
+        }
+        child.scrollIntoView();
+    }
+
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
-        require: ['^scrollableElement', '^kanban'],
+        require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
         scope: {
             swimlane: '=',
             settings: '='
@@ -14,6 +29,7 @@ angular.module('component.kanban-board', [
         link: function ($scope, $element, $attrs, $ctrl) {
             var scrollableElement = $ctrl[0];
             var kanban = $ctrl[1];
+            var horizontalScroll = $ctrl[2];
             $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function () {
                 $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
@@ -57,15 +73,15 @@ angular.module('component.kanban-board', [
                 itemMoved: function (e) {
                     var newColumn = e.dest.sortableScope.$parent.column;
                     var sourceTask = e.source.itemScope.task;
+
                     if (newColumn.$barred && !newColumn.swimlane.isTeam) {
                         e.dest.sortableScope.removeItem(e.dest.index);
                         e.source.itemScope.sortableScope.insertItem(e.source.index, sourceTask);
-                        var el = e.source.itemScope.element;
-                        var parent = el.parent().parent().parent()[0];
-                        var topBorder = el.prop('offsetTop') - el.prop('offsetHeight');
-                        if (parent.scrollTop < topBorder) {
-                            parent.scrollTop = topBorder;
-                        }
+                        var $card = e.source.itemScope.element[0];
+                        var $column = $card.parentNode;
+                        var $horizontalScroll = horizontalScroll.$element[0];
+                        scrollToChild($column, $horizontalScroll, 'Left', 'Width');
+                        scrollToChild($card, $column.parentNode.parentNode, 'Top', 'Height');
 
                     } else {
                         if ($scope.settings.highlightTaskOnClick) {
@@ -80,7 +96,7 @@ angular.module('component.kanban-board', [
                         } else {
                             sourceTask.moveToColumn(newColumn);
                         }
-                        if (newColumn.swimlane.isTeam)    {
+                        if (newColumn.swimlane.isTeam) {
                             newColumn.tasks = [];
 
                         }

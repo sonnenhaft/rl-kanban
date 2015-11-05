@@ -6,18 +6,18 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
 
             this.registerScrollElement = function ($element) {
                 targetNodes.push($element[0]);
-                $element.on('scroll', combineHorizontalScrolls);
+                $element.on('scroll', synchronizeHorizonalScroll);
             };
 
             this.removeScrollElement = function ($element) {
                 targetNodes.splice(targetNodes.indexOf($element[0]), 1);
-                $element.off('scroll', combineHorizontalScrolls);
+                $element.off('scroll', synchronizeHorizonalScroll);
             };
 
-            function combineHorizontalScrolls(event) {
+            function synchronizeHorizonalScroll(scrollEvent) {
                 targetNodes.forEach(function (targetNode) {
-                    if (targetNode.scrollLeft !== event.target.scrollLeft) {
-                        targetNode.scrollLeft = event.target.scrollLeft;
+                    if (targetNode.scrollLeft !== scrollEvent.target.scrollLeft) {
+                        targetNode.scrollLeft = scrollEvent.target.scrollLeft;
                     }
                 });
             }
