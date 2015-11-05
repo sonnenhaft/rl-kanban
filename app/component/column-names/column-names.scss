@@ -1,21 +1,94 @@
-.column-names {
-    display: table;
-    table-layout: fixed;
-    height: 35px;
-    .title {
-        color: #A0A2A1;
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-        text-transform: uppercase;
-        background: #ffffff;
-        width: 228px;
-        padding: 0 6px;
-        border-right: 1px solid #DBDCDE;
-        display: table-cell;
-        vertical-align: middle;
-        word-wrap: break-word;
-        height: 35px;
-        line-height: 1;
+.clmn-names {
+  display: table;
+  table-layout: fixed;
+  height: 35px;
+  .clmn-name {
+    color: #A0A2A1;
+    text-align: center;
+    background: #ffffff;
+    width: 228px;
+    min-width: 228px;
+    border-right: 1px solid #DBDCDE;
+    display: table-cell;
+    padding: 6px 0 10px 0;
+    cursor: pointer;
+    vertical-align: middle;
+    &:hover {
+      .clmn-toggle-icon  {
+        color: #31B3FF;
+      }
     }
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 4px;
+    word-wrap: break-word;
+    line-height: 1;
+    display: block;
+  }
+
+  .clmn-name-collapsed {
+    width: 30px;
+    min-width: 30px;
+    text-overflow: ellipsis;
+    max-width: 30px;
+    background: #ededed;
+    position: relative;
+    border: 1px dashed #ccc;
+    height: 60px;
+    vertical-align: top;
+    padding-top: 10px;
+    .title {
+      writing-mode: tb-rl;
+      transform: rotate(90deg);
+      white-space: nowrap;
+      display: block;
+      height: 28px;
+      overflow: hidden;
+      background: #ededed;
+      transform-origin: left bottom 0;
+      text-align: left;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      padding: 7px 0;
+      text-overflow: ellipsis;
+      width: 40px;
+    }
+    &:hover {
+      .title, .clmn-toggle-icon  {
+        color: #31B3FF;
+      }
+    }
+  }
+
+  .clmn-toggle-icon {
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    color: #cccccc;
+    overflow: hidden;
+    margin-top: -4px;
+    .glyph-icon {
+      transform: rotate(45deg);
+      width: 20px;
+      height: 20px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.tooltip {
+  background: #ededed;
+  color: #A0A2A1;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  .nub {
+    border-color: transparent transparent #ededed transparent;
+  }
 }

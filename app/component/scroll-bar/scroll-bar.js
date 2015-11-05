@@ -1,16 +1,16 @@
-angular.module('component.scroll-bar').directive('scrollbar', function () {return {template: '<div class="inner" columns-width></div>'};})
+angular.module('component.scroll-bar').directive('scrollbar', function () {
+    return {
+        templateUrl: 'app/component/scroll-bar/scroll-bar.html',
+        scope: {
+            columns: '='
+        },
+        require: '^combineHorizontalScrolls',
+        link: function (scope, element, attrs, ctrl) {
+            ctrl.scrollBarElement = element[0];
 
-
-    .directive('columnsWidth', function () {
-        return {
-            restrict: 'A',
-            require: '^kanban',
-            link: function (scope, element, attrs, kanban) {
-                kanban.registerElement(element);
-
-                scope.$on('$destroy', function () {
-                    kanban.removeElement(element);
-                });
-            }
-        };
-    });
+            scope.$on('$destroy', function () {
+                ctrl.scrollBarElement = null;
+            });
+        }
+    };
+});

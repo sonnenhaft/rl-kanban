@@ -1546,6 +1546,7 @@ angular.module("component.layout-switcher").config(function (layoutSwitcherConfi
             "barredColumnMessage": "Workflow State Unavailable for Selected Card",
             "highlightTaskOnClick": true,
             "editableSwimlanes": true,
+            "showHideColumns": true ,
             "tasksDisplayFields": {
                 "contentTypes": true,
                 "skillShortName": true,

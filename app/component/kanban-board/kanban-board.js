@@ -42,6 +42,7 @@ angular.module('component.kanban-board', [
 
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
+                    scrollableElement.watchMouse();
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:start', task.id);
                     if (angular.isDefined(task.group)) {
@@ -56,7 +57,6 @@ angular.module('component.kanban-board', [
                     if ($scope.settings.editableSwimlanes) {
                         kanban.checkEditableSwimlanes();
                     }
-                    scrollableElement.watchMouse();
                 },
                 orderChanged: function (e) {
                     var task = e.source.itemScope.task;
@@ -103,7 +103,9 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if ($scope.settings.acceptTasks) {
+                    if (destSortableScope.$parent.column.$collapsed) {
+                        return false;
+                    } else if ($scope.settings.acceptTasks) {
                         return true;
                     } else {
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
