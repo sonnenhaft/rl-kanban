@@ -1,11 +1,22 @@
-.scroll-bar {
-    width: 100%;
-    border: none;
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: 20px;
-    display: block;
-    .inner {
-        height: 20px;
+scrollbar {
+  display: block;
+  overflow-x: auto;
+  .scroll-bar {
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    min-height: 1px;
+    height: 1px;
+    .clmn {
+      width: 228px;
+      min-width: 228px;
+      display: table-cell;
     }
+
+    .clmn-collapsed {
+      width: 30px;
+      min-width: 30px;
+      max-width: 30px;
+    }
+  }
 }

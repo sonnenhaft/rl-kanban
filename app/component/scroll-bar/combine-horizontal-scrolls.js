@@ -3,6 +3,7 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
         restrict: 'A',
         controller: function () {
             var targetNodes = [];
+            this.scrollBarElement = null;
 
             this.registerScrollElement = function ($element) {
                 targetNodes.push($element[0]);
@@ -14,13 +15,26 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 $element.off('scroll', synchronizeHorizonalScroll);
             };
 
-            function synchronizeHorizonalScroll(scrollEvent) {
+            var synchronizeHorizonalScroll = (function (scrollEvent) {
+                var scrollLeft = scrollEvent.target.scrollLeft;
+                var max = this.scrollBarElement.scrollWidth - this.scrollBarElement.clientWidth;
+
                 targetNodes.forEach(function (targetNode) {
-                    if (targetNode.scrollLeft !== scrollEvent.target.scrollLeft) {
-                        targetNode.scrollLeft = scrollEvent.target.scrollLeft;
-                    }
+                    targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
                 });
-            }
+            }).bind(this);
+        }
+    };
+}).directive('columnsWidth', function () {
+    return {
+        restrict: 'A',
+        require: '^kanban',
+        link: function (scope, element, attrs, kanban) {
+            kanban.registerElement(element);
+
+            scope.$on('$destroy', function () {
+                kanban.removeElement(element);
+            });
         }
     };
 });

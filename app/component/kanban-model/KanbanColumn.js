@@ -1,4 +1,4 @@
-  angular.module('component.kanban-model').value('KanbanColumn', (function () {
+angular.module('component.kanban-model').value('KanbanColumn', (function () {
     function KanbanColumn(columnData) {
         angular.extend(this, columnData);
     }
@@ -10,7 +10,17 @@
                 this.tasks.splice(index, 1);
             }
             this.swimlane.$tasksCount--;
+        },
+        collapse: function () {
+            this.$collapsed = true;
+            this.$disabled = true;
+        },
+        expand: function () {
+            this.$collapsed = false;
+            this.$disabled = false;
         }
     };
+
     return KanbanColumn;
+
 })());
