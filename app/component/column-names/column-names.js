@@ -10,8 +10,10 @@ angular.module('component.column-names', [
         templateUrl: 'app/component/column-names/column-names.html',
         link: function (scope, element, attrs, kanban) {
             scope.toggleColumn = function (column) {
-                column.$collapsed = !column.$collapsed;
-                return kanban.toggleColumn(column.id);
+                if (scope.settings.showHideColumns) {
+                    column.$collapsed = !column.$collapsed;
+                    return kanban.toggleColumn(column.id);
+                }
             }
         }
     };
