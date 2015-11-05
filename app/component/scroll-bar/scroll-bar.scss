@@ -1,13 +1,13 @@
 scrollbar {
   display: block;
   overflow-x: auto;
-  height: 5px;
+  overflow-y: hidden;
+  height: 20px;
   .scroll-bar {
     position: relative;
     display: table;
     table-layout: fixed;
-    min-height: 1px;
-    height: 1px;
+    height: 20px;
     .clmn {
       width: 228px;
       min-width: 228px;
