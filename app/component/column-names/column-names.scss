@@ -44,6 +44,7 @@
     .title {
       writing-mode: tb-rl;
       transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
       white-space: nowrap;
       display: block;
       height: 28px;
@@ -74,6 +75,7 @@
     margin-top: -4px;
     .glyph-icon {
       transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
       width: 20px;
       height: 20px;
       display: block;
