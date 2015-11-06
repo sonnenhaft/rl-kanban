@@ -2,7 +2,7 @@ angular.module('component.column-names', [
     'mm.foundation.tooltip',
     'mm.foundation.position',
     'mm.foundation.bindHtml'
-]).directive('columnNames', function () {
+]).directive('columnNames', function ($rootScope) {
     return {
         scope: {columns: '=', settings: '='},
         require: '^kanban',
@@ -12,6 +12,7 @@ angular.module('component.column-names', [
             scope.toggleColumn = function (column) {
                 if (scope.settings.showHideColumns) {
                     column.$collapsed = !column.$collapsed;
+                    scope.$emit(column.$collapsed ? 'kanban:column:hide' : 'kanban:column:show', column.id);
                     return kanban.toggleColumn(column.id);
                 }
             }
