@@ -23,5 +23,7 @@ angular.module('events-debugger', [
     'kanban:task:modalopen',
     'kanban:add-group',
     'kanban:add-task',
-    'kanban:add-task-assessment'
+    'kanban:add-task-assessment',
+    'kanban:column:hide',
+    'kanban:column:show'
 ]);

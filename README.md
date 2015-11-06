@@ -259,6 +259,12 @@ User finished dragging task card
 ### 'kanban:task:orderchanged' `[taskId]`
 User changed order of tasks in column
 `taskId`: id of target task card
+### 'kanban:column:hide' `[columnId]`
+User force column hide
+`taskId`: id of target column
+### 'kanban:column:show' `[columnId]`
+User force column show
+`taskId`: id of target column
 
 ### Example of Listening to an Event
 
