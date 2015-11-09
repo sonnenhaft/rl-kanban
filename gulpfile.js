@@ -300,3 +300,40 @@ gulp.task('copy-rl-components', ['checkout-rl-components'], function () {
 gulp.task('merge-rl-components', ['copy-rl-components'], function () {
     cleanUpSVNCheckouts();
 });
+
+
+gulp.task('ngdocs', [], function () {
+    var gulpDocs = require('gulp-ngdocs');
+
+    return gulpDocs.sections({
+        _0all: {
+            glob: ['app/**/*.js', '!app/**/*.spec.js'],
+            title: 'All'
+        }
+    }).pipe(gulpDocs.process({
+        html5Mode: false,
+        startPage: '/api',
+        title: 'Kanban',
+        image: 'https://cog1.basecamphq.com/companies/461444/logo.gif',
+        imageLink: 'https://github.com/COG1-Interactive',
+        titleLink: 'https://github.com/COG1-Interactive/Ren-learn-kanban',
+        styles: [
+            'resources/doc-styles-override.css',
+            'app/vendor/rl-reputation-widget/rlreputationwidget.css'
+        ],
+        scripts: [
+            'bower_components/angular/angular.min.js',
+            'bower_components/angular/angular.min.js.map',
+            'bower_components/angular-animate/angular-animate.min.js',
+            'bower_components/angular-animate/angular-animate.min.js.map',
+
+            'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-touch/angular-touch.js',
+            'deployment/app-v' + pkg.version + '.js',
+            'deployment/app-v' + pkg.version + '.js.map'
+        ]
+    }))
+        .pipe(gulp.dest('./ng-docs'));
+});
