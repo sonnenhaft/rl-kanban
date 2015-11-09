@@ -2,7 +2,7 @@ angular.module('component.kanban-board', [
     'component.kanban-card',
     'component.expand-collapse',
     'component.scrollable-element'
-]).directive('kanbanBoard', function ($window) {
+]).directive('kanbanBoard', function ($window, KanbanColumn) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
@@ -22,7 +22,7 @@ angular.module('component.kanban-board', [
 
             if ($scope.swimlane.isTeam) {
                 //just for capability with non team swimlanes
-                $scope.column = $scope.columns[0];
+                $scope.column = new KanbanColumn({tasks: [], swimlane: $scope.swimlane});
             }
 
             var conditions;
@@ -102,7 +102,9 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if (destSortableScope.$parent.column.$collapsed) {
+                    if (destSortableScope.$parent.swimlane.isTeam) {
+                        return true;
+                    } else if (destSortableScope.$parent.column.$collapsed) {
                         return false;
                     } else if ($scope.settings.acceptTasks) {
                         return true;
