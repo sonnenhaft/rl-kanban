@@ -1,0 +1,27 @@
+{
+    "minimum": {
+        "contentTypes": true,
+        "priority": true,
+        "grade": true,
+        "id": true
+    },
+    "medium": {
+        "contentTypes": true,
+        "skillShortName": true,
+        "priority": true,
+        "grade": true,
+        "id": true,
+        "flag": true,
+        "preview": true
+    },
+    "maximum": {
+        "contentTypes": true,
+        "skillShortName": true,
+        "priority": true,
+        "grade": true,
+        "id": true,
+        "notes": true,
+        "flag": true,
+        "preview": true
+    }
+}

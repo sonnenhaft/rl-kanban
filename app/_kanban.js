@@ -19,7 +19,6 @@ angular.module('kanban', [
     'component.scroll-bar',
     'component.star-rating',
     'component.priority-level',
-    'component.layout-switcher',
     'component.expand-collapse',
     'component.stickyHeader',
     'component.add-dropdown',
