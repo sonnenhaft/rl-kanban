@@ -48,22 +48,13 @@
         <!-- inject:js --><!-- endinject -->
         <!-- inject:.tmp/templates-and-app-version:js --><!-- endinject -->
     <!-- endbuild -->
-    <script>
-        angular.module('kanban-demo', [
-            'kanban',
-            'events-debugger',
-            'component.kanban-version'
-        ]).config(function(kanbanVersionValueProvider, kanbanVersion){
-            kanbanVersionValueProvider.set(kanbanVersion);
-        });
-    </script>
 </head>
 <body>
 
 <events-debugger></events-debugger>
 <layout-switcher></layout-switcher>
 <kanban-version-tag></kanban-version-tag>
-<kanban-model ng-controller="layoutSwitcherController" model="kanbanModel" config="config">
+<kanban-model ng-controller="layoutSwitcherDemoController" model="kanbanModel" config="config">
     <kanban config="kanbanModel"></kanban>
 </kanban-model>
 </body>

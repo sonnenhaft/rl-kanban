@@ -1,4 +1,4 @@
-angular.module('events-debugger', [
+angular.module('demo-code.events-debugger', [
     'component.is-touch',
     'cgNotify'
 ]).directive('eventsDebugger', function(eventsToDebug, notify, $log, isNotTouch){
