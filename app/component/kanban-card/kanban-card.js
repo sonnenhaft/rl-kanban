@@ -31,8 +31,8 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.limit = 50;
 
             $scope.showFullDescription = function (task, settings, $event) {
-                $event.stopPropagation();
                 if (!task.$edit) {
+                    $event.stopPropagation();
                     $scope.limit = task.notes.length;
                     if (settings.highlightTaskOnClick && !task.$edit) {
                         kanban.highlightTask(task);
