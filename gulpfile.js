@@ -42,6 +42,8 @@ function initPrivateTasks() {
             'app/**/*.css',
             '!app/sc-deps/**/*.css',
             '!app/sc-deps/**/*.js',
+            '!app/demo-code/**/*.css',
+            '!app/demo-code/**/*.js',
             '!app/vendor/**/*.css',
             '!app/vendor/**/*.js',
             '!app/**/*spec.js',
@@ -49,20 +51,24 @@ function initPrivateTasks() {
         ], {read: false}), {
             relative: true
         });
-        var vendor = inject(gulp.src([
-            'app/vendor/**/*.css',
-            'app/vendor/**/*.js'
-        ], {read: false}), {
-            relative: true,
-            name: 'vendor'
-        });
-
         return gulp.src('index-inject.html')
             .pipe(rename('index.html'))
-            .pipe(gulp.dest('./'))
-            .pipe(vendor)
-            .pipe(gulp.dest('./'))
-            .pipe(target)
+            .pipe(gulp.dest('./')).pipe(inject(gulp.src([
+                'app/vendor/**/*.css',
+                'app/vendor/**/*.js'
+            ], {read: false}), {
+                relative: true,
+                name: 'vendor'
+            }))
+            .pipe(gulp.dest('./')).pipe(inject(gulp.src([
+                'app/demo-code/**/*.css',
+                'app/demo-code/**/_*.js',
+                'app/demo-code/**/*.js'
+            ], {read: false}), {
+                relative: true,
+                name: 'demo'
+            }))
+            .pipe(gulp.dest('./')).pipe(target)
             .pipe(gulp.dest('./'));
     });
     gulp.task('sass', function () {
@@ -93,91 +99,61 @@ function initPrivateTasks() {
             ngAnnotate = require('gulp-ng-annotate'),
             inject = require('gulp-inject'),
             processhtml = require('gulp-processhtml'),
-        //    cssBase64 = require('gulp-css-base64'),
             urlAdjuster = require('gulp-css-url-adjuster'),
             ver = require('gulp-ver');
-        //staticAssetsDir = 'static-assets-v' + pkg.version + '/';
 
         var staticAssetsDir = 'static-assets/';
 
         gulp.src(['app/**/font/*.*']).pipe(copy('deployment/' + staticAssetsDir + 'font', {prefix: 10}));
         gulp.src(['app/component/**/*.png']).pipe(copy('deployment/' + staticAssetsDir, {prefix: 10}));
-        gulp.src(['app/**/*-stub.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
+        gulp.src(['app/demo-code/**/*.json', 'app/**/*-logo.*']).pipe(copy('deployment/'));
 
-        var uglify = require('gulp-uglify'),
-            rename = require('gulp-rename'),
-            clone = require('gulp-clone'),
-            cloneJS = clone.sink(),
-            cloneVendorJS = clone.sink(),
-            cloneCSS = clone.sink(),
-            cloneVendorCSS = clone.sink(),
-            cloneScCSS = clone.sink(),
-            cloneScJS = clone.sink();
+        var uglify = require('gulp-uglify');
+        var rename = require('gulp-rename');
+        var clone = require('gulp-clone');
 
-        function css(el) {
-            return [
-                sourcemaps.init(),
-                // cssBase64({maxWeightResource: 200 * 1024}),
-                urlAdjuster({prepend: '/' + staticAssetsDir}),
-                'concat',
-                el,
-                minifyCss(),
-                rename({suffix: '.min'}),
-                sourcemaps.write('.')
-            ];
-        }
-
-        var cssOpts = css(cloneCSS);
-        var vendorCSSOpts = css(cloneVendorCSS);
-        var scCSSOpts = css(cloneScCSS);
-
-        function js(el, ug) {
-            var array = [
-                ngAnnotate(),
-                el,
-                sourcemaps.init()
-            ];
-            if (ug) {
-                array.push(uglify());
-            }
-
-            array.push(rename({suffix: '.min'}));
-            array.push(sourcemaps.write('.'));
-            return array;
-        }
-
-        var jsOpts = js(cloneJS, true);
-        var vendorJSOpts = js(cloneVendorJS);
-        var scJSOpts = js(cloneScJS, true);
-
-        //js: [ngAnnotate(), uglify(), ver({prefix: 'v'})]
-        if (commander.versioned === true) {
-            [scJSOpts, scCSSOpts, vendorCSSOpts, vendorJSOpts, cssOpts, jsOpts].forEach(function (o) {
-                o.push(ver({prefix: 'v'}));
+        var clonesArray = [
+            {name: 'css'}, {name: 'vendorCSS'}, {name: 'demoCSS'}, {name: 'scDepsCSS'},
+            {name: 'js', isJs: true}, {name: 'vendorJS', isJs: true, isVendor: true}, {name: 'demoJS', isJs: true}, {name: 'scDepsJS', isJs: true}
+        ].map(function (item) {
+                item.clone = clone.sink();
+                if (item.isJs) {
+                    item.opts = [ngAnnotate(), item.clone, sourcemaps.init()];
+                    if (!item.isVendor) {
+                        item.opts.push(uglify());
+                    }
+                } else {
+                    item.opts = [
+                        sourcemaps.init(),
+                        urlAdjuster({prepend: '/' + staticAssetsDir}),
+                        'concat',
+                        item.clone,
+                        minifyCss()
+                    ];
+                }
+                item.opts.push(rename({suffix: '.min'}));
+                item.opts.push(sourcemaps.write('.'));
+                if (commander.versioned === true) {
+                    item.opts.push(ver({prefix: 'v'}));
+                }
+                return item;
             });
-        }
 
-        return gulp.src('index.html')
+        return clonesArray.reduce(function (useminTask, item) {
+            return useminTask.pipe(item.clone.tap());
+        }, gulp.src('index.html')
             .pipe(inject(gulp.src(['.tmp/templates.js', '.tmp/package.js'], {read: false}),
                 {starttag: '<!-- inject:.tmp/templates-and-app-version:js -->'}
             ))
-            .pipe(usemin({
+            .pipe(usemin(clonesArray.reduce(function (useminMap, item) {
+                useminMap[item.name] = item.opts;
+                return useminMap;
+            }, {
                 html: [
                     processhtml({commentMarker: 'process', process: true}),
                     minifyHtml()
-                ],
-                css: cssOpts,
-                js: jsOpts,
-                vendorJS: vendorJSOpts,
-                vendorCSS: vendorCSSOpts,
-                scDepsCSS: scCSSOpts,
-                scDepsJS: scJSOpts
-            }))
-            .pipe(cloneVendorCSS.tap())
-            .pipe(cloneCSS.tap())
-            .pipe(cloneVendorJS.tap())
-            .pipe(cloneJS.tap())
-            .pipe(gulp.dest('deployment/'));
+                ]
+            })))).pipe(gulp.dest('deployment/'));
     });
 
     gulp.task('server', function () {
@@ -286,50 +262,6 @@ gulp.task('test', function (done) {
 });
 
 gulp.task('dev-test', runKarma);
-
-gulp.task('beautify-js', function () {
-    return gulp.src(['app/**/*.js', '!app/vendor/**/**.js'])
-        .pipe(require('gulp-jsbeautifier')({
-            config: 'resources/.jsbeautifyrc',
-            mode: 'VERIFY_AND_WRITE'
-        })).pipe(gulp.dest('./app'));
-});
-
-gulp.task('ngdocs', [], function () {
-    var gulpDocs = require('gulp-ngdocs');
-
-    return gulpDocs.sections({
-        _0all: {
-            glob: ['app/**/*.js', '!app/**/*.spec.js'],
-            title: 'All'
-        }
-    }).pipe(gulpDocs.process({
-        html5Mode: false,
-        startPage: '/api',
-        title: 'Kanban',
-        image: 'https://cog1.basecamphq.com/companies/461444/logo.gif',
-        imageLink: 'https://github.com/COG1-Interactive',
-        titleLink: 'https://github.com/COG1-Interactive/Ren-learn-kanban',
-        styles: [
-            'resources/doc-styles-override.css',
-            'app/vendor/rl-reputation-widget/rlreputationwidget.css'
-        ],
-        scripts: [
-            'bower_components/angular/angular.min.js',
-            'bower_components/angular/angular.min.js.map',
-            'bower_components/angular-animate/angular-animate.min.js',
-            'bower_components/angular-animate/angular-animate.min.js.map',
-
-            'bower_components/angular-resource/angular-resource.js',
-            'bower_components/angular-sanitize/angular-sanitize.js',
-            'bower_components/angular-animate/angular-animate.js',
-            'bower_components/angular-touch/angular-touch.js',
-            'deployment/app-v' + pkg.version + '.js',
-            'deployment/app-v' + pkg.version + '.js.map'
-        ]
-    }))
-        .pipe(gulp.dest('./ng-docs'));
-});
 
 var svn = require('gulp-svn');
 
