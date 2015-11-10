@@ -15,6 +15,7 @@ angular.module('kanban', [
     'component.task-groups.task-group-list',
     'component.groups-debug',
     'component.column-names',
+    'component.kanban-header',
     'component.swim-lane',
     'component.scroll-bar',
     'component.star-rating',

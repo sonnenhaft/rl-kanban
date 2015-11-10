@@ -1,0 +1,11 @@
+<add-dropdown settings="settings" groups="groups" ng-show="settings.showAddNew"></add-dropdown>
+<div class="kanban-header-wrapper" sticky-header>
+    <scrollbar columns="columns" horizontal-scroll></scrollbar>
+    <div class="kanban-header" scrollable-element horizontal-scroll>
+        <column-names columns="columns" settings="settings"></column-names>
+        <div expand-collapse="expanded" expand-disabled="settings.readOnly" class="task-groups" ng-hide="settings.hideGroups">
+            <task-group-list groups="groups" columns="columns" settings="settings" columns-width></task-group-list>
+        </div>
+    </div>
+    <task-groups-button value="expanded" ng-init="expanded = true" settings="settings" ng-hide="settings.hideGroups"></task-groups-button>
+</div>

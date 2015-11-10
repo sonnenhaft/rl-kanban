@@ -15,6 +15,14 @@ angular.module('component.kanban-board', [
             var scrollableElement = $ctrl[0];
             var kanban = $ctrl[1];
             var horizontalScroll = $ctrl[2];
+
+            $scope.limit = 0;
+            angular.element($element).ready(function () {
+                $scope.$applyAsync(function () {
+                    $scope.limit = Infinity;
+                });
+            });
+
             $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function () {
                 $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
@@ -27,7 +35,7 @@ angular.module('component.kanban-board', [
 
             var conditions;
 
-            function rememberScrolls(){
+            function rememberScrolls() {
                 conditions = {
                     scrollTop: $element[0].scrollTop,
                     scrollLeft: horizontalScroll.$element[0].scrollLeft,
@@ -36,8 +44,10 @@ angular.module('component.kanban-board', [
                 };
             }
 
-            function rollbackScrolls(){
-                if (!conditions) {return;}
+            function rollbackScrolls() {
+                if (!conditions) {
+                    return;
+                }
                 $element[0].scrollTop = conditions.scrollTop;
                 horizontalScroll.$element[0].scrollLeft = conditions.scrollLeft;
                 $window.scrollTo(conditions.scrollX, conditions.scrollY);

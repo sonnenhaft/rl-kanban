@@ -1,4 +1,4 @@
-angular.module('component.kanban-model').directive('kanbanModel', function(generateKanbanModel, KanbanTask, $timeout){
+angular.module('component.kanban-model').directive('kanbanModel', function(generateKanbanModel, KanbanTask){
     return function($scope, $element, $attrs){
         $scope.$on('addToGroup', function (e, group, task) {
             var config = $scope[$attrs.model];
@@ -13,10 +13,7 @@ angular.module('component.kanban-model').directive('kanbanModel', function(gener
 
         $scope.$watch($attrs.config, function(config){
             if (config) {
-                $timeout(function(){
-                    $scope[$attrs.model] = generateKanbanModel(config);
-                }, 1000);
-
+                $scope[$attrs.model] = generateKanbanModel(config);
             } else {
                 $scope[$attrs.model] = null;
             }
