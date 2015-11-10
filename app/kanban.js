@@ -113,5 +113,6 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
             };
         }
     };
+}).config(function ($httpProvider) {
+    $httpProvider.useApplyAsync(true);
 });
-
