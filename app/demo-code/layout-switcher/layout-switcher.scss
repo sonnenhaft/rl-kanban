@@ -1,30 +1,30 @@
 .layout-switcher {
-  position: fixed;
-  font-size: 12px;
-  opacity: 0.1;
-  z-index: 100;
-  .button-group .button {
-    margin: 5px;
-    padding: 5px;
-    display: block
-  }
-}
-.layout-switcher.show {
-  opacity: 0.5;
+    position: fixed;
+    font-size: 12px;
+    opacity: 0.1;
+    z-index: 100;
+    .button-group .button {
+        margin: 5px;
+        padding: 5px;
+        display: block
+    }
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .task-card-modal-demo {
-  position: absolute;
-  z-index: 9999;
-  transform: translateX(-50%);
-  left: 50%;
-  outline: none;
-  overflow-y: scroll;
-  height: 100%;
+    position: absolute;
+    z-index: 9999;
+    transform: translateX(-50%);
+    left: 50%;
+    outline: none;
+    overflow-y: scroll;
+    height: 100%;
 
-  iframe {
-    display: block;
-    margin: 0 auto;
-    margin-top: 60px;
-  }
+    iframe {
+        display: block;
+        margin: 0 auto;
+        margin-top: 60px;
+    }
 }
