@@ -2,6 +2,7 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
     /*jshint maxcomplexity:10 */
     return function createKanbanModel(initialConfig) {
         var config = angular.copy(initialConfig);
+        config.$loaded = false;
 
         if (angular.isDefined(initialConfig.tasks)) {
             angular.extend(config, {
@@ -82,6 +83,8 @@ angular.module('component.kanban-model').factory('generateKanbanModel', function
                 group.recalculate(true);
             });
         }
+
+        config.$loaded = true;
 
         return config;
     };

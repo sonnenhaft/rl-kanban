@@ -114,3 +114,4 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
         }
     };
 });
+
