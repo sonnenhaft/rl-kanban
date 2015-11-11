@@ -15,10 +15,10 @@
     border: 1px solid #DBDCDE;
     border-top: none;
     .team-message {
-        position: absolute;
         z-index: 1;
         width: 1092px;
         margin: 30px 23px;
+        position: relative;
         padding: 30px;
         text-align: center;
         border: 1px #979797 dashed;
@@ -44,8 +44,8 @@
 
     &.team-kanban {
         .kanban-wrapper {
-            min-height: 150px;
-            height: 153px;
+            min-height: 0;
+            height: 0;
         }
         .team-message {
             display: block;
