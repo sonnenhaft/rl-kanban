@@ -4,7 +4,7 @@ angular.module('demo-code.layout-switcher').controller('layoutSwitcherDemoContro
     $scope.$watchCollection('locationSearch', function (locationSearch) {
         $q.all({
             layout: mockGetter.getLayout(locationSearch.layout || 'work-tracker'),
-            contentLevel: mockGetter.getContentLevel(locationSearch.layout === 'work-tracker' ? 'work-tracker' : 'planner')
+            contentLevel: mockGetter.getContentLevel(/work-tracker/i.test(locationSearch.layout) ? 'work-tracker' : 'planner')
         }).then(function (result) {
 
             $scope.config = angular.copy(result.layout);
