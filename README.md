@@ -29,11 +29,11 @@ Custom files are unique to the Kanban control.  Custom files get compiled into "
 ### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
 ```sh
-$ gulp clean-generated
+$ gulp $clean-generated
 ```
 Manually generate index.html:
 ```sh
-$ gulp inject-files
+$ gulp $inject-files
 ```
 Manually compile all sass files into css:
 ```sh
@@ -55,11 +55,6 @@ $ gulp test
 Run jshint and tests; build if everything is fine:
 ```sh
 $ gulp test-and-build
-```
-
-Generate documentation:
-```sh
-$ gulp ngdocs
 ```
 
 ## Configuration
