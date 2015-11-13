@@ -14,7 +14,7 @@ var copy = require('gulp-copy');
 var sourcemaps = require('gulp-sourcemaps');
 var urlAdjuster = require('gulp-css-url-adjuster');
 
-gulp.task('$usemin', function () {
+gulp.task('$usemin', ['$inject-files'], function () {
     var staticAssetsDir = 'static-assets/';
 
     //TODO: extract this area to config.js

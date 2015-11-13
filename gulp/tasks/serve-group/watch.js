@@ -6,11 +6,8 @@ var logEvent = require('../../utils/logEvent');
 
 var compileSass = require('../../utils/compile-sass-fn');
 
-gulp.task('$sass', function () {
-    return compileSass(config.appDir + '/**/*.scss', config.appDir)
-});
 
-gulp.task('$watch', function () {
+gulp.task('$watch', ['$inject-files'], function () {
     livereload.listen();
     gulp.watch(config.watchAssets, function (event) {
         logEvent(event);
