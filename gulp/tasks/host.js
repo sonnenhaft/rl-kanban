@@ -3,20 +3,18 @@ var runSequence = require('run-sequence');
 var connect = require('gulp-connect');
 var config = require('../config');
 
-gulp.task('host', function () {
-    gulp.task('$server', function () {
-        return connect.server({
-            root: config.connectDist,
-            port: config.connectPort
-        });
+gulp.task('$server', ['$usemin'], function () {
+    return connect.server({
+        root: config.connectDist,
+        port: config.connectPort
     });
+});
 
+gulp.task('host', ['$clean-generated'], function (cb) {
     return runSequence(
-        '$clean-generated',
         ['$sass', '$ng-templates', '$ng-config'],
-        '$inject-files',
-        '$usemin',
-        '$$server',
-        '$clean-temp'
+        '$server',
+        '$clean-temp',
+        cb
     );
 });

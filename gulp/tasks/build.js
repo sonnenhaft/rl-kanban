@@ -1,13 +1,12 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
-gulp.task('build', function () {
-    return runSequence(
-        ['$clean-generated', 'jshint'],
+gulp.task('build', ['$clean-generated', 'jshint'], function (cb) {
+    runSequence(
         ['$sass', '$ng-templates', '$ng-config'],
-        '$inject-files',
         '$usemin',
-        '$clean-temp'
+        '$clean-temp',
+        cb
     );
 });
 
