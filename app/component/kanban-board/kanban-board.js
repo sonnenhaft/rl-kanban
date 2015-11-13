@@ -112,13 +112,14 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if (destSortableScope.$parent.swimlane.isTeam) {
+                    if (destSortableScope.$parent.swimlane.isTeam) {         // TODO: remove $parent from here
                         return true;
-                    } else if (destSortableScope.$parent.column.$collapsed) {
+                    } else if (destSortableScope.$parent.column.$collapsed) {      // TODO: remove $parent from here
                         return false;
                     } else if ($scope.settings.acceptTasks) {
                         return true;
                     } else {
+                        // TODO: remove $parent from here
                         return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
                     }
                 }
