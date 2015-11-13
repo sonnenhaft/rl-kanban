@@ -22,6 +22,7 @@
         "id": true,
         "notes": true,
         "flag": true,
-        "preview": true
+        "preview": true,
+        "primarySlot": true
     }
 }
