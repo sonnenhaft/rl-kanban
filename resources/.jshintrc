@@ -60,6 +60,7 @@
 
     "globals": {
         "angular": true,
+        "process": true,
         "__dirname": true,
         "beforeEach": true,
         "xdescribe": true,
