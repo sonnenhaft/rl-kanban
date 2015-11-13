@@ -19,14 +19,8 @@
     </div>
     <div class="card-content">
         <p class="task-name" ng-show="$parent.settings.tasksDisplayFields.taskName" ng-bind-html="task.taskName | sanitize"></p>
-        <p ng-show="task.skills.length && $parent.settings.tasksDisplayFields.skillShortName">
-            <p class="task-name" ng-bind-html="task.skills[0].name | sanitize"></p>
-            <a ng-if="task.skills.length > 1" class="card-tooltip">
-                <tool-tip template-url="app/component/kanban-card/tip-template.html"
-                          type="long" event="click" scope="task" tip-class="skill-tooltip">
-                    +{{task.skills.length - 1}} more skill<span ng-show="task.skills.length > 2">s</span>
-                </tool-tip>
-            </a>
+        <p ng-show="$parent.settings.tasksDisplayFields.skillShortName">
+            <p class="task-name" ng-bind-html="task.skillShortName | sanitize"></p>
         </p>
         <p class="task-description" ng-show="$parent.settings.tasksDisplayFields.description">{{task.description}}</p>
         <hr class="card-divider" ng-show="$parent.settings.tasksDisplayFields.taskName || $parent.settings.tasksDisplayFields.skillShortName"/>
@@ -35,6 +29,9 @@
             <span class="task-assignee">{{task.assignees}}</span>
         </p>
         <div class="additional-details">
+            <p ng-show="$parent.settings.tasksDisplayFields.primarySlot">
+                <p class="task-name text-grey" style="font-size: 14px; margin-bottom: 12px" ng-bind-html="task.primarySlot | sanitize"></p>
+            </p>
             <div class="task-owner" ng-show="$parent.settings.tasksDisplayFields.assigneeName">
                 <p class="owner-avatar" ng-show="$parent.settings.tasksDisplayFields.ownerPicture"><img ng-src="{{task.ownerPicture}}"/></p>
                 <p class="owner-name">{{task.assigneeName}}</p>
