@@ -1,4 +1,14 @@
 # KANBAN CONTROL 
+## Sub repositories - ATTENTION
+Current repository cointains sub repository. If you are cloning porject the first time, then use next command:
+```sh
+git clone --recursive https://github.com/COG1-Interactive/Ren-learn-kanban
+```
+If you already have cloned project, or cloned it without  --recursive flag, then use command to clone subrepo 
+```sh
+git submodule update --init --recursive
+```
+Note, that work with sub repos require some knowldege of git submodules, but generally IDE like WebStorm can cover such knowldege.
 ## Development Setup
 ### Installation
 Install node js and ruby (for Sass). Then run:
@@ -37,7 +47,7 @@ $ gulp $inject-files
 ```
 Manually compile all sass files into css:
 ```sh
-$ gulp sass
+$ gulp $sass
 ```
 To run jshint on source:
 ```sh
@@ -51,10 +61,6 @@ $ gulp test-dev
 To run tests and stop:
 ```sh
 $ gulp test
-```
-Run jshint and tests; build if everything is fine:
-```sh
-$ gulp test-and-build
 ```
 
 ## Configuration
@@ -265,10 +271,8 @@ User force column show
 
 ```
 angular.module('kanban').controller('KanbanTestController', function($rootScope) {
-
   $rootScope.$on('kanban:task:start', function(e, taskID) {
     console.log('Task', taskID, 'had a drag start event!');
   });
 });
-
 ```
