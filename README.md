@@ -67,3 +67,7 @@ $ gulp test
 ## [Kanban Configuration](docs/configuration.md)
 
 ## [Kanban Events list](docs/events.md)
+
+## [Kanban Specification in PDF](docs/RENA-UXD-KanbanControl.pdf)
+
+## [Components](docs/components/README.md)
