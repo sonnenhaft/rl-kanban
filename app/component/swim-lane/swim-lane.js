@@ -7,8 +7,7 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
             groups: '='
         },
         link: function ($scope, $element) {
-            $scope.expanded = $scope.$parent.$first || $scope.swimlane.isTeam ? true : false;
-            $scope.cardLimit = $scope.expanded ? Infinity : 0;
+            $scope.expanded = true;
 
             $element.bind('click', function(e){
                 var parent = e.target.parentNode;
@@ -20,7 +19,6 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
 
             $scope.toggleCollapse = function () {
                 $scope.expanded = !$scope.expanded;
-                $scope.cardLimit = Infinity;
             };
 
             $scope.addResource = function ($event) {
