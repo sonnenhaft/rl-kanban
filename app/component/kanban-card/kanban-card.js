@@ -60,7 +60,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }
             });
 
-            $scope.groupColor = $parse('group.color')($scope.task);
+            $scope.groupColor = $parse('group.color')($scope.task) || null;
             var borderColor = $scope.groupColor || '#326295';
             var wrapper = $element.children();
 
