@@ -8,20 +8,14 @@ angular.module('component.kanban-board', [
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
         scope: {
             swimlane: '=',
-            settings: '='
+            settings: '=',
+            limit: '='
         },
         replace: true,
         link: function ($scope, $element, $attrs, $ctrl) {
             var scrollableElement = $ctrl[0];
             var kanban = $ctrl[1];
             var horizontalScroll = $ctrl[2];
-
-            $scope.limit = 0;
-            angular.element($element).ready(function () {
-                $scope.$applyAsync(function () {
-                    $scope.limit = Infinity;
-                });
-            });
 
             $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function () {
