@@ -1,10 +1,13 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope) {
+angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope, $parse) {
     /*jshint maxcomplexity:10 */
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
         link: function ($scope, $element, $attrs, kanban) {
             var modal;
+
+            $scope.fields = $scope.$parent.settings.tasksDisplayFields;
+
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
                 if (!task.$edit && settings.highlightTaskOnClick) {
@@ -54,6 +57,22 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.$on('$destroy', function () {
                 if (modal) {
                     modal.dismiss('cancel');
+                }
+            });
+
+            $scope.groupColor = $parse('group.color')($scope.task);
+            var borderColor = $scope.groupColor || '#326295';
+            var wrapper = $element.children();
+
+            $scope.$watch('task.$highlight', function (value, oldValue) {
+                if (value !== oldValue) {
+                    if (value) {
+                        wrapper.addClass('card-highlight');
+                        wrapper.css('borderColor', borderColor);
+                    } else {
+                        wrapper.removeClass('card-highlight');
+                        wrapper.css('borderColor', 'transparent');
+                    }
                 }
             });
 

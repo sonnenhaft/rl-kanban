@@ -197,37 +197,6 @@ $marker-height: 4px;
     .card-ellipsis {
         color: #31B3FF;
     }
-    
-    .card-edit {
-        .edit-wrapper {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-        }
-        background: #f6f6f6;
-        user-select: none;
-        .card-header, .card-content {
-            opacity: 0.5;
-        }
-        .card-preview, .card-ellipsis, .card-tooltip {
-            color: #aaa7a7;
-        }
-        .card-handle {
-            cursor: pointer;
-        }
-        .card-tooltip {
-            pointer-events: none;
-        }
-        &:hover {
-            background: #FFFFFF;
-            .card-header, .card-content {
-                opacity: 1;
-            }
-        }
-    }
 
     .delete-card-button {
         background: #dd2f2f;
@@ -305,6 +274,37 @@ $marker-height: 4px;
             &:last-child {
                 padding-bottom: 0;
             }
+        }
+    }
+}
+
+.swim-lane.edit .kanban-card {
+    .edit-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+    }
+    background: #f6f6f6;
+    user-select: none;
+    .card-header, .card-content {
+        opacity: 0.5;
+    }
+    .card-preview, .card-ellipsis, .card-tooltip {
+        color: #aaa7a7;
+    }
+    .card-handle {
+        cursor: pointer;
+    }
+    .card-tooltip {
+        pointer-events: none;
+    }
+    &:hover {
+        background: #FFFFFF;
+        .card-header, .card-content {
+            opacity: 1;
         }
     }
 }
