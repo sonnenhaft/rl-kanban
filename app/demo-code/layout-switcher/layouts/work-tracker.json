@@ -100,17 +100,15 @@
                 }
             ],
             "validStates": [
-                "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
                 "555b6911b55afadc0db29d98",
-                "555b6911faa6e347b8f89d13",
                 "555b6911ba6d349f6253cd86",
                 "555b6911ba6d349f6253cd87"
             ],
             "type": "Book",
             "swimlaneId": "555b6922f5cad468b43fbe8b",
             "id": "C95DB1",
-            "skillShortName": "irure do ut occaecat tempor",
+            "skillShortName": "Task that has incorrect valid states and don't have its parent column in this states",
             "notes": "Quis voluptate aute incididunt eu nisi commodo veniam occaecat sit incididunt.",
             "columnId": "555b6911faa6e347b8f89d13"
         },
