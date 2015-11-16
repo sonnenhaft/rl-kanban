@@ -15,6 +15,7 @@
         "preview": true
     },
     "maximum": {
+        "_comment": "WORK TRACKER FIELDS",
         "contentTypes": true,
         "skillShortName": true,
         "priority": true,
@@ -25,6 +26,7 @@
         "preview": true,
         "primarySlot": true,
 
+        "_comment": "PLANNER FIELDS: false to otimize perfomance",
         "appRef": false,
         "appName": false,
         "resourceName": false,
@@ -34,6 +36,7 @@
         "creationDate": false,
         "ownerAppLogo": false,
 
+        "_comment": "UNUSED FIELDS in any configuration (TODO: remove this fields)",
         "taskName": false,
         "description": false,
         "assignability": false,
