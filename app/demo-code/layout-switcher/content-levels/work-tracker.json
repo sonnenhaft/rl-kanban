@@ -12,6 +12,7 @@
         "grade": true,
         "id": true,
         "flag": true,
+        "mediaFlag": true,
         "preview": true
     },
     "maximum": {
@@ -23,6 +24,7 @@
         "id": true,
         "notes": true,
         "flag": true,
+        "mediaFlag": true,
         "preview": true,
         "primarySlot": true,
 
