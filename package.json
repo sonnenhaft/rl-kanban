@@ -53,9 +53,7 @@
     "karma-phantomjs-launcher": "~0.1.2",
     "phantomjs": "~1.9.15",
     "require-dir": "^0.3.0",
-    "run-sequence": "~1.0.2"
-  },
-  "dependencies": {
+    "run-sequence": "~1.0.2",
     "gulp-util": "^3.0.4"
   }
 }
