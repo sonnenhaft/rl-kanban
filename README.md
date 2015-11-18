@@ -1,14 +1,14 @@
 # KANBAN CONTROL 
 ## Sub repositories - ATTENTION
-Current repository cointains sub repository. If you are cloning porject the first time, then use next command:
+Current repository contains sub repository. If you are cloning project the first time, then use next command:
 ```sh
 git clone --recursive https://github.com/COG1-Interactive/Ren-learn-kanban
 ```
-If you already have cloned project, or cloned it without  --recursive flag, then use command to clone subrepo 
+If you already have cloned project, or cloned it without  --recursive flag, then use command to clone submodule
 ```sh
 git submodule update --init --recursive
 ```
-Note, that work with sub repos require some knowldege of git submodules, but generally IDE like WebStorm can cover such knowldege.
+Note, that work with sub repos require some knowledge of git submodules, but generally IDE like WebStorm can cover such knowledge.
 ## Development Setup
 ### Installation
 Install node js and ruby (for Sass). Then run:
@@ -34,7 +34,7 @@ $ gulp build
 Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
 #### "Vendor" Files
 For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "deployment/js/vendor.js" and "deployment/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
-Custom files are unique to the Kanban control.  Custom files get compiled into "depployment/js/rlkanban.js" and "deployment/css/rlkanban.css".  
+Custom files are unique to the Kanban control.  Custom files get compiled into "deployment/js/rlkanban.js" and "deployment/css/rlkanban.css".
 
 ### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
