@@ -1,10 +1,10 @@
-angular.module('templates', []);
+angular.module('kanban.templates', []);
 angular.module('kanban', [
     'component.kanban-model',
     'ngAnimate',
     'ngTouch',
     'component.scrollable-element',
-    'templates',
+    'kanban.templates',
     'component.kanban-board',
     'component.task-groups.task-groups-button',
     'component.add-new-control',
