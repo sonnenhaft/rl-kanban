@@ -15,14 +15,14 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 $element.off('scroll', synchronizeHorizonalScroll);
             };
 
-            var synchronizeHorizonalScroll = (function (scrollEvent) {
+            var synchronizeHorizonalScroll = angular.bind(this, function (scrollEvent) {
                 var scrollLeft = scrollEvent.target.scrollLeft;
                 var max = this.scrollBarElement.scrollWidth - this.scrollBarElement.clientWidth;
 
                 targetNodes.forEach(function (targetNode) {
                     targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
                 });
-            }).bind(this);
+            });
         }
     };
 }).directive('columnsWidth', function () {
