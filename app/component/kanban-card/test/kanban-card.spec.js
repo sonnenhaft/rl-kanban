@@ -1,16 +1,16 @@
 describe.module('component.kanban-card', function () {
     var directive;
     beforeEach(inject(function (directiveBuilder) {
-        directive = directiveBuilder.build('<kanban-card as-sortable-item></kanban-card>', {
+        directive = directiveBuilder.$build('<kanban-card as-sortable-item></kanban-card>', {
             task: {column: {swimlane: {$disabled: false}}},
             settings: {notes: true, highlightTaskOnClick: false}
         }, {
             kanban: {highlightTask: angular.noop},
             asSortable: {scope: {modelValue: {}}}
         });
-        directive.scope.$digest();
     }));
 
+    //TODO: split this test stub into multiply tests
     it('should be defined', inject(function ($timeout) {
         expect(directive.element).toBeDefined();
 

@@ -10,6 +10,7 @@ describe('component.is-touch', function () {
         }));
 
         it('tests the providers internal function', inject(function ($window) {
+            //TODO: Stan - leave comment on what is       provider.$get($window)
             expect(provider.$get($window)).toBe(false);
         }));
     });
@@ -30,7 +31,7 @@ describe('component.is-touch', function () {
         }));
 
         it('tests the providers internal function', inject(function (isNotTouch) {
-            expect(isNotTouch).toBe(true)
+            expect(isNotTouch).toBe(true);
         }));
     });
 });
