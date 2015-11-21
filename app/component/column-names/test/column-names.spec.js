@@ -1,5 +1,4 @@
-describe('component.column-names', function () {
-    beforeEach(module('component.column-names'));
+describe.module('component.column-names', function () {
     beforeEach(module('kanban'));
     beforeEach(module('component.kanban-model'));
 
