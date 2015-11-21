@@ -1,7 +1,7 @@
-<div class="kanban-debug">
+<div class="kanban-debug" ng-show="groups.length">
     <button ng-click="showDebug = !showDebug">show debug</button>
     <div ng-repeat="group in groups" ng-click="showGroup = !showGroup" ng-init="showGroup=true" ng-show="showDebug">
-        <b style="font-size: 120%; color: orange; cursor: pointer">
+        <b class="group-name">
             {{::group.groupName}}
             [tasks: <span opacity-on-changed="group.tasks.length" set-text="true"></span>,
             width: <span opacity-on-changed="group.width" set-text="true"></span>]
