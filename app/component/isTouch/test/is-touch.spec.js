@@ -1,4 +1,4 @@
-describe('isTouch', function () {
+describe('component.is-touch-1', function () {
     var provider;
 
     beforeEach(module('component.is-touch', function(isTouchProvider) {
@@ -10,10 +10,10 @@ describe('isTouch', function () {
     }));
 });
 
-describe('isTouch', function() {
+describe('component.is-touch-false', function() {
     var provider;
 
-    beforeEach(module('component.is-touch', function(isTouchProvider) {
+    beforeEach(module('component.is-touch-2', function(isTouchProvider) {
         provider = isTouchProvider;
     }));
 

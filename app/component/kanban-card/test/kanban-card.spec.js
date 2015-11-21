@@ -1,19 +1,17 @@
-describe('component.kanban-card', function () {
-    beforeEach(module('component.kanban-card'));
-
+describe.module('component.kanban-card', function () {
     var directive;
-    var $timeout;
-    beforeEach(inject(function (directiveBuilder, _$timeout_) {
-        $timeout = _$timeout_;
-        directive = directiveBuilder.build('<kanban-card as-sortable-item></kanban-card>',
-            {task: {$highlight: true, column: {swimlane: {$disabled: false}}}, settings: {notes: true, highlightTaskOnClick: false}},
-            {
-                kanban: {highlightTask: angular.noop}, asSortable: {scope: {modelValue: {}}}
-            });
+    beforeEach(inject(function (directiveBuilder) {
+        directive = directiveBuilder.build('<kanban-card as-sortable-item></kanban-card>', {
+            task: {column: {swimlane: {$disabled: false}}},
+            settings: {notes: true, highlightTaskOnClick: false}
+        }, {
+            kanban: {highlightTask: angular.noop},
+            asSortable: {scope: {modelValue: {}}}
+        });
         directive.scope.$digest();
     }));
 
-    it('should be defined', function () {
+    it('should be defined', inject(function ($timeout) {
         expect(directive.element).toBeDefined();
 
         directive.scope.task.$highlight = false;
@@ -32,7 +30,5 @@ describe('component.kanban-card', function () {
 
         directive.scope.settings.highlightTaskOnClick = true;
         directive.element.child('.card-wrapper').triggerHandler('click');
-
-
-    });
+    }));
 });

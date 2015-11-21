@@ -1,7 +1,4 @@
-describe('kanban', function () {
-    beforeEach(module('kanban'));
-    beforeEach(module('component.kanban-model'));
-
+describe.module('kanban', function () {
     var directive, element, scope, controller, $document;
     beforeEach(inject(function (directiveBuilder, testConfig, generateKanbanModel, _$document_) {
         $document = _$document_;
@@ -60,7 +57,7 @@ describe('kanban', function () {
         expect(column.$barred).toBe(true);
     });
 
-    it('should validate selected task state', function(){
+    it('should validate selected task state [TODO:Stan, update description]', function(){
         var task = scope.config.tasks[3];
         var column = scope.config.swimlanes[0].columns[0];
         controller.validateColumns(task);

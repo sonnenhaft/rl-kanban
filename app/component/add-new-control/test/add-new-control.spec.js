@@ -1,6 +1,4 @@
-describe('component.column-names', function () {
-    beforeEach(module('component.add-new-control'));
-
+describe.module('component.add-new-control', function () {
     var directive, element, scope;
     beforeEach(inject(function (directiveBuilder) {
         directive = directiveBuilder.build('<add-new-control></add-new-control>');
