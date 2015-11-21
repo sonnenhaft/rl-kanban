@@ -2,13 +2,13 @@ describe.module('component.expand-collapse', function () {
     beforeEach(module('ngAnimateMock'));
 
     describe('test-group-1', function () {
-        var directive, element, scope, $animate;
+        var parentScope, element, scope, $animate;
         beforeEach(inject(function (directiveBuilder, _$animate_) {
             $animate = _$animate_;
-            directive = directiveBuilder.build('<div expand-collapse="expand"></div>');
-            directive.scope.$digest();
+            var directive = directiveBuilder.$build('<div expand-collapse="expand"></div>');
             element = directive.element;
             scope = element.scope();
+            parentScope = directive.scope;
             spyOn($animate, 'addClass').and.callThrough();
             spyOn($animate, 'removeClass').and.callThrough();
         }));
@@ -18,14 +18,14 @@ describe.module('component.expand-collapse', function () {
         });
 
         it('should collapse', function () {
-            directive.scope.expand = true;
+            parentScope.expand = true;
             scope.$apply();
             expect(element.hasClass('kanban-collapsing')).toBe(true);
             $animate.triggerCallbackPromise();
             expect(element.hasClass('kanban-collapsing')).toBe(false);
             expect(element.hasClass('kanban-in')).toBe(true);
             expect($animate.addClass).toHaveBeenCalled();
-            directive.scope.expand = false;
+            parentScope.expand = false;
             scope.$apply();
             expect(element.hasClass('kanban-collapsing')).toBe(true);
             $animate.triggerCallbackPromise();
@@ -36,19 +36,16 @@ describe.module('component.expand-collapse', function () {
     });
 
     describe('test-group-2', function () {
-        var directive, element, $animate;
-        beforeEach(inject(function (directiveBuilder, _$animate_) {
-            $animate = _$animate_;
-            directive = directiveBuilder.build('<div expand-collapse="expand" expand-disabled="disabled"></div>', {disabled: true});
-            directive.scope.$digest();
-            element = directive.element;
+        var directive;
+        beforeEach(inject(function (directiveBuilder) {
+            directive = directiveBuilder.$build('<div expand-collapse="expand" expand-disabled="disabled"></div>', {disabled: true});
         }));
 
-        it('should collapse', function () {
+        it('should collapse', inject(function ($animate) {
             directive.scope.expand = true;
             directive.scope.$apply();
             $animate.triggerCallbackPromise();
-            expect(element.hasClass('kanban-in')).toBe(false);
-        });
+            expect(directive.element.hasClass('kanban-in')).toBe(false);
+        }));
     });
 });

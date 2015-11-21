@@ -1,8 +1,7 @@
 describe.module('component.add-new-control', function () {
-    var directive, element, scope;
+    var  element, scope;
     beforeEach(inject(function (directiveBuilder) {
-        directive = directiveBuilder.build('<add-new-control></add-new-control>');
-        directive.scope.$digest();
+        var directive = directiveBuilder.$build('<add-new-control></add-new-control>');
         element = directive.element;
         scope = element.scope();
         spyOn(scope, '$emit');

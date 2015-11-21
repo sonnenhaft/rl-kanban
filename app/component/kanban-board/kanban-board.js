@@ -1,7 +1,8 @@
 angular.module('component.kanban-board', [
     'component.kanban-card',
     'component.expand-collapse',
-    'component.scrollable-element'
+    'component.scrollable-element',
+    'component.kanban-model'
 ]).directive('kanbanBoard', function ($window, KanbanColumn) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',

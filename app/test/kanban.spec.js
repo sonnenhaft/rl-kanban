@@ -1,10 +1,8 @@
 describe.module('kanban', function () {
-    var directive, element, scope, controller, $document;
-    beforeEach(inject(function (directiveBuilder, testConfig, generateKanbanModel, _$document_) {
-        $document = _$document_;
+    var element, scope, controller;
+    beforeEach(inject(function (directiveBuilder, testConfig, generateKanbanModel) {
         var config = generateKanbanModel(testConfig);
-        directive = directiveBuilder.build('<kanban config="config"></kanban>', {config: config});
-        directive.scope.$digest();
+        var directive = directiveBuilder.$build('<kanban config="config"></kanban>', {config: config});
         element = directive.element;
         controller = element.controller('kanban');
         scope = element.isolateScope();
@@ -64,8 +62,9 @@ describe.module('kanban', function () {
         expect(column.$barred).toBe(true);
     });
 
-    it('should register esc handler', function(){
-        angular.element(document.body).triggerHandler({type: 'keyup', which: 27});
+    //TODO: add sense to this test
+    it('should register esc handler', inject(function($window){
+        angular.element($window.document.body).triggerHandler({type: 'keyup', which: 27});
         scope.$destroy();
-    });
+    }));
 });

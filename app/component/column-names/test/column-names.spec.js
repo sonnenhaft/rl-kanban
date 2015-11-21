@@ -2,11 +2,11 @@ describe.module('component.column-names', function () {
     beforeEach(module('kanban'));
     beforeEach(module('component.kanban-model'));
 
-    var directive, element, scope, kanbanController;
+    var  element, scope, kanbanController;
     beforeEach(inject(function (directiveBuilder, testConfig, generateKanbanModel) {
         var config = generateKanbanModel(testConfig);
-        directive = directiveBuilder.build('<kanban config="config"><column-names columns="columns" settings="settings"></column-names><kanban>', {config: config});
-        directive.scope.$digest();
+        var directive = directiveBuilder.$build('<kanban config="config"><column-names columns="columns" settings="settings">' +
+            '</column-names><kanban>', {config: config});
         element = directive.element.find('column-names');
         kanbanController = directive.element.controller('kanban');
         scope = element.isolateScope();

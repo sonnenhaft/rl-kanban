@@ -1,4 +1,4 @@
-angular.module('demo-code.layout-switcher').controller('layoutSwitcherDemoController', function ($location, $scope, mockGetter, $modal, $q) {
+angular.module('demo-code.layout-switcher').controller('LayoutSwitcherDemoController', function ($location, $scope, mockGetter, $modal, $q) {
     $scope.locationSearch = $location.search();
 
     $scope.$watchCollection('locationSearch', function (locationSearch) {
@@ -34,10 +34,9 @@ angular.module('demo-code.layout-switcher').controller('layoutSwitcherDemoContro
     });
 
     $scope.$on('kanban:task:modalopen', function () {
-        var modal = $modal.open({
+        $modal.open({
             windowClass: 'tiny task-card-modal-demo',
             templateUrl: 'app/demo-code/layout-switcher/demo-modal.html'
         });
-        modal.result.finally(function () {modal = null;});
     });
 });
