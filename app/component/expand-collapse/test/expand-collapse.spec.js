@@ -1,5 +1,4 @@
 describe('component.expand-collapse', function () {
-    beforeEach(module('templates'));
     beforeEach(module('component.expand-collapse'));
     beforeEach(module('ngAnimateMock'));
 
@@ -37,7 +36,6 @@ describe('component.expand-collapse', function () {
 });
 
 describe('component.expand-collapse', function () {
-    beforeEach(module('templates'));
     beforeEach(module('component.expand-collapse'));
     beforeEach(module('ngAnimateMock'));
 

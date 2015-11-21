@@ -1,12 +1,13 @@
 angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope, $parse) {
-    /*jshint maxcomplexity:10 */
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
         link: function ($scope, $element, $attrs, kanban) {
             var modal;
 
-            $scope.fields = $scope.$parent.settings.tasksDisplayFields;
+            var parentSettings = $scope.$parent.settings || $scope.settings;
+            ;
+            $scope.fields = parentSettings.tasksDisplayFields;
 
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();

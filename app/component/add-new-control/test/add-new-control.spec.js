@@ -1,5 +1,4 @@
 describe('component.column-names', function () {
-    beforeEach(module('templates'));
     beforeEach(module('component.add-new-control'));
 
     var directive, element, scope;

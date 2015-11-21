@@ -1,5 +1,4 @@
 describe('kanban', function () {
-    beforeEach(module('templates'));
     beforeEach(module('kanban'));
     beforeEach(module('component.kanban-model'));
 
