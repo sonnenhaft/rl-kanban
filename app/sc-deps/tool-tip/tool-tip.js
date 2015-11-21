@@ -11,7 +11,6 @@
  */
 
 //@deprecated - spaghetti code
-/*jshint maxcomplexity:10 */
 /*jshint maxstatements: 25 */
 angular.module('component.tool-tip', [
     'mm.foundation.position'

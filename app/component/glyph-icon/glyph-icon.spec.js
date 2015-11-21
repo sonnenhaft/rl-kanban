@@ -1,5 +1,4 @@
 describe('glyph-icon', function () {
-    beforeEach(module('templates'));
     beforeEach(module('component.glyph-icon'));
 
     var directive;
