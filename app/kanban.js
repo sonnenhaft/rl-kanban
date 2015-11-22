@@ -14,7 +14,7 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
 
             $scope.$on('$destroy', globalOnClickOnEsc(function unhiglightAll() {
                 if (!$scope.config) {
-                    return;
+                    return
                 }
                 $scope.config.tasks.forEach(function (task) {
                     delete  task.$highlight;
