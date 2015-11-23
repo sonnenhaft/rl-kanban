@@ -7,7 +7,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -71,7 +71,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -135,7 +135,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -199,7 +199,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -263,7 +263,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -327,7 +327,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -391,7 +391,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -455,7 +455,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -519,7 +519,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -583,7 +583,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -647,7 +647,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -711,7 +711,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -775,7 +775,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -839,7 +839,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -903,7 +903,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -967,7 +967,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1031,7 +1031,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1095,7 +1095,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1159,7 +1159,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1223,7 +1223,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1287,7 +1287,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1351,7 +1351,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1415,7 +1415,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1479,7 +1479,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1543,7 +1543,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1607,7 +1607,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1671,7 +1671,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1735,7 +1735,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1799,7 +1799,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1863,7 +1863,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -1927,7 +1927,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -1991,7 +1991,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2055,7 +2055,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2119,7 +2119,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2183,7 +2183,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2247,7 +2247,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2311,7 +2311,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2375,7 +2375,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2439,7 +2439,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2503,7 +2503,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2567,7 +2567,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2631,7 +2631,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2695,7 +2695,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2759,7 +2759,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2823,7 +2823,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
@@ -2887,7 +2887,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -2951,7 +2951,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -3015,7 +3015,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -3079,7 +3079,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_TRUE"
+                "_id": "MEDFLAG_TRUE"
             },
             "flag": {
                 "description": "test",
@@ -3143,7 +3143,7 @@
                 "name": "test",
                 "parentId": "FLAG_ROOT",
                 "tagsetId": "FLAG",
-                "_id": "MEDIAFLAG_FALSE"
+                "_id": "MEDFLAG_FALSE"
             },
             "flag": {
                 "description": "test",
