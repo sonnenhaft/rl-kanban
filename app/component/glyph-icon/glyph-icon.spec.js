@@ -1,7 +1,4 @@
-describe('glyph-icon', function () {
-    beforeEach(module('templates'));
-    beforeEach(module('component.glyph-icon'));
-
+describe.module('component.glyph-icon', function () {
     var directive;
     beforeEach(inject(function (directiveBuilder) {
         directive = directiveBuilder.build('<glyph-icon icon="icon"></glyph-icon>');

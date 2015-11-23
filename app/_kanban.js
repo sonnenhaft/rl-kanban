@@ -13,7 +13,6 @@ angular.module('kanban', [
     'mm.foundation',
     'component.task-groups.task-group',
     'component.task-groups.task-group-list',
-    'component.groups-debug',
     'component.column-names',
     'component.kanban-header',
     'component.swim-lane',

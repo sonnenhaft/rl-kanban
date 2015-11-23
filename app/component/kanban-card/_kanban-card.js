@@ -4,5 +4,6 @@ angular.module('component.kanban-card', [
     'component.modals.confirmation-modal',
     'component.is-touch',
     'component.tool-tip',
-    'ngSanitize'
+    'component.sanitize-filter',
+    'ui.sortable'
 ]);

@@ -6,7 +6,6 @@ angular.module('component.column-names', [
     return {
         scope: {columns: '=', settings: '='},
         require: '^kanban',
-        replace: true,
         templateUrl: 'app/component/column-names/column-names.html',
         link: function (scope, element, attrs, kanban) {
             scope.toggleColumn = function (column) {

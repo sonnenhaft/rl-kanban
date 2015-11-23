@@ -40,11 +40,20 @@
         font-weight: 600;
     }
 
-    .swim-length {
+    .swim-length, .swim-loading {
         font-weight: 400;
         font-size: 18px;
         line-height: 27px;
         vertical-align: middle;
+    }
+
+    .swim-loading {
+        color: #ccc;
+        animation: blink 2s linear infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0.0; }
     }
     
     .swim-lane-header:hover {
