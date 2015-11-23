@@ -20,7 +20,9 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 var max = this.scrollBarElement.scrollWidth - this.scrollBarElement.clientWidth;
 
                 targetNodes.forEach(function (targetNode) {
-                    targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
+                    if (targetNode.scrollLeft !== scrollLeft) {
+                        targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
+                    }
                 });
             });
         }
