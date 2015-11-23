@@ -1,12 +1,11 @@
 angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope, $parse) {
-    /*jshint maxcomplexity:10 */
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
         link: function ($scope, $element, $attrs, kanban) {
-            var modal;
-
-            $scope.fields = $scope.$parent.settings.tasksDisplayFields;
+            //TODO: move settings to same level where tasks object lays
+            var parentSettings = $scope.$parent.settings || $scope.settings;
+            $scope.fields = parentSettings.tasksDisplayFields;
 
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
@@ -24,10 +23,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
                 } else if (!task.$edit) {
-                    modal = extendedCard.open(task, settings);
-                    modal.result.finally(function () {
-                        modal = null;
-                    });
+                    extendedCard.open(task, settings);
                 }
             };
 
@@ -43,22 +39,13 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
                 }
             };
 
+
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
-                modal = confirmationModal.open();
-                modal.result.then(function () {
-                    task.remove();
+                confirmationModal.open($scope).result.then(function () {
                     $rootScope.$broadcast('kanban:task:remove', task.id);
-                }).finally(function () {
-                    modal = null;
                 });
             };
-
-            $scope.$on('$destroy', function () {
-                if (modal) {
-                    modal.dismiss('cancel');
-                }
-            });
 
             $scope.groupColor = $parse('group.color')($scope.task) || null;
             var borderColor = $scope.groupColor || '#326295';

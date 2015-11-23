@@ -7,9 +7,13 @@
     b {
         font-weight: bold !important;
     }
-
     .opacity-on-changed {
         background: rgba(255, 0, 0, 0.27);
+    }
+    .group-name {
+        font-size: 120%;
+        color: orange;
+        cursor: pointer
     }
 }
 

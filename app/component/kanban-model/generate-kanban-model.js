@@ -1,5 +1,4 @@
 angular.module('component.kanban-model').factory('generateKanbanModel', function (KanbanGroup, KanbanTask, KanbanColumn, KanbanSwimlane) {
-    /*jshint maxcomplexity:10 */
     return function createKanbanModel(initialConfig) {
         var config = angular.copy(initialConfig);
         config.$loaded = false;

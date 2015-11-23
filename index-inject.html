@@ -63,7 +63,9 @@
 <events-debugger></events-debugger>
 <layout-switcher></layout-switcher>
 <kanban-version-tag></kanban-version-tag>
-<kanban-model ng-controller="layoutSwitcherDemoController" model="kanbanModel" config="config">
+
+<kanban-model ng-controller="LayoutSwitcherDemoController" model="kanbanModel" config="config">
+    <groups-debug groups="kanbanModel.groups"></groups-debug>
     <kanban config="kanbanModel"></kanban>
 </kanban-model>
 </body>

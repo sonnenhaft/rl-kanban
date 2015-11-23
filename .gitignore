@@ -17,3 +17,7 @@ ng-docs
 ReleaseNotes.html
 
 .DS_Store
+jshint.xml
+sloc.json
+tests/*.exe
+tests/*.jar

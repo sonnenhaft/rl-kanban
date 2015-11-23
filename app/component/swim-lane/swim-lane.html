@@ -8,6 +8,7 @@
             {{swimlane.name}}
         </span>
         <span class="swim-length" ng-hide="::swimlane.isTeam">({{swimlane.$tasksCount}})</span>
+        <span class="swim-loading" ng-show="swimlane.$loading">Loading &hellip;</span>
         <div class="add-resource-button" ng-show="!settings.readOnly && swimlane.addResourcesButtonText" ng-click="addResource($event)">
             <span class="glyph-icon"><i class="glyph-plus-circle2"></i></span>
             <button class="button">{{swimlane.addResourcesButtonText}}</button>
@@ -16,5 +17,5 @@
             <button class="button" type="button">{{swimlane.$edit ? 'Done' : 'Edit Tasks'}}</button>
         </div>
     </div>
-    <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings"></kanban-board>
+    <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings" limit="cardLimit"></kanban-board>
 </div>
