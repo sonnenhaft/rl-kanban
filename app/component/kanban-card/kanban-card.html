@@ -62,7 +62,7 @@
                 <div class="text-right">
                     <span class="glyph-icon card-icon" ng-if="::(fields.flag || fields.mediaFlag)">
                         <span class="glyph-flag text-orange" ng-if="::(task.flag._id === 'AUTHFLAG_TRUE')" class="task-flag" title="AUTH"></span>
-                        <span class="glyph-flag" ng-if="::(task.mediaFlag._id === 'MEDIAFLAG_TRUE')" class="task-flag" title="MEDIA"></span>
+                        <span class="glyph-flag" ng-if="::(task.mediaFlag._id === 'MEDFLAG_TRUE')" class="task-flag" title="MEDIA"></span>
                     </span>
                     <button ng-if="::(fields.preview && task.preview)" type="button" class="button card-preview" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, true)">
                         <span class="glyph-icon"><span class="glyph-eye"></span></span>
