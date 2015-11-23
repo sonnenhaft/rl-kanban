@@ -15,7 +15,7 @@ kanban-column {
     box-sizing: border-box;
   }
 
-  .kanban-clmn-collapsed {
+  &.kanban-clmn-collapsed {
     width: 30px;
     min-width: 30px;
     border: 1px dashed #ccc;
