@@ -63,7 +63,6 @@ To run tests and stop:
 $ gulp test
 ```
 
-
 ## [Kanban Configuration](docs/configuration.md)
 
 ## [Kanban Events list](docs/events.md)
