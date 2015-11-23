@@ -1,5 +1,5 @@
 angular.module('component.kanban-board', [
-    'component.kanban-card',
+    'component.kanban-column',
     'component.expand-collapse',
     'component.scrollable-element',
     'component.kanban-model'
@@ -9,7 +9,8 @@ angular.module('component.kanban-board', [
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
         scope: {
             swimlane: '=',
-            settings: '='
+            settings: '=',
+            limit: '='
         },
         replace: true,
         link: function ($scope, $element, $attrs, $ctrl) {
@@ -17,14 +18,6 @@ angular.module('component.kanban-board', [
             var kanban = $ctrl[1];
             var horizontalScroll = $ctrl[2];
 
-            $scope.limit = 0;
-            angular.element($element).ready(function () {
-                $scope.$applyAsync(function () {
-                    $scope.limit = Infinity;
-                });
-            });
-
-            $scope.columns = $scope.swimlane.columns;
             $scope.addResources = function () {
                 $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
             };
@@ -113,7 +106,7 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    if (destSortableScope.$parent.swimlane.isTeam) {         // TODO: remove $parent from here
+                    if (destSortableScope.$parent.column.swimlane.isTeam) {         // TODO: remove $parent from here
                         return true;
                     } else if (destSortableScope.$parent.column.$collapsed) {      // TODO: remove $parent from here
                         return false;

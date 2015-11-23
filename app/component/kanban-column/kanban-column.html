@@ -1,0 +1,7 @@
+<div class="kanban-clmn as-sortable" ng-model="column.tasks" data-as-sortable="scrollCallbacks">
+    <div class="kanban-clmn-warning">
+        <glyph-icon icon="'glyph-warning2'"></glyph-icon>
+        {{::settings.barredColumnMessage}}
+    </div>
+    <kanban-card class="kanban-card as-sortable-item" ng-repeat="task in column.tasks | limitTo: limit track by task.id" data-as-sortable-item></kanban-card>
+</div>

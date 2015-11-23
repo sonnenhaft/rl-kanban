@@ -8,8 +8,9 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
         },
         link: function ($scope, $element) {
             $scope.expanded = true;
+            $scope.swimlane.$tasksCount = 0;
 
-            $element.bind('click', function(e){
+            $element.bind('click', function (e) {
                 var parent = e.target.parentNode;
                 var el = $element[0];
                 if (parent === el || parent.parentNode === el) {
@@ -27,13 +28,6 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
                 }
                 $event.stopPropagation();
             };
-
-            $scope.$watch('swimlane.columns', function (columns) {
-                $scope.swimlane.$tasksCount = 0;
-                angular.forEach(columns, function (column) {
-                    $scope.swimlane.$tasksCount += column.tasks.length;
-                });
-            });
 
             $scope.toggleEdit = function ($event, swimlane) {
                 $event.stopPropagation();
