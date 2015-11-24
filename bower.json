@@ -1,22 +1,7 @@
 {
-  "name": "kanban",
+  "name": "cog1-rl-integrations",
   "private": true,
   "devDependencies": {
-    "angular": "1.3.2",
-    "angular-resource": "1.3.2",
-    "angular-sanitize": "1.3.2",
-    "angular-mocks": "1.3.2",
-    "underscore": "1.7",
-    "angular-cookies": "1.3.2",
-    "angular-animate": "1.3.2",
-    "angular-touch": "1.3.2",
-    "angular-foundation-bower": "0.6.0"
-  },
-  "dependencies": {
-    "angular-ui-utils": "bower-highlight",
-    "angular-notify": "~2.5.0"
-  },
-  "resolutions": {
-    "angular": "1.3.2"
+    "cog1-rl-integrations": "./cog1-rl-integrations"
   }
 }
