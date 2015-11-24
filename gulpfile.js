@@ -1,4 +1,2 @@
-var requireDir = require('require-dir');
-
-// Require all tasks in gulp/tasks, including subfolders
-requireDir('./cog1-rl-integrations/gulp/tasks', { recurse: true });
+var requireDir = require('./cog1-rl-integrations/resources/requireDir.js');
+requireDir('./cog1-rl-integrations/gulp/tasks');
