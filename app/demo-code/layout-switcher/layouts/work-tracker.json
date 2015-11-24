@@ -3242,13 +3242,11 @@
     "swimlanes": [
         {
             "name": "Unassigned",
-            "id": "555b6922f5cad468b43fbe8b",
-            "collapsed": false
+            "id": "555b6922f5cad468b43fbe8b"
         },
         {
             "name": "Jessica Maccan",
-            "id": "555b6933a9ce3b29e498cae5",
-            "collapsed": true
+            "id": "555b6933a9ce3b29e498cae5"
         },
         {
             "name": "Matthew Ghibli",
@@ -3258,13 +3256,11 @@
         {
             "name": "Team B",
             "id": "555b6933a9ce3b29e498cae7",
-            "collapsed": false,
             "isTeam": true
         },
         {
             "name": "Team C",
             "id": "555b6933a9ce3b29e498cae8",
-            "collapsed": false,
             "isTeam": true
         }
     ],
