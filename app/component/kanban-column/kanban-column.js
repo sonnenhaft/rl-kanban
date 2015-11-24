@@ -1,6 +1,6 @@
 angular.module('component.kanban-column', [
     'component.kanban-card'
-]).directive('kanbanColumn', function ($q, $timeout) {
+]).directive('kanbanColumn', function ($q, $timeout, $parse) {
     return {
         templateUrl: 'app/component/kanban-column/kanban-column.html',
         scope: {
@@ -11,20 +11,20 @@ angular.module('component.kanban-column', [
         },
         link: function ($scope, $element, $attrs) {
             $scope.limit = 0;
+            $scope.swimlane.$tasksCount += $parse('column.tasks.length')($scope);
 
             $scope.render = function () {
                 var batchSize = 1;
                 var computeAndLetUiRender = $q.when();
                 var computeNextBatch;
+                $scope.swimlane.$loading += 1;
 
                 function computeAndRenderBatch() {
-                    $scope.swimlane.$loading = true;
-                    $scope.swimlane.$tasksCount += batchSize;
                     $scope.limit += batchSize;
                     return $timeout(angular.noop, 0);
                 }
 
-                angular.forEach($scope.column.tasks, function (task) {
+                $scope.column.tasks.forEach(function (task) {
                     computeNextBatch = angular.bind(null, computeAndRenderBatch, task);
                     computeAndLetUiRender = computeAndLetUiRender.then(computeNextBatch);
                 });
@@ -32,10 +32,14 @@ angular.module('component.kanban-column', [
                 return computeAndLetUiRender;
             };
 
-
-            $scope.render().then(function () {
-                $scope.limit = Infinity;
-                $scope.swimlane.$loading = null;
+            var unregister = $scope.$watch('swimlane.$expanded', function (value) {
+                if (value) {
+                    $scope.render().then(function () {
+                        $scope.swimlane.$loading -= 1;
+                        $scope.limit = Infinity;
+                    });
+                    unregister();
+                }
             });
         }
     };

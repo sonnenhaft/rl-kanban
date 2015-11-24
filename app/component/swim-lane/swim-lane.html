@@ -1,7 +1,7 @@
 <div class="swim-lane" ng-class="{'empty': !swimlane.$tasksCount && !settings.allowEmptySwimlanes, 'no-groups': !groups.length, 'edit': swimlane.$edit}">
     <div class="swim-lane-header swim-lane-toggle" ng-click="toggleCollapse()">
     <span class="glyph-icon" ng-hide="settings.readOnly">
-        <span ng-class="{'glyph-chevron-expanded': !expanded, 'glyph-chevron-collapsed': expanded}"></span>
+        <span ng-class="{'glyph-chevron-expanded': !swimlane.$expanded, 'glyph-chevron-collapsed': swimlane.$expanded}"></span>
     </span>
         <span class="swim-title">
             <span ng-show="::swimlane.isTeam">Assign To </span>
@@ -17,5 +17,5 @@
             <button class="button" type="button">{{swimlane.$edit ? 'Done' : 'Edit Tasks'}}</button>
         </div>
     </div>
-    <kanban-board swimlane="swimlane" expand-collapse="expanded" expand-disabled="settings.readOnly" settings="settings" limit="cardLimit"></kanban-board>
+    <kanban-board swimlane="swimlane" expand-collapse="swimlane.$expanded" expand-disabled="settings.readOnly" settings="settings" limit="cardLimit"></kanban-board>
 </div>
