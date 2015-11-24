@@ -1,11 +1,11 @@
-angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, $timeout, isTouch, $rootScope, $parse) {
+angular.module('component.kanban-card').directive('kanbanCard', function (extendedCard, confirmationModal, kanbanCardFields, $timeout, isTouch, $rootScope, $parse) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
         link: function ($scope, $element, $attrs, kanban) {
             //TODO: move settings to same level where tasks object lays
             var parentSettings = $scope.$parent.settings || $scope.settings;
-            $scope.fields = parentSettings.tasksDisplayFields;
+            $scope.fields = angular.extend(angular.copy(kanbanCardFields), parentSettings.tasksDisplayFields);
 
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
@@ -43,6 +43,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
                 confirmationModal.open($scope).result.then(function () {
+                    task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
                 });
             };
