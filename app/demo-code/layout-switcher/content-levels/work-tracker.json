@@ -7,7 +7,6 @@
     },
     "medium": {
         "contentTypes": true,
-        "skillShortName": true,
         "priority": true,
         "grade": true,
         "id": true,
@@ -18,7 +17,6 @@
     "maximum": {
         "_comment": "WORK TRACKER FIELDS",
         "contentTypes": true,
-        "skillShortName": true,
         "priority": true,
         "grade": true,
         "id": true,
