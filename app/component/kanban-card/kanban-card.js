@@ -43,6 +43,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function (extend
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
                 confirmationModal.open($scope).result.then(function () {
+                    task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
                 });
             };
