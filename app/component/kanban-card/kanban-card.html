@@ -17,9 +17,7 @@
     </div>
     <div class="card-content">
         <p class="task-name" ng-if="::fields.taskName" ng-bind-html="::task.taskName | sanitize"></p>
-        <p ng-if="::fields.skillShortName">
-            <p class="task-name" ng-bind-html="::task.skillShortName | sanitize"></p>
-        </p>
+        <p class="task-name" ng-if="::fields.primarySlot" ng-bind-html="::task.primarySlot | sanitize"></p>
         <p class="task-description" ng-if="::fields.description">{{::task.description}}</p>
         <hr class="card-divider" ng-if="::(fields.taskName || fields.skillShortName)"/>
         <p ng-if="::fields.ownerAppLogo"><img class="owner-logo" ng-src="{{::task.ownerAppLogo}}"/></p>
@@ -27,9 +25,6 @@
             <span class="task-assignee">{{::task.assignees}}</span>
         </p>
         <div class="additional-details">
-            <p ng-if="::fields.primarySlot">
-                <p class="task-name text-grey" style="font-size: 14px; margin-bottom: 12px">{{::task.primarySlot}}</p>
-            </p>
             <div class="task-owner" ng-if="::fields.assigneeName">
                 <p class="owner-avatar" ng-if="::fields.ownerPicture"><img ng-src="{{::task.ownerPicture}}"/></p>
                 <p class="owner-name">{{::task.assigneeName}}</p>
