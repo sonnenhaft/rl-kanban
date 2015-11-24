@@ -32,8 +32,8 @@ angular.module('component.kanban-column', [
                 return computeAndLetUiRender;
             };
 
-            var unregister = $scope.$watch('swimlane.$expanded', function (value) {
-                if (value) {
+            var unregister = $scope.$watch('swimlane.collapsed', function (value) {
+                if (angular.isDefined(value) && !value) {
                     $scope.render().then(function () {
                         $scope.swimlane.$loading -= 1;
                         $scope.limit = Infinity;
