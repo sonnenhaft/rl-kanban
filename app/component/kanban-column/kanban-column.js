@@ -16,17 +16,15 @@ angular.module('component.kanban-column', [
             $scope.render = function () {
                 var batchSize = 1;
                 var computeAndLetUiRender = $q.when();
-                var computeNextBatch;
                 $scope.swimlane.$loading += 1;
 
                 function computeAndRenderBatch() {
                     $scope.limit += batchSize;
-                    return $timeout(angular.noop, 0);
+                    return $timeout(angular.noop, 0, false);
                 }
 
-                $scope.column.tasks.forEach(function (task) {
-                    computeNextBatch = angular.bind(null, computeAndRenderBatch, task);
-                    computeAndLetUiRender = computeAndLetUiRender.then(computeNextBatch);
+                $scope.column.tasks.forEach(function () {
+                    computeAndLetUiRender = computeAndLetUiRender.then(computeAndRenderBatch);
                 });
 
                 return computeAndLetUiRender;
