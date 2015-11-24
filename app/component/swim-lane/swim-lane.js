@@ -7,7 +7,7 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
             groups: '='
         },
         link: function ($scope, $element) {
-            $scope.swimlane.$expanded = $scope.$parent.$first || $scope.swimlane.isTeam ? true : false;
+            $scope.swimlane.collapsed = angular.isDefined($scope.swimlane.collapsed) ? $scope.swimlane.collapsed : false;
             $scope.swimlane.$tasksCount = 0;
             $scope.swimlane.$loading = 0;
 
@@ -20,7 +20,7 @@ angular.module('component.swim-lane', []).directive('swimLane', function () {
             });
 
             $scope.toggleCollapse = function () {
-                $scope.swimlane.$expanded = !$scope.swimlane.$expanded;
+                $scope.swimlane.collapsed = !$scope.swimlane.collapsed;
             };
 
             $scope.addResource = function ($event) {
