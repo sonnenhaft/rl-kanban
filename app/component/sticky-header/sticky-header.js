@@ -1,4 +1,4 @@
-angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window, $timeout) {
+angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window) {
     return {
         link: function ($scope, $element) {
             var iElement = $element[0];
