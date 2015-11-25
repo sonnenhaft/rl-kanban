@@ -9,7 +9,7 @@ angular.module('component.kanban-column', [
             settings: '=',
             scrollCallbacks: '='
         },
-        link: function ($scope, $element, $attrs) {
+        link: function ($scope) {
             $scope.limit = 0;
             $scope.swimlane.$tasksCount += $parse('column.tasks.length')($scope);
 
