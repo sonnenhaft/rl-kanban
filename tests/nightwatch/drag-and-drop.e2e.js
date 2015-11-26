@@ -13,7 +13,7 @@ module.exports = {
             .assert.elementNotPresent('swim-lane:nth-child(2)  kanban-column:nth-child(1)  kanban-card')
             .end();
     },
-    'card should not be dropped into dissalowed column': function (browser) {
+    'card should not be dropped into denied column': function (browser) {
         browser
             .url('http://localhost:4000')
             .waitForElementVisible('kanban-card', 10000)
