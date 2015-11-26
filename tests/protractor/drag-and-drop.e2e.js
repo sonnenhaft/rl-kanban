@@ -1,4 +1,4 @@
-describe('check d&d', function () {
+describe('drag-and-drop', function () {
     function moveToColumn(columnSelector) {
         return function () {
             return browser.actions()
@@ -13,13 +13,15 @@ describe('check d&d', function () {
         return expect(firstCard.isPresent())
     }
 
+    function getTestCard(){
+        return element(by.cssContainingText('kanban-card', 'qui nulla et incididunt consectetur'));
+    }
+
     it('checking cards drag and drop', function () {
         browser.get('http://localhost:4000/#/stub');
-
         expectFirstCardPresent().toBe(true);
-
         var columns = $$('swim-lane').first().$$('kanban-column');
-        browser.actions().mouseDown($('kanban-card')).perform()
+        browser.actions().mouseDown(getTestCard()).perform()
             .then(moveToColumn(columns.first()))
             .then(moveToColumn(columns.get(2)))
             .then(moveToColumn(columns.get(3)))
@@ -27,6 +29,7 @@ describe('check d&d', function () {
                 return browser.actions().mouseUp().perform();
             });
         expectFirstCardPresent().toBe(false);
+        expect(getTestCard().isPresent()).toBe(true);
     });
 
     it('card should not be dropped into denied column', function () {
@@ -42,5 +45,6 @@ describe('check d&d', function () {
                 return browser.actions().mouseUp().perform();
             });
         expectFirstCardPresent().toBe(true);
+        expect(getTestCard().isPresent()).toBe(true);
     });
 });
