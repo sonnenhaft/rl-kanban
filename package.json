@@ -1,6 +1,6 @@
 {
   "name": "kanban",
-  "version": "0.0.194",
+  "version": "0.0.196",
   "description": "RenLearn-kanban",
   "scripts": {
     "setup": "npm install && bower install"
@@ -56,6 +56,7 @@
     "karma-junit-reporter": "^0.3.8",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.2",
+    "nightwatch-custom-commands-assertions": "^1.0.4",
     "phantomjs": "~1.9.15",
     "protractor": "^3.0.0",
     "run-sequence": "~1.0.2"
