@@ -1,4 +1,3 @@
-
 ## Events
 The Kanban control communicates with its container via the angular event system. The container can subscribe and listen to the following events:
 ### 'kanban:task:remove' `[taskId]`
