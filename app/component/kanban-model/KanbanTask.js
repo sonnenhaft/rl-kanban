@@ -1,6 +1,8 @@
 angular.module('component.kanban-model').factory('KanbanTask', function ($rootScope) {
+    var uniqueId = 0;
     function KanbanTask(taskData) {
         angular.extend(this, taskData);
+        this.$uniqueId = uniqueId++;
     }
 
     KanbanTask.prototype = {
@@ -31,22 +33,25 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             }
             $rootScope.$broadcast('kanban:task:moved', this.id, this.column.id, column.id, this.column.swimlane.id, column.swimlane.id);
 
-            this.removeFromColumn()
-                .attachToColumn(column);
+            this.removeFromColumn().attachToColumn(column);
         },
         remove: function(){
             this.removeFromColumn();
-            if (angular.isDefined(this.group)) {
+            if (this.group) {
                 this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
                 this.group.recalculate();
             }
+            return this;
         },
-        clone: function (task) {
-            var clonedTask = new KanbanTask(task);
+        clone: function () {
+            var clonedTask = new KanbanTask(this);
             clonedTask.taskName += ' (Copy)';
-            task.group.tasks.push(clonedTask);
-            task.column.tasks.push(clonedTask);
-            task.column.swimlane.$tasksCount++;
+            if (this.group) {
+                this.group.tasks.push(clonedTask);
+            }
+            this.column.tasks.push(clonedTask);
+            this.column.swimlane.$tasksCount++;
+            return clonedTask;
         }
     };
 

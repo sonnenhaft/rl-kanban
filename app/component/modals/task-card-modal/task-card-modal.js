@@ -16,7 +16,7 @@ angular.module('component.modals.task-card-modal', [
                     $scope.settings = settings;
 
                     $scope.copy = function (task) {
-                        task.clone(task);
+                        task.clone();
                         $modalInstance.dismiss('cancel');
                     };
 
