@@ -12,4 +12,5 @@
     <hr/>
     <label><input type="checkbox" ng-model="hash.readOnly"/>Read Only</label>
     <label><input type="checkbox" ng-model="hash.empty"/>Empty State</label>
+    <button ng-click="updateCard()" ng-show="!hash.empty && hash.layout === 'work-tracker'">update first card</button>
 </div>

@@ -1,4 +1,4 @@
-angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function ($location) {
+angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function ($location, $rootScope) {
     return {
         templateUrl: 'app/demo-code/layout-switcher/layout-switcher.html',
         scope: true,
@@ -11,6 +11,14 @@ angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function
                     $location.search(key, value);
                 });
             });
+
+            $scope.updateCard = function(){
+                $rootScope.$broadcast('update:kanban:card', {
+                    id: '8F6328',
+                    primarySlot: Math.random() + '',
+                    notes: Math.random() + ''
+                });
+            }
         }
     };
 });
