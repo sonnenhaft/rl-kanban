@@ -51,7 +51,6 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
         },
         remove: function(){
             this.removeFromColumn();
-            this.column = uniqueId;
             if (this.group) {
                 this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
                 this.group.recalculate();
