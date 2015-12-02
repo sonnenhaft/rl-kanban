@@ -59,7 +59,7 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
             };
 
             function validateColumns(task) {
-                if (!task.validStates || task.validStates.length) {
+                if (!task.validStates || !task.validStates.length) {
                     return;
                 }
                 $scope.config.swimlanes.forEach(function (swimlane) {
