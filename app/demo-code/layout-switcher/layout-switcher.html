@@ -1,16 +1,21 @@
-<div class="layout-switcher">
-    <label><input type="radio" ng-model="hash.contentLevel" value="minimum"/>Minimum Content Level</label>
-    <label><input type="radio" ng-model="hash.contentLevel" value="medium"/>Medium Content Level</label>
-    <label><input type="radio" ng-model="hash.contentLevel" value="maximum"/>Maximum Content Level</label>
-    <hr/>
-    <label><input type="radio" ng-model="hash.layout" value="planner"/>Planner</label>
-    <label><input type="radio" ng-model="hash.layout" value="planner-no-tasks"/>Planner [no tasks]</label>
-    <label><input type="radio" ng-model="hash.layout" value="empty-planner"/>Empty planner</label>
-    <label><input type="radio" ng-model="hash.layout" value="work-tracker"/>Work Tracker</label>
-    <label><input type="radio" ng-model="hash.layout" value="work-tracker-perf"/>Work Tracker 1000</label>
-    <label><input type="radio" ng-model="hash.layout" value="empty-work-tracker"/>Empty Work Tracker</label>
-    <hr/>
-    <label><input type="checkbox" ng-model="hash.readOnly"/>Read Only</label>
-    <label><input type="checkbox" ng-model="hash.empty"/>Empty State</label>
-    <button ng-click="updateCard()" ng-show="!hash.empty && hash.layout === 'work-tracker'">update first card</button>
+<div class="layout-switcher" ng-init="minimize = true">
+    <a ng-click="minimize = false" ng-show="minimize">expand layout-switcher</a>
+    <a ng-click="minimize = true" ng-hide="minimize">minimize layout-switcher</a>
+
+    <div ng-hide="minimize" class="opacity-area">
+        <label><input type="radio" ng-model="hash.contentLevel" value="minimum"/>Minimum Content Level</label>
+        <label><input type="radio" ng-model="hash.contentLevel" value="medium"/>Medium Content Level</label>
+        <label><input type="radio" ng-model="hash.contentLevel" value="maximum"/>Maximum Content Level</label>
+        <hr/>
+        <label><input type="radio" ng-model="hash.layout" value="planner"/>Planner</label>
+        <label><input type="radio" ng-model="hash.layout" value="planner-no-tasks"/>Planner [no tasks]</label>
+        <label><input type="radio" ng-model="hash.layout" value="empty-planner"/>Empty planner</label>
+        <label><input type="radio" ng-model="hash.layout" value="work-tracker"/>Work Tracker</label>
+        <label><input type="radio" ng-model="hash.layout" value="work-tracker-perf"/>Work Tracker 1000</label>
+        <label><input type="radio" ng-model="hash.layout" value="empty-work-tracker"/>Empty Work Tracker</label>
+        <hr/>
+        <label><input type="checkbox" ng-model="hash.readOnly"/>Read Only</label>
+        <label><input type="checkbox" ng-model="hash.empty"/>Empty State</label>
+        <button ng-click="updateCard()" ng-show="!hash.empty && hash.layout === 'work-tracker'">update first card</button>
+    </div>
 </div>
