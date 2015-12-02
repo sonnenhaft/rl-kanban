@@ -20,12 +20,6 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
             var fn = angular.noop;
             var e = $element[0];
 
-            var elementScroll = new ScrollableElementFactory(function (x, y) {
-                e.scrollTop += y;
-                e.scrollLeft += x;
-                runFn(x, y);
-            });
-
             function runFn(x, y) {
                 x = e.scrollLeft && e.scrollLeft < e.scrollWidth - e.clientWidth - 1 ? x : 0;
                 y = e.scrollTop && e.scrollTop < e.scrollHeight - e.clientHeight - 1 ? y : 0;
@@ -33,6 +27,12 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
                     fn(x, y);
                 }
             }
+
+            var elementScroll = new ScrollableElementFactory(function (x, y) {
+                e.scrollTop += y;
+                e.scrollLeft += x;
+                runFn(x, y);
+            });
 
             elementScroll.calculateDot = function (mouseMoveEvent) {
                 this.y = getCoordinatePartToScroll($window.pageYOffset + mouseMoveEvent.clientY - e.offsetTop, e.offsetHeight);

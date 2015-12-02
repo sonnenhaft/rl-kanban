@@ -57,7 +57,7 @@ describe.module('component.swim-lane', function () {
         };
         directive.element.triggerHandler(event);
         expect(event.stopPropagation).toHaveBeenCalled();
-        var event = {
+        event = {
             stopPropagation: jasmine.createSpy('stopPropagation'),
             type: 'click',
             target: {

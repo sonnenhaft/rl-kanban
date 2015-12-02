@@ -58,31 +58,32 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
                 $scope.$evalAsync();
             };
 
+            function validateColumns(task) {
+                if (!task.validStates || task.validStates.length) {
+                    return;
+                }
+                $scope.config.swimlanes.forEach(function (swimlane) {
+                    swimlane.columns.filter(function (column) {
+                        return !column.$barred;
+                    }).filter(function (column) {
+                        return task.validStates.indexOf(column.id) === -1;
+                    }).forEach(function (column) {
+                        column.$barred = true;
+                    });
+                });
+            }
+
+            this.validateColumns = validateColumns;
+
             this.validateStates = function (task) {
                 if ($scope.config.settings.highlightTaskOnClick) {
                     this.getHighlighted().forEach(function (task) {
                         validateColumns(task);
                     });
                 } else {
-                    validateColumns(task);
+                    this.validateColumns(task);
                 }
             };
-
-            function validateColumns(task) {
-                if (task.validStates && task.validStates.length) {
-                    $scope.config.swimlanes.forEach(function (swimlane) {
-                        swimlane.columns.filter(function (column) {
-                            return !column.$barred;
-                        }).filter(function (column) {
-                            return task.validStates.indexOf(column.id) === -1;
-                        }).forEach(function (column) {
-                            column.$barred = true;
-                        });
-                    });
-                }
-            }
-
-            this.validateColumns = validateColumns;
 
             this.clearInvalidStates = function () {
                 $scope.config.swimlanes.forEach(function (swimlane) {
