@@ -35,11 +35,22 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
 
             this.removeFromColumn().attachToColumn(column);
         },
+        replace: function(newTaskData) {
+            var clonedTask = new KanbanTask(this);
+            angular.extend(clonedTask, newTaskData);
+            this.column.tasks[this.column.tasks.indexOf(this)] = clonedTask;
+            if (this.group) {
+                this.group.tasks[this.group.tasks.indexOf(this)] = clonedTask;
+            }
+            return clonedTask;
+        },
         remove: function(){
             this.removeFromColumn();
+            this.column = uniqueId;
             if (this.group) {
                 this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
                 this.group.recalculate();
+                this.group = undefined;
             }
             return this;
         },

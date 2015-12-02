@@ -1,4 +1,4 @@
-angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function ($location, $rootScope) {
+angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function ($location, $rootScope, $window) {
     return {
         templateUrl: 'app/demo-code/layout-switcher/layout-switcher.html',
         scope: true,
@@ -10,6 +10,11 @@ angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function
                 $scope.$watch('hash.' + key, function (value) {
                     $location.search(key, value || null);
                 });
+            });
+
+            $scope.isOpened = $window.localStorage.isOpened === 'true';
+            $scope.$watch('isOpened', function(){
+                $window.localStorage.isOpened = $scope.isOpened;
             });
 
             $scope.updateCard = function(){
