@@ -1,7 +1,12 @@
 .layout-switcher {
+    a {
+        cursor: pointer;
+    }
     position: fixed;
     font-size: 12px;
-    opacity: 0.1;
+    .opacity-area {
+        opacity: 0.1;
+    }
     z-index: 100;
     .button-group .button {
         margin: 5px;
@@ -9,7 +14,9 @@
         display: block
     }
     &:hover {
-        opacity: 0.7;
+        .opacity-area {
+            opacity: 0.7;
+        }
     }
 }
 
