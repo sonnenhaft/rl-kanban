@@ -1,7 +1,7 @@
-angular.module('component.kanban-model').directive('kanbanModel', function (generateKanbanModel, KanbanTask) {
+angular.module('component.kanban-model').directive('kanbanModel', function (generateKanbanModel, KanbanTask, $parse) {
     return function ($scope, $element, $attrs) {
         $scope.$on('addToGroup', function (e, group, task) {
-            var config = $scope[$attrs.model];
+            var config = $parse($attrs.model)($scope);
             var firstColumn = config.swimlanes[0].columns[0];
             task = new KanbanTask(task);
             task.attachToGroup(group);
@@ -12,10 +12,10 @@ angular.module('component.kanban-model').directive('kanbanModel', function (gene
         });
 
         $scope.$on('update:kanban:card', function (e, newCard) {
-            var config = $scope[$attrs.config].tasks;
+            var config = $parse($attrs.config + '.tasks')($scope);
             if (!config || !config.length || !newCard || !newCard.id) {return;}
             var task = config.filter(function (oldCard) {return oldCard.id === newCard.id;})[0];
-            var model = $scope[$attrs.model].tasks;
+            var model = $parse($attrs.model + '.tasks')($scope);
             var modelTask = model.filter(function (modelTask) {return modelTask.id === newCard.id;})[0];
             if (!task || !modelTask) {return;}
 
@@ -23,10 +23,11 @@ angular.module('component.kanban-model').directive('kanbanModel', function (gene
         });
 
         $scope.$watch($attrs.config, function (config) {
+            var model = $parse($attrs.model);
             if (config) {
-                $scope[$attrs.model] = generateKanbanModel(config);
+                model.assign($scope, generateKanbanModel(config));
             } else {
-                $scope[$attrs.model] = null;
+                model.assign($scope, null);
             }
         });
     };
