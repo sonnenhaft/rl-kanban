@@ -19,13 +19,7 @@ angular.module('component.kanban-model').directive('kanbanModel', function (gene
             var modelTask = model.filter(function (modelTask) {return modelTask.id === newCard.id;})[0];
             if (!task || !modelTask) {return;}
 
-            angular.extend(task, newCard);
-
-            var clone = modelTask.clone();
-            angular.extend(clone, task);
-            clone.taskName = modelTask.taskName;
-            model[model.indexOf(modelTask)] = clone;
-            modelTask.remove();
+            model[model.indexOf(modelTask)] = modelTask.replace(angular.extend(task, newCard));
         });
 
         $scope.$watch($attrs.config, function (config) {

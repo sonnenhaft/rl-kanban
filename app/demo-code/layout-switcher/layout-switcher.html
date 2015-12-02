@@ -1,8 +1,8 @@
-<div class="layout-switcher" ng-init="minimize = true">
-    <a ng-click="minimize = false" ng-show="minimize">expand layout-switcher</a>
-    <a ng-click="minimize = true" ng-hide="minimize">minimize layout-switcher</a>
+<div class="layout-switcher">
+    <a ng-click="isOpened = true" ng-hide="isOpened">expand layout-switcher</a>
+    <a ng-click="isOpened = false" ng-show="isOpened">minimize layout-switcher</a>
 
-    <div ng-hide="minimize" class="opacity-area">
+    <div ng-show="isOpened" class="opacity-area">
         <label><input type="radio" ng-model="hash.contentLevel" value="minimum"/>Minimum Content Level</label>
         <label><input type="radio" ng-model="hash.contentLevel" value="medium"/>Medium Content Level</label>
         <label><input type="radio" ng-model="hash.contentLevel" value="maximum"/>Maximum Content Level</label>
