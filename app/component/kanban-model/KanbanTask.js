@@ -42,7 +42,12 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             if (this.group) {
                 this.group.tasks[this.group.tasks.indexOf(this)] = clonedTask;
             }
+            this.$$remove();
             return clonedTask;
+        },
+        $$remove: function(){
+            this.group = undefined;
+            this.column = uniqueId;
         },
         remove: function(){
             this.removeFromColumn();
@@ -50,8 +55,8 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             if (this.group) {
                 this.group.tasks.splice(this.group.tasks.indexOf(this), 1);
                 this.group.recalculate();
-                this.group = undefined;
             }
+            this.$$remove();
             return this;
         },
         clone: function () {
