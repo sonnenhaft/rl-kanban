@@ -18,7 +18,7 @@ angular.module('demo-code.layout-switcher').directive('layoutSwitcher', function
                     primarySlot: Math.random() + '',
                     notes: Math.random() + ''
                 });
-            }
+            };
         }
     };
 });

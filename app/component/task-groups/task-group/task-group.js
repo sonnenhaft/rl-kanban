@@ -39,17 +39,16 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                 }
             });
 
+            var group = $scope.group;
             $scope.$watch('group.$highlightedGroup', function (value) {
                 if (value) {
                     taskGroupList.highlightGroup(group);
                 }
             });
-
             var initialWidth, initialLeft, clone;
-            var wasResize = false;
 
+            var wasResize = false;
             var maxSnap;
-            var group = $scope.group;
             $scope.dragHandler = {
                 simpleClick: function () {
                     if (group.$expandedGroup) {

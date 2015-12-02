@@ -8,6 +8,12 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
             var wrapper = $element.wrap('<div></div>').parent();
             var $root = angular.element($window);
 
+            function recheckPositions() {
+                if (!isStuck) {
+                    start = iElement.getBoundingClientRect().top + $window.document.body.scrollTop;
+                }
+            }
+
             function scrollSpy() {
                 var pos = $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
                 recheckPositions();
@@ -19,12 +25,6 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
                     wrapper.css({height: ''});
                     $element.css({width: '', position: '', top: ''});
                     isStuck = false;
-                }
-            }
-
-            function recheckPositions() {
-                if (!isStuck) {
-                    start = iElement.getBoundingClientRect().top + $window.document.body.scrollTop;
                 }
             }
 
