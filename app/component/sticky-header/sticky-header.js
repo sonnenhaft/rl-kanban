@@ -3,19 +3,23 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
         link: function ($scope, $element) {
             var iElement = $element[0];
             var isStuck = false;
-            var start = iElement.getBoundingClientRect().top + ($window.document.body.scrollTop || $window.document.documentElement.scrollTop);
+            var start = iElement.getBoundingClientRect().top + getPosition();
             var style = $window.getComputedStyle(iElement);
             var wrapper = $element.wrap('<div></div>').parent();
             var $root = angular.element($window);
 
+            function getPosition() {
+                return $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
+            }
+
             function recheckPositions() {
                 if (!isStuck) {
-                    start = iElement.getBoundingClientRect().top + $window.document.body.scrollTop;
+                    start = iElement.getBoundingClientRect().top + getPosition();
                 }
             }
 
             function scrollSpy() {
-                var pos = $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
+                var pos = getPosition();
                 recheckPositions();
                 if (!isStuck && pos > start) {
                     wrapper.css({height: iElement.offsetHeight + parseInt(style.marginTop) + parseInt(style.marginBottom) + 'px'});
