@@ -125,6 +125,7 @@ See app/api/config/ for full stub files.
 	'groupContentType': 'Skills',
   'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
   'disableDefaultMessaging': true,
+  'enableMultiSelect': false,
   'allowEmptySwimlanes': true,
   'hideGroups': true,
   'legacyCardModal': true,
@@ -162,6 +163,7 @@ See app/api/config/ for full stub files.
 * `allowGroupExpand`: enable/disable group expanding to detailed view
 * `barredColumnMessage`: Text to show when in an invalid workflow state column
 * `disableDefaultMessaging`: Hide UI in empty swim lanes
+* `enableMultiSelect`: enable/disable selection of multiple task cards with ctrl-click
 * `groupContentType`: Help text, describing type of groups source (used for empty state, in groups canvas)
 * `groupsCollapseButtonText`: Text for collapse/expand button in groups canvas, for expanded state
 * `groupsExpandButtonText`: Text for collapse/expand button in groups canvas, for collapsed state
