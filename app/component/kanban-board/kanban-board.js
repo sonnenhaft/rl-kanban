@@ -53,9 +53,7 @@ angular.module('component.kanban-board', [
             }
 
             function rollbackScrolls() {
-                if (!conditions) {
-                    return;
-                }
+                if (!conditions) {return;}
                 $element[0].scrollTop = conditions.scrollTop;
                 horizontalScroll.$element[0].scrollLeft = conditions.scrollLeft;
                 $window.scrollTo(conditions.scrollX, conditions.scrollY);
