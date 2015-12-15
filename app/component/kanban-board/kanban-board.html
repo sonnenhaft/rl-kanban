@@ -1,4 +1,5 @@
-<div class="kanban-board" horizontal-scroll scrollable-element ng-class="::{'team-kanban': swimlane.isTeam, 'not-team-kanban': !swimlane.isTeam}">
+<div class="kanban-board" horizontal-scroll scrollable-element ng-class="::{'team-kanban': swimlane.isTeam, 'not-team-kanban': !swimlane.isTeam}"
+        ng-style="::{'max-height': settings.swimlaneMaxHeight || '620px'}">
     <div class="empty-placeholder" ng-hide="swimlane.isTeam || swimlane.$tasksCount || settings.readOnly || settings.disableDefaultMessaging || settings.allowEmptySwimlanes">
         <p>{{::swimlane.addAlertText}}</p>
         <button class="button blue select-skills-button" ng-click="addResources()" ng-show="::swimlane.addButtonText">{{::swimlane.addButtonText}}</button>
