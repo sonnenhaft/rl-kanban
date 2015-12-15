@@ -3215,7 +3215,7 @@
         }
     ],
     "settings": {
-        "swimlaneMaxHeight": "120px",
+        "swimlaneMaxHeight": "320px",
         "enableMultiSelect": true,
         "taskModalWindowTitle": "Task information",
         "disableDefaultMessaging": true,

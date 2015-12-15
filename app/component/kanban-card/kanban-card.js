@@ -31,12 +31,11 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             $scope.limit = 50;
 
             $scope.showFullDescription = function (task, settings, $event) {
-                if (!task.$edit) {
-                    $event.stopPropagation();
-                    $scope.limit = task.notes.length;
-                    if (settings.highlightTaskOnClick && !task.$edit) {
-                        kanban.highlightTask(task);
-                    }
+                if (task.$edit) { return; }
+                $event.stopPropagation();
+                $scope.limit = task.notes.length;
+                if (settings.highlightTaskOnClick) {
+                    kanban.highlightTask(task);
                 }
             };
 
@@ -53,14 +52,13 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             var wrapper = $element.children();
 
             $scope.$watch('task.$highlight', function (value, oldValue) {
-                if (value !== oldValue) {
-                    if (value) {
-                        wrapper.addClass('card-highlight');
-                        wrapper.css('borderColor', borderColor);
-                    } else {
-                        wrapper.removeClass('card-highlight');
-                        wrapper.css('borderColor', 'transparent');
-                    }
+                if (value === oldValue) {return}
+                if (value) {
+                    wrapper.addClass('card-highlight');
+                    wrapper.css('borderColor', borderColor);
+                } else {
+                    wrapper.removeClass('card-highlight');
+                    wrapper.css('borderColor', 'transparent');
                 }
             });
 
@@ -105,6 +103,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
                     $scope.$apply(function () {
                         fn($scope, {$event: $event});
                     });
+                });
+
+                $scope.$on('$destroy', function () {
+                    $element.off();
                 });
             };
         }
