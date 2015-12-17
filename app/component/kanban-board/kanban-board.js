@@ -32,6 +32,8 @@ angular.module('component.kanban-board', [
             var kanban = $ctrl[1];
             var horizontalScroll = $ctrl[2];
 
+            $scope.scrollableElement = scrollableElement;
+
             $scope.addResources = function () {
                 $scope.$emit('kanban:add-task-assessment', $scope.swimlane.id);
             };
@@ -62,10 +64,12 @@ angular.module('component.kanban-board', [
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
                     rememberScrolls();
+                    scrollableElement = $scope.scrollableElement;
 
                     fixColumnsInIE9();
                     scrollableElement.watchMouse();
                     var task = e.source.itemScope.task;
+
                     $scope.$emit('kanban:task:start', task.id);
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
@@ -78,6 +82,15 @@ angular.module('component.kanban-board', [
                     }
                     if ($scope.settings.editableSwimlanes) {
                         kanban.checkEditableSwimlanes();
+                    }
+                },
+                onMove: function(e){
+                    var parentScrollable = e.dest.sortableScope.$parent.$parent.$parent.$parent.scrollableElement;
+                    if (parentScrollable && scrollableElement !== parentScrollable) {
+                        scrollableElement.stopWatching();
+                        scrollableElement =  parentScrollable;
+                        scrollableElement.watchMouse();
+                        console.log('switched')
                     }
                 },
                 orderChanged: function (e) {
