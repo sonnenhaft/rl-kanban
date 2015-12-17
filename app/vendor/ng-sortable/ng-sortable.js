@@ -410,7 +410,7 @@
             scope.element = element;
             element.data('_scope',scope); // #144, work with angular debugInfoEnabled(false)
 
-            callbacks = {accept: null, orderChanged: null, itemMoved: null, dragStart: null, dragMove:null, dragCancel: null, dragEnd: null};
+            callbacks = {accept: null, orderChanged: null, itemMoved: null, dragStart: null, dragMove:null, dragCancel: null, dragEnd: null, onMove: null};
 
             /**
              * Invoked to decide whether to allow drop.
@@ -456,6 +456,14 @@
             callbacks.dragMove = angular.noop;
 
             /**
+             * Similar to dragMove, but not calling $apply() - faster
+             * because don't rerender app on mousemove
+             *
+             * @param event - the event object.
+             */
+            callbacks.onMove = angular.noop;
+
+            /**
              * Invoked when the drag cancelled.
              *
              * @param event - the event object.
@@ -472,9 +480,10 @@
             };
 
             //Set the sortOptions callbacks else set it to default.
-            scope.$watch(attrs.asSortable, function (newVal, oldVal) {
+            scope.$watch(attrs.asSortable, function (newVal) {
               angular.forEach(newVal, function (value, key) {
                 if (callbacks[key]) {
+
                   if (typeof value === 'function') {
                     callbacks[key] = value;
                   }
@@ -773,6 +782,10 @@
                 scope.sortableScope.$apply(function () {
                   scope.callbacks.dragMove(itemPosition, containment, eventObj);
                 });
+              }
+
+              if (scope.callbacks.onMove !== angular.noop) {
+                scope.callbacks.onMove(dragItemInfo.eventArgs());
               }
 
               $helper.movePosition(eventObj, dragElement, itemPosition, containment, containerPositioning, scrollableContainer);
