@@ -37,7 +37,8 @@
                 <span ng-if="::fields.assignability">&nbsp;-&nbsp;Locked</span>
                 <span class="glyph-icon card-icon" ng-if="::task.assignability"><span class="glyph-lock3"></span></span>
             </p>
-            <p ng-if="::fields.id"><span class="text-grey text-left">ID#&nbsp;</span>{{::task.id}}</p>
+            <!--we don't need to show task.id, but alfrescoDbId, and only if it exists 18.12.2015 -->
+            <p ng-if="::task.alfrescoDbId"><span class="text-grey text-left">ID#&nbsp;</span>{{::task.alfrescoDbId}}</p>
             <p ng-if="::fields.grade">
                     <span class="text-grey text-left">Grade&nbsp;</span>
                     <span ng-repeat="grade in ::task.grades">{{::grade.name}}{{::$last ? '' : ', '}}</span>
