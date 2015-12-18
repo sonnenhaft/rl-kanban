@@ -56,11 +56,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             };
 
             $scope.groupColor = $parse('group.color')($scope.task) || null;
-            var borderColor = $scope.groupColor || '#326295';
-            var wrapper = $element.children();
 
-            $scope.$watch('task.$highlight', function (value, oldValue) {
-                if (value === oldValue) {return;}
+            var wrapper = $element.children();
+            var borderColor = $scope.groupColor || '#326295';
+            $scope.$watch('task.$highlight', function (value) {
                 if (value) {
                     wrapper.addClass('card-highlight');
                     wrapper.css('borderColor', borderColor);
