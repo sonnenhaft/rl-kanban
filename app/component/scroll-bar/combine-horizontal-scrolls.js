@@ -9,7 +9,9 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 var max = this.scrollBarElement.scrollWidth - this.scrollBarElement.clientWidth;
 
                 targetNodes.forEach(function (targetNode) {
-                    if (targetNode.scrollLeft !== scrollLeft) {
+                    if (targetNode.scrollLeft !== scrollLeft &&  targetNode !== scrollEvent.target) {
+                        targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
+                    } else if (targetNode.scrollLeft === scrollLeft && targetNode === scrollEvent.target) {
                         targetNode.scrollLeft = scrollLeft > max ? max : scrollLeft;
                     }
                 });
@@ -24,18 +26,6 @@ angular.module('component.scroll-bar').directive('combineHorizontalScrolls', fun
                 targetNodes.splice(targetNodes.indexOf($element[0]), 1);
                 $element.off('scroll', synchronizeHorizonalScroll);
             };
-        }
-    };
-}).directive('columnsWidth', function () {
-    return {
-        restrict: 'A',
-        require: '^kanban',
-        link: function (scope, element, attrs, kanban) {
-            kanban.registerElement(element);
-
-            scope.$on('$destroy', function () {
-                kanban.removeElement(element);
-            });
         }
     };
 });
