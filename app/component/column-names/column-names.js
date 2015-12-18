@@ -1,7 +1,8 @@
 angular.module('component.column-names', [
     'mm.foundation.tooltip',
     'mm.foundation.position',
-    'mm.foundation.bindHtml'
+    'mm.foundation.bindHtml',
+    'ie-9-fixes'
 ]).directive('columnNames', function () {
     return {
         scope: {columns: '=', settings: '='},
