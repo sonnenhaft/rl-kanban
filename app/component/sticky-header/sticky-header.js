@@ -1,4 +1,9 @@
 angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window) {
+
+    function getPosition() {
+        return $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
+    }
+
     return {
         link: function ($scope, $element) {
             var iElement = $element[0];
@@ -7,10 +12,6 @@ angular.module('component.stickyHeader', []).directive('stickyHeader', function 
             var style = $window.getComputedStyle(iElement);
             var wrapper = $element.wrap('<div></div>').parent();
             var $root = angular.element($window);
-
-            function getPosition() {
-                return $window.document.body.scrollTop || $window.document.documentElement.scrollTop;
-            }
 
             function recheckPositions() {
                 if (!isStuck) {
