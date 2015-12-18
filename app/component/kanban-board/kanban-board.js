@@ -2,22 +2,9 @@ angular.module('component.kanban-board', [
     'component.kanban-column',
     'component.expand-collapse',
     'component.scrollable-element',
-    'component.kanban-model'
-]).directive('kanbanBoard', function ($window, KanbanColumn) {
-
-    var isIE9 = $window.navigator.appVersion.indexOf('MSIE 9') !== -1;
-
-    function fixColumnsInIE9() {
-        if (!isIE9) { return;}
-        angular.forEach($window.document.getElementsByClassName('kanban-board'), function (board) {
-            var columnsList = Array.prototype.slice.call(board.querySelectorAll('kanban-column'));
-            var max = columnsList.reduce(function (p, e) {
-                return e.scrollHeight > p ? e.scrollHeight : p;
-            }, 0);
-            angular.element(columnsList).css('height', max + 'px');
-        });
-    }
-
+    'component.kanban-model',
+    'ie-9-fixes'
+]).directive('kanbanBoard', function ($window, KanbanColumn, fixIE9) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
@@ -65,8 +52,7 @@ angular.module('component.kanban-board', [
                 dragStart: function (e) {
                     rememberScrolls();
                     scrollableElement = $scope.scrollableElement;
-
-                    fixColumnsInIE9();
+                    fixIE9('kanban-columns-fix');
                     scrollableElement.watchMouse();
                     var task = e.source.itemScope.task;
 

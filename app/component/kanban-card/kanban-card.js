@@ -1,5 +1,5 @@
 angular.module('component.kanban-card').directive('kanbanCard', function ($timeout, $rootScope, $parse,
-                                                                          openTaskCard, openConfirmationModal, kanbanCardFields, isTouch) {
+                                                                          openTaskCard, openConfirmationModal, kanbanCardFields, isTouch, fixIE9) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
@@ -16,6 +16,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             }
 
             $scope.clickCallbacks = function (task, settings, $event, force) {
+                fixIE9('unselect-text');
                 $event.stopPropagation();
                 if (!task.$edit && settings.highlightTaskOnClick) {
                     if (!settings.enableMultiSelect) {
