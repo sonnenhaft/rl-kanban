@@ -5,5 +5,6 @@ angular.module('component.kanban-card', [
     'component.is-touch',
     'component.tool-tip',
     'component.sanitize-filter',
-    'ui.sortable'
+    'ui.sortable',
+    'ie-9-fixes'
 ]);
