@@ -15,9 +15,6 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
                 }, 1000, false);
             }
 
-            var a = {
-
-            }
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 fixIE9('unselect-text');
                 $event.stopPropagation();
