@@ -3,7 +3,7 @@ angular.module('component.modals.confirmation-modal', [
     'mm.foundation.modal',
     'template/modal/backdrop.html',
     'template/modal/window.html'
-]).factory('confirmationModal', function ($modal) {
+]).factory('openConfirmationModal', function ($modal) {
     return {
         open: function ($scope) {
             var modal = $modal.open({
@@ -11,19 +11,15 @@ angular.module('component.modals.confirmation-modal', [
                 templateUrl: 'app/component/modals/confirmation-modal/confirmation-modal.html',
             });
 
-            modal.result.finally(function () {
-                modal = null;
-            });
-
             if (!$scope) {
                 $scope.$on('$destroy', function () {
-                    if (modal) {
-                        modal.dismiss('cancel');
-                    }
+                    if (modal) { modal.dismiss('cancel'); }
                 });
             }
 
-            return modal;
+            return modal.result.finally(function () {
+                modal = null;
+            });
         }
     };
 });

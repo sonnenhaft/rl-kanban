@@ -1,5 +1,5 @@
 angular.module('component.kanban-card').directive('kanbanCard', function ($timeout, $rootScope, $parse,
-                                                                          extendedCard, confirmationModal, kanbanCardFields, isTouch) {
+                                                                          openTaskCard, openConfirmationModal, kanbanCardFields, isTouch) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
@@ -7,6 +7,13 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             //TODO: move settings to same level where tasks object lays
             var parentSettings = $scope.$parent.settings || $scope.settings;
             $scope.fields = angular.extend(angular.copy(kanbanCardFields), parentSettings.tasksDisplayFields);
+
+            function catchEsc() {
+                $scope.task.$skipEsc = true;
+                $timeout(function () {
+                    if ($scope.task.$skipEsc) {$scope.task.$skipEsc = false;}
+                }, 1000, false);
+            }
 
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 $event.stopPropagation();
@@ -23,8 +30,9 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
 
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
+                    task.$skipEsc = true;
                 } else if (!task.$edit) {
-                    extendedCard.open(task, settings);
+                    openTaskCard(task, settings).then(angular.noop, catchEsc);
                 }
             };
 
@@ -41,10 +49,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
 
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
-                confirmationModal.open($scope).result.then(function () {
+                openConfirmationModal($scope).then(function () {
                     task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
-                });
+                }, catchEsc);
             };
 
             $scope.groupColor = $parse('group.color')($scope.task) || null;
@@ -52,7 +60,7 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             var wrapper = $element.children();
 
             $scope.$watch('task.$highlight', function (value, oldValue) {
-                if (value === oldValue) {return}
+                if (value === oldValue) {return;}
                 if (value) {
                     wrapper.addClass('card-highlight');
                     wrapper.css('borderColor', borderColor);

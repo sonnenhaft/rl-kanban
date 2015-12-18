@@ -5,7 +5,7 @@ angular.module('component.kanban-board', [
     'component.kanban-model'
 ]).directive('kanbanBoard', function ($window, KanbanColumn) {
 
-    var isIE9 = $window.navigator.appVersion.indexOf("MSIE 9") !== -1;
+    var isIE9 = $window.navigator.appVersion.indexOf('MSIE 9') !== -1;
 
     function fixColumnsInIE9() {
         if (!isIE9) { return;}
@@ -90,7 +90,6 @@ angular.module('component.kanban-board', [
                         scrollableElement.stopWatching();
                         scrollableElement =  parentScrollable;
                         scrollableElement.watchMouse();
-                        console.log('switched')
                     }
                 },
                 orderChanged: function (e) {

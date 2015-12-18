@@ -1,17 +1,14 @@
-angular.module('kanban').factory('globalOnClickOnEsc', function ($window) {
+angular.module('kanban').factory('globalOnEsc', function ($window) {
     var $body = angular.element($window.document.body);
     return function (fn) {
 
         function onEscPressed(e) {
-            if (e.which === 27) {
-                fn();
-            }
+            if (e.which === 27) { fn();}
         }
 
-        $body.bind('keyup', onEscPressed).bind('click', fn);
-
+        $body.bind('keyup', onEscPressed);
         return function () {
-            $body.unbind('keyup', onEscPressed).unbind('click', fn);
+            $body.unbind('keyup', onEscPressed);
         };
     };
 });
