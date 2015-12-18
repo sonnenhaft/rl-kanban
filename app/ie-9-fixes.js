@@ -1,6 +1,9 @@
 angular.module('ie-9-fixes', []).factory('fixIE9', function ($window) {
     var isIE9 = $window.navigator.appVersion.indexOf('MSIE 9') !== -1;
     var document = $window.document;
+    if (isIE9) {
+        document.body.className = document.body.className + ' lt-ie9';
+    }
 
     var shims = {
         'unselect-text': function clearSelection() {
