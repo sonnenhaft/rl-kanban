@@ -6,9 +6,9 @@ angular.module('kanban').factory('globalOnEsc', function ($window) {
             if (e.which === 27) { fn();}
         }
 
-        $body.bind('keyup', onEscPressed);
+        $body.bind('keyup', onEscPressed).bind('click', fn);
         return function () {
-            $body.unbind('keyup', onEscPressed);
+            $body.unbind('keyup', onEscPressed).unbing('click', fn);;
         };
     };
 });
