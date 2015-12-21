@@ -2,6 +2,13 @@
     display: table;
     table-layout: fixed;
     height: 35px;
+    .tooltip-area {
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        width: 30px;
+        z-index: 5;
+    }
     .clmn-name {
         color: #A0A2A1;
         text-align: center;
