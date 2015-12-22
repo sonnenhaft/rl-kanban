@@ -8,7 +8,7 @@ angular.module('kanban').factory('globalOnEsc', function ($window) {
 
         $body.bind('keyup', onEscPressed).bind('click', fn);
         return function () {
-            $body.unbind('keyup', onEscPressed).unbing('click', fn);;
+            $body.unbind('keyup', onEscPressed).unbind('click', fn);
         };
     };
 });
