@@ -60,7 +60,6 @@
             padding: 7px 0;
             text-overflow: ellipsis;
             width: 30px;
-            writing-mode: tb-rl;
             transform: rotate(90deg);
         }
         &:hover {
@@ -104,5 +103,6 @@
         line-height: 28px;
         top: 20px;
         height: 50px;
+        writing-mode: tb-rl;
     }
 }
