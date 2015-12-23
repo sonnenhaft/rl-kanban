@@ -13,7 +13,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
         }
     }
 
-    var $body = angular.element($window.document.body);
+    var windowElement = angular.element($window);
 
     return {
         controller: function ($element) {
@@ -68,13 +68,13 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
 
             this.watchMouse = function (_fn) {
                 fn = _fn || fn;
-                $body.bind('mousemove', scrollOnBorder);
-                $body.bind('touchmove', touchOnBorder);
+                windowElement.on('mousemove', scrollOnBorder);
+                windowElement.on('touchmove', touchOnBorder);
             };
 
             this.stopWatching = function () {
-                $body.unbind('mousemove', scrollOnBorder);
-                $body.unbind('touchmove', touchOnBorder);
+                windowElement.off('mousemove', scrollOnBorder);
+                windowElement.off('touchmove', touchOnBorder);
                 elementScroll.stopInterval();
                 windowScroll.stopInterval();
             };
