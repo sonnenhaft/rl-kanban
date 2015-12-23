@@ -4,5 +4,4 @@
         {{::settings.barredColumnMessage}}
     </div>
     <kanban-card class="kanban-card as-sortable-item" ng-repeat="task in column.tasks | limitTo: limit track by task.$uniqueId" data-as-sortable-item></kanban-card>
-    <br/><br/><br/>
 </div>
