@@ -1,4 +1,4 @@
-angular.module('kanban').directive('kanban', function ($window, isTouch, globalOnEsc) {
+angular.module('kanban').directive('kanban', function ($window, $document, isTouch, globalOnEsc) {
     function setVal(childElement, value) {
         childElement.css('width', (value || 0) * 228 + 'px');
     }
@@ -9,17 +9,14 @@ angular.module('kanban').directive('kanban', function ($window, isTouch, globalO
         templateUrl: 'app/kanban.html',
         controller: function ($scope) {
             var registeredElements = [];
+            var $body = $document.find('body').eq(0);
 
             $scope.isTouch = isTouch;
 
             $scope.$on('$destroy', globalOnEsc(function unhiglightAll() {
-                if (!$scope.config) {return;}
+                if (!$scope.config || $body.hasClass('modal-open')) {return;}
                 $scope.config.tasks.forEach(function (task) {
-                    if (task.$skipEsc) {
-                        task.$skipEsc = false;
-                    } else {
-                        delete task.$highlight;
-                    }
+                    delete task.$highlight;
                 });
                 $scope.$digest();
             }));

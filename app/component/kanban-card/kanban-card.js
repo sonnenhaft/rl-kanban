@@ -8,22 +8,6 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             var parentSettings = $scope.$parent.settings || $scope.settings;
             $scope.fields = angular.extend(angular.copy(kanbanCardFields), parentSettings.tasksDisplayFields);
 
-            var higlightedTasks = null;
-            function catchEsc() {
-                higlightedTasks.forEach(function(task){
-                    task.$highlight = true;
-                    task.$skipEsc = true;
-                    $timeout(function () {
-                        if (task.$skipEsc) {task.$skipEsc = false;}
-                    }, 1000, false);
-                });
-                higlightedTasks = null;
-            }
-
-            function rememberHighligted(){
-                higlightedTasks = kanban.getHighlighted();
-            }
-
             $scope.clickCallbacks = function (task, settings, $event, force) {
                 fixIE9('unselect-text');
                 $event.stopPropagation();
@@ -40,10 +24,8 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
 
                 if (settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
-                    task.$skipEsc = true;
                 } else if (!task.$edit) {
-                    rememberHighligted();
-                    openTaskCard(task, settings).then(angular.noop, catchEsc);
+                    openTaskCard(task, settings);
                 }
             };
 
@@ -60,12 +42,10 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
 
             $scope.deleteTask = function ($event, task) {
                 $event.stopPropagation();
-                rememberHighligted();
                 openConfirmationModal($scope).then(function () {
-                    catchEsc();
                     task.remove();
                     $rootScope.$broadcast('kanban:task:remove', task.id);
-                }, catchEsc);
+                });
             };
 
             $scope.groupColor = $parse('group.color')($scope.task) || null;
