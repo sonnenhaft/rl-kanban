@@ -62,7 +62,7 @@
                 opacity: 0.1;
             }
             .as-sortable-placeholder {
-                display: none;
+                display: none !important;
             }
 
             .kanban-clmn-warning {
