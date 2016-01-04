@@ -9,7 +9,7 @@ angular.module('kanban', [
     'component.task-groups.task-groups-button',
     'component.add-new-control',
     //TODO: remove unused dependencies
-    'ui.sortable',
+    'as.sortable',
     'mm.foundation',
     'component.task-groups.task-group',
     'component.task-groups.task-group-list',
