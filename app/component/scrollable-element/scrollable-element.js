@@ -1,5 +1,5 @@
 angular.module('component.scrollable-element').directive('scrollableElement', function ($window, ScrollableElementFactory) {
-    var SCROLL_STEP = 50;
+    var SCROLL_STEP = 75;
     var SENSITIVITY_AREA = 50;
     var srollDelta;
 
@@ -7,10 +7,10 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
         var delta = coord - dimensionProp;
         if (delta + SENSITIVITY_AREA > 0) {
             srollDelta = parseInt(SCROLL_STEP / Math.abs(delta)) || SCROLL_STEP;
-            return delta <= 0 ? srollDelta : SCROLL_STEP;
+            return delta <= 0 ? Math.ceil(srollDelta / 10) * 10 : SCROLL_STEP;
         } else if (coord < SENSITIVITY_AREA) {
-            srollDelta = -parseInt(SCROLL_STEP / Math.abs(coord)) || SCROLL_STEP;
-            return coord >= 0 ? srollDelta : -SCROLL_STEP;
+            srollDelta = parseInt(SCROLL_STEP / Math.abs(coord)) || SCROLL_STEP;
+            return coord >= 0 ? -Math.ceil(srollDelta / 10) * 10 : -SCROLL_STEP;
         } else {
             return 0;
         }
