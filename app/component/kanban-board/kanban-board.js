@@ -51,11 +51,10 @@ angular.module('component.kanban-board', [
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
                     rememberScrolls();
-                    scrollableElement = $scope.scrollableElement;
                     fixIE9('kanban-columns-fix');
-                    scrollableElement.watchMouse();
                     var task = e.source.itemScope.task;
-
+                    kanban.activeScrollableElement = scrollableElement;
+                    kanban.activeScrollableElement.watchMouse();
                     $scope.$emit('kanban:task:start', task.id);
                     if (angular.isDefined(task.group)) {
                         task.group.$highlightedGroup = true;
@@ -70,14 +69,6 @@ angular.module('component.kanban-board', [
                         kanban.checkEditableSwimlanes();
                     }
                 },
-                onMove: function(e){
-                    var parentScrollable = e.dest.sortableScope.$parent.$parent.$parent.$parent.scrollableElement;
-                    if (parentScrollable && scrollableElement !== parentScrollable) {
-                        scrollableElement.stopWatching();
-                        scrollableElement =  parentScrollable;
-                        scrollableElement.watchMouse();
-                    }
-                },
                 orderChanged: function (e) {
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:orderchanged', task.id);
@@ -85,7 +76,7 @@ angular.module('component.kanban-board', [
                 dragEnd: function (e) {
                     var task = e.source.itemScope.task;
                     $scope.$emit('kanban:task:stop', task.id);
-                    scrollableElement.stopWatching();
+                    kanban.activeScrollableElement.stopWatching();
                     if (angular.isArray(task.validStates)) {
                         kanban.clearInvalidStates();
                     }
@@ -117,9 +108,15 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
+                    var parentScrollable = destSortableScope.$parent.$parent.$parent.$parent.scrollableElement;
+                    if (parentScrollable && kanban.activeScrollableElement !== parentScrollable) {
+                        kanban.activeScrollableElement.stopWatching();
+                        kanban.activeScrollableElement = parentScrollable;
+                        kanban.activeScrollableElement.watchMouse();
+                    }
                     if (destSortableScope.$parent.column.swimlane.isTeam) {         // TODO: remove $parent from here
                         return true;
-                    } else if (destSortableScope.$parent.column.$collapsed) {      // TODO: remove $parent from here
+                    } else if (destSortableScope.$parent.column.$collapsed) {      // TODO: remove $parent from
                         return false;
                     } else if ($scope.settings.acceptTasks) {
                         return true;
