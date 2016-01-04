@@ -1,5 +1,5 @@
 angular.module('component.scrollable-element').factory('ScrollableElementFactory', function ($interval) {
-    var CHECK_INTERVAL_MILLIS = 50;
+    var CHECK_INTERVAL_MILLIS = 16.66;
     var MINIMAL_VALUE_TO_SCROLL = 25;
 
     function ScrollableElementFactory(fn) {
