@@ -1,6 +1,11 @@
-<div class="card-wrapper" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, false)" data-as-sortable-item-handle>
+<div class="card-wrapper" ng-lazy-click="clickCallbacks(task, $event, false)"
+     ng-mousedown="highlightTask(task, $event)"
+     data-as-sortable-item-handle>
     <div class="card-color" ng-if="::groupColor" ng-style="::{'background': groupColor}"></div>
-    <button class="button card-button delete-card-button" type="button" ng-click="deleteTask($event, task)" ng-if="::!task.published" ng-show="task.$edit">
+    <button class="button card-button delete-card-button" type="button"
+            ng-click="deleteTask($event, task)"
+            ng-if="::!task.published"
+            ng-show="task.$edit">
         <span class="glyph-icon"><span class="glyph-close"></span></span>
     </button>
     <div class="card-header">
@@ -60,8 +65,8 @@
                         <span class="task-flag glyph-flag" ng-if="::(task.flag._id === 'AUTHFLAG_TRUE')"></span>
                         <span class="task-flag glyph-images2" ng-if="::(task.mediaFlag._id === 'MEDFLAG_TRUE')"></span>
                     </span>
-                    <button ng-if="::(fields.preview && task.preview)" type="button" class="button card-preview" ng-lazy-click="clickCallbacks(task, $parent.settings, $event, true)">
-
+                    <button ng-if="::(fields.preview && task.preview)" type="button" class="button card-preview"
+                            ng-lazy-click="clickCallbacks(task, $event, true)">
                         <span class="glyph-icon"><span class="glyph-eye"></span></span>
                     </button>
                 </div>
