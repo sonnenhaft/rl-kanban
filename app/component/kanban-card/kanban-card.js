@@ -8,24 +8,30 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
             var parentSettings = $scope.$parent.settings || $scope.settings;
             $scope.fields = angular.extend(angular.copy(kanbanCardFields), parentSettings.tasksDisplayFields);
 
-            $scope.clickCallbacks = function (task, settings, $event, force) {
-                fixIE9('unselect-text');
+            $scope.clickCallbacks = function (task, $event, force) {
                 $event.stopPropagation();
-                if (!task.$edit && settings.highlightTaskOnClick) {
-                    if (!settings.enableMultiSelect) {
+
+                if (parentSettings.enableMultiSelect && ($event.ctrlKey || $event.metaKey)) {
+                    return;
+                }
+
+                if (parentSettings.legacyCardModal && !force) {
+                    $scope.$emit('kanban:task:modalopen', task);
+                } else if (!task.$edit) {
+                    openTaskCard(task, parentSettings);
+                }
+            };
+
+            $scope.highlightTask = function(task, $event){
+                fixIE9('unselect-text');
+                if (!task.$edit && parentSettings.highlightTaskOnClick) {
+                    if (!parentSettings.enableMultiSelect) {
                         kanban.highlightTask(task);
                     } else if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = !task.$highlight;
-                        return;
                     } else if (!task.$highlight) {
                         kanban.highlightTask(task);
                     }
-                }
-
-                if (settings.legacyCardModal && !force) {
-                    $scope.$emit('kanban:task:modalopen', task);
-                } else if (!task.$edit) {
-                    openTaskCard(task, settings);
                 }
             };
 
@@ -103,10 +109,6 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
                     $scope.$apply(function () {
                         fn($scope, {$event: $event});
                     });
-                });
-
-                $scope.$on('$destroy', function () {
-                    $element.off();
                 });
             };
         }
