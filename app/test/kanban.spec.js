@@ -45,6 +45,8 @@ describe.module('kanban', function () {
         var task = scope.config.tasks[1];
         controller.highlightTask(task);
         expect(controller.getHighlighted().length).toBe(1);
+        scope.config.settings.enableMultiSelect = false;
+        expect(controller.getHighlighted().length).toBe(1);
     });
 
     it('should validate selected task state', function(){
@@ -53,6 +55,8 @@ describe.module('kanban', function () {
         controller.highlightTask(task);
         controller.validateStates();
         expect(column.$barred).toBe(true);
+        scope.config.settings.highlightTaskOnClick = false;
+        controller.validateStates(task);
     });
 
     it('should validate selected task state [TODO:Stan, update description]', function(){
@@ -60,11 +64,34 @@ describe.module('kanban', function () {
         var column = scope.config.swimlanes[0].columns[0];
         controller.validateColumns(task);
         expect(column.$barred).toBe(true);
+        task = scope.config.tasks[2];
+        task.validStates = null;
+        column = scope.config.swimlanes[0].columns[1];
+        controller.validateColumns(task);
+        expect(column.$barred).not.toBeDefined();
     });
 
-    //TODO: add sense to this test
-    it('should register esc handler', inject(function($window){
-        angular.element($window.document.body).triggerHandler({type: 'keyup', which: 27});
+    it('should not deselect tasks on esc keypress or click if modal is open', inject(function($document){
+        var $body = $document.find('body').eq(0);
+        $body.addClass('modal-open');
+        scope.config.tasks[3].$highlight = true;
+        $body.triggerHandler({type: 'keyup', which: 27});
         scope.$destroy();
+        highlightedTask = scope.config.tasks.filter(function (task) {
+            return task.$highlight;
+        });
+        expect(highlightedTask.length).toBe(1);
+    }));
+
+    it('should deselect tasks on esc keypress or click', inject(function($document){
+        var $body = $document.find('body').eq(0);
+        $body.removeClass('modal-open');
+        scope.config.tasks[3].$highlight = true;
+        $body.triggerHandler({type: 'keyup', which: 27});
+        scope.$destroy();
+        var highlightedTask = scope.config.tasks.filter(function (task) {
+            return task.$highlight;
+        });
+        expect(highlightedTask.length).toBe(0);
     }));
 });
