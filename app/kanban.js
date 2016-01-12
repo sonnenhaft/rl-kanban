@@ -1,8 +1,4 @@
 angular.module('kanban').directive('kanban', function ($window, $document, isTouch, globalOnEsc) {
-    function setVal(childElement, value) {
-        childElement.css('width', (value || 0) * 228 + 'px');
-    }
-
     return {
         scope: {config: '='},
         replace: true,
@@ -20,25 +16,6 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
                 });
                 $scope.$digest();
             }));
-
-            $scope.$watch('config.columns.length', function (value) {
-                registeredElements.forEach(function (childElement) {
-                    setVal(childElement, value);
-                });
-            });
-
-            this.registerElement = function (childElement) {
-                registeredElements.push(childElement);
-                var value;
-                if ($scope.config && $scope.config.columns) {
-                    value = $scope.config.columns;
-                }
-                setVal(childElement, value);
-            };
-
-            this.removeElement = function (childElement) {
-                registeredElements.splice(registeredElements.indexOf(childElement), 1);
-            };
 
             this.getHighlighted = function () {
                 var m = $scope.config.settings.enableMultiSelect;
