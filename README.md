@@ -6,6 +6,7 @@ http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
 ## COG1 Jenkins
 http://pasz.noip.us:8080/job/rl-kanban-git-master/
 
+
 ## COG1 bitballon static demo
 http://rl-kanban.bitballoon.com
 
