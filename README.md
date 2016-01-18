@@ -1,4 +1,14 @@
-# KANBAN CONTROL 
+# KANBAN CONTROL
+
+## RL build
+http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
+
+## COG1 Jenkins
+http://pasz.noip.us:8080/job/rl-kanban-git-master/
+
+## COG1 bitballon static demo
+http://rl-kanban.bitballoon.com
+
 ## Sub repositories - ATTENTION
 Current repository contains sub repository. If you are cloning project the first time, then use next command:
 ```sh
