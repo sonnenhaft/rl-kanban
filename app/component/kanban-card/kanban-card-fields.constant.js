@@ -1,7 +1,7 @@
 angular
     .module('component.kanban-card')
     .constant('kanbanCardFields', {
-        'contentTypes': false,
+        'rliDevType': false,
         'priority': false,
         'grade': false,
         'id': false,

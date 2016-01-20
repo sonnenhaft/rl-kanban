@@ -1,12 +1,12 @@
 {
     "minimum": {
-        "contentTypes": true,
+        "rliDevType": true,
         "priority": true,
         "grade": true,
         "id": true
     },
     "medium": {
-        "contentTypes": true,
+        "rliDevType": true,
         "priority": true,
         "grade": true,
         "id": true,
@@ -16,7 +16,7 @@
     },
     "maximum": {
         "_comment": "WORK TRACKER FIELDS",
-        "contentTypes": true,
+        "rliDevType": true,
         "priority": true,
         "grade": true,
         "id": true,

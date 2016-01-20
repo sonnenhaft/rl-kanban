@@ -16,8 +16,8 @@
         <div class="card-title" ng-if="::fields.appName">
             <span class="card-name">{{::task.appName}}</span>
         </div>
-        <div class="card-title" ng-if="::fields.contentTypes">
-            <span lass="card-name" ng-repeat="contentType in ::task.contentTypes">{{::contentType.name}}{{::$last ? '' : ', '}}</span>
+        <div class="card-title" ng-if="::fields.rliDevType">
+            <span class="card-name">{{::task.rliDevType.name}}</span>
         </div>
     </div>
     <div class="card-content">

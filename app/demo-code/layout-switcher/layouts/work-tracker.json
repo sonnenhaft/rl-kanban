@@ -40,15 +40,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -103,15 +101,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -166,15 +162,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911a9ce3b29e498cae5",
                 "555b6911a9ce3b29e498cae5",
@@ -229,15 +223,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -292,15 +284,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -355,15 +345,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -418,15 +406,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -481,15 +467,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -544,15 +528,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -607,15 +589,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd87",
                 "555b6911a9ce3b29e498cae5",
@@ -670,15 +650,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -733,15 +711,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911b55afadc0db29d98",
                 "555b6911a9ce3b29e498cae5",
@@ -796,15 +772,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911a9ce3b29e498cae5",
                 "555b6911a9ce3b29e498cae5",
@@ -859,15 +833,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -922,15 +894,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911a9ce3b29e498cae5",
                 "555b6911a9ce3b29e498cae5",
@@ -985,15 +955,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911b55afadc0db29d98",
                 "555b6911a9ce3b29e498cae5",
@@ -1048,15 +1016,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -1111,15 +1077,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1174,15 +1138,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1237,15 +1199,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -1300,15 +1260,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1363,15 +1321,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911b55afadc0db29d98",
                 "555b6911a9ce3b29e498cae5",
@@ -1426,15 +1382,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1489,15 +1443,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911a9ce3b29e498cae5",
                 "555b6911a9ce3b29e498cae5",
@@ -1552,15 +1504,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1615,15 +1565,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -1678,15 +1626,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -1741,15 +1687,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911b55afadc0db29d98",
                 "555b6911a9ce3b29e498cae5",
@@ -1804,15 +1748,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -1867,15 +1809,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -1930,15 +1870,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd89",
                 "555b6911a9ce3b29e498cae5",
@@ -1993,15 +1931,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -2056,15 +1992,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -2119,15 +2053,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd87",
                 "555b6911a9ce3b29e498cae5",
@@ -2182,15 +2114,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd87",
                 "555b6911a9ce3b29e498cae5",
@@ -2245,15 +2175,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd89",
                 "555b6911a9ce3b29e498cae5",
@@ -2308,15 +2236,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -2371,15 +2297,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd87",
                 "555b6911a9ce3b29e498cae5",
@@ -2434,15 +2358,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd87",
                 "555b6911a9ce3b29e498cae5",
@@ -2497,15 +2419,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -2560,15 +2480,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -2623,15 +2541,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -2686,15 +2602,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911f5cad468b43fbe8b",
                 "555b6911a9ce3b29e498cae5",
@@ -2749,15 +2663,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd88",
                 "555b6911a9ce3b29e498cae5",
@@ -2812,15 +2724,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd85",
                 "555b6911a9ce3b29e498cae5",
@@ -2875,15 +2785,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911b55afadc0db29d98",
                 "555b6911a9ce3b29e498cae5",
@@ -2938,15 +2846,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911a9ce3b29e498cae5",
                 "555b6911a9ce3b29e498cae5",
@@ -3001,15 +2907,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911ba6d349f6253cd86",
                 "555b6911a9ce3b29e498cae5",
@@ -3064,15 +2968,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -3127,15 +3029,13 @@
                     "_id": "GRADE_2"
                 }
             ],
-            "contentTypes": [
-                {
-                    "description": "AR360 Book",
-                    "name": "AR360 Book",
-                    "parentId": "CTCAT_ROOT",
-                    "tagsetId": "CTCAT",
-                    "_id": "CTCAT_AR360ART"
-                }
-            ],
+            "rliDevType": {
+                "_id": "RLIDEVTY_MULTIPLECHOICE",
+                "tagsetId": "RLIDEVTY",
+                "parentId": "RLIDEVTY_ROOT",
+                "name": "Multiple Choice",
+                "description": null
+            },
             "validStates": [
                 "555b6911faa6e347b8f89d13",
                 "555b6911a9ce3b29e498cae5",
@@ -3228,7 +3128,7 @@
         "editableSwimlanes": true,
         "showHideColumns": true,
         "tasksDisplayFields": {
-            "contentTypes": true,
+            "rliDevType": true,
             "priority": true,
             "grade": true,
             "id": true,
