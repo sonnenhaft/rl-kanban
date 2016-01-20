@@ -1,6 +1,6 @@
 {
   "name": "kanban",
-  "version": "0.0.254",
+  "version": "0.0.255",
   "description": "RenLearn-kanban",
   "scripts": {
     "setup": "npm install && bower install"
