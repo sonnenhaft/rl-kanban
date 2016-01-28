@@ -55,6 +55,7 @@
     "karma-js-coverage": "~0.2.0",
     "karma-junit-reporter": "^0.3.8",
     "karma-ng-html2js-preprocessor": "~0.1.0",
+    "karma-ng-json2js-preprocessor": "^1.1.1",
     "karma-phantomjs-launcher": "~0.1.2",
     "phantomjs": "~1.9.15",
     "protractor": "^3.0.0",
