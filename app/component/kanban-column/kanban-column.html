@@ -1,4 +1,4 @@
-<div class="kanban-clmn as-sortable" ng-model="column.tasks" data-as-sortable="scrollCallbacks">
+<div class="kanban-clmn as-sortable" ng-model="column.tasks" data-as-sortable="scrollCallbacks" is-disabled="swimlane.$disabled">
     <div class="kanban-clmn-warning">
         <glyph-icon icon="'glyph-warning2'"></glyph-icon>
         {{::settings.barredColumnMessage}}
