@@ -49,6 +49,17 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
                 });
             }
 
+            var registeredElements = [];
+            this.registerElement = function (childElement, childScope) {
+                registeredElements.push(childElement);
+                if ($scope.config && $scope.config.columns) {
+                    childElement.css('width', $scope.config.columns.length * 228 + 'px');
+                }
+                childScope.$on('destroy', function(){
+                    registeredElements.splice(registeredElements.indexOf(childElement), 1);
+                });
+            };
+
             this.validateColumns = validateColumns;
 
             this.validateStates = function (task) {
