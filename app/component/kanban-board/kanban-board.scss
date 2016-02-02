@@ -106,5 +106,6 @@
 .kanban.kanban-touch {
     .kanban-board {
         overflow: scroll;
+        webkit-overflow-scrolling: touch;
     }
 }
