@@ -11,7 +11,7 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             this.group = group;
             this.groupId = group.id;
         },
-        attachToColumn: function(column){
+        attachToColumn: function(column, skip){
             this.column = column;
             if (column.tasks.indexOf(this) === -1) {
                 column.tasks.push(this);
@@ -19,7 +19,7 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             this.columnId = column.id;
             this.swimlaneId = column.swimlaneId;
             column.swimlane.$tasksCount++;
-            if (angular.isDefined(this.group)) {
+            if (angular.isDefined(this.group) && !skip) {
                 this.group.recalculate();
             }
         },
@@ -27,13 +27,13 @@ angular.module('component.kanban-model').factory('KanbanTask', function ($rootSc
             this.column.removeTask(this);
             return this;
         },
-        moveToColumn: function(column){
+        moveToColumn: function(column, skip){
             if (column === this.column) {
                 return;
             }
             $rootScope.$broadcast('kanban:task:moved', this.id, this.column.id, column.id, this.column.swimlane.id, column.swimlane.id);
 
-            this.removeFromColumn().attachToColumn(column);
+            this.removeFromColumn().attachToColumn(column, skip);
         },
         replace: function(newTaskData) {
             var clonedTask = new KanbanTask(this);

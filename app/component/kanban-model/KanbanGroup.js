@@ -11,7 +11,7 @@ angular.module('component.kanban-model').factory('KanbanGroup', function () {
         },
         shrink: function (delta) {
             this.tasks.forEach(function (task) {
-                task.moveToColumn(task.column.swimlane.columns[task.column.index + delta]);
+                task.moveToColumn(task.column.swimlane.columns[task.column.index + delta], true);
             });
         },
         expand: function () {
@@ -26,9 +26,10 @@ angular.module('component.kanban-model').factory('KanbanGroup', function () {
 
             var start = this.start;
             var end = this.width;
+
             angular.forEach(swimLanes, function(tasks){
                 tasks.forEach(function(task, index){
-                    task.moveToColumn(task.column.swimlane.columns[start + index % end]);
+                    task.moveToColumn(task.column.swimlane.columns[start + index % end], true);
                 });
             });
         },
