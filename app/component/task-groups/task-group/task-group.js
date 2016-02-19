@@ -76,12 +76,17 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                     initialWidth = group.width;
                     maxSnap = $scope.columns.length - (group.start + group.width);
                 },
-                move: function (deltaX) {
+                move: function (deltaX, deltaY, scroll) {
                     if ($scope.settings.readOnly) { return;}
                     var elementHeight = $element.prop('offsetHeight');
                     clone.parent().css({'margin-top': elementHeight + 'px'});
                     $element.css({'margin-top': -elementHeight + 'px'});
-                    var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
+                    var snapX;
+                    if (scroll) {
+                        snapX = deltaX / groupWidth;
+                    } else {
+                        snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
+                    }
                     if (snapX > maxSnap) {
                         snapX = maxSnap;
                     }
@@ -95,6 +100,8 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                         var newLeft = initialLeft + snapX;
                         if (newLeft >= 0) {
                             group.start = newLeft;
+                        } else {
+                            group.start = 0;
                         }
                     }
 
@@ -116,11 +123,11 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                             }
                             group.expand();
                         } else {
+                            group.start = initialLeft + snapX;
                             if (group.start <= 0) {
                                 group.start = 0;
                                 group.shrink(-initialLeft);
                             } else {
-                                group.start = initialLeft + snapX;
                                 group.shrink(snapX);
                             }
                         }

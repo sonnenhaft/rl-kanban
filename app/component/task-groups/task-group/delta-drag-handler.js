@@ -21,10 +21,10 @@ angular.module('component.task-groups.task-group').directive('deltaDragHandler',
             var originalPageX = e.pageX;
             var originalPageY = e.pageY;
 
-            function sendDelta(e, fn) {
+            function sendDelta(e, fn, scroll) {
                 var deltaX = e.pageX - originalPageX;
                 var deltaY = e.pageY - originalPageY;
-                fn(deltaX, deltaY);
+                fn(deltaX, deltaY, scroll);
                 lastEvent = e;
             }
 
@@ -36,9 +36,9 @@ angular.module('component.task-groups.task-group').directive('deltaDragHandler',
                     eventObject.start();
                     if (scrollableElement) {
                         scrollableElement.watchMouse(function(x, y){
-                            originalPageX -= x;
-                            originalPageY -= y;
-                            sendDelta(lastEvent, eventObject.move);
+                            originalPageX = originalPageX - x / 2;
+                            originalPageY = originalPageY - y / 2;
+                            sendDelta(lastEvent, eventObject.move, true);
                         });
                     }
                 }
