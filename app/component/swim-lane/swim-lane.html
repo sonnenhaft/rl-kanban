@@ -16,6 +16,7 @@
         <div class="edit-tasks-button" ng-hide="swimlane.isTeam || settings.readOnly || !settings.editableSwimlanes" ng-click="toggleEdit($event, swimlane)">
             <button class="button" type="button">{{swimlane.$edit ? 'Done' : 'Edit Tasks'}}</button>
         </div>
+        <span class="swim-sub-title">{{swimlane.subText}}</span>
     </div>
     <kanban-board swimlane="swimlane" expand-collapse="!swimlane.collapsed" expand-disabled="settings.readOnly" settings="settings" limit="cardLimit"></kanban-board>
 </div>
