@@ -82,18 +82,19 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                     clone.parent().css({'margin-top': elementHeight + 'px'});
                     $element.css({'margin-top': -elementHeight + 'px'});
                     var snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
-                    if (snapX <= maxSnap) {
-                        if ($scope.resize) {
-                            wasResize = true;
-                            var newWidth = initialWidth + snapX;
-                            if (newWidth >= 1) {
-                                group.width = newWidth;
-                            }
-                        } else {
-                            var newLeft = initialLeft + snapX;
-                            if (newLeft >= 0) {
-                                group.start = newLeft;
-                            }
+                    if (snapX > maxSnap) {
+                        snapX = maxSnap;
+                    }
+                    if ($scope.resize) {
+                        wasResize = true;
+                        var newWidth = initialWidth + snapX;
+                        if (newWidth >= 1) {
+                            group.width = newWidth;
+                        }
+                    } else {
+                        var newLeft = initialLeft + snapX;
+                        if (newLeft >= 0) {
+                            group.start = newLeft;
                         }
                     }
 
