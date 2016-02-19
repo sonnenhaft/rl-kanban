@@ -60,6 +60,12 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
                 });
             };
 
+            $scope.$watch('config.columns', function(columns) {
+                registeredElements.forEach(function(childElement) {
+                    childElement.css('width', columns.length * 228 + 'px');
+                });
+            });
+
             this.validateColumns = validateColumns;
 
             this.validateStates = function (task) {
