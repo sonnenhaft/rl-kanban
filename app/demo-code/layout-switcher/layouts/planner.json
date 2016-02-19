@@ -338,7 +338,8 @@
             "id": "555b6922f5cad468b43fbe8b",
             "addResourcesButtonText": "Add Resources",
             "addButtonText": "Start Adding Resources",
-            "addAlertText": "Please select skills before you add resources"
+            "addAlertText": "Please select skills before you add resources",
+            "subText": "This is some swimlane sub-text"
         },
         {
             "index": 1,
@@ -346,7 +347,8 @@
             "id": "555b6933a9ce3b29e498cae5",
             "addResourcesButtonText": "Add Assessments",
             "addButtonText": "Start Adding Assessments",
-            "addAlertText": "Please select skills before you add assessments"
+            "addAlertText": "Please select skills before you add assessments",
+            "subText": "This is some other swimlane sub-text"
         }
     ],
     "groups": [
