@@ -1,31 +1,14 @@
 # KANBAN CONTROL
 
-## RL build
-http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
-
-## COG1 Jenkins
-http://pasz.noip.us:8080/job/rl-kanban-git-master/
-
-
-## COG1 bitballon static demo
-http://rl-kanban.bitballoon.com
-
-## Sub repositories - ATTENTION
-Current repository contains sub repository. If you are cloning project the first time, then use next command:
-```sh
-git clone --recursive https://github.com/COG1-Interactive/Ren-learn-kanban
-```
-If you already have cloned project, or cloned it without  --recursive flag, then use command to clone submodule
-```sh
-git submodule update --init --recursive
-```
-Note, that work with sub repos require some knowledge of git submodules, but generally IDE like WebStorm can cover such knowledge.
 ## Development Setup
 ### Installation
+Note, if you are building from Cog1's git repo., please refer to [this note about submodules](https://github.com/COG1-Interactive/cog1-rl-integrations/blob/master/README.md#sub-repositories---attention).
+
 Install node js and ruby (for Sass). Then run:
 ```sh 
 $ npm install && bower install
 ```
+
 ### Running Development Server 
 Start application for the first time:
 ```sh
@@ -74,10 +57,22 @@ To run tests and stop:
 $ gulp test
 ```
 
-## [Kanban Configuration](docs/configuration.md)
+## Reference
+### [Kanban Configuration](docs/configuration.md)
 
-## [Kanban Events list](docs/events.md)
+### [Kanban Events list](docs/events.md)
 
-## [Kanban Specification in PDF](docs/RENA-UXD-KanbanControl.pdf)
+### [Kanban Specification in PDF](docs/RENA-UXD-KanbanControl.pdf)
 
-## [Components](docs/components/README.md)
+### [Components](docs/components/README.md)
+
+### RL build
+http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
+
+### COG1 Jenkins
+http://pasz.noip.us:8080/job/rl-kanban-git-master/
+
+
+### COG1 bitballon static demo
+http://rl-kanban.bitballoon.com
+
