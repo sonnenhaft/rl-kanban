@@ -1,4 +1,4 @@
-kanban-column {
+[kanban-column] {
   display: table-cell;
   vertical-align: top;
   width: 228px;
@@ -67,7 +67,7 @@ kanban-column {
 }
 
 .swim-lane.empty {
-  kanban-column {
+  [kanban-column] {
     display: none;
   }
 }

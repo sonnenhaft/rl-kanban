@@ -3,8 +3,9 @@ angular.module('component.kanban-column', [
 ]).directive('kanbanColumn', function ($q, $timeout, $parse) {
     return {
         templateUrl: 'app/component/kanban-column/kanban-column.html',
+        restrict: 'A',
         scope: {
-            column: '=',
+            column: '=kanbanColumn',
             swimlane: '=',
             settings: '=',
             scrollCallbacks: '='
