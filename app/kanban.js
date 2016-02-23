@@ -1,17 +1,17 @@
-angular.module('kanban').directive('kanban', function ($window, $document, isTouch, globalOnEsc) {
+angular.module('kanban').directive('kanban', function ( $window, $document, isTouch, globalOnEsc ) {
     return {
-        scope: {config: '='},
+        scope: { config: '=' },
         replace: true,
         templateUrl: 'app/kanban.html',
-        controller: function ($scope) {
+        controller: function ( $scope ) {
             var registeredElements = [];
             var $body = $document.find('body').eq(0);
 
             $scope.isTouch = isTouch;
 
             $scope.$on('$destroy', globalOnEsc(function unhiglightAll() {
-                if (!$scope.config || $body.hasClass('modal-open')) {return;}
-                $scope.config.tasks.forEach(function (task) {
+                if ( !$scope.config || $body.hasClass('modal-open') ) {return;}
+                $scope.config.tasks.forEach(function ( task ) {
                     delete task.$highlight;
                 });
                 $scope.$digest();
@@ -19,13 +19,13 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
 
             this.getHighlighted = function () {
                 var m = $scope.config.settings.enableMultiSelect;
-                return $scope.config.tasks.filter(function (task) {
+                return $scope.config.tasks.filter(function ( task ) {
                     return m ? task.$highlight : task.$lastHighlight;
                 });
             };
 
-            this.highlightTask = function (task) {
-                $scope.config.tasks.forEach(function (task) {
+            this.highlightTask = function ( task ) {
+                $scope.config.tasks.forEach(function ( task ) {
                     task.$highlight = false;
                     task.$lastHighlight = false;
                 });
@@ -34,43 +34,44 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
                 $scope.$evalAsync();
             };
 
-            function validateColumns(task) {
-                if (!task.validStates || !task.validStates.length) {
+            function validateColumns( task ) {
+                if ( !task.validStates || !task.validStates.length ) {
                     return;
                 }
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.filter(function (column) {
+                $scope.config.swimlanes.forEach(function ( swimlane ) {
+                    swimlane.columns.filter(function ( column ) {
                         return !column.$barred;
-                    }).filter(function (column) {
+                    }).filter(function ( column ) {
                         return task.validStates.indexOf(column.id) === -1;
-                    }).forEach(function (column) {
+                    }).forEach(function ( column ) {
                         column.$barred = true;
                     });
                 });
             }
 
             registeredElements = [];
-            this.registerElement = function (childElement, childScope) {
+            this.registerElement = function ( childElement, childScope ) {
                 registeredElements.push(childElement);
-                if ($scope.config && $scope.config.columns) {
+                if ( $scope.config && $scope.config.columns ) {
                     childElement.css('width', $scope.config.columns.length * 228 + 'px');
                 }
-                childScope.$on('destroy', function(){
+                childScope.$on('destroy', function () {
                     registeredElements.splice(registeredElements.indexOf(childElement), 1);
                 });
             };
 
-            $scope.$watch('config.columns', function(columns) {
-                registeredElements.forEach(function(childElement) {
+            $scope.$watch('config.columns', function ( columns ) {
+                columns = columns || [];
+                registeredElements.forEach(function ( childElement ) {
                     childElement.css('width', columns.length * 228 + 'px');
                 });
             });
 
             this.validateColumns = validateColumns;
 
-            this.validateStates = function (task) {
-                if ($scope.config.settings.highlightTaskOnClick) {
-                    this.getHighlighted().forEach(function (task) {
+            this.validateStates = function ( task ) {
+                if ( $scope.config.settings.highlightTaskOnClick ) {
+                    this.getHighlighted().forEach(function ( task ) {
                         validateColumns(task);
                     });
                 } else {
@@ -79,34 +80,34 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
             };
 
             this.clearInvalidStates = function () {
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.filter(function (column) {
+                $scope.config.swimlanes.forEach(function ( swimlane ) {
+                    swimlane.columns.filter(function ( column ) {
                         return column.$barred;
-                    }).forEach(function (column) {
+                    }).forEach(function ( column ) {
                         column.$barred = false;
                     });
                 });
             };
 
             this.checkEditableSwimlanes = function () {
-                $scope.config.swimlanes.filter(function (swimlane) {
+                $scope.config.swimlanes.filter(function ( swimlane ) {
                     return swimlane.$edit;
-                }).forEach(function (swimlane) {
+                }).forEach(function ( swimlane ) {
                     swimlane.cancelEdit();
                 });
             };
 
-            this.toggleColumn = function (columnId) {
-                $scope.config.swimlanes.forEach(function (swimlane) {
-                    swimlane.columns.filter(function (column) {
+            this.toggleColumn = function ( columnId ) {
+                $scope.config.swimlanes.forEach(function ( swimlane ) {
+                    swimlane.columns.filter(function ( column ) {
                         return column.id === columnId;
-                    }).forEach(function (column) {
+                    }).forEach(function ( column ) {
                         column.$collapsed ? column.expand() : column.collapse();
                     });
                 });
             };
         }
     };
-}).config(function ($httpProvider) {
+}).config(function ( $httpProvider ) {
     $httpProvider.useApplyAsync(true);
 });
