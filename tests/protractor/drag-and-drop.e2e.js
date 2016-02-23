@@ -9,7 +9,7 @@ describe('drag-and-drop', function () {
     }
 
     function expectFirstCardPresent() {
-        var firstCard = $$('swim-lane').first().$$('kanban-column').first().$('kanban-card');
+        var firstCard = $$('swim-lane').first().$$('[kanban-column]').first().$('kanban-card');
         return expect(firstCard.isPresent())
     }
 
@@ -21,7 +21,7 @@ describe('drag-and-drop', function () {
     beforeEach(function () {
         browser.get('http://localhost:4000/#/stub');
         expectFirstCardPresent().toBe(true);
-        columns = $$('swim-lane').first().$$('kanban-column');
+        columns = $$('swim-lane').first().$$('[kanban-column]');
         movePromise = browser.actions().mouseDown(getTestCard()).perform()
             .then(moveToColumn(columns.first()))
             .then(moveToColumn(columns.get(2)))

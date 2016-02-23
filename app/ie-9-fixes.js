@@ -16,7 +16,7 @@ angular.module('ie-9-fixes', []).factory('fixIE9', function ($window) {
         },
         'kanban-columns-fix': function () {
             angular.forEach(document.getElementsByClassName('kanban-board'), function (board) {
-                var columnsList = Array.prototype.slice.call(board.querySelectorAll('kanban-column'));
+                var columnsList = Array.prototype.slice.call(board.querySelectorAll('[kanban-column]'));
                 var max = columnsList.reduce(function (p, e) {
                     return e.scrollHeight > p ? e.scrollHeight : p;
                 }, 0);
