@@ -49,7 +49,7 @@ angular.module('kanban').directive('kanban', function ($window, $document, isTou
                 });
             }
 
-            var registeredElements = [];
+            registeredElements = [];
             this.registerElement = function (childElement, childScope) {
                 registeredElements.push(childElement);
                 if ($scope.config && $scope.config.columns) {

@@ -74,7 +74,7 @@ describe.module('component.kanban-card', function () {
         directive.scope.showFullDescription(task, {}, {
             stopPropagation: angular.noop
         });
-        expect(directive.scope.limit).toEqual(4)
+        expect(directive.scope.limit).toEqual(4);
     });
 
     it('should not toggle full description if task in edit mode', function () {
@@ -82,7 +82,7 @@ describe.module('component.kanban-card', function () {
         directive.scope.showFullDescription(task, {}, {
             stopPropagation: angular.noop
         });
-        expect(directive.scope.limit).toEqual(50)
+        expect(directive.scope.limit).toEqual(50);
     });
 
     it('toggle full description should toggle highlight task', function () {

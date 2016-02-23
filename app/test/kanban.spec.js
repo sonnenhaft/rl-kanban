@@ -77,7 +77,7 @@ describe.module('kanban', function () {
         scope.config.tasks[3].$highlight = true;
         $body.triggerHandler({type: 'keyup', which: 27});
         scope.$destroy();
-        highlightedTask = scope.config.tasks.filter(function (task) {
+        var highlightedTask = scope.config.tasks.filter(function (task) {
             return task.$highlight;
         });
         expect(highlightedTask.length).toBe(1);
