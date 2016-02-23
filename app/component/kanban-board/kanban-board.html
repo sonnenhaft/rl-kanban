@@ -10,7 +10,7 @@
     </div>
 
     <div class="kanban-wrapper">
-        <kanban-column ng-repeat="column in swimlane.columns" column="column" swimlane="swimlane" settings="settings" scroll-callbacks="scrollCallbacks"
-                       ng-class="{'kanban-clmn-barred': column.$barred, 'kanban-clmn-collapsed': column.$collapsed}" ng-if="!swimlane.isTeam"></kanban-column>
+        <div ng-repeat="column in swimlane.columns" kanban-column="column" swimlane="swimlane" settings="settings" scroll-callbacks="scrollCallbacks"
+                       ng-class="{'kanban-clmn-barred': column.$barred, 'kanban-clmn-collapsed': column.$collapsed}" ng-if="!swimlane.isTeam"></div>
     </div>
 </div>
