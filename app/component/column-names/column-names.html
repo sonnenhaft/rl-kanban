@@ -1,7 +1,7 @@
-<div class="clmn-names">
-    <div class="clmn-name" ng-repeat="column in columns" ng-class="{'clmn-name-collapsed' : column.$collapsed}" ng-click="toggleColumn(column)">
+<div class="column-names">
+    <div class="column-name" ng-repeat="column in columns" ng-class="{'column-name-collapsed' : column.$collapsed}" ng-click="toggleColumn(column)">
         <div class="tooltip-area" ng-show="column.$collapsed" tooltip="{{column.name}}" tooltip-animation="false" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-trigger="mouseenter"></div>
-        <span class="clmn-toggle-icon" ng-show="settings.showHideColumns">
+        <span class="column-toggle-icon" ng-show="settings.showHideColumns">
             <span class="glyph-icon priority-icon">
                 <span class="glyph-contract3" ng-hide="column.$collapsed"></span>
                 <span class="glyph-expand3" ng-show="column.$collapsed"></span>

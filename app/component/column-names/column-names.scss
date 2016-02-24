@@ -1,4 +1,4 @@
-.clmn-names {
+.column-names {
     display: table;
     table-layout: fixed;
     height: 35px;
@@ -9,7 +9,7 @@
         width: 30px;
         z-index: 5;
     }
-    .clmn-name {
+    .column-name {
         color: #A0A2A1;
         text-align: center;
         background: #ffffff;
@@ -20,7 +20,7 @@
         padding: 6px 0 10px 0;
         cursor: pointer;
         vertical-align: middle;
-        &:hover .clmn-toggle-icon {
+        &:hover .column-toggle-icon {
             color: #31B3FF;
         }
     }
@@ -35,7 +35,7 @@
         display: block;
     }
 
-    .clmn-name-collapsed {
+    .column-name-collapsed {
         width: 30px;
         min-width: 30px;
         text-overflow: ellipsis;
@@ -63,13 +63,13 @@
             transform: rotate(90deg);
         }
         &:hover {
-            .title, .clmn-toggle-icon {
+            .title, .column-toggle-icon {
                 color: #31B3FF;
             }
         }
     }
 
-    .clmn-toggle-icon {
+    .column-toggle-icon {
         display: block;
         font-size: 16px;
         cursor: pointer;
@@ -98,7 +98,7 @@
     }
 }
 
-.lt-ie9 .clmn-names .clmn-name-collapsed {
+.lt-ie9 .column-names .column-name-collapsed {
     .title {
         line-height: 28px;
         top: 20px;
