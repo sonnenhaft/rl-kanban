@@ -22,6 +22,7 @@ angular.module('component.scrollable-element').directive('scrollableElement', fu
         controller: function ($element) {
             var fn = angular.noop;
             var e = $element[0];
+            this.element = e;
 
             function runFn(x, y) {
                 x = e.scrollLeft && e.scrollLeft < e.scrollWidth - e.clientWidth - 1 ? x : 0;
