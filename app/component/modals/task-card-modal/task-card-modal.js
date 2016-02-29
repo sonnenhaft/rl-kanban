@@ -29,5 +29,8 @@ angular.module('component.modals.task-card-modal', [
     $scope.removeCard = function (task) {
         task.remove();
         $rootScope.$broadcast('kanban:task:remove', task.id);
+
+        //close up modal as well
+        $modalInstance.dismiss('cancel');
     };
 });
