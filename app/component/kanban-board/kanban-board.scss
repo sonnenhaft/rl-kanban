@@ -38,8 +38,8 @@
         position: relative;
         display: table;
         table-layout: fixed;
-        min-height: 300px;
         height: 100%;
+        min-height: 100%;
     }
 
     &.team-kanban {
