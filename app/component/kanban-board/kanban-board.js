@@ -3,8 +3,7 @@ angular.module('component.kanban-board', [
     'component.expand-collapse',
     'component.scrollable-element',
     'component.kanban-model',
-    'ie-9-fixes'
-]).directive('kanbanBoard', function ($window, KanbanColumn, fixIE9) {
+]).directive('kanbanBoard', function ($window, KanbanColumn) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
@@ -51,7 +50,6 @@ angular.module('component.kanban-board', [
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
                     rememberScrolls();
-                    fixIE9('kanban-columns-fix');
                     var task = e.source.itemScope.task;
                     kanban.activeScrollableElement = scrollableElement;
                     kanban.activeScrollableElement.watchMouse();
