@@ -8,7 +8,6 @@
         Drop here to assign card to this team. <br/>
         Card will remain in the same workflow state column.
     </div>
-
     <div class="kanban-wrapper">
         <div ng-repeat="column in swimlane.columns"
              kanban-column
@@ -17,7 +16,7 @@
              data-as-sortable="scrollCallbacks"
              ng-class="{'kanban-clmn-barred': column.$barred, 'kanban-clmn-collapsed': column.$collapsed}"
              ng-if="!swimlane.isTeam"
-             is-disabled="swimlane.$disabled || settings.readOnly">
+             is-disabled="{{swimlane.$disabled || settings.readOnly}}">
         </div>
     </div>
 </div>
