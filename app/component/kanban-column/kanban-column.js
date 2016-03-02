@@ -4,12 +4,7 @@ angular.module('component.kanban-column', [
     return {
         templateUrl: 'app/component/kanban-column/kanban-column.html',
         restrict: 'A',
-        scope: {
-            column: '=kanbanColumn',
-            swimlane: '=',
-            settings: '=',
-            scrollCallbacks: '='
-        },
+        scope: true,
         link: function ($scope) {
             $scope.limit = 0;
             $scope.swimlane.$tasksCount += $parse('column.tasks.length')($scope);

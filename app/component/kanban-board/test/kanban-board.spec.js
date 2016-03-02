@@ -37,8 +37,8 @@ describe.module('component.kanban-board', function () {
             watchMouse: jasmine.createSpy('watchMouse'),
             stopWatching: jasmine.createSpy('stopWatching')
         };
-        sourceScopeMock = {task: taskMock, sortableScope: {insertItem: jasmine.createSpy('removeItem')}, itemScope: {task: taskMock}, $parent: {column: columnMock}};
-        destScopeMock = {task: taskMock, removeItem: jasmine.createSpy('removeItem'), $parent: {column: columnMock, $parent: {$parent: {$parent: {scrollableElement: scrollableElement}}}}};
+        sourceScopeMock = {task: taskMock, sortableScope: {insertItem: jasmine.createSpy('removeItem')}, itemScope: {task: taskMock}, column: columnMock};
+        destScopeMock = {task: taskMock, removeItem: jasmine.createSpy('removeItem'), column: columnMock, scrollableElement: scrollableElement};
 
         parentScope.settings = {
             highlightTaskOnClick: true,
