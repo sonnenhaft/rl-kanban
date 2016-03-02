@@ -30,6 +30,10 @@
                 <span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span>
                 <span>Delete</span>
             </button>
+            <button ng-if="task.resourceId" class="button white toolbar-button" ng-click="openURL(task.resourceId)">
+                <span class="glyph-icon tollbar-icon"><span class="glyph-link"></span></span>
+                <span>Open</span>
+            </button>
         </div>
     </div>
     <div ng-show="settings.tasksDisplayFields.description" class="row">
