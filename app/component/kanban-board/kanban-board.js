@@ -3,7 +3,8 @@ angular.module('component.kanban-board', [
     'component.expand-collapse',
     'component.scrollable-element',
     'component.kanban-model',
-]).directive('kanbanBoard', function ($window, KanbanColumn) {
+    'ie-9-fixes'
+]).directive('kanbanBoard', function ($window, KanbanColumn, fixIE9) {
     return {
         templateUrl: 'app/component/kanban-board/kanban-board.html',
         require: ['^scrollableElement', '^kanban', '^horizontalScroll'],
@@ -66,6 +67,8 @@ angular.module('component.kanban-board', [
                     if ($scope.settings.editableSwimlanes) {
                         kanban.checkEditableSwimlanes();
                     }
+                    fixIE9('unselect-text');
+                    console.log(fixIE9('unselect-text'))
                 },
                 orderChanged: function (e) {
                     var task = e.source.itemScope.task;
@@ -80,7 +83,7 @@ angular.module('component.kanban-board', [
                     }
                 },
                 itemMoved: function (e) {
-                    var newColumn = e.dest.sortableScope.$parent.column;
+                    var newColumn = e.dest.sortableScope.column;
                     var sourceTask = e.source.itemScope.task;
 
                     if (newColumn.$barred && !newColumn.swimlane.isTeam) {
@@ -106,21 +109,20 @@ angular.module('component.kanban-board', [
                     }
                 },
                 accept: function (sourceSortableScope, destSortableScope) {
-                    var parentScrollable = destSortableScope.$parent.$parent.$parent.$parent.scrollableElement;
+                    var parentScrollable = destSortableScope.scrollableElement;
                     if (parentScrollable && kanban.activeScrollableElement !== parentScrollable) {
                         kanban.activeScrollableElement.stopWatching();
                         kanban.activeScrollableElement = parentScrollable;
                         kanban.activeScrollableElement.watchMouse();
                     }
-                    if (destSortableScope.$parent.column.swimlane.isTeam) {         // TODO: remove $parent from here
+                    if (destSortableScope.column.swimlane.isTeam) {
                         return true;
-                    } else if (destSortableScope.$parent.column.$collapsed) {      // TODO: remove $parent from
+                    } else if (destSortableScope.column.$collapsed) {
                         return false;
                     } else if ($scope.settings.acceptTasks) {
                         return true;
                     } else {
-                        // TODO: remove $parent from here
-                        return sourceSortableScope.$parent.column.swimlane.id === destSortableScope.$parent.column.swimlane.id;
+                        return sourceSortableScope.column.swimlane.id === destSortableScope.column.swimlane.id;
                     }
                 }
             };

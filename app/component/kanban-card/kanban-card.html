@@ -50,7 +50,7 @@
             </p>
             <p ng-if="::fields.notes" class="text-grey">
                 <span>{{task.notes | limitTo: limit}} </span>
-                <span class="card-ellipsis" ng-show="task.notes.length > limit" ng-click="showFullDescription(task, $parent.settings, $event)">[&hellip;]</span>
+                <span class="card-ellipsis" ng-show="task.notes.length > limit" ng-click="showFullDescription(task, settings, $event)">[&hellip;]</span>
             </p>
             <p ng-if="::fields.ownerName"><span class="text-bold">Owner:&nbsp;</span>{{::task.ownerName}}</p>
             <p ng-if="::fields.type"><span class="text-bold">Type:&nbsp;</span>{{::task.type}}</p>

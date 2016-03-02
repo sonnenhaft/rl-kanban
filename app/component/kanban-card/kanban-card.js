@@ -4,28 +4,26 @@ angular.module('component.kanban-card').directive('kanbanCard', function ($timeo
         templateUrl: 'app/component/kanban-card/kanban-card.html',
         require: '^kanban',
         link: function ($scope, $element, $attrs, kanban) {
-            //TODO: move settings to same level where tasks object lays
-            var parentSettings = $scope.$parent.settings || $scope.settings;
-            $scope.fields = angular.extend(angular.copy(kanbanCardFields), parentSettings.tasksDisplayFields);
+            $scope.fields = angular.extend(angular.copy(kanbanCardFields), $scope.settings.tasksDisplayFields);
 
             $scope.clickCallbacks = function (task, $event, force) {
                 $event.stopPropagation();
 
-                if (parentSettings.enableMultiSelect && ($event.ctrlKey || $event.metaKey)) {
+                if ($scope.settings.enableMultiSelect && ($event.ctrlKey || $event.metaKey)) {
                     return;
                 }
 
-                if (parentSettings.legacyCardModal && !force) {
+                if ($scope.settings.legacyCardModal && !force) {
                     $scope.$emit('kanban:task:modalopen', task);
                 } else if (!task.$edit) {
-                    openTaskCard(task, parentSettings);
+                    openTaskCard(task, $scope.settings);
                 }
             };
 
             $scope.highlightTask = function(task, $event){
                 fixIE9('unselect-text');
-                if (!task.$edit && parentSettings.highlightTaskOnClick) {
-                    if (!parentSettings.enableMultiSelect) {
+                if (!task.$edit && $scope.settings.highlightTaskOnClick) {
+                    if (!$scope.settings.enableMultiSelect) {
                         kanban.highlightTask(task);
                     } else if ($event.ctrlKey || $event.metaKey) {
                         task.$highlight = !task.$highlight;
