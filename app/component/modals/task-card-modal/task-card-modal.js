@@ -36,9 +36,6 @@ angular.module('component.modals.task-card-modal', [
 
     $scope.openURL = function(task) {
         $rootScope.$broadcast('kanban:openURL',task.resourceId);
-
-        //close up modal as well
-        $modalInstance.dismiss('cancel');
     };
 
 });
