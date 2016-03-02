@@ -51,6 +51,7 @@ angular.module('component.kanban-board', [
             $scope.scrollCallbacks = {
                 dragStart: function (e) {
                     rememberScrolls();
+                    fixIE9('unselect-text');
                     var task = e.source.itemScope.task;
                     kanban.activeScrollableElement = scrollableElement;
                     kanban.activeScrollableElement.watchMouse();
@@ -67,8 +68,6 @@ angular.module('component.kanban-board', [
                     if ($scope.settings.editableSwimlanes) {
                         kanban.checkEditableSwimlanes();
                     }
-                    fixIE9('unselect-text');
-                    console.log(fixIE9('unselect-text'))
                 },
                 orderChanged: function (e) {
                     var task = e.source.itemScope.task;
