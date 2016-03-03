@@ -6,7 +6,7 @@ $marker-height: 4px;
     font-size: 14px;
     color: #555;
     background-color: #fff;
-    margin: $gutter auto;
+    margin: 0 auto $gutter;
     position: relative;
     z-index: 0;
     .card-wrapper {
