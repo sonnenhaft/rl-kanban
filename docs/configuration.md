@@ -132,6 +132,7 @@ See app/api/config/ for full stub files.
   'acceptTasks': true,
   'allowGroupExpand': true,
   'editableSwimlanes': true,
+  'containment': true,
   'barredColumnMessage': 'Workflow State Unavailable for Selected Card',
 	'addResourceLinks': [
 	{
@@ -176,3 +177,4 @@ See app/api/config/ for full stub files.
 * `taskModalWindowTitle`: Text in header of task card modal window
 * `tasksDisplayFields`: sets visibility for task cards fields (see tasks config). The common place for configuring 'content level'.
 * `editableSwimlanes`: enable\disable per swimlane Edit Mode feature.
+* `containment`: enable\disable dragging cards outside of Swim Lane
