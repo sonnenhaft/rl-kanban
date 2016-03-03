@@ -436,6 +436,7 @@
                 "link": "#"
             }
         ],
+        "containment": true,
         "tasksDisplayFields": {
             "appRef": true,
             "appName": true,
