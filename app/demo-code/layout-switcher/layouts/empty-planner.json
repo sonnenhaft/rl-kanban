@@ -12,6 +12,7 @@
         "noContentText": "No Resources",
         "contentText": "Resources",
         "readOnly": "false",
+        "containment": true,
         "addResourceLinks": [
             {
                 "linkText": "Add Resource",

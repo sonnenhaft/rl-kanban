@@ -49,6 +49,7 @@ angular.module('component.kanban-board', [
             }
 
             $scope.scrollCallbacks = {
+                containment: $scope.settings.containment ? '#swimlane-' + $scope.swimlane.index + ' .kanban-board' : null,
                 dragStart: function (e) {
                     rememberScrolls();
                     fixIE9('unselect-text');

@@ -13,6 +13,9 @@ angular.module('kanban').directive('kanban', function ( $window, $document, isTo
                 if ( !$scope.config || $body.hasClass('modal-open') ) {return;}
                 $scope.config.tasks.forEach(function ( task ) {
                     delete task.$highlight;
+                    if (task.group && task.group.$highlightedGroup) {
+                        delete task.group.$highlightedGroup;
+                    }
                 });
                 $scope.$digest();
             }));

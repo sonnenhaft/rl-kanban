@@ -1,5 +1,17 @@
-<div class="kanban" ng-class="{'kanban-read-only': config.settings.readOnly, 'kanban-touch': isTouch}" ng-show="config.$loaded" combine-horizontal-scrolls>
-    <kanban-header groups="config.groups" columns="config.columns" settings="config.settings"></kanban-header>
-    <swim-lane ng-repeat="swimlane in config.swimlanes" groups="config.groups" swimlane="swimlane"
-               settings="config.settings"></swim-lane>
+<div class="kanban"
+     ng-class="{'kanban-read-only': config.settings.readOnly,
+                'kanban-touch': isTouch}"
+     ng-show="config.$loaded"
+     combine-horizontal-scrolls>
+    <kanban-header groups="config.groups"
+                   columns="config.columns"
+                   settings="config.settings">
+    </kanban-header>
+    <swim-lane id="swimlane-{{::$index}}"
+               ng-repeat="swimlane in config.swimlanes"
+               swimlane="swimlane"
+               groups="config.groups"
+               settings="config.settings"
+               ng-init="swimlane.index = $index">
+    </swim-lane>
 </div>
