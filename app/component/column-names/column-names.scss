@@ -20,6 +20,9 @@
         padding: 6px 0 10px 0;
         cursor: pointer;
         vertical-align: middle;
+        &:last-child {
+            float: none;
+        }
         &:hover .column-toggle-icon {
             color: #31B3FF;
         }
