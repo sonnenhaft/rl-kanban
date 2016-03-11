@@ -48,9 +48,6 @@ angular.module('component.kanban-model').factory('KanbanGroup', function () {
                 });
                 this.start = minIndex;
                 this.width = maxIndex - minIndex + 1;
-            } else {
-                this.start = this.start || 0;
-                this.width = this.width || 1;
             }
 
             if (!skipFlag) {

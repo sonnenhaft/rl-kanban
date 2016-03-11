@@ -12,7 +12,7 @@ angular.module('component.task-groups.task-group-list', []).directive('taskGroup
         replace: true,
         controllerAs: 'taskGroupList',
         templateUrl: 'app/component/task-groups/task-group-list/task-group-list.html',
-        controller: function ($scope) {
+        controller: function ($scope, $log) {
             this.cleanExpanded = function (group) {
                 if (!$scope.settings.allowGroupExpand) {return;}
                 $scope.groups.forEach(function (group) {
@@ -57,6 +57,12 @@ angular.module('component.task-groups.task-group-list', []).directive('taskGroup
 
                 ($scope.groups || []).map(function (group) {
                     return group;
+                }).filter(function(group){
+                    if (group.start > maxVal - 1) {
+                        $log.warn('Start position of group with id ' + group.id + ' is out of columns range');
+                        return false;
+                    }
+                    return true;
                 }).sort(function (a, b) {
                     return a.start > b.start ? 1 : -1;
                 }).forEach(function (group) {
@@ -65,9 +71,12 @@ angular.module('component.task-groups.task-group-list', []).directive('taskGroup
                         if (!$scope.columns[index]) {
                             index = 0;
                         }
-                        group.start = group.start || index;
+                        if (angular.isUndefined(group.start)) {
+                            group.start = index;
+                            index++;
+                        }
+                        group.width = group.width || 1;
                         group.$emptyButPositioned = true;
-                        index++;
                     }
                     group.$width = group.start + group.width;
                     lines.forEach(function (line) {
