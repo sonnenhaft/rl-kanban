@@ -30,7 +30,7 @@
                 <span class="glyph-icon tollbar-icon"><span class="glyph-remove"></span></span>
                 <span>Delete</span>
             </button>
-            <button ng-if="task.resourceId" class="button white toolbar-button" ng-click="openURL(task)">
+            <button ng-if="task.resourceId && task.swimlaneId == 'Assessments'" class="button white toolbar-button" ng-click="openURL(task)">
                 <span class="glyph-icon tollbar-icon"><span class="glyph-externallink"></span></span>
                 <span>View</span>
             </button>
