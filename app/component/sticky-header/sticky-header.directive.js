@@ -1,4 +1,5 @@
-angular.module('component.stickyHeader', []).directive('stickyHeader', function ($window) {
+angular.module('component.stickyHeader', [
+]).directive('stickyHeader', function ($window) {
 
     function getPosition() {
         return $window.document.body.scrollTop || $window.document.documentElement.scrollTop;

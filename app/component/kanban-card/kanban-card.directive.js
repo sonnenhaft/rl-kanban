@@ -1,4 +1,12 @@
-angular.module('component.kanban-card').directive('kanbanCard', function ($timeout, $rootScope, $parse,
+angular.module('component.kanban-card', [
+    'component.glyph-icon',
+    'component.modals.task-card-modal',
+    'component.modals.confirmation-modal',
+    'component.is-touch',
+    'component.tool-tip',
+    'component.sanitize-filter',
+    'ie-9-fixes'
+]).directive('kanbanCard', function ($timeout, $rootScope, $parse,
                                                                           openTaskCard, openConfirmationModal, kanbanCardFields, isTouch, fixIE9) {
     return {
         templateUrl: 'app/component/kanban-card/kanban-card.html',

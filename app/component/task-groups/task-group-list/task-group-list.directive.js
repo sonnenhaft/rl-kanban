@@ -1,4 +1,5 @@
-angular.module('component.task-groups.task-group-list', []).directive('taskGroupList', function () {
+angular.module('component.task-groups.task-group-list', [
+]).directive('taskGroupList', function () {
     function add(line, group) {
         group.$lineSpace = group.start - line.width;
         line.width = group.$width;

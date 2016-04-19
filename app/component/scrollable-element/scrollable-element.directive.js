@@ -1,4 +1,5 @@
-angular.module('component.scrollable-element').directive('scrollableElement', function ($window, ScrollableElementFactory) {
+angular.module('component.scrollable-element', [
+]).directive('scrollableElement', function ($window, ScrollableElementFactory) {
     var SCROLL_STEP = 75;
     var SENSITIVITY_AREA = 50;
     var srollDelta;

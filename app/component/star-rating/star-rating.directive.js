@@ -1,4 +1,5 @@
-angular.module('component.star-rating', []).directive('starRating', function () {
+angular.module('component.star-rating', [
+]).directive('starRating', function () {
     return {
         restrict: 'E',
         templateUrl: 'app/component/star-rating/star-rating.html',

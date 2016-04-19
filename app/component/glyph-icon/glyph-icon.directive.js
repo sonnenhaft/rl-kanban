@@ -6,7 +6,8 @@
  * @description
  * Displays icon from RlGlyph icons collection.
  */
-angular.module('component.glyph-icon').directive('glyphIcon', function () {
+angular.module('component.glyph-icon', [
+]).directive('glyphIcon', function () {
     return {
         templateUrl: 'app/component/glyph-icon/glyph-icon.html',
         scope: {

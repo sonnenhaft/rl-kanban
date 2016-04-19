@@ -1,4 +1,5 @@
-angular.module('component.task-groups.task-groups-button', []).directive('taskGroupsButton', function(){
+angular.module('component.task-groups.task-groups-button', [
+]).directive('taskGroupsButton', function(){
    return {
        replace: true,
        scope: {value: '=',settings: '='},
