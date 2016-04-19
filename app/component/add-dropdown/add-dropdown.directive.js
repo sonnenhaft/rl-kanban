@@ -1,5 +1,5 @@
-angular.module('component.add-dropdown',[])
-    .directive('addDropdown', function(){
+angular.module('component.add-dropdown',[
+]).directive('addDropdown', function(){
     return {
         scope: {
             settings: '=',

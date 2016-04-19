@@ -87,9 +87,7 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                     } else {
                         snapX = snapValue(deltaX / groupWidth, SNAP_SENSITIVITY);
                     }
-                    if (snapX > maxSnap) {
-                        snapX = maxSnap;
-                    }
+                    snapX = Math.min(snapX, maxSnap);
                     if ($scope.resize) {
                         wasResize = true;
                         var newWidth = initialWidth + snapX;
@@ -97,12 +95,7 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
                             group.width = newWidth;
                         }
                     } else {
-                        var newLeft = initialLeft + snapX;
-                        if (newLeft >= 0) {
-                            group.start = newLeft;
-                        } else {
-                            group.start = 0;
-                        }
+                        group.start  = Math.max(0, initialLeft + snapX);
                     }
 
                     setLeft(group.start);
@@ -113,9 +106,7 @@ angular.module('component.task-groups.task-group').directive('taskGroup', functi
 
                     var snapX = Math.round(deltaX / groupWidth);
                     if (snapX) {
-                        if (snapX > maxSnap) {
-                            snapX = maxSnap;
-                        }
+                        snapX = Math.min(snapX, maxSnap);
                         if (wasResize) {
                             group.width = initialWidth + snapX;
                             if (group.width < 1) {
