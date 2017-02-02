@@ -1,0 +1,14 @@
+{
+    "src_folders": ["tests/nightwatch"],
+    "output_folder": "coverage/night-watch",
+    "selenium": {
+        "start_process": true,
+        "log_path": "coverage",
+        "server_path": "node_modules/gulp-protractor/node_modules/protractor/selenium/selenium-server-standalone-2.47.1.jar",
+        "cli_args": {"webdriver.chrome.driver": "tests/chromedriver.exe"}
+    },
+    "test_settings": {
+        "default": {"desiredCapabilities": {"browserName": "firefox"}},
+        "chrome": {"desiredCapabilities": {"browserName": "chrome"}}
+    }
+}

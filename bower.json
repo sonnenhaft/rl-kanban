@@ -1,7 +1,7 @@
 {
-  "name": "cog1-rl-integrations",
+  "name": "gulp-files",
   "private": true,
   "devDependencies": {
-    "cog1-rl-integrations": "./cog1-rl-integrations"
+    "gulp-files": "./gulp-files"
   }
 }

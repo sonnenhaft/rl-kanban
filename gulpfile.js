@@ -1,2 +1,2 @@
-var requireDir = require('./cog1-rl-integrations/resources/requireDir.js');
-requireDir('./cog1-rl-integrations/gulp/tasks');
+var requireDir = require('./gulp-files/resources/requireDir.js');
+requireDir('./gulp-files/gulp/tasks');
