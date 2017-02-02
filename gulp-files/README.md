@@ -1,4 +1,9 @@
-# KANBAN CONTROL
+# gulp-files
+
+This repository includes common utilties and other shared code used by multiple projects for Renaissance.  
+Our goal is to eliminate duplicate code so we can ensure consistency between projects.
+
+# Gulpfile
 
 ## Development Setup
 ### Installation
@@ -6,7 +11,6 @@ Install node js and ruby (for Sass). Then run:
 ```sh 
 $ npm install && bower install
 ```
-
 ### Running Development Server 
 Start application for the first time:
 ```sh
@@ -24,9 +28,6 @@ $ gulp host
 $ gulp build
 ```
 Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
-#### "Vendor" Files
-For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "deployment/js/vendor.js" and "deployment/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
-Custom files are unique to the Kanban control.  Custom files get compiled into "deployment/js/rlkanban.js" and "deployment/css/rlkanban.css".
 
 ### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
@@ -54,17 +55,3 @@ To run tests and stop:
 ```sh
 $ gulp test
 ```
-
-## Reference
-### [Kanban Configuration](docs/configuration.md)
-
-### [Kanban Events list](docs/events.md)
-
-### [Kanban Specification in PDF](docs/RENA-UXD-KanbanControl.pdf)
-
-### [Components](docs/components/README.md)
-
-### RL build
-http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
-
-

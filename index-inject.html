@@ -50,12 +50,12 @@
     <!-- endbuild -->
 
     <!-- build:demoJS js/demo-code.js -->
-        <script src="cog1-rl-integrations/resources/package-version/package-version.js"></script>
+        <script src="gulp-files/resources/package-version/package-version.js"></script>
         <!-- demo:js --><!-- endinject -->
     <!-- endbuild -->
 
     <!-- build:demoCSS css/demo-code.css -->
-        <link rel="stylesheet" href="cog1-rl-integrations/resources/package-version/package-version.css">
+        <link rel="stylesheet" href="gulp-files/resources/package-version/package-version.css">
         <!-- demo:css --><!-- endinject -->
     <!-- endbuild -->
 
@@ -64,7 +64,7 @@
 
 <events-debugger></events-debugger>
 <layout-switcher></layout-switcher>
-<div cog1-package-version="kanbanVersion"></div>
+<div package-version="kanbanVersion"></div>
 
 <kanban-model ng-controller="LayoutSwitcherDemoController" model="kanbanModel" config="config">
     <groups-debug groups="kanbanModel.groups"></groups-debug>

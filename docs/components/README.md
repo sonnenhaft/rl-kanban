@@ -40,7 +40,6 @@ build and other tasks on the component can also be invoked from the testbed, for
 ```
 gulp -c rlChart build
 ```
-# Opportunities to Use Components in Cog1 Projects
 We should attempt to integrate as many rlComponents as possible in order to achieve a consistent experience across their applications.
 
 Here is a list of specific features where rlComponents are used, or could be used:
