@@ -1,7 +1,20 @@
 {
   "name": "gulp-files",
   "private": true,
-  "devDependencies": {
-    "gulp-files": "./gulp-files"
+  "dependencies": {
+    "angular-ui-utils": "bower-highlight",
+    "angular-notify": "~2.5.0",
+    "angular": "1.3.2",
+    "angular-resource": "1.3.2",
+    "angular-sanitize": "1.3.2",
+    "angular-mocks": "1.3.2",
+    "underscore": "1.7",
+    "angular-animate": "1.3.2",
+    "angular-touch": "1.3.2",
+    "angular-foundation-bower": "0.6.0"
+  },
+  "ignore": [ "gulp", "jenkins", "resources", "*.md", "nightwatch*" ],
+  "resolutions": {
+    "angular": "1.3.2"
   }
 }
