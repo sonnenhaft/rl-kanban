@@ -1,8 +1,3 @@
-# gulp-files
-
-This repository includes common utilties and other shared code used by multiple projects for Renaissance.  
-Our goal is to eliminate duplicate code so we can ensure consistency between projects.
-
 # Gulpfile
 
 ## Development Setup

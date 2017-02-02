@@ -22,13 +22,6 @@ The slider acts as a replacement for radio buttons when in single selection mode
 A tooltip with HTML content that can be launched and hidden by events.
 ![rlTooltip](rlTooltip.png)
 
-# Components in SVN
-Components can be downloaded from the SVN repo.
-http://svn.renlearn.com/viewvc/RPHosted/ClientComponents/
-
-I recommend checking out the rlComponentRunner, which lets you compile and run most of the components.
-http://svn.renlearn.com/viewvc/RPHosted/ClientComponents/rlComponentRunner/
-
 The testbed is where each component can be launched on a test page. To make this reuseable, it is located in the clientComponents directory and the gulp tasks takes a component name as a parameter and builds the testbed for it.
 For instance:
 ```

@@ -1,0 +1,49 @@
+{
+    "minimum": {
+        "rliDevType": true,
+        "priority": true,
+        "grade": true,
+        "id": true
+    },
+    "medium": {
+        "rliDevType": true,
+        "priority": true,
+        "grade": true,
+        "id": true,
+        "flag": true,
+        "mediaFlag": true,
+        "preview": true
+    },
+    "maximum": {
+        "_comment": "WORK TRACKER FIELDS",
+        "rliDevType": true,
+        "priority": true,
+        "grade": true,
+        "id": true,
+        "notes": true,
+        "flag": true,
+        "mediaFlag": true,
+        "preview": true,
+        "primarySlot": true,
+
+        "_comment": "PLANNER FIELDS: false to otimize perfomance",
+        "appRef": false,
+        "appName": false,
+        "resourceName": false,
+        "assignees": false,
+        "rating": false,
+        "modifiedDate": false,
+        "creationDate": false,
+        "ownerAppLogo": false,
+
+        "_comment": "UNUSED FIELDS in any configuration (TODO: remove this fields)",
+        "taskName": false,
+        "description": false,
+        "assignability": false,
+        "type": false,
+        "ownerName": false,
+        "assigneeName": false,
+        "ownerPicture": false,
+        "state": false
+    }
+}

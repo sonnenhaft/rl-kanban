@@ -64,7 +64,3 @@ $ gulp test
 
 ### [Components](docs/components/README.md)
 
-### RL build
-http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
-
-
