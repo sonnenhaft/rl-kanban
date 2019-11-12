@@ -18,12 +18,12 @@ gulp.task('$usemin', ['$inject-files'], function () {
     var staticAssetsDir = 'static-assets/';
 
     //TODO: extract this area to config.js
-    gulp.src(['app/**/font/*.*']).pipe(copy('deployment/' + staticAssetsDir + 'font', {prefix: 10}));
+    gulp.src(['app/**/font/*.*']).pipe(copy('build/' + staticAssetsDir + 'font', {prefix: 10}));
     gulp.src([
         'app/**/img/*.png',
         'app/**/img/*.gif'
-    ]).pipe(copy('deployment/' + staticAssetsDir + 'img', {prefix: 10}));
-    gulp.src(['app/demo-code/**/*.json',  'app/**/*-logo.*']).pipe(copy('deployment/'));
+    ]).pipe(copy('build/' + staticAssetsDir + 'img', {prefix: 10}));
+    gulp.src(['app/demo-code/**/*.json',  'app/**/*-logo.*']).pipe(copy('build/'));
 
     var clonesArray = [
         {name: 'css'}, {name: 'vendorCSS'}, {name: 'demoCSS'}, {name: 'scDepsCSS'},

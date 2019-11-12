@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-// TODO: clean-generated was breaking TeamCity. You need to make sure deployment/PostDeploy.ps1 and *.nuspec are not removed during the clean -AP
+// TODO: clean-generated was breaking TeamCity. You need to make sure build/PostDeploy.ps1 and *.nuspec are not removed during the clean -AP
 gulp.task('build', function (cb) {
     require('run-sequence')(
         ['$clean-generated', 'check-version'],
