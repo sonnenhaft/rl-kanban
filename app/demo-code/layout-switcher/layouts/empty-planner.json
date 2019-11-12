@@ -1,0 +1,69 @@
+{
+    "settings": {
+        "taskModalWindowTitle": "Details",
+        "groupsCollapseButtonText": "HIDE SKILLS",
+        "groupsExpandButtonText": "SHOW SKILLS",
+        "allowCopyTask": false,
+        "allowDeleteTask": true,
+        "addButtonText": "add tasks",
+        "addAlertText": "No Skills",
+        "addResourcesButtonText": "Add Resources",
+        "acceptTasks": false,
+        "noContentText": "No Resources",
+        "contentText": "Resources",
+        "readOnly": "false",
+        "containment": true,
+        "addResourceLinks": [
+            {
+                "linkText": "Add Resource",
+                "link": "#"
+            },
+            {
+                "linkText": "Add Skill",
+                "link": "#"
+            }
+        ]
+    },
+    "swimlanes": [
+        {
+            "id": "Resources",
+            "name": "Resources",
+            "addButtonText": "Select Skills",
+            "addAlertText": "Please select skills before you add resources",
+            "addResourcesButtonText": "Add Resources",
+            "acceptsTasks": false
+        },
+        {
+            "id": "Assessments",
+            "name": "Assessments",
+            "addButtonText": "Select Assessments",
+            "addAlertText": "Please select skills before you add assessments",
+            "addResourcesButtonText": "Add Assessments",
+            "acceptsTasks": false
+        }
+    ],
+    "tasks": [],
+    "columns": [
+        {
+            "id": "20150706",
+            "name": "Monday"
+        },
+        {
+            "id": "20150707",
+            "name": "Tuesday"
+        },
+        {
+            "id": "20150708",
+            "name": "Wednesday"
+        },
+        {
+            "id": "20150709",
+            "name": "Thursday"
+        },
+        {
+            "id": "20150710",
+            "name": "Friday"
+        }
+    ],
+    "groups": []
+}

@@ -1,0 +1,71 @@
+.kanban-debug {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.39);
+}
+
+.kanban-debug b {
+  font-weight: bold !important;
+}
+
+.kanban-debug .opacity-on-changed {
+  background: rgba(255, 0, 0, 0.27);
+}
+
+.kanban-debug .group-name {
+  font-size: 120%;
+  color: orange;
+  cursor: pointer;
+}
+
+.cg-notify-message {
+  font-size: 12px;
+  padding: 6px;
+  opacity: 0.7;
+}
+
+.cg-notify-message .cg-notify-close {
+  right: -6px;
+  line-height: 16px;
+}
+.layout-switcher {
+  position: fixed;
+  font-size: 12px;
+  z-index: 100;
+}
+
+.layout-switcher a {
+  cursor: pointer;
+}
+
+.layout-switcher .opacity-area {
+  opacity: 0.1;
+}
+
+.layout-switcher .button-group .button {
+  margin: 5px;
+  padding: 5px;
+  display: block;
+}
+
+.layout-switcher:hover .opacity-area {
+  opacity: 0.7;
+}
+
+.task-card-modal-demo {
+  position: absolute;
+  z-index: 9999;
+  transform: translateX(-50%);
+  left: 50%;
+  outline: none;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.task-card-modal-demo iframe {
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+}
