@@ -23,10 +23,10 @@ $ gulp host
 ```sh
 $ gulp build
 ```
-Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
+Production files are move into the 'build' folder.  Note, both minified and unminfied files are generated.
 #### "Vendor" Files
-For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "deployment/js/vendor.js" and "deployment/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
-Custom files are unique to the Kanban control.  Custom files get compiled into "deployment/js/rlkanban.js" and "deployment/css/rlkanban.css".
+For compilation, source files are classified as Vendor or Custom.  Vendor files are assumed to be included in the container page (e.g.: Underscore.js, Angular, Foundation CSS, etc.). Vendor files get compiled into "build/js/vendor.js" and "build/css/vendor.css".  Vendor files are only necessary to include when running the control in standalone mode. 
+Custom files are unique to the Kanban control.  Custom files get compiled into "build/js/rlkanban.js" and "build/css/rlkanban.css".
 
 ### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
@@ -63,8 +63,4 @@ $ gulp test
 ### [Kanban Specification in PDF](docs/RENA-UXD-KanbanControl.pdf)
 
 ### [Components](docs/components/README.md)
-
-### RL build
-http://teamcity.renlearn.com/project.html?projectId=ClientComponents_RlKanban
-
 

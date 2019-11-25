@@ -2,7 +2,7 @@ var pkg = require('../../package.json');
 var commander = require('./commander-opts');
 
 var tempFolder = '.tmp';
-var buildFolder = 'deployment';
+var buildFolder = 'build';
 var appDir = 'app';
 
 function dashToCamel(s) {

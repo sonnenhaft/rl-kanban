@@ -1,8 +1,3 @@
-# gulp-files
-
-This repository includes common utilties and other shared code used by multiple projects for Renaissance.  
-Our goal is to eliminate duplicate code so we can ensure consistency between projects.
-
 # Gulpfile
 
 ## Development Setup
@@ -27,7 +22,7 @@ $ gulp host
 ```sh
 $ gulp build
 ```
-Production files are move into the 'deployment' folder.  Note, both minified and unminfied files are generated.
+Production files are move into the 'build' folder.  Note, both minified and unminfied files are generated.
 
 ### Other Tasks
 Remove all generated source (css files, build folder, and generated index.html):
