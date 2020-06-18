@@ -8,7 +8,7 @@
   },
   "homepage": "http://rl-kanban.bitballoon.com/#?layout=work-tracker&contentLevel=maximum",
   "devDependencies": {
-    "angular": "1.7.9",
+    "angular": "1.8.0",
     "angular-resource": "1.3.2",
     "angular-sanitize": "1.3.2",
     "angular-animate": "1.3.2",
